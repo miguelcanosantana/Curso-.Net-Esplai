@@ -19,6 +19,8 @@ namespace InicioConsola
         private static void SayHello(string message)
         {
             Console.WriteLine(message);
+            Console.Title = message;
+            Console.ReadKey();
         }
     }
 }
