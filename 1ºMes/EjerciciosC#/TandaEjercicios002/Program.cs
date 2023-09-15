@@ -16,7 +16,7 @@ namespace TandaEjercicios002
 
             Console.Title = "Choose an exercise :)";
 
-            Print("Choose an Exercise (Enter a number from 1 to 5): ");
+            Print("Choose an Exercise (Enter a number from 1 to 14): ");
             exerciseToDisplay = Convert.ToInt32(Console.ReadLine());
 
             LaunchExercise(exerciseToDisplay);
