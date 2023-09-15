@@ -37,6 +37,10 @@ namespace TandaEjercicios001
                     NumbersDoublesAndChars();
                     break;
 
+                case 3:
+                    TonsOfCalcs();
+                    break;
+
                 default:
                     break;
             }
@@ -74,5 +78,20 @@ namespace TandaEjercicios001
             Console.WriteLine("c value = " + Convert.ToInt32(c));
         }
 
+
+        private static void TonsOfCalcs()
+        {
+            int n = 1;
+            double a = 2.5f;
+            char c = 'a';
+
+            Console.WriteLine("n variable = " + n);
+            Console.WriteLine("a variable = " + a);
+            Console.WriteLine("c variable = " + c.ToString());
+
+            Console.WriteLine("n + a = " + (n + a));
+            Console.WriteLine("a - n = " + (a - n));
+            Console.WriteLine("c value = " + Convert.ToInt32(c));
+        }
     }
 }
