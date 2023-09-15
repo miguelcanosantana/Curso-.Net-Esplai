@@ -45,11 +45,11 @@ namespace TandaEjercicios001
         {
             int n = 1;
             double a = 2;
-            char c = (char)a;
+            char c = 'a';
 
             Console.WriteLine("n variable = " + n);
             Console.WriteLine("a variable = " + a);
-            Console.WriteLine("c variable = " + c);
+            Console.WriteLine("c variable = " + c.ToString());
 
             Console.WriteLine("n + a = " + (n + a));
             Console.WriteLine("a - n = " + (a - n));
