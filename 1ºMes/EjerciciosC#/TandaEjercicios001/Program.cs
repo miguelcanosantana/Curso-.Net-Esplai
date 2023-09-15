@@ -33,6 +33,10 @@ namespace TandaEjercicios001
                     Numbers();
                     break;
 
+                case 2:
+                    NumbersDoublesAndChars();
+                    break;
+
                 default:
                     break;
             }
@@ -43,8 +47,22 @@ namespace TandaEjercicios001
 
         private static void Numbers()
         {
+            float a = 5f;
+            float b = 2.5f;
+
+            Console.WriteLine("a = " + a + "| b = " + b);
+            Console.WriteLine("a + b = " + (a + b));
+            Console.WriteLine("a - b = " + (a - b));
+            Console.WriteLine("a * b = " + (a * b));
+            Console.WriteLine("a / b = " + (a / b));
+            Console.WriteLine("a % b = " + (a % b));
+        }
+
+
+        private static void NumbersDoublesAndChars()
+        {
             int n = 1;
-            double a = 2;
+            double a = 2.5f;
             char c = 'a';
 
             Console.WriteLine("n variable = " + n);
@@ -53,7 +71,7 @@ namespace TandaEjercicios001
 
             Console.WriteLine("n + a = " + (n + a));
             Console.WriteLine("a - n = " + (a - n));
-            Console.WriteLine("c value = " + c.ToString());
+            Console.WriteLine("c value = " + Convert.ToInt32(c));
         }
 
     }
