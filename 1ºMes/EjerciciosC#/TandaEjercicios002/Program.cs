@@ -81,11 +81,11 @@ namespace TandaEjercicios002
                     break; 
 
                 case 11:
-
+                    GreaterThan();
                     break; 
 
                 case 12:
-                            
+                    CircleArea();  
                     break;
 
                 case 13:
@@ -246,6 +246,18 @@ namespace TandaEjercicios002
                 if (i % 2 == 0 || i % 3 == 0) PrintL(i.ToString());
             }
         }
+
+
+        private static void CircleArea()
+        {
+            Print("Enter the circle radius (cm): ");
+            double radius = Convert.ToDouble(Console.ReadLine());
+
+            double area = (Math.PI * Math.Pow(radius, 2));
+            PrintL(area.ToString() + "cm2 is the circle area");
+        }
+
+
         //private static void NumbersDoublesAndChars()
         //{
         //    int n = 1;
