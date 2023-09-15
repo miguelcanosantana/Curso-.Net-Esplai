@@ -11,7 +11,6 @@ namespace TandaEjercicios001
     {
         static void Main(string[] args)
         {
-
             //Variables
             int exerciseToDisplay = 0;
 
