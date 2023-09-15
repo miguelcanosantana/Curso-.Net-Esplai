@@ -17,7 +17,7 @@ namespace TandaEjercicios001
 
             Console.Title = "Choose an exercise :)";
 
-            Print("Choose an Exercise: ");
+            Print("Choose an Exercise (Enter a number from 1 to 5): ");
             exerciseToDisplay = Convert.ToInt32(Console.ReadLine());
 
             LaunchExercise(exerciseToDisplay);
@@ -28,6 +28,7 @@ namespace TandaEjercicios001
         {
             Console.Write(value);
         }
+
 
         private static void PrintL(string value)
         {
@@ -55,6 +56,10 @@ namespace TandaEjercicios001
 
                 case 4:
                     IncrDecrDupl();
+                    break;
+
+                case 5:
+                    FourVariables();
                     break;
 
                 default:
@@ -162,6 +167,38 @@ namespace TandaEjercicios001
             PrintL("First Result - 3 = " + resultB);
 
             PrintL("Second Result * 2 = " + resultB * 2);
+        }
+
+
+        private static void FourVariables()
+        {
+            int a;
+            int b;
+            int c;
+            int d;
+
+            Print("Write an int: ");
+            a = Convert.ToInt32(Console.ReadLine());
+
+            Print("Write another int: ");
+            b = Convert.ToInt32(Console.ReadLine());
+
+            Print("Another one: ");
+            c = Convert.ToInt32(Console.ReadLine());
+
+            Print("The last one *_*: ");
+            d = Convert.ToInt32(Console.ReadLine());
+
+            b = c;
+            c = a;
+            a = d;
+            d = b;
+
+            PrintL(
+                "Your numbers are: a = " + a +
+                " | b = " + b +
+                " | c = " + c +
+                " | d = " + b);
         }
     }
 }
