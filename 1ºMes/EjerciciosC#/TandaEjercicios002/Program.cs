@@ -52,6 +52,10 @@ namespace TandaEjercicios002
                     NameYears();
                     break;
 
+                case 4:
+                    GreaterThan();
+                    break;
+
                 default:
                     break;
             }
@@ -96,6 +100,30 @@ namespace TandaEjercicios002
             PrintL("Your name is " + name + ", you are " + age + " years old.");
         }
 
+
+        private static void GreaterThan()
+        {
+            Print("Input the Number A: ");
+            int numberA = Convert.ToInt32(Console.ReadLine());
+
+            Print("Input the Number B: ");
+            int numberB = Convert.ToInt32(Console.ReadLine());
+
+            if (numberA > numberB)
+            {
+                PrintL("A is bigger than B");
+            }
+            else if (numberA < numberB)
+            {
+                PrintL("B is bigger than A");
+            }
+            else
+            {
+                PrintL("Both numbers are equal");
+            }
+
+
+        }
 
         //private static void NumbersDoublesAndChars()
         //{
