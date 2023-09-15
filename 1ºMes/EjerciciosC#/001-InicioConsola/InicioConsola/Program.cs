@@ -12,7 +12,7 @@ namespace InicioConsola
     {
         static void Main(string[] args)
         {
-            SayHello("Hola Mundo");
+            SayHello("Hi Gorge!");
         }
 
 
