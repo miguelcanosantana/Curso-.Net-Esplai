@@ -89,7 +89,7 @@ namespace TandaEjercicios002
                     break;
 
                 case 13:
-
+                    DivideByTwo();
                     break;
 
                 case 14:
@@ -255,6 +255,16 @@ namespace TandaEjercicios002
 
             double area = (Math.PI * Math.Pow(radius, 2));
             PrintL(area.ToString() + "cm2 is the circle area");
+        }
+
+
+        private static void DivideByTwo()
+        {
+            Print("Enter a number to check if it can be divided by 2: ");
+            double number = Convert.ToDouble(Console.ReadLine());
+
+            if (number % 2 == 0) PrintL("It's even.");
+            else PrintL("It's odd.");
         }
 
 
