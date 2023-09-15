@@ -48,6 +48,10 @@ namespace TandaEjercicios002
                     NameCity();
                     break;
 
+                case 3:
+                    NameYears();
+                    break;
+
                 default:
                     break;
             }
@@ -78,6 +82,18 @@ namespace TandaEjercicios002
             string city = Convert.ToString(Console.ReadLine());
 
             PrintL("Hi " + name + ", welcome to " + city + "!");
+        }
+
+
+        private static void NameYears()
+        {
+            Print("Input your name: ");
+            string name = Convert.ToString(Console.ReadLine());
+
+            Print("Input your age: ");
+            int age = Convert.ToInt32(Console.ReadLine());
+
+            PrintL("Your name is " + name + ", you are " + age + " years old.");
         }
 
 
