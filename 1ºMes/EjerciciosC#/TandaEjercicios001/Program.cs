@@ -53,6 +53,10 @@ namespace TandaEjercicios001
                     TonsOfCalcs();
                     break;
 
+                case 4:
+                    IncrDecrDupl();
+                    break;
+
                 default:
                     break;
             }
@@ -139,6 +143,25 @@ namespace TandaEjercicios001
                 " | 2m = " + 2 * m);
             PrintL("x + y + n + m = " + (x + y + n + m));
             PrintL("x * y * n * m = " + (x * y * n * m));
+        }
+
+
+        private static void IncrDecrDupl()
+        {
+            int n;
+            int resultA;
+            int resultB;
+
+            Print("Write an int: ");
+            n = Convert.ToInt32(Console.ReadLine());
+
+            resultA = n + 77;
+            PrintL("n + 77 = " + resultA);
+
+            resultB = resultA - 3;
+            PrintL("First Result - 3 = " + resultB);
+
+            PrintL("Second Result * 2 = " + resultB * 2);
         }
     }
 }
