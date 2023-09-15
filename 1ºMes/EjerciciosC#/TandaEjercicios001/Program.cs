@@ -81,17 +81,36 @@ namespace TandaEjercicios001
 
         private static void TonsOfCalcs()
         {
-            int n = 1;
-            double a = 2.5f;
-            char c = 'a';
+            int x, y;
+            double n, m;
 
-            Console.WriteLine("n variable = " + n);
-            Console.WriteLine("a variable = " + a);
-            Console.WriteLine("c variable = " + c.ToString());
+            Console.Write("Write an int: ");
+            x = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("n + a = " + (n + a));
-            Console.WriteLine("a - n = " + (a - n));
-            Console.WriteLine("c value = " + Convert.ToInt32(c));
+            Console.Write("Write another int: ");
+            y = Convert.ToInt32(Console.ReadLine());
+
+            //CultureInfo.InvariantCulture fixes incorrect parsing
+            //https://stackoverflow.com/questions/1354924/how-do-i-parse-a-string-with-a-decimal-point-to-a-double
+            Console.Write("Write a double: ");
+            n = Convert.ToDouble(double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture));
+
+            Console.Write("Write another double: ");
+            m = Convert.ToDouble(double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture));
+
+            Console.WriteLine(
+                "Your numbers are: x = " + x + 
+                " | y = " + y + 
+                " | n = " + n + 
+                " | m = " + m);
+
+            //Console.WriteLine("n variable = " + n);
+            //Console.WriteLine("a variable = " + a);
+            //Console.WriteLine("c variable = " + c.ToString());
+
+            //Console.WriteLine("n + a = " + (n + a));
+            //Console.WriteLine("a - n = " + (a - n));
+            //Console.WriteLine("c value = " + Convert.ToInt32(c));
         }
     }
 }
