@@ -41,6 +41,7 @@ namespace TandaEjercicios002
             switch (exerciseToDisplay)
             {
                 case 1:
+                    Numbers();
                     break;
 
                 default:
@@ -51,18 +52,18 @@ namespace TandaEjercicios002
         }
 
 
-        //private static void Numbers()
-        //{
-        //    float a = 5f;
-        //    float b = 2.5f;
+        private static void Numbers()
+        {
+            float a = 5f;
+            float b = 2.5f;
+            float c = 4.75f;
 
-        //    PrintL("a = " + a + "| b = " + b);
-        //    PrintL("a + b = " + (a + b));
-        //    PrintL("a - b = " + (a - b));
-        //    PrintL("a * b = " + (a * b));
-        //    PrintL("a / b = " + (a / b));
-        //    PrintL("a % b = " + (a % b));
-        //}
+            PrintL("a = " + a + "| b = " + b + "c = " + c);
+
+            float result = a + b + c;
+            PrintL("a + b + c = " + result);
+
+        }
 
 
         //private static void NumbersDoublesAndChars()
