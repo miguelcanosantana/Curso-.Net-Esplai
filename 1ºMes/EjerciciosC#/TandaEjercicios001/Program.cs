@@ -131,6 +131,14 @@ namespace TandaEjercicios001
             PrintL("x + n = " + (x + n));
             PrintL("y / m = " + (y / m));
             PrintL("y % m = " + (y % m));
+
+            PrintL(
+                "2x = " + 2 * x +
+                " | 2y = " + 2 * y +
+                " | 2n = " + 2 * n +
+                " | 2m = " + 2 * m);
+            PrintL("x + y + n + m = " + (x + y + n + m));
+            PrintL("x * y * n * m = " + (x * y * n * m));
         }
     }
 }
