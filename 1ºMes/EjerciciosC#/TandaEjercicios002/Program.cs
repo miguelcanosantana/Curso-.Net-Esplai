@@ -58,7 +58,7 @@ namespace TandaEjercicios002
             float b = 2.5f;
             float c = 4.75f;
 
-            PrintL("a = " + a + "| b = " + b + "c = " + c);
+            PrintL("a = " + a + " | b = " + b + " | c = " + c);
 
             float result = a + b + c;
             PrintL("a + b + c = " + result);
