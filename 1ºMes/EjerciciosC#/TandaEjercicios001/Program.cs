@@ -11,8 +11,12 @@ namespace TandaEjercicios001
         static void Main(string[] args)
         {
 
+            //Variables
             int exerciseToDisplay = 0;
 
+            Console.Title = "Choose an exercise :)";
+
+            Console.WriteLine("Choose an Exercise: ");
             exerciseToDisplay = Convert.ToInt32(Console.ReadLine());
 
             LaunchExercise(exerciseToDisplay);
