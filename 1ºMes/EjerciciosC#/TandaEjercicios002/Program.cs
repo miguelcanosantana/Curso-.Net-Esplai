@@ -68,6 +68,34 @@ namespace TandaEjercicios002
                     ToHundredFor();
                     break;
 
+                case 8:
+                    ToHundredWhile();
+                    break;
+
+                case 9:
+                    ToHundredEven();
+                    break;
+
+                case 10:
+                    ToHundredEvenOrThree();
+                    break; 
+
+                case 11:
+
+                    break; 
+
+                case 12:
+                            
+                    break;
+
+                case 13:
+
+                    break;
+
+                case 14:
+
+                    break;
+
                 default:
                     break;
             }
@@ -188,7 +216,36 @@ namespace TandaEjercicios002
             {
                 PrintL(i.ToString());
             }
-        } 
+        }
+
+
+        private static void ToHundredWhile()
+        {
+            var count = 1;
+            while (count <= 100)
+            {
+                PrintL(count.ToString());
+                count++;
+            }
+        }
+
+
+        private static void ToHundredEven()
+        {
+            for (int i = 1; i <= 100; i++)
+            {
+                if (i % 2 == 0) PrintL(i.ToString());
+            }
+        }
+
+
+        private static void ToHundredEvenOrThree()
+        {
+            for (int i = 1; i <= 100; i++)
+            {
+                if (i % 2 == 0 || i % 3 == 0) PrintL(i.ToString());
+            }
+        }
         //private static void NumbersDoublesAndChars()
         //{
         //    int n = 1;
