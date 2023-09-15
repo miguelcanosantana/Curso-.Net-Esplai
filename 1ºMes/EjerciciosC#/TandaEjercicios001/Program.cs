@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace TandaEjercicios001
 
             Console.Title = "Choose an exercise :)";
 
-            Console.WriteLine("Choose an Exercise: ");
+            Console.Write("Choose an Exercise: ");
             exerciseToDisplay = Convert.ToInt32(Console.ReadLine());
 
             LaunchExercise(exerciseToDisplay);
@@ -24,18 +25,36 @@ namespace TandaEjercicios001
 
         private static void LaunchExercise(int exerciseToDisplay)
         {
+            Console.Title = "Exercise " + exerciseToDisplay.ToString();
+
             switch (exerciseToDisplay)
             {
                 case 1:
-
+                    Numbers();
                     break;
 
                 default:
                     break;
             }
 
-            Console.Title = "Exercise " + exerciseToDisplay.ToString();
             Console.ReadKey();
         }
+
+
+        private static void Numbers()
+        {
+            int n = 1;
+            double a = 2;
+            char c = (char)a;
+
+            Console.WriteLine("n variable = " + n);
+            Console.WriteLine("a variable = " + a);
+            Console.WriteLine("c variable = " + c);
+
+            Console.WriteLine("n + a = " + (n + a));
+            Console.WriteLine("a - n = " + (a - n));
+            Console.WriteLine("c value = " + c.ToString());
+        }
+
     }
 }
