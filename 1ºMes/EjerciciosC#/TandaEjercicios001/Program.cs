@@ -17,11 +17,23 @@ namespace TandaEjercicios001
 
             Console.Title = "Choose an exercise :)";
 
-            Console.Write("Choose an Exercise: ");
+            Print("Choose an Exercise: ");
             exerciseToDisplay = Convert.ToInt32(Console.ReadLine());
 
             LaunchExercise(exerciseToDisplay);
         }
+
+
+        private static void Print(string value)
+        {
+            Console.Write(value);
+        }
+
+        private static void PrintL(string value)
+        {
+            Console.WriteLine(value);
+        }
+
 
         private static void LaunchExercise(int exerciseToDisplay)
         {
@@ -54,12 +66,12 @@ namespace TandaEjercicios001
             float a = 5f;
             float b = 2.5f;
 
-            Console.WriteLine("a = " + a + "| b = " + b);
-            Console.WriteLine("a + b = " + (a + b));
-            Console.WriteLine("a - b = " + (a - b));
-            Console.WriteLine("a * b = " + (a * b));
-            Console.WriteLine("a / b = " + (a / b));
-            Console.WriteLine("a % b = " + (a % b));
+            PrintL("a = " + a + "| b = " + b);
+            PrintL("a + b = " + (a + b));
+            PrintL("a - b = " + (a - b));
+            PrintL("a * b = " + (a * b));
+            PrintL("a / b = " + (a / b));
+            PrintL("a % b = " + (a % b));
         }
 
 
@@ -69,13 +81,13 @@ namespace TandaEjercicios001
             double a = 2.5f;
             char c = 'a';
 
-            Console.WriteLine("n variable = " + n);
-            Console.WriteLine("a variable = " + a);
-            Console.WriteLine("c variable = " + c.ToString());
+            PrintL("n variable = " + n);
+            PrintL("a variable = " + a);
+            PrintL("c variable = " + c.ToString());
 
-            Console.WriteLine("n + a = " + (n + a));
-            Console.WriteLine("a - n = " + (a - n));
-            Console.WriteLine("c value = " + Convert.ToInt32(c));
+            PrintL("n + a = " + (n + a));
+            PrintL("a - n = " + (a - n));
+            PrintL("c value = " + Convert.ToInt32(c));
         }
 
 
@@ -84,33 +96,41 @@ namespace TandaEjercicios001
             int x, y;
             double n, m;
 
-            Console.Write("Write an int: ");
+            Print("Write an int: ");
             x = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Write another int: ");
+            Print("Write another int: ");
             y = Convert.ToInt32(Console.ReadLine());
 
             //CultureInfo.InvariantCulture fixes incorrect parsing
             //https://stackoverflow.com/questions/1354924/how-do-i-parse-a-string-with-a-decimal-point-to-a-double
-            Console.Write("Write a double: ");
+            Print("Write a double: ");
             n = Convert.ToDouble(double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture));
 
-            Console.Write("Write another double: ");
+            Print("Write another double: ");
             m = Convert.ToDouble(double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture));
 
-            Console.WriteLine(
+            PrintL(
                 "Your numbers are: x = " + x + 
                 " | y = " + y + 
                 " | n = " + n + 
                 " | m = " + m);
 
-            //Console.WriteLine("n variable = " + n);
-            //Console.WriteLine("a variable = " + a);
-            //Console.WriteLine("c variable = " + c.ToString());
+            PrintL("x + y = " + (x + y));
+            PrintL("x - y = " + (x - y));
+            PrintL("x * y = " + (x * y));
+            PrintL("x / y = " + (x / y));
+            PrintL("x % y = " + (x % y));
 
-            //Console.WriteLine("n + a = " + (n + a));
-            //Console.WriteLine("a - n = " + (a - n));
-            //Console.WriteLine("c value = " + Convert.ToInt32(c));
+            PrintL("n + m = " + (n + m));
+            PrintL("n - m = " + (n - m));
+            PrintL("n * m = " + (n * m));
+            PrintL("n / m = " + (n / m));
+            PrintL("n % m = " + (n % m));
+
+            PrintL("x + n = " + (x + n));
+            PrintL("y / m = " + (y / m));
+            PrintL("y % m = " + (y % m));
         }
     }
 }
