@@ -56,6 +56,18 @@ namespace TandaEjercicios002
                     GreaterThan();
                     break;
 
+                case 5:
+                    Weekend();
+                    break;
+
+                case 6:
+                    Payment();
+                    break;
+
+                case 7:
+                    ToHundredFor();
+                    break;
+
                 default:
                     break;
             }
@@ -121,10 +133,62 @@ namespace TandaEjercicios002
             {
                 PrintL("Both numbers are equal");
             }
+        }
 
+
+        private static void Weekend()
+        {
+            List<string> weekendDays = new List<string>();
+            weekendDays.Add("Saturday");
+            weekendDays.Add("Sunday");
+
+            Print("Input the name of the day in english: ");
+            string day = Convert.ToString(Console.ReadLine());
+
+
+            if (weekendDays.Contains(day)) PrintL("That day is weekend");
+            else PrintL("That day is not weekend");
+        }
+
+
+        private static void Payment()
+        {
+            Print("Input the price of the product to buy: ");
+            int price = Convert.ToInt32(Console.ReadLine());
+
+            if (price <= 0) 
+            {
+                PrintL("The item must have a valid price");
+                return;
+            }
+
+            Print("Input the payment menthod (cash/card): ");
+            string payMethod = Convert.ToString(Console.ReadLine());
+
+            if (payMethod.Equals("cash"))
+            {
+                PrintL("Thanks for buying the item");
+                return;
+            }
+
+            if (payMethod.Equals("card"))
+            {
+                Print("Input the card number: ");
+                string cardNumber = Convert.ToString(Console.ReadLine());
+
+                PrintL("Thanks for buying the item");
+            }
 
         }
 
+
+        private static void ToHundredFor()
+        {
+            for (int i = 1; i <= 100; i++)
+            {
+                PrintL(i.ToString());
+            }
+        } 
         //private static void NumbersDoublesAndChars()
         //{
         //    int n = 1;
