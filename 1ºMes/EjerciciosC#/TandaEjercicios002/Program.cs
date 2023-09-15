@@ -44,6 +44,10 @@ namespace TandaEjercicios002
                     Numbers();
                     break;
 
+                case 2:
+                    NameCity();
+                    break;
+
                 default:
                     break;
             }
@@ -62,7 +66,18 @@ namespace TandaEjercicios002
 
             float result = a + b + c;
             PrintL("a + b + c = " + result);
+        }
 
+
+        private static void NameCity()
+        {
+            Print("Input your name: ");
+            string name = Convert.ToString(Console.ReadLine());
+
+            Print("Input the city name: ");
+            string city = Convert.ToString(Console.ReadLine());
+
+            PrintL("Hi " + name + ", welcome to " + city + "!");
         }
 
 
