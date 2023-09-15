@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,13 @@ namespace InicioConsola
     {
         static void Main(string[] args)
         {
+            SayHello("Hola Mundo");
+        }
+
+
+        private static void SayHello(string message)
+        {
+            Console.WriteLine(message);
         }
     }
 }
