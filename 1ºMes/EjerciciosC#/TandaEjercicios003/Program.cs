@@ -99,26 +99,20 @@ namespace TandaEjercicios003
         private static void Password()
         {
             Print("Input the password: ");
-            string dayInput = Convert.ToString(Console.ReadLine());
+            string originalPassword = Convert.ToString(Console.ReadLine());
 
-            WeekDay dayParsed;
+            int attempts = 3;
+            string input = "";
 
-            Enum.TryParse(dayInput, out dayParsed);
-
-            switch (dayParsed)
+            do
             {
-                case WeekDay.Monday:
-                case WeekDay.Tuesday:
-                case WeekDay.Wednesday:
-                case WeekDay.Thursday:
-                case WeekDay.Friday:
-                    PrintL("It's a working day");
-                    break;
-                case WeekDay.Saturday:
-                case WeekDay.Sunday:
-                    PrintL("It's NOT a working day");
-                    break;
-            }
+                Print("You have " + attempts + " attempts: ");
+                attempts--;
+                input = Convert.ToString(Console.ReadLine());
+            } while (attempts > 0 && !input.Equals(originalPassword));
+
+            if (input.Equals(originalPassword)) PrintL("Greetings!");
+            else PrintL("You have no attempts left");
         }
 
 
