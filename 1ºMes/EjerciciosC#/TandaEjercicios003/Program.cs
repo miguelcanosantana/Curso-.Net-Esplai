@@ -22,6 +22,20 @@ namespace TandaEjercicios003
             LaunchExercise(exerciseToDisplay);
         }
 
+
+        private enum WeekDay
+        {
+            Monday,
+            Tuesday, 
+            Wednesday, 
+            Thursday, 
+            Friday,
+            Saturday,
+            Sunday
+        }
+
+
+
         private static void Print(string value)
         {
             Console.Write(value);
@@ -41,7 +55,7 @@ namespace TandaEjercicios003
             switch (exerciseToDisplay)
             {
                 case 1:
-
+                    WorkDays();
                     break;
 
                 case 2:
@@ -91,6 +105,33 @@ namespace TandaEjercicios003
             }
 
             Console.ReadKey();
+        }
+
+
+
+        private static void WorkDays()
+        {
+            Print("Input the name of the day in english (Starting with a capital letter): ");
+            string dayInput = Convert.ToString(Console.ReadLine());
+
+            WeekDay dayParsed;
+
+            Enum.TryParse(dayInput, out dayParsed);
+
+            switch (dayParsed)
+            {
+                case WeekDay.Monday:
+                case WeekDay.Tuesday:
+                case WeekDay.Wednesday:
+                case WeekDay.Thursday:
+                case WeekDay.Friday:
+                    PrintL("It's a working day");
+                    break;
+                case WeekDay.Saturday:
+                case WeekDay.Sunday:
+                    PrintL("It's NOT a working day");
+                    break;
+            }
         }
 
 
