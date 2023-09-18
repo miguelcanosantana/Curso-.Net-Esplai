@@ -16,7 +16,7 @@ namespace TandaEjercicios003
 
             Console.Title = "Choose an exercise :)";
 
-            Print("Choose an Exercise (Enter a number from 1 to 15): ");
+            Print("Choose an Exercise (Enter a number from 1 to 3): ");
             exerciseToDisplay = Convert.ToInt32(Console.ReadLine());
 
             LaunchExercise(exerciseToDisplay);
@@ -59,48 +59,10 @@ namespace TandaEjercicios003
                     break;
 
                 case 2:
+                    Password();
                     break;
 
                 case 3:
-                    break;
-
-                case 4:
-                    break;
-
-                case 5:
-                    break;
-
-                case 6:
-                    break;
-
-                case 7:
-                    break;
-
-                case 8:
-                    break;
-
-                case 9:
-                    break;
-
-                case 10:
-                    break;
-
-                case 11:
-                    break;
-
-                case 12:
-                    break;
-
-                case 13:
-                    break;
-
-                case 14:
-                    break;
-
-                case 15:
-                    break;
-
-                default:
                     break;
             }
 
@@ -108,10 +70,35 @@ namespace TandaEjercicios003
         }
 
 
-
         private static void WorkDays()
         {
             Print("Input the name of the day in english (Starting with a capital letter): ");
+            string dayInput = Convert.ToString(Console.ReadLine());
+
+            WeekDay dayParsed;
+
+            Enum.TryParse(dayInput, out dayParsed);
+
+            switch (dayParsed)
+            {
+                case WeekDay.Monday:
+                case WeekDay.Tuesday:
+                case WeekDay.Wednesday:
+                case WeekDay.Thursday:
+                case WeekDay.Friday:
+                    PrintL("It's a working day");
+                    break;
+                case WeekDay.Saturday:
+                case WeekDay.Sunday:
+                    PrintL("It's NOT a working day");
+                    break;
+            }
+        }
+
+
+        private static void Password()
+        {
+            Print("Input the password: ");
             string dayInput = Convert.ToString(Console.ReadLine());
 
             WeekDay dayParsed;
