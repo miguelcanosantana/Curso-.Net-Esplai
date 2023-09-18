@@ -63,6 +63,7 @@ namespace TandaEjercicios003
                     break;
 
                 case 3:
+                    InverseCalc();
                     break;
             }
 
@@ -116,5 +117,9 @@ namespace TandaEjercicios003
         }
 
 
+        private static void InverseCalc()
+        {
+
+        }
     }
 }
