@@ -119,7 +119,45 @@ namespace TandaEjercicios003
 
         private static void InverseCalc()
         {
+            Print("Enter the first number: ");
+            int x = Convert.ToInt32(Console.ReadLine());
 
+            Print("Enter the second number: ");
+            int y = Convert.ToInt32(Console.ReadLine());
+
+            Print("Enter an arithmetical symbol: ");
+            string symbol = Convert.ToString(Console.ReadLine());
+
+            float result = 0;
+
+            switch (symbol)
+            {
+                case "+":
+                    result = x + y;
+                    break;
+
+                case "-":
+                    result = x - y;
+                    break;
+
+                case "*":
+                    result = x * y;
+                    break; 
+
+                case "/":
+                    result = x / y;
+                    break;
+
+                case "%":
+                    result = x % y;
+                    break;
+
+                case "^":
+                    result = x ^ y;
+                    break;
+            }
+
+            PrintL("The result is: " + result);
         }
     }
 }
