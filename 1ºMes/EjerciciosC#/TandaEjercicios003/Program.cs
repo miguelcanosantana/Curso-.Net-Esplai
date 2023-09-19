@@ -91,7 +91,14 @@ namespace TandaEjercicios003
 
             WeekDay dayParsed;
 
-            Enum.TryParse(dayInput, out dayParsed);
+            var result = Enum.TryParse(dayInput, out dayParsed);
+
+            if (!result)
+            {
+                PrintL("That day doesn't exist!");
+                return;
+            }
+                
 
             switch (dayParsed)
             {
