@@ -166,17 +166,14 @@ namespace ExercisesC2OOP
                 return;
             }
 
-
-
-            n -= d;
-            c++;
-
-            if (n >= d)
+            do
             {
+                n -= d;
+                c++;
+            } while (n >= d);
 
-            }
+            PrintL("The result is: " + result);
 
-            
         }
     }
 }
