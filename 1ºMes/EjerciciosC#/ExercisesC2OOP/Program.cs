@@ -143,65 +143,40 @@ namespace ExercisesC2OOP
         private static void Division()
         {
             Print("Write the number: ");
-            int x;
-            var xResult = int.TryParse(Console.ReadLine(), out x);
+            int n;
+            var nResult = int.TryParse(Console.ReadLine(), out n);
 
-            Print("Number of division (x/d): ");
+            Print("Number of division (n/d): ");
             int d;
             var dResult = int.TryParse(Console.ReadLine(), out d);
 
-            if (!xResult || !dResult)
+            if (!nResult || !dResult)
             {
                 PrintL("Some of the input values were not numbers...");
                 return;
             }
 
-            float result = x;
+            int result = 0;
+            int c = 0;
 
+            if (n < d)
+            {
+                result = 0;
+                PrintL("The result is: " + result);
+                return;
+            }
+
+
+
+            n -= d;
+            c++;
+
+            if (n >= d)
+            {
+
+            }
 
             
-
-
-            int cut = 0;
-
-            while (x * cut < d)
-            {
-                cut++;
-            }
-            cut++;
-
-            string cutNumberString = x.ToString().Substring(0, cut);
-            int cutNumberInt = int.Parse(cutNumberString);
-
-            PrintL(cutNumberInt.ToString());
-
-            //do
-            //{
-
-
-            //} while (true);
-
-
-            //if (d > 0)
-            //{
-            //    for (int i = 1; i < p; i++)
-            //    {
-            //        result *= x;
-            //    }
-            //}
-            //else if (d == 0)
-            //{
-            //    result = 1;
-            //}
-            //else
-            //{
-            //    for (int i = d; i < 1; i++)
-            //    {
-            //        result /= x;
-            //    }
-            //}
-
-            PrintL("The result is: " + result);
         }
     }
 }
