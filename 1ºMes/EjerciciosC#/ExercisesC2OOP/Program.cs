@@ -120,8 +120,6 @@ namespace ExercisesC2OOP
                 }
             }
 
-
-
             PrintL("The result is: " + result);
         }
 
