@@ -85,7 +85,7 @@ namespace ExercisesC2OOP
                     break;
 
                 case 5:
-
+                    InvertText();
                     break;
 
                 case 6:
@@ -276,6 +276,25 @@ namespace ExercisesC2OOP
             if (dayA > dayB) PrintL("The date A is bigger");
             else if (dayB > dayA) PrintL("The date B is bigger");
             else PrintL("Both dates are equal");
+        }
+
+
+        private static void InvertText()
+        {
+            Print("Write the text to invert: ");
+            string text = Console.ReadLine();
+
+            char[] textChars = text.ToCharArray();
+            List<char> invertedText = new List<char>();
+
+            for (int i = textChars.Length - 1; i < 0; i--)
+            {
+                invertedText.Add(textChars[i]);
+            }
+
+            //https://stackoverflow.com/questions/14544336/how-to-return-contents-of-a-listchar
+            string result = invertedText.ToArray().ToString();
+            PrintL(result);
         }
     }
 }
