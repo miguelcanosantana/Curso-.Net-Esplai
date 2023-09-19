@@ -81,7 +81,7 @@ namespace ExercisesC2OOP
                     break;
 
                 case 4:
-
+                    CompareDates();
                     break;
 
                 case 5:
@@ -220,6 +220,44 @@ namespace ExercisesC2OOP
             }
 
             PrintL("Both texts are equally big, comparing only their overlaping parts");
+        }
+
+
+        private static void CompareDates()
+        {
+            Print("Write the date A in this format (25-12-2023): ");
+            string dateA = Console.ReadLine();
+
+            Print("Write the date B in this format (25-12-2023): ");
+            string dateB = Console.ReadLine();
+
+            char[] aChars = dateA.ToCharArray();
+            char[] bChars = dateB.ToCharArray();
+
+            //int countTo;
+
+            //if (aChars.Length >= bChars.Length) countTo = bChars.Length;
+            //else countTo = aChars.Length;
+
+            //int selected = 0;
+
+            //while (selected < countTo)
+            //{
+            //    if (aChars[selected] > bChars[selected])
+            //    {
+            //        PrintL("Text B is bigger than A");
+            //        return;
+            //    }
+            //    else if (aChars[selected] < bChars[selected])
+            //    {
+            //        PrintL("Text A is bigger than B");
+            //        return;
+            //    }
+
+            //    selected++;
+            //}
+
+            //PrintL("Both texts are equally big, comparing only their overlaping parts");
         }
     }
 }
