@@ -142,10 +142,20 @@ namespace ExercisesC2OOP
 
             float result = x;
 
-            do
+            string cutNumberString = x.ToString().Substring(0, 2);
+            int cutNumberInt = int.Parse(cutNumberString);
+            PrintL(cutNumberInt.ToString());
+
+            for (int i = 0; i < cutNumberInt; i++)
             {
 
-            } while (true);
+            }
+
+            //do
+            //{
+
+
+            //} while (true);
 
 
             //if (d > 0)
