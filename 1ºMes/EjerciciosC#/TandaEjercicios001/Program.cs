@@ -11,15 +11,30 @@ namespace TandaEjercicios001
     {
         static void Main(string[] args)
         {
-            //Variables
-            int exerciseToDisplay = 0;
+            Menu();
+        }
+
+
+        private static void Menu()
+        {
+            bool result = false;
+            int exerciseToDisplay = 1;
 
             Console.Title = "Choose an exercise :)";
 
-            Print("Choose an Exercise (Enter a number from 1 to 5): ");
-            exerciseToDisplay = Convert.ToInt32(Console.ReadLine());
+            Print("Choose an Exercise (Enter a number from 1 to 5) (0 to exit): ");
+            result = int.TryParse(Console.ReadLine(), out exerciseToDisplay);
 
-            LaunchExercise(exerciseToDisplay);
+            if (result && exerciseToDisplay != 0)
+            {
+                LaunchExercise(exerciseToDisplay);
+                Console.ReadKey();
+                Menu();
+            }
+            else if (!result)
+            {
+                Menu();
+            }
         }
 
 
@@ -64,8 +79,6 @@ namespace TandaEjercicios001
                 default:
                     break;
             }
-
-            Console.ReadKey();
         }
 
 
