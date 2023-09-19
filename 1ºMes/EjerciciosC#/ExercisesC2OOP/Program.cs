@@ -142,6 +142,12 @@ namespace ExercisesC2OOP
 
             float result = x;
 
+            do
+            {
+
+            } while (true);
+
+
             //if (d > 0)
             //{
             //    for (int i = 1; i < p; i++)
