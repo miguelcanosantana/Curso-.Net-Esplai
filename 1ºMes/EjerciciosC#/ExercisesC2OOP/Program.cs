@@ -234,6 +234,14 @@ namespace ExercisesC2OOP
             char[] aChars = dateA.ToCharArray();
             char[] bChars = dateB.ToCharArray();
 
+            if (aChars.Length != 10 || bChars.Length != 10 
+                || aChars[2] != Convert.ToChar("-") || aChars[5] != Convert.ToChar("-")
+                || bChars[2] != Convert.ToChar("-") || bChars[5] != Convert.ToChar("-"))
+            {
+                PrintL("The dates were in a wrong format");
+                return;
+            }
+
             //int countTo;
 
             //if (aChars.Length >= bChars.Length) countTo = bChars.Length;
