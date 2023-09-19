@@ -242,33 +242,40 @@ namespace ExercisesC2OOP
                 return;
             }
 
+            int yearA = int.Parse((aChars[6].ToString() + aChars[7].ToString() + aChars[8].ToString() + aChars[9].ToString()));
+            int yearB = int.Parse((bChars[6].ToString() + bChars[7].ToString() + aChars[8].ToString() + aChars[9].ToString()));
+
+            if (yearA > yearB)
+            {
+                PrintL("The date A is bigger");
+                return;
+            } 
+            else if (yearB > yearA)
+            {
+                PrintL("The date B is bigger");
+                return;
+            }
+
+            int monthA = int.Parse((aChars[3].ToString() + aChars[4].ToString()));
+            int monthB = int.Parse((bChars[3].ToString() + bChars[4].ToString()));
+
+            if (monthA > monthB)
+            {
+                PrintL("The date A is bigger");
+                return;
+            }
+            else if (monthB > monthA)
+            {
+                PrintL("The date B is bigger");
+                return;
+            }
+
             int dayA =  int.Parse((aChars[0].ToString() + aChars[1].ToString()));
             int dayB = int.Parse((bChars[0].ToString() + bChars[1].ToString()));
 
-            //int countTo;
-
-            //if (aChars.Length >= bChars.Length) countTo = bChars.Length;
-            //else countTo = aChars.Length;
-
-            //int selected = 0;
-
-            //while (selected < countTo)
-            //{
-            //    if (aChars[selected] > bChars[selected])
-            //    {
-            //        PrintL("Text B is bigger than A");
-            //        return;
-            //    }
-            //    else if (aChars[selected] < bChars[selected])
-            //    {
-            //        PrintL("Text A is bigger than B");
-            //        return;
-            //    }
-
-            //    selected++;
-            //}
-
-            //PrintL("Both texts are equally big, comparing only their overlaping parts");
+            if (dayA > dayB) PrintL("The date A is bigger");
+            else if (dayB > dayA) PrintL("The date B is bigger");
+            else PrintL("Both dates are equal");
         }
     }
 }
