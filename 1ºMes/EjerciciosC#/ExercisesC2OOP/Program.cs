@@ -179,11 +179,37 @@ namespace ExercisesC2OOP
 
         private static void CompareText()
         {
-            Print("Write the first text: ");
+            Print("Write the text A: ");
             string a = Console.ReadLine();
 
-            Print("Write the second text: ");
+            Print("Write the text B: ");
             string b = Console.ReadLine();
+
+            char[] aChars = a.ToCharArray();
+            char[] bChars = b.ToCharArray();
+
+            int countTo; 
+            
+            if (aChars.Length >= bChars.Length) countTo = bChars.Length;
+            else countTo = aChars.Length;
+
+            int selected = 0;
+
+            while (selected < countTo)
+            {
+                if (aChars[selected] > bChars[selected])
+                {
+                    PrintL("Text B is bigger than A");
+                    return;
+                }
+                else if (aChars[selected] < bChars[selected])
+                {
+                    PrintL("Text A is bigger than B");
+                    return;
+                }
+
+                selected++;
+            }
 
         }
     }
