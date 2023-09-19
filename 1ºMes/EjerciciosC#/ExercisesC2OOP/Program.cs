@@ -21,7 +21,7 @@ namespace ExercisesC2OOP
 
             Console.Title = "Choose an exercise :)";
 
-            Print("Choose an Exercise (Enter a number from 1 to 7) (0 to exit): ");
+            Print("Choose an Exercise (Enter a number from 1 to 9) (0 to exit): ");
             result = int.TryParse(Console.ReadLine(), out exerciseToDisplay);
 
             if (result && exerciseToDisplay != 0)
@@ -93,6 +93,14 @@ namespace ExercisesC2OOP
                     break;
 
                 case 7:
+
+                    break;
+
+                case 8:
+
+                    break;
+
+                case 9:
 
                     break;
             }
