@@ -79,6 +79,22 @@ namespace ExercisesC2OOP
                 case 3:
 
                     break;
+
+                case 4:
+
+                    break;
+
+                case 5:
+
+                    break;
+
+                case 6:
+
+                    break;
+
+                case 7:
+
+                    break;
             }
         }
 
@@ -142,14 +158,22 @@ namespace ExercisesC2OOP
 
             float result = x;
 
-            string cutNumberString = x.ToString().Substring(0, 2);
-            int cutNumberInt = int.Parse(cutNumberString);
-            PrintL(cutNumberInt.ToString());
 
-            for (int i = 0; i < cutNumberInt; i++)
+            
+
+
+            int cut = 0;
+
+            while (x * cut < d)
             {
-
+                cut++;
             }
+            cut++;
+
+            string cutNumberString = x.ToString().Substring(0, cut);
+            int cutNumberInt = int.Parse(cutNumberString);
+
+            PrintL(cutNumberInt.ToString());
 
             //do
             //{
