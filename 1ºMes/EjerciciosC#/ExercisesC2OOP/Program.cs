@@ -77,7 +77,7 @@ namespace ExercisesC2OOP
                     break;
 
                 case 3:
-
+                    CompareText();
                     break;
 
                 case 4:
@@ -174,6 +174,17 @@ namespace ExercisesC2OOP
 
             result = c;
             PrintL("The result is: " + result);
+        }
+
+
+        private static void CompareText()
+        {
+            Print("Write the first text: ");
+            string a = Console.ReadLine();
+
+            Print("Write the second text: ");
+            string b = Console.ReadLine();
+
         }
     }
 }
