@@ -73,7 +73,7 @@ namespace ExercisesC2OOP
                     break;
 
                 case 2:
-
+                    Division();
                     break;
 
                 case 3:
@@ -89,7 +89,7 @@ namespace ExercisesC2OOP
             int x; 
             var xResult = int.TryParse(Console.ReadLine(), out x);
 
-            Print("Number of power (x^y): ");
+            Print("Number of power (x^p): ");
             int p;
             var pResult = int.TryParse(Console.ReadLine(), out p);
 
@@ -123,5 +123,45 @@ namespace ExercisesC2OOP
             PrintL("The result is: " + result);
         }
 
+
+        private static void Division()
+        {
+            Print("Write the number: ");
+            int x;
+            var xResult = int.TryParse(Console.ReadLine(), out x);
+
+            Print("Number of division (x/d): ");
+            int d;
+            var dResult = int.TryParse(Console.ReadLine(), out d);
+
+            if (!xResult || !dResult)
+            {
+                PrintL("Some of the input values were not numbers...");
+                return;
+            }
+
+            float result = x;
+
+            //if (d > 0)
+            //{
+            //    for (int i = 1; i < p; i++)
+            //    {
+            //        result *= x;
+            //    }
+            //}
+            //else if (d == 0)
+            //{
+            //    result = 1;
+            //}
+            //else
+            //{
+            //    for (int i = d; i < 1; i++)
+            //    {
+            //        result /= x;
+            //    }
+            //}
+
+            PrintL("The result is: " + result);
+        }
     }
 }
