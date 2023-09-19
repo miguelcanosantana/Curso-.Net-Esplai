@@ -85,19 +85,44 @@ namespace ExercisesC2OOP
 
         private static void Power()
         {
-            Print("Write the first number: ");
+            Print("Write the number: ");
             int x; 
             var xResult = int.TryParse(Console.ReadLine(), out x);
 
-            Print("Write the second number: ");
-            int y;
-            var yResult = int.TryParse(Console.ReadLine(), out y);
+            Print("Number of power (x^y): ");
+            int p;
+            var pResult = int.TryParse(Console.ReadLine(), out p);
 
-            if (!xResult || !yResult)
+            if (!xResult || !pResult)
             {
                 PrintL("Some of the input values were not numbers...");
                 return;
             }
+
+            float result = x;
+
+            if (p > 0)
+            {
+                for (int i = 1; i < p; i++)
+                {
+                    result *= x;
+                }
+            }
+            else if (p == 0)
+            {
+                result = 1;
+            }
+            else
+            {
+                for (int i = p; i < 1; i++)
+                {
+                    result /= x;
+                }
+            }
+
+
+
+            PrintL("The result is: " + result);
         }
 
     }
