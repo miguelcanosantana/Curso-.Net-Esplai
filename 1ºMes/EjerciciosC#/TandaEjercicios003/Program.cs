@@ -98,7 +98,7 @@ namespace TandaEjercicios003
                 PrintL("That day doesn't exist!");
                 return;
             }
-                
+            
 
             switch (dayParsed)
             {
