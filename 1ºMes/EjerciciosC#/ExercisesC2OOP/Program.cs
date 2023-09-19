@@ -242,6 +242,9 @@ namespace ExercisesC2OOP
                 return;
             }
 
+            int dayA =  int.Parse((aChars[0].ToString() + aChars[1].ToString()));
+            int dayB = int.Parse((bChars[0].ToString() + bChars[1].ToString()));
+
             //int countTo;
 
             //if (aChars.Length >= bChars.Length) countTo = bChars.Length;
