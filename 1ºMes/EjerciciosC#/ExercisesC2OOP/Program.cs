@@ -211,6 +211,7 @@ namespace ExercisesC2OOP
                 selected++;
             }
 
+            PrintL("Both texts are equally big, comparing only their overlaping parts");
         }
     }
 }
