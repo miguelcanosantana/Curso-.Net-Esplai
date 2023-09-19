@@ -82,5 +82,23 @@ namespace ExercisesC2OOP
             }
         }
 
+
+        private static void Power()
+        {
+            Print("Write the first number: ");
+            int x; 
+            var xResult = int.TryParse(Console.ReadLine(), out x);
+
+            Print("Write the second number: ");
+            int y;
+            var yResult = int.TryParse(Console.ReadLine(), out y);
+
+            if (!xResult || !yResult)
+            {
+                PrintL("Some of the input values were not numbers...");
+                return;
+            }
+        }
+
     }
 }
