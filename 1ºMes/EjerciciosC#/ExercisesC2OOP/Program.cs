@@ -310,6 +310,14 @@ namespace ExercisesC2OOP
                 return;
             }
 
+            bool isNegative = false;
+
+            if (n < 0)
+            {
+                isNegative = true;
+                n = -n;
+            }
+
             //https://medium.com/@ManBearPigCode/how-to-reverse-a-number-mathematically-97c556626ec6
             int reverse = 0;
             int lastDigit;
@@ -318,8 +326,10 @@ namespace ExercisesC2OOP
             {
                 lastDigit = n % 10;
                 reverse = (reverse * 10) + lastDigit;
-                n /= 10;
+                n = n / 10;
             }
+
+            if (isNegative) reverse = -reverse;
 
             PrintL("Your reversed number is " + reverse);
         }
