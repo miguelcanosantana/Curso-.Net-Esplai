@@ -33,8 +33,7 @@ namespace StringToMorse
             {"1", ".----"},{"2", "..---"},{"3", "...--"},
             {"4", "....-"},{"5", "....."},{"6", "-...."},
             {"7", "--..."},{"8", "---.."},{"9", "----."},
-
-};
+            };
 
             PrintL("Input the message you want to translate to morse");
             string message = Console.ReadLine();
