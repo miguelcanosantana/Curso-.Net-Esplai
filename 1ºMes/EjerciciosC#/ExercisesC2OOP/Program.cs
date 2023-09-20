@@ -89,7 +89,7 @@ namespace ExercisesC2OOP
                     break;
 
                 case 6:
-
+                    InvertNumberArithmetical();
                     break;
 
                 case 7:
@@ -295,6 +295,22 @@ namespace ExercisesC2OOP
             //https://stackoverflow.com/questions/14544336/how-to-return-contents-of-a-listchar
             string result = invertedText.ToArray().ToString();
             PrintL(result);
+        }
+
+
+        private static void InvertNumberArithmetical()
+        {
+            Print("Write the number to invert arithmetically: ");
+            int n;
+            var nResult = int.TryParse(Console.ReadLine(), out n);
+
+            if (!nResult)
+            {
+                PrintL("Some of the input values were not numbers...");
+                return;
+            }
+
+
         }
     }
 }
