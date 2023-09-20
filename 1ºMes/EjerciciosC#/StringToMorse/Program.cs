@@ -13,6 +13,7 @@ namespace StringToMorse
     static void Main(string[] args)
         {
             MorseTranslator();
+            Console.ReadKey();
         }
 
 
@@ -35,10 +36,33 @@ namespace StringToMorse
             {"7", "--..."},{"8", "---.."},{"9", "----."},
             };
 
-            PrintL("Input the message you want to translate to morse");
+            PrintL("Input the message you want to translate to morse:");
             string message = Console.ReadLine();
+            message = message.ToLower();
 
             char[] messageChars = message.ToCharArray();
+            List<string> morseTextStrings = new List<string>();
+
+
+            foreach (char c in messageChars)
+            {
+                if (c.ToString().Equals(" "))
+                {
+                    morseTextStrings.Add("//");
+                }
+                else if (dictionary.TryGetValue(c.ToString(), out var value))
+                {
+                    morseTextStrings.Add(value);
+                }
+                else
+                {
+                    PrintL("Your message has invalid characters...");
+                    return;
+                }
+            }
+
+            PrintL("Your message is the following:");
+            PrintL(String.Join(" ", morseTextStrings.ToArray()));
         }
 
 
