@@ -310,16 +310,17 @@ namespace ExercisesC2OOP
                 return;
             }
 
-            //https://medium.com/@ManBearPigCode/how-to-reverse-a-number-mathematically-97c556626ec6
-            int reverse = 0;
+            ////https://medium.com/@ManBearPigCode/how-to-reverse-a-number-mathematically-97c556626ec6
+            //int reverse = 0;
 
 
-            while (n > 0)
-            {
-                int lastDigit = n % 10;
-                reverse = (reverse * 10) + lastDigit;
-                n /= 10;
-            }
+            //while (n > 0)
+            //{
+            //    int lastDigit = n % 10;
+            //    reverse = (reverse * 10) + lastDigit;
+            //    n /= 10;
+            //    PrintL(n.ToString());
+            //}
 
             PrintL("Your reversed number is " + n);
         }
