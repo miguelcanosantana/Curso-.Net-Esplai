@@ -97,7 +97,7 @@ namespace ExercisesC2OOP
                     break;
 
                 case 8:
-
+                    GuessingGame();
                     break;
 
                 case 9:
@@ -306,7 +306,7 @@ namespace ExercisesC2OOP
 
             if (!nResult)
             {
-                PrintL("Some of the input values were not numbers...");
+                PrintL("The input value was not a number...");
                 return;
             }
 
@@ -357,5 +357,34 @@ namespace ExercisesC2OOP
 
             PrintL("The text is a palindrome");
         }
+
+
+        private static void GuessingGame()
+        {
+            Random random = new Random();
+            //Max is exclusive, so using 21 to make it 20
+            int nRandom =  random.Next(1, 21); 
+
+            PrintL("A random number between 1 and 20 has been choosen");
+
+            int n = 0;
+            bool nResult = false;
+
+            while (n != nRandom || !nResult)
+            {
+                Print("Input the number you think it is: ");
+                nResult = int.TryParse(Console.ReadLine(), out n);
+
+                if (!nResult) PrintL("The input value was not a number...");
+                else
+                {
+                    if (n < nRandom) PrintL("Wrong! The number to guess is bigger");
+                    else if (n > nRandom) PrintL("Wrong! The number to guess is smaller");
+                }
+            }
+
+            PrintL("You guessed it!");
+        }
+
     }
 }
