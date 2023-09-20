@@ -93,7 +93,7 @@ namespace ExercisesC2OOP
                     break;
 
                 case 7:
-
+                    Palindrome();
                     break;
 
                 case 8:
@@ -332,6 +332,30 @@ namespace ExercisesC2OOP
             if (isNegative) reverse = -reverse;
 
             PrintL("Your reversed number is " + reverse);
+        }
+
+
+        private static void Palindrome()
+        {
+            Print("Write the text to check if it's a palindrome: ");
+            string text = Console.ReadLine();
+
+            char[] textChars = text.ToCharArray();
+            
+            //Read the text forward and backward at the same time
+            for (int i = 0; i < textChars.Length - 1; i++)
+            {
+                char fowardC = textChars[i];
+                char backwardC = textChars[textChars.Length -1 - i];
+
+                if (fowardC != backwardC)
+                {    
+                    PrintL("The text is not a palindrome");
+                    return;
+                }
+            }
+
+            PrintL("The text is a palindrome");
         }
     }
 }
