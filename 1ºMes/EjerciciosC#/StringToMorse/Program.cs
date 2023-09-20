@@ -8,8 +8,47 @@ namespace StringToMorse
 {
     internal class Program
     {
-        static void Main(string[] args)
+
+
+    static void Main(string[] args)
         {
+            MorseTranslator();
+        }
+
+
+        private static void MorseTranslator()
+        {
+            Dictionary<string, string> dictionary;
+
+            dictionary = new Dictionary<string, string>(){
+            {"a", ".-"},{"b", "-..."},{"c", "-.-."},
+            {"d", "-.."},{"e", "."},{"f", "..-."},
+            {"g", "--."},{"h", "...."},{"i", ".."},
+            {"j", ".---"},{"k", "-.-"},{"l", ".-.."},
+            {"m", "--"},{"n", "-."},{"o", "---"},
+            {"p", ".--"},{"q", "--.-"},{"r", ".-."},
+            {"s", "..."},{"t", "-"},{"u", "..-"},
+            {"v", "...-"},{"w", ".--"},{"x", "-..-"},
+            {"y", "-.--"},{"z", "--."},
+
+};
+
+            PrintL("Input the message you want to translate to morse");
+            string message = Console.ReadLine();
+
+            char[] messageChars = message.ToCharArray();
+        }
+
+
+        private static void Print(string value)
+        {
+            Console.Write(value);
+        }
+
+
+        private static void PrintL(string value)
+        {
+            Console.WriteLine(value);
         }
     }
 }
