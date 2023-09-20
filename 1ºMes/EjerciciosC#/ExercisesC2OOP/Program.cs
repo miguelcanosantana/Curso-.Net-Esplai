@@ -101,7 +101,7 @@ namespace ExercisesC2OOP
                     break;
 
                 case 9:
-
+                    EvenNumbers();
                     break;
             }
         }
@@ -384,6 +384,34 @@ namespace ExercisesC2OOP
             }
 
             PrintL("You guessed it!");
+        }
+
+
+        private static void EvenNumbers()
+        {
+            PrintL("This method dosplays the even numbers before the 20");
+            PrintL("");
+
+            PrintL("Using for: \n");
+            for (int n = 0; n < 20; n++) if (n % 2 == 0) PrintL(n.ToString());
+
+            PrintL("\nUsing while: \n");
+            int count = 0;
+
+            while (count < 20)
+            {
+                if (count % 2 == 0) PrintL(count.ToString());
+                count++;
+            }
+
+            PrintL("\nUsing do while: \n");
+            count = 0;
+
+            do
+            {
+                if (count % 2 == 0) PrintL(count.ToString());
+                count++;
+            } while (count < 20);
         }
 
     }
