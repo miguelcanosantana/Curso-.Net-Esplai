@@ -36,8 +36,7 @@ namespace TicTacToe
                 "                                                                   \r\n" +
                 "                                                               ");
 
-            Console.WriteLine("Press 1 for Single Player mode (With 'AI')");
-            Console.WriteLine("Press 2 for Two Player mode");
+            Console.WriteLine("Press 1 to Play!");
             Console.WriteLine("Press X to exit");
             Console.Write("Input: ");
 
@@ -46,10 +45,6 @@ namespace TicTacToe
             switch (key)
             {
                 case "1":
-                    TicTacToeMatch();
-                    break;
-
-                case "2":
                     TicTacToeMatch();
                     break;
 
