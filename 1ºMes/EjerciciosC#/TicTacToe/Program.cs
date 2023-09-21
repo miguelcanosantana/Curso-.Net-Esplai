@@ -94,17 +94,31 @@ namespace TicTacToe
         
         private static void RefreshGrid(string[,] grid2D)
         {
-            //GetLength(0) is the 1st dimension, GetLength(1) is the 2nd
-            for (int row = 0; row < grid2D.GetLength(0); row++)
-            {
-                Console.WriteLine("");
+            ////GetLength(0) is the 1st dimension, GetLength(1) is the 2nd
+            //for (int row = 0; row < grid2D.GetLength(0); row++)
+            //{
+            //    Console.WriteLine("");
 
-                for (int column = 0; column < grid2D.GetLength(1); column++)
-                {
-                    string printedChar = grid2D[row, column];
-                    Console.Write(printedChar);
-                }
-            }
+            //    for (int column = 0; column < grid2D.GetLength(1); column++)
+            //    {
+            //        string printedChar = grid2D[row, column];
+            //        Console.Write(printedChar);
+            //    }
+            //}
+
+            Console.WriteLine(" _______________________\n" +
+                                "|       |       |       |\n" +
+                                "|   {0}   |   {1}   |   {2}   |\n" +
+                                "|_______|_______|_______|\n" +
+                                "|       |       |       |\n" +
+                                "|   {3}   |   {4}   |   {5}   |\n" +
+                                "|_______|_______|_______|\n" +
+                                "|       |       |       |\n" +
+                                "|   {6}   |   {7}   |   {8}   |\n" +
+                                "|_______|_______|_______|\n",
+                                grid2D[0, 0], grid2D[0, 1], grid2D[0, 2],
+                                grid2D[1, 0], grid2D[1, 1], grid2D[1, 2],
+                                grid2D[2, 0], grid2D[2, 1], grid2D[2, 2]);
 
             Console.WriteLine("");
             Console.WriteLine("");
