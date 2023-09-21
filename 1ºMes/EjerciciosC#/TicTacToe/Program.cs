@@ -26,13 +26,29 @@ namespace TicTacToe
                 {".", ".", "."},
             };
 
-            RefreshScreen(grid2D); 
+            RefreshScreen(grid2D);
+
+            int row = AskForNumber("Input the row: ");
+            int column = AskForNumber("Input the column: ");
+
+            Console.WriteLine(row);
+            Console.WriteLine(column);
         }
 
 
-        private static int? AskForNumber()
+        private static int AskForNumber(string message)
         {
-            return null;
+            int number = 0;
+            bool result;
+
+            do
+            {
+                Console.Write(message);
+                result = Int32.TryParse(Console.ReadLine(), out number);
+
+            } while (!result);
+
+            return number;
         }
 
         
@@ -49,7 +65,9 @@ namespace TicTacToe
                     Console.Write(printedChar);
                 }
             }
-                
+
+            Console.WriteLine("");
+            Console.WriteLine("");
         }
     }
 }
