@@ -62,7 +62,7 @@ namespace TicTacToe
 
                 grid2D[row - 1, column - 1] = currentPlayer.ToString();
 
-                winnerPlayer = CheckTheBoard();
+                winnerPlayer = CheckThegrid2D(grid2D);
 
                 //Switch players
                 if (currentPlayer == Player.X) currentPlayer = Player.O;
@@ -119,8 +119,22 @@ namespace TicTacToe
         }
 
 
-        private static Player? CheckTheBoard()
+        private static Player? CheckThegrid2D(string[,] grid2D)
         {
+            // check rows
+            //if (grid2D[0, 0] == player && grid2D[0, 1] == player && grid2D[0, 2] == player) { return true; }
+            //if (grid2D[1, 0] == player && grid2D[1, 1] == player && grid2D[1, 2] == player) { return true; }
+            //if (grid2D[2, 0] == player && grid2D[2, 1] == player && grid2D[2, 2] == player) { return true; }
+
+            //// check columns
+            //if (grid2D[0, 0] == player && grid2D[1, 0] == player && grid2D[2, 0] == player) { return true; }
+            //if (grid2D[0, 1] == player && grid2D[1, 1] == player && grid2D[2, 1] == player) { return true; }
+            //if (grid2D[0, 2] == player && grid2D[1, 2] == player && grid2D[2, 2] == player) { return true; }
+
+            //// check diags
+            //if (grid2D[0, 0] == player && grid2D[1, 1] == player && grid2D[2, 2] == player) { return true; }
+            //if (grid2D[0, 2] == player && grid2D[1, 1] == player && grid2D[2, 0] == player) { return true; }
+
             return null;
         }
     }
