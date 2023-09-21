@@ -37,29 +37,26 @@ namespace TicTacToe
 
             do
             {
-                bool canMove = false;
-
-                int row;
-                int column;
+                bool canPutMove = false;
+                Tuple<int, int> boxNumber;
 
                 do
                 {
                     RefreshGrid(grid2D);
                     Console.WriteLine("It's player " + currentPlayer.ToString() + " turn. \n");
 
-                    row = AskForNumber("Input the row: ");
-                    column = AskForNumber("Input the column: ");
-                    canMove = CanPutMove(grid2D[row - 1, column - 1]);
+                    boxNumber = AskForNumber("Input the number (1 - 9): ");
+                    canPutMove = CanPutMove(grid2D[boxNumber.Item1, boxNumber.Item2]);
 
-                    if (!canMove)
+                    if (!canPutMove)
                     {
                         Console.WriteLine("That box is already taken!\n");
                         Console.ReadKey();
                     }
 
-                } while (!canMove);
+                } while (!canPutMove);
 
-                grid2D[row - 1, column - 1] = currentPlayer.ToString();
+                grid2D[boxNumber.Item1, boxNumber.Item2] = currentPlayer.ToString();
 
                 winnerPlayer = CheckTheWinner(currentPlayer, grid2D);
 
@@ -81,7 +78,8 @@ namespace TicTacToe
         }
 
 
-        private static int AskForNumber(string message)
+        //https://stackoverflow.com/questions/748062/return-multiple-values-to-a-method-caller
+        private static Tuple<int, int> AskForNumber(string message)
         {
             int number = 0;
             bool result;
@@ -91,9 +89,55 @@ namespace TicTacToe
                 Console.Write(message);
                 result = Int32.TryParse(Console.ReadLine(), out number);
 
-            } while (!result || number > 3 || number < 1);
+            } while (!result || number > 9 || number < 1);
 
-            return number;
+            int row = 0;
+            int column = 0;
+
+            //Convert from a number to a multiple index
+            switch (number)
+            {
+                case 1:
+                    row = 0;
+                    column = 0;
+                    break; 
+                case 2:
+                    row = 0;
+                    column = 1;
+                    break; 
+                case 3:
+                    row = 0;
+                    column = 2;
+                    break; 
+                case 4:
+                    row = 1;
+                    column = 0;
+                    break; 
+                case 5:
+                    row = 1;
+                    column = 1;
+                    break; 
+                case 6:
+                    row = 1;
+                    column = 2;
+                    break; 
+                case 7:
+                    row = 2;
+                    column = 0;
+                    break; 
+                case 8:
+                    row = 2;
+                    column = 1;
+                    break; 
+                case 9:
+                    row = 2;
+                    column = 2;
+                    break; 
+            }
+
+            Console.ReadKey();
+
+            return Tuple.Create(row, column);
         }
 
         
