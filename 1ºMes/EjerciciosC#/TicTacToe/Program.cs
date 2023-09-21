@@ -43,7 +43,7 @@ namespace TicTacToe
                 int row = AskForNumber("Input the row: ");
                 int column = AskForNumber("Input the column: ");
 
-                grid2D[row, column] = currentPlayer.ToString();
+                grid2D[row - 1, column - 1] = currentPlayer.ToString();
 
                 //Switch players
                 if (currentPlayer == CurrentPlayer.X) currentPlayer = CurrentPlayer.O;
