@@ -9,7 +9,7 @@ namespace TicTacToe
 {
     internal class Program
     {
-        enum CurrentPlayer
+        enum Player
         {
             X,
             O
@@ -25,7 +25,7 @@ namespace TicTacToe
 
         private static void TicTacToeMatch()
         {
-            CurrentPlayer currentPlayer = CurrentPlayer.X;
+            Player currentPlayer = Player.X;
 
             //https://www.tutorialsteacher.com/csharp/csharp-multi-dimensional-array
             string[,] grid2D = new string[3, 3]{
@@ -61,9 +61,11 @@ namespace TicTacToe
 
                 grid2D[row - 1, column - 1] = currentPlayer.ToString();
 
+
+
                 //Switch players
-                if (currentPlayer == CurrentPlayer.X) currentPlayer = CurrentPlayer.O;
-                else currentPlayer = CurrentPlayer.X;
+                if (currentPlayer == Player.X) currentPlayer = Player.O;
+                else currentPlayer = Player.X;
 
             } while (true);
         }
@@ -111,6 +113,12 @@ namespace TicTacToe
 
             Console.WriteLine("");
             Console.WriteLine("");
+        }
+
+
+        private static void CheckTheBoard()
+        {
+
         }
     }
 }
