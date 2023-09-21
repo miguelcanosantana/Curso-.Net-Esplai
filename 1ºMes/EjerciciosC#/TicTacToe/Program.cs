@@ -62,7 +62,7 @@ namespace TicTacToe
 
                 grid2D[row - 1, column - 1] = currentPlayer.ToString();
 
-                winnerPlayer = CheckThegrid2D(grid2D);
+                winnerPlayer = CheckTheWinner(currentPlayer, grid2D);
 
                 //Switch players
                 if (currentPlayer == Player.X) currentPlayer = Player.O;
@@ -70,7 +70,9 @@ namespace TicTacToe
 
             } while (winnerPlayer == null);
 
+            RefreshGrid(grid2D);
             Console.WriteLine("Winner Player is: " + winnerPlayer.ToString());
+            Console.WriteLine("Congratulations!!!");
         }
 
 
@@ -119,21 +121,23 @@ namespace TicTacToe
         }
 
 
-        private static Player? CheckThegrid2D(string[,] grid2D)
+        private static Player? CheckTheWinner(Player currentPlayer, string[,] grid2D)
         {
-            // check rows
-            //if (grid2D[0, 0] == player && grid2D[0, 1] == player && grid2D[0, 2] == player) { return true; }
-            //if (grid2D[1, 0] == player && grid2D[1, 1] == player && grid2D[1, 2] == player) { return true; }
-            //if (grid2D[2, 0] == player && grid2D[2, 1] == player && grid2D[2, 2] == player) { return true; }
+            string playerName = currentPlayer.ToString();
 
-            //// check columns
-            //if (grid2D[0, 0] == player && grid2D[1, 0] == player && grid2D[2, 0] == player) { return true; }
-            //if (grid2D[0, 1] == player && grid2D[1, 1] == player && grid2D[2, 1] == player) { return true; }
-            //if (grid2D[0, 2] == player && grid2D[1, 2] == player && grid2D[2, 2] == player) { return true; }
+            //Rows
+            if (grid2D[0, 0] == playerName && grid2D[0, 1] == playerName && grid2D[0, 2] == playerName) return currentPlayer;
+            if (grid2D[1, 0] == playerName && grid2D[1, 1] == playerName && grid2D[1, 2] == playerName) return currentPlayer;
+            if (grid2D[2, 0] == playerName && grid2D[2, 1] == playerName && grid2D[2, 2] == playerName) return currentPlayer;
 
-            //// check diags
-            //if (grid2D[0, 0] == player && grid2D[1, 1] == player && grid2D[2, 2] == player) { return true; }
-            //if (grid2D[0, 2] == player && grid2D[1, 1] == player && grid2D[2, 0] == player) { return true; }
+            //Columns
+            if (grid2D[0, 0] == playerName && grid2D[1, 0] == playerName && grid2D[2, 0] == playerName) return currentPlayer;
+            if (grid2D[0, 1] == playerName && grid2D[1, 1] == playerName && grid2D[2, 1] == playerName) return currentPlayer;
+            if (grid2D[0, 2] == playerName && grid2D[1, 2] == playerName && grid2D[2, 2] == playerName) return currentPlayer;
+
+            //Diagonals
+            if (grid2D[0, 0] == playerName && grid2D[1, 1] == playerName && grid2D[2, 2] == playerName) return currentPlayer;
+            if (grid2D[0, 2] == playerName && grid2D[1, 1] == playerName && grid2D[2, 0] == playerName) return currentPlayer;
 
             return null;
         }
