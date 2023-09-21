@@ -13,6 +13,7 @@ namespace TicTacToe
         static void Main(string[] args)
         {
             TicTacToeMatch();
+            Console.ReadKey();
         }
 
 
@@ -34,9 +35,11 @@ namespace TicTacToe
             //GetLength(0) is the 1st dimension, GetLength(1) is the 2nd
             for (int row = 0; row < grid2D.GetLength(0); row++)
             {
+                Console.WriteLine("");
+
                 for (int column = 0; column < grid2D.GetLength(1); column++)
                 {
-
+                    Console.Write("*");
                 }
             }
                 
