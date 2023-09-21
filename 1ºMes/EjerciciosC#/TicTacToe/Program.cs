@@ -40,8 +40,20 @@ namespace TicTacToe
 
                 Console.WriteLine("It's player " + currentPlayer.ToString() + " turn. \n");
 
-                int row = AskForNumber("Input the row: ");
-                int column = AskForNumber("Input the column: ");
+                bool canMove = false;
+
+                int row;
+                int column;
+
+                do
+                {
+                    row = AskForNumber("Input the row: ");
+                    column = AskForNumber("Input the column: ");
+                    canMove = CanPutMove(grid2D[row - 1, column - 1]);
+
+                    if (!canMove) Console.WriteLine("That box is already taken!\n");
+
+                } while (!canMove);
 
                 grid2D[row - 1, column - 1] = currentPlayer.ToString();
 
@@ -50,6 +62,13 @@ namespace TicTacToe
                 else currentPlayer = CurrentPlayer.X;
 
             } while (true);
+        }
+
+
+        private static bool CanPutMove(string positionSymbol)
+        {
+            if (positionSymbol == ".") return true;
+            else return false;
         }
 
 
