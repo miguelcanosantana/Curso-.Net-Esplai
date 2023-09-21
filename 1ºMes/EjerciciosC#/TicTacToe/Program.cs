@@ -26,10 +26,16 @@ namespace TicTacToe
                 {".", ".", "."},
             };
 
-            RefreshScreen(grid2D);
+            RefreshScreen(grid2D); 
         }
 
 
+        private static int? AskForNumber()
+        {
+            return null;
+        }
+
+        
         private static void RefreshScreen(string[,] grid2D)
         {
             //GetLength(0) is the 1st dimension, GetLength(1) is the 2nd
