@@ -23,6 +23,12 @@ namespace TicTacToe
         }
 
 
+        private static void Menu()
+        {
+           
+        }
+
+
         private static void TicTacToeMatch()
         {
             Player currentPlayer = Player.X;
@@ -142,7 +148,6 @@ namespace TicTacToe
         private static void RefreshGrid(string[,] grid2D)
         {
             Console.Clear();
-
             Console.WriteLine(" _______________________\n" +
                                 "|       |       |       |\n" +
                                 "|   {0}   |   {1}   |   {2}   |\n" +
