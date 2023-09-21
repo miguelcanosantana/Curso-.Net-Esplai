@@ -26,13 +26,17 @@ namespace TicTacToe
                 {".", ".", "."},
             };
 
-            RefreshScreen(grid2D);
+            do
+            {
+                RefreshScreen(grid2D);
 
-            int row = AskForNumber("Input the row: ");
-            int column = AskForNumber("Input the column: ");
+                int row = AskForNumber("Input the row: ");
+                int column = AskForNumber("Input the column: ");
 
-            Console.WriteLine(row);
-            Console.WriteLine(column);
+                Console.WriteLine(row);
+                Console.WriteLine(column);
+
+            } while (true);
         }
 
 
