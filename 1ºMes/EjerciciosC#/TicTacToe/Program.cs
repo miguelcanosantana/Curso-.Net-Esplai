@@ -10,7 +10,7 @@ namespace TicTacToe
     internal class Program
     {
         enum Player
-        {
+        {   None,
             X,
             O
         }
@@ -69,6 +69,7 @@ namespace TicTacToe
                 else currentPlayer = Player.X;
 
             } while (winnerPlayer == null);
+
 
             RefreshGrid(grid2D);
             Console.WriteLine("Winner Player is: " + winnerPlayer.ToString());
@@ -140,6 +141,12 @@ namespace TicTacToe
             if (grid2D[0, 2] == playerName && grid2D[1, 1] == playerName && grid2D[2, 0] == playerName) return currentPlayer;
 
             return null;
+        }
+
+
+        private static void ShowWinningScreen(Player currentPlayer)
+        {
+
         }
     }
 }
