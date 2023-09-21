@@ -135,8 +135,6 @@ namespace TicTacToe
                     break; 
             }
 
-            Console.ReadKey();
-
             return Tuple.Create(row, column);
         }
 
