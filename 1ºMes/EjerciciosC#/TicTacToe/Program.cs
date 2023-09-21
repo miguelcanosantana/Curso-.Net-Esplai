@@ -39,7 +39,8 @@ namespace TicTacToe
 
                 for (int column = 0; column < grid2D.GetLength(1); column++)
                 {
-                    Console.Write("*");
+                    string printedChar = grid2D[row, column];
+                    Console.Write(printedChar);
                 }
             }
                 
