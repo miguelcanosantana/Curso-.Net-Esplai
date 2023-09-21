@@ -36,10 +36,6 @@ namespace TicTacToe
 
             do
             {
-                RefreshGrid(grid2D);
-
-                Console.WriteLine("It's player " + currentPlayer.ToString() + " turn. \n");
-
                 bool canMove = false;
 
                 int row;
@@ -47,11 +43,19 @@ namespace TicTacToe
 
                 do
                 {
+                    Console.Clear();
+                    RefreshGrid(grid2D);
+                    Console.WriteLine("It's player " + currentPlayer.ToString() + " turn. \n");
+
                     row = AskForNumber("Input the row: ");
                     column = AskForNumber("Input the column: ");
                     canMove = CanPutMove(grid2D[row - 1, column - 1]);
 
-                    if (!canMove) Console.WriteLine("That box is already taken!\n");
+                    if (!canMove)
+                    {
+                        Console.WriteLine("That box is already taken!\n");
+                        Console.ReadKey();
+                    }
 
                 } while (!canMove);
 
