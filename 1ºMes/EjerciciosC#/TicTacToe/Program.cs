@@ -70,7 +70,7 @@ namespace TicTacToe
 
             } while (winnerPlayer == null);
 
-
+            Console.WriteLine("Winner Player is: " + winnerPlayer.ToString());
         }
 
 
