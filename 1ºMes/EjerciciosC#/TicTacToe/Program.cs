@@ -26,6 +26,7 @@ namespace TicTacToe
         private static void TicTacToeMatch()
         {
             Player currentPlayer = Player.X;
+            Player? winnerPlayer = null;
 
             //https://www.tutorialsteacher.com/csharp/csharp-multi-dimensional-array
             string[,] grid2D = new string[3, 3]{
@@ -61,13 +62,15 @@ namespace TicTacToe
 
                 grid2D[row - 1, column - 1] = currentPlayer.ToString();
 
-
+                winnerPlayer = CheckTheBoard();
 
                 //Switch players
                 if (currentPlayer == Player.X) currentPlayer = Player.O;
                 else currentPlayer = Player.X;
 
-            } while (true);
+            } while (winnerPlayer == null);
+
+
         }
 
 
@@ -116,9 +119,9 @@ namespace TicTacToe
         }
 
 
-        private static void CheckTheBoard()
+        private static Player? CheckTheBoard()
         {
-
+            return null;
         }
     }
 }
