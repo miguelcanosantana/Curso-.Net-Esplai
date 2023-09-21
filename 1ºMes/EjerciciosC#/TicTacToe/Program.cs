@@ -38,7 +38,7 @@ namespace TicTacToe
             {
                 RefreshGrid(grid2D);
 
-
+                Console.WriteLine("It's player " + currentPlayer.ToString() + " turn. \n");
 
                 int row = AskForNumber("Input the row: ");
                 int column = AskForNumber("Input the column: ");
