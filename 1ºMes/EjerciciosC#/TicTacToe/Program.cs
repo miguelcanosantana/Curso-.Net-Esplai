@@ -9,6 +9,13 @@ namespace TicTacToe
 {
     internal class Program
     {
+        enum CurrentPlayer
+        {
+            None,
+            O,
+            X
+        }
+
 
         static void Main(string[] args)
         {
@@ -19,11 +26,13 @@ namespace TicTacToe
 
         private static void TicTacToeMatch()
         {
+
+
             //https://www.tutorialsteacher.com/csharp/csharp-multi-dimensional-array
             string[,] grid2D = new string[3, 3]{
-                {".", ".", "."},
-                {".", ".", "."},
-                {".", ".", "."},
+                    {".", ".", "."},
+                    {".", ".", "."},
+                    {".", ".", "."},
             };
 
             do
