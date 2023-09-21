@@ -11,9 +11,8 @@ namespace TicTacToe
     {
         enum CurrentPlayer
         {
-            None,
-            O,
-            X
+            X,
+            O
         }
 
 
@@ -26,7 +25,7 @@ namespace TicTacToe
 
         private static void TicTacToeMatch()
         {
-
+            CurrentPlayer currentPlayer = CurrentPlayer.X;
 
             //https://www.tutorialsteacher.com/csharp/csharp-multi-dimensional-array
             string[,] grid2D = new string[3, 3]{
@@ -37,13 +36,19 @@ namespace TicTacToe
 
             do
             {
-                RefreshScreen(grid2D);
+                RefreshGrid(grid2D);
+
+
 
                 int row = AskForNumber("Input the row: ");
                 int column = AskForNumber("Input the column: ");
 
                 Console.WriteLine(row);
                 Console.WriteLine(column);
+
+                //Switch players
+                if (currentPlayer == CurrentPlayer.X) currentPlayer = CurrentPlayer.O;
+                else currentPlayer = CurrentPlayer.X;
 
             } while (true);
         }
@@ -65,7 +70,7 @@ namespace TicTacToe
         }
 
         
-        private static void RefreshScreen(string[,] grid2D)
+        private static void RefreshGrid(string[,] grid2D)
         {
             //GetLength(0) is the 1st dimension, GetLength(1) is the 2nd
             for (int row = 0; row < grid2D.GetLength(0); row++)
