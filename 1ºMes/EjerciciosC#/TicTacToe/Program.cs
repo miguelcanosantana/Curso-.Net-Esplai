@@ -44,7 +44,6 @@ namespace TicTacToe
 
                 do
                 {
-                    Console.Clear();
                     RefreshGrid(grid2D);
                     Console.WriteLine("It's player " + currentPlayer.ToString() + " turn. \n");
 
@@ -70,10 +69,8 @@ namespace TicTacToe
 
             } while (winnerPlayer == null);
 
-
             RefreshGrid(grid2D);
-            Console.WriteLine("Winner Player is: " + winnerPlayer.ToString());
-            Console.WriteLine("Congratulations!!!");
+            ShowWinningScreen(winnerPlayer);
         }
 
 
@@ -102,6 +99,7 @@ namespace TicTacToe
         
         private static void RefreshGrid(string[,] grid2D)
         {
+            Console.Clear();
 
             Console.WriteLine(" _______________________\n" +
                                 "|       |       |       |\n" +
@@ -144,9 +142,10 @@ namespace TicTacToe
         }
 
 
-        private static void ShowWinningScreen(Player currentPlayer)
+        private static void ShowWinningScreen(Player? winnerPlayer)
         {
-
+            Console.WriteLine("Winner Player is: " + winnerPlayer.ToString());
+            Console.WriteLine("Congratulations!!!");
         }
     }
 }
