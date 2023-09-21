@@ -50,7 +50,7 @@ namespace TicTacToe
                 Console.Write(message);
                 result = Int32.TryParse(Console.ReadLine(), out number);
 
-            } while (!result);
+            } while (!result || number > 3 || number < 1);
 
             return number;
         }
