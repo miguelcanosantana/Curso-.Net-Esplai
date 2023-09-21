@@ -214,14 +214,41 @@ namespace TicTacToe
             if (grid2D[0, 0] == playerName && grid2D[1, 1] == playerName && grid2D[2, 2] == playerName) return currentPlayer;
             if (grid2D[0, 2] == playerName && grid2D[1, 1] == playerName && grid2D[2, 0] == playerName) return currentPlayer;
 
+            //Check if the board is full to declare no winners
+            //https://stackoverflow.com/questions/8184306/iterate-through-2-dimensional-array-c-sharp
+
+            int emptySpacesCount = 0;
+
+            for (int k = 0; k < grid2D.GetLength(0); k++)
+            {
+                for (int l = 0; l < grid2D.GetLength(1); l++)
+                {
+                    if (grid2D[k, l].Equals(".")) emptySpacesCount++;
+                }
+            }
+
+            if (emptySpacesCount == 0) return Player.None;
+
             return null;
         }
 
 
         private static void ShowWinningScreen(Player? winnerPlayer)
         {
-            Console.WriteLine("Winner Player is: " + winnerPlayer.ToString());
-            Console.WriteLine("Congratulations!!!");
+            if (winnerPlayer != Player.None)
+            {
+                Console.WriteLine(winnerPlayer.ToString() + " won!");
+                Console.WriteLine("Congratulations!!!");
+            } 
+            else
+            {
+                Console.WriteLine("No one won!");
+                Console.WriteLine("Congratulations?");
+            }
+
+            Console.WriteLine("\nPress any key to go back to the menu");
+            Console.ReadKey();
+            Menu();
         }
     }
 }
