@@ -18,14 +18,48 @@ namespace TicTacToe
 
         static void Main(string[] args)
         {
-            TicTacToeMatch();
-            Console.ReadKey();
+            Menu();
         }
 
 
         private static void Menu()
         {
-           
+            Console.Clear();
+
+            //http://patorjk.com/software/taag/#p=display&f=Big&t=TIC-TAC-TOE
+            Console.WriteLine("  _______ _____ _____   _______       _____   _______ ____  ______ \r\n" +
+                " |__   __|_   _/ ____| |__   __|/\\   / ____| |__   __/ __ \\|  ____|\r\n" +
+                "    | |    | || |   ______| |  /  \\ | |   ______| | | |  | | |__   \r\n" +
+                "    | |    | || |  |______| | / /\\ \\| |  |______| | | |  | |  __|  \r\n" +
+                "    | |   _| || |____     | |/ ____ \\ |____     | | | |__| | |____ \r\n" +
+                "    |_|  |_____\\_____|    |_/_/    \\_\\_____|    |_|  \\____/|______|\r\n" +
+                "                                                                   \r\n" +
+                "                                                               ");
+
+            Console.WriteLine("Press 1 for Single Player mode (With 'AI')");
+            Console.WriteLine("Press 2 for Two Player mode");
+            Console.WriteLine("Press X to exit");
+            Console.Write("Input: ");
+
+            string key = Console.ReadLine();
+
+            switch (key)
+            {
+                case "1":
+                    TicTacToeMatch();
+                    break;
+
+                case "2":
+                    TicTacToeMatch();
+                    break;
+
+                case "x":
+                    break;
+
+                default:
+                    Menu();
+                    break;
+            }
         }
 
 
