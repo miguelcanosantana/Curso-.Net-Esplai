@@ -18,11 +18,25 @@ namespace TicTacToe
 
         static void Main(string[] args)
         {
-            Menu();
+            Logic();
         }
 
 
-        private static void Menu()
+        private static void Logic()
+        {
+            string selectedOption = null;
+
+            do
+            {
+                selectedOption = SelectOptionMenu();
+
+                if (selectedOption.Equals("1")) TicTacToeMatch();
+
+            } while (!selectedOption.Equals("x"));
+        }
+
+
+        private static string SelectOptionMenu()
         {
             Console.Clear();
 
@@ -39,21 +53,7 @@ namespace TicTacToe
             Console.WriteLine("Press X to exit");
             Console.Write("Input: ");
 
-            string key = Console.ReadLine();
-
-            switch (key)
-            {
-                case "1":
-                    TicTacToeMatch();
-                    break;
-
-                case "x":
-                    break;
-
-                default:
-                    Menu();
-                    break;
-            }
+            return Console.ReadLine();
         }
 
 
@@ -247,7 +247,6 @@ namespace TicTacToe
 
             Console.WriteLine("\nPress any key to go back to the menu");
             Console.ReadKey();
-            Menu();
         }
     }
 }
