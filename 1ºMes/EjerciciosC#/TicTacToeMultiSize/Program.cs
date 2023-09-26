@@ -187,11 +187,12 @@ namespace TicTacToeMultiSize
         {
             string playerName = currentPlayer.ToString();
 
-            //Rows (First rows then columns)
+            int symbolsCount = 0;
+
+            //Rows
             for (int r = 0; r < grid2D.Count; r++)
             {
-                int symbolsCount = 0;
-                Console.WriteLine(symbolsCount);
+                symbolsCount = 0;
 
                 for (int c = 0; c < grid2D[r].Count; c++)
                 {
@@ -202,65 +203,46 @@ namespace TicTacToeMultiSize
                     return currentPlayer;
             }
 
+            //Don't reset the counter each column iteration
+            symbolsCount = 0;
 
-            //Columns (First columns then rows)
-            for (int c = 0; c < grid2D.Count; c++)
+            //Columns
+            for (int r = 0; r < grid2D.Count; r++)
             {
-                for (int r = 0; r < grid2D[c].Count; r++)
+                for (int c = 0; c < grid2D[r].Count; c++)
                 {
-
+                    if (grid2D[r][c].ToString().Equals(playerName)) symbolsCount++;
                 }
+
+                if (symbolsCount == grid2D.Count)
+                    return currentPlayer;
+            }
+
+            //Diagonals
+            for (int r = 0; r < grid2D.Count; r++)
+            {
+                symbolsCount = 0;
+                if (grid2D[r][r].ToString().Equals(playerName)) symbolsCount++;
+
+                if (symbolsCount == grid2D.Count)
+                    return currentPlayer;
             }
 
 
-
-
-            //for (int i = 0; i < grid2D.Count; i++)
-            //{
-            //    int symbolsCount = 0;
-            //    Console.WriteLine(symbolsCount);
-
-            //    for (int k = 0; k < grid2D[i].Count; k++)
-            //    {
-            //        if (grid2D[i][k].ToString().Equals(playerName)) symbolsCount++;
-            //    }
-
-            //    if (symbolsCount == grid2D.Count)
-            //        return currentPlayer;
-            //}
-
-
-            ////Rows
-            //if ((grid2D[0, 0] == playerName && grid2D[0, 1] == playerName && grid2D[0, 2] == playerName) ||
-            //    (grid2D[1, 0] == playerName && grid2D[1, 1] == playerName && grid2D[1, 2] == playerName) ||
-            //    (grid2D[2, 0] == playerName && grid2D[2, 1] == playerName && grid2D[2, 2] == playerName))
-            //    return currentPlayer;
-
-            ////Columns
-            //if ((grid2D[0, 0] == playerName && grid2D[1, 0] == playerName && grid2D[2, 0] == playerName) ||
-            //    (grid2D[0, 1] == playerName && grid2D[1, 1] == playerName && grid2D[2, 1] == playerName) ||
-            //    (grid2D[0, 2] == playerName && grid2D[1, 2] == playerName && grid2D[2, 2] == playerName))
-            //    return currentPlayer;
-
-            ////Diagonals
-            //if ((grid2D[0, 0] == playerName && grid2D[1, 1] == playerName && grid2D[2, 2] == playerName) ||
-            //    (grid2D[0, 2] == playerName && grid2D[1, 1] == playerName && grid2D[2, 0] == playerName))
-            //    return currentPlayer;
-
-            //Check if the board is full to declare no winners
-            //https://stackoverflow.com/questions/8184306/iterate-through-2-dimensional-array-c-sharp
-
+            //Check for empty spaces left
             int emptySpacesCount = 0;
 
-            //for (int k = 0; k < grid2D.GetLength(0); k++)
-            //{
-            //    for (int l = 0; l < grid2D.GetLength(1); l++)
-            //    {
-            //        if (grid2D[k, l].Equals(".")) emptySpacesCount++;
-            //    }
-            //}
+            for (int r = 0; r < grid2D.Count; r++)
+            {
 
-            //if (emptySpacesCount == 0) return Player.None;
+                for (int c = 0; c < grid2D[r].Count; c++)
+                {
+                    if (grid2D[r][c].ToString().Equals(".")) emptySpacesCount++;
+                }
+            }
+
+            if (emptySpacesCount == 0) 
+                return Player.None;
 
             return null;
         }
