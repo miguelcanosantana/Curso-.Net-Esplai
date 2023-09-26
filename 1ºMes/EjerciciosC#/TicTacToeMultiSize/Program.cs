@@ -84,8 +84,6 @@ namespace TicTacToeMultiSize
                 }
             }
 
-
-
             do
             {
                 bool canPutMove = false;
@@ -97,7 +95,7 @@ namespace TicTacToeMultiSize
                     Console.WriteLine("It's player " + currentPlayer.ToString() + " turn. \n");
 
                     //https://www.codeproject.com/Questions/336952/Two-Dimensional-List
-                    boxNumber = AskForNumber("Input the number (1 - 9): ");
+                    boxNumber = AskForNumber("Input the number (1 - " + size * size + "): ");
                     canPutMove = CanPutMove(grid2D[boxNumber.Item1][boxNumber.Item2]);
 
                     if (!canPutMove)
