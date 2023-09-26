@@ -187,22 +187,31 @@ namespace TicTacToeMultiSize
         {
             string playerName = currentPlayer.ToString();
 
-            //Rows
-            for (int i = 0; i < grid2D.Count; i++)
+            //Rows (First rows then columns)
+            for (int r = 0; r < grid2D.Count; r++)
             {
                 int symbolsCount = 0;
                 Console.WriteLine(symbolsCount);
 
-                for (int k = 0; k < grid2D[i].Count; k++)
+                for (int c = 0; c < grid2D[r].Count; c++)
                 {
-                    if (grid2D[i][k].ToString().Equals(playerName)) symbolsCount++;
+                    if (grid2D[r][c].ToString().Equals(playerName)) symbolsCount++;
                 }
 
                 if (symbolsCount == grid2D.Count)
                     return currentPlayer;
             }
 
-            //Columns
+
+            //Columns (First columns then rows)
+            for (int c = 0; c < grid2D.Count; c++)
+            {
+
+            }
+
+
+
+
             //for (int i = 0; i < grid2D.Count; i++)
             //{
             //    int symbolsCount = 0;
