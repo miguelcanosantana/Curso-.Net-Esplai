@@ -200,18 +200,21 @@ namespace TicTacToe
             string playerName = currentPlayer.ToString();
 
             //Rows
-            if (grid2D[0, 0] == playerName && grid2D[0, 1] == playerName && grid2D[0, 2] == playerName) return currentPlayer;
-            if (grid2D[1, 0] == playerName && grid2D[1, 1] == playerName && grid2D[1, 2] == playerName) return currentPlayer;
-            if (grid2D[2, 0] == playerName && grid2D[2, 1] == playerName && grid2D[2, 2] == playerName) return currentPlayer;
+            if ((grid2D[0, 0] == playerName && grid2D[0, 1] == playerName && grid2D[0, 2] == playerName) ||
+                (grid2D[1, 0] == playerName && grid2D[1, 1] == playerName && grid2D[1, 2] == playerName) ||
+                (grid2D[2, 0] == playerName && grid2D[2, 1] == playerName && grid2D[2, 2] == playerName)) 
+                return currentPlayer;
 
             //Columns
-            if (grid2D[0, 0] == playerName && grid2D[1, 0] == playerName && grid2D[2, 0] == playerName) return currentPlayer;
-            if (grid2D[0, 1] == playerName && grid2D[1, 1] == playerName && grid2D[2, 1] == playerName) return currentPlayer;
-            if (grid2D[0, 2] == playerName && grid2D[1, 2] == playerName && grid2D[2, 2] == playerName) return currentPlayer;
+            if ((grid2D[0, 0] == playerName && grid2D[1, 0] == playerName && grid2D[2, 0] == playerName) || 
+                (grid2D[0, 1] == playerName && grid2D[1, 1] == playerName && grid2D[2, 1] == playerName) ||
+                (grid2D[0, 2] == playerName && grid2D[1, 2] == playerName && grid2D[2, 2] == playerName))
+                return currentPlayer;
 
             //Diagonals
-            if (grid2D[0, 0] == playerName && grid2D[1, 1] == playerName && grid2D[2, 2] == playerName) return currentPlayer;
-            if (grid2D[0, 2] == playerName && grid2D[1, 1] == playerName && grid2D[2, 0] == playerName) return currentPlayer;
+            if ((grid2D[0, 0] == playerName && grid2D[1, 1] == playerName && grid2D[2, 2] == playerName) ||
+                (grid2D[0, 2] == playerName && grid2D[1, 1] == playerName && grid2D[2, 0] == playerName))
+                return currentPlayer;
 
             //Check if the board is full to declare no winners
             //https://stackoverflow.com/questions/8184306/iterate-through-2-dimensional-array-c-sharp
