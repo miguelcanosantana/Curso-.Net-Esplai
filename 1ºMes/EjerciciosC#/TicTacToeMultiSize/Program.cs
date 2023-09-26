@@ -62,12 +62,29 @@ namespace TicTacToeMultiSize
             Player currentPlayer = Player.X;
             Player? winnerPlayer = null;
 
-            //https://www.tutorialsteacher.com/csharp/csharp-multi-dimensional-array
-            string[,] grid2D = new string[3, 3]{
-                    {".", ".", "."},
-                    {".", ".", "."},
-                    {".", ".", "."},
-            };
+            int size = 2;
+            bool result = false;
+
+            do
+            {
+                Console.Write("Input the grid size: ");
+                result = int.TryParse(Console.ReadLine(), out size);
+            } while (!result || size < 2);
+
+            //https://www.delftstack.com/howto/csharp/declare-a-multidimensional-list-in-csharp/
+            List<List<string>> grid2D = new List<List<string>>();
+
+            for (int i = 0; i < size; i++)
+            {
+                grid2D.Add(new List<string>());
+
+                for (int k = 0; k < size; k++)
+                {
+                    grid2D[i].Add(".");
+                }
+            }
+
+
 
             do
             {
@@ -79,8 +96,9 @@ namespace TicTacToeMultiSize
                     RefreshGrid(grid2D);
                     Console.WriteLine("It's player " + currentPlayer.ToString() + " turn. \n");
 
+                    //https://www.codeproject.com/Questions/336952/Two-Dimensional-List
                     boxNumber = AskForNumber("Input the number (1 - 9): ");
-                    canPutMove = CanPutMove(grid2D[boxNumber.Item1, boxNumber.Item2]);
+                    canPutMove = CanPutMove(grid2D[boxNumber.Item1][boxNumber.Item2]);
 
                     if (!canPutMove)
                     {
@@ -90,7 +108,7 @@ namespace TicTacToeMultiSize
 
                 } while (!canPutMove);
 
-                grid2D[boxNumber.Item1, boxNumber.Item2] = currentPlayer.ToString();
+                grid2D[boxNumber.Item1][boxNumber.Item2] = currentPlayer.ToString();
 
                 winnerPlayer = CheckTheWinner(currentPlayer, grid2D);
 
@@ -173,61 +191,58 @@ namespace TicTacToeMultiSize
         }
 
 
-        private static void RefreshGrid(string[,] grid2D)
+        private static void RefreshGrid(List<List<string>> grid2D)
         {
             Console.Clear();
-            Console.WriteLine(" _______________________\n" +
-                                "|       |       |       |\n" +
-                                "|   {0}   |   {1}   |   {2}   |\n" +
-                                "|_______|_______|_______|\n" +
-                                "|       |       |       |\n" +
-                                "|   {3}   |   {4}   |   {5}   |\n" +
-                                "|_______|_______|_______|\n" +
-                                "|       |       |       |\n" +
-                                "|   {6}   |   {7}   |   {8}   |\n" +
-                                "|_______|_______|_______|\n",
-                                grid2D[0, 0], grid2D[0, 1], grid2D[0, 2],
-                                grid2D[1, 0], grid2D[1, 1], grid2D[1, 2],
-                                grid2D[2, 0], grid2D[2, 1], grid2D[2, 2]);
+
+            for (int i = 0; i < grid2D.Count; i++)
+            {
+                Console.WriteLine("");
+
+                for (int k = 0; k < grid2D[i].Count; k++)
+                {
+                    Console.Write(grid2D[i][k].ToString());
+                }
+            }
 
             Console.WriteLine("");
             Console.WriteLine("");
         }
 
 
-        private static Player? CheckTheWinner(Player currentPlayer, string[,] grid2D)
+        private static Player? CheckTheWinner(Player currentPlayer, List<List<string>> grid2D)
         {
             string playerName = currentPlayer.ToString();
 
-            //Rows
-            if ((grid2D[0, 0] == playerName && grid2D[0, 1] == playerName && grid2D[0, 2] == playerName) ||
-                (grid2D[1, 0] == playerName && grid2D[1, 1] == playerName && grid2D[1, 2] == playerName) ||
-                (grid2D[2, 0] == playerName && grid2D[2, 1] == playerName && grid2D[2, 2] == playerName))
-                return currentPlayer;
+            ////Rows
+            //if ((grid2D[0, 0] == playerName && grid2D[0, 1] == playerName && grid2D[0, 2] == playerName) ||
+            //    (grid2D[1, 0] == playerName && grid2D[1, 1] == playerName && grid2D[1, 2] == playerName) ||
+            //    (grid2D[2, 0] == playerName && grid2D[2, 1] == playerName && grid2D[2, 2] == playerName))
+            //    return currentPlayer;
 
-            //Columns
-            if ((grid2D[0, 0] == playerName && grid2D[1, 0] == playerName && grid2D[2, 0] == playerName) ||
-                (grid2D[0, 1] == playerName && grid2D[1, 1] == playerName && grid2D[2, 1] == playerName) ||
-                (grid2D[0, 2] == playerName && grid2D[1, 2] == playerName && grid2D[2, 2] == playerName))
-                return currentPlayer;
+            ////Columns
+            //if ((grid2D[0, 0] == playerName && grid2D[1, 0] == playerName && grid2D[2, 0] == playerName) ||
+            //    (grid2D[0, 1] == playerName && grid2D[1, 1] == playerName && grid2D[2, 1] == playerName) ||
+            //    (grid2D[0, 2] == playerName && grid2D[1, 2] == playerName && grid2D[2, 2] == playerName))
+            //    return currentPlayer;
 
-            //Diagonals
-            if ((grid2D[0, 0] == playerName && grid2D[1, 1] == playerName && grid2D[2, 2] == playerName) ||
-                (grid2D[0, 2] == playerName && grid2D[1, 1] == playerName && grid2D[2, 0] == playerName))
-                return currentPlayer;
+            ////Diagonals
+            //if ((grid2D[0, 0] == playerName && grid2D[1, 1] == playerName && grid2D[2, 2] == playerName) ||
+            //    (grid2D[0, 2] == playerName && grid2D[1, 1] == playerName && grid2D[2, 0] == playerName))
+            //    return currentPlayer;
 
             //Check if the board is full to declare no winners
             //https://stackoverflow.com/questions/8184306/iterate-through-2-dimensional-array-c-sharp
 
             int emptySpacesCount = 0;
 
-            for (int k = 0; k < grid2D.GetLength(0); k++)
-            {
-                for (int l = 0; l < grid2D.GetLength(1); l++)
-                {
-                    if (grid2D[k, l].Equals(".")) emptySpacesCount++;
-                }
-            }
+            //for (int k = 0; k < grid2D.GetLength(0); k++)
+            //{
+            //    for (int l = 0; l < grid2D.GetLength(1); l++)
+            //    {
+            //        if (grid2D[k, l].Equals(".")) emptySpacesCount++;
+            //    }
+            //}
 
             if (emptySpacesCount == 0) return Player.None;
 
