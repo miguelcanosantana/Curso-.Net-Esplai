@@ -206,7 +206,10 @@ namespace TicTacToeMultiSize
             //Columns (First columns then rows)
             for (int c = 0; c < grid2D.Count; c++)
             {
+                for (int r = 0; r < grid2D[c].Count; r++)
+                {
 
+                }
             }
 
 
