@@ -62,23 +62,27 @@ namespace TicTacToeMultiSize
             Player currentPlayer = Player.X;
             Player? winnerPlayer = null;
 
-            int size = 2;
+            int sideSize = 2;
+            int totalSize;
             bool result = false;
 
             do
             {
                 Console.Write("Input the grid size: ");
-                result = int.TryParse(Console.ReadLine(), out size);
-            } while (!result || size < 2);
+                result = int.TryParse(Console.ReadLine(), out sideSize);
+            } while (!result || sideSize < 2);
+
+            totalSize = sideSize * sideSize;
 
             //https://www.delftstack.com/howto/csharp/declare-a-multidimensional-list-in-csharp/
             List<List<string>> grid2D = new List<List<string>>();
 
-            for (int i = 0; i < size; i++)
+            //Create for the first time
+            for (int i = 0; i < sideSize; i++)
             {
                 grid2D.Add(new List<string>());
 
-                for (int k = 0; k < size; k++)
+                for (int k = 0; k < sideSize; k++)
                 {
                     grid2D[i].Add(".");
                 }
@@ -95,7 +99,7 @@ namespace TicTacToeMultiSize
                     Console.WriteLine("It's player " + currentPlayer.ToString() + " turn. \n");
 
                     //https://www.codeproject.com/Questions/336952/Two-Dimensional-List
-                    boxNumber = AskForNumber("Input the number (1 - " + size * size + "): ");
+                    boxNumber = AskForNumber("Input the number (1 - " + totalSize + "): ", grid2D);
                     canPutMove = CanPutMove(grid2D[boxNumber.Item1][boxNumber.Item2]);
 
                     if (!canPutMove)
@@ -129,7 +133,7 @@ namespace TicTacToeMultiSize
 
 
         //https://stackoverflow.com/questions/748062/return-multiple-values-to-a-method-caller
-        private static Tuple<int, int> AskForNumber(string message)
+        private static Tuple<int, int> AskForNumber(string message, List<List<string>> grid2D)
         {
             int number = 0;
             bool result;
@@ -139,53 +143,24 @@ namespace TicTacToeMultiSize
                 Console.Write(message);
                 result = Int32.TryParse(Console.ReadLine(), out number);
 
-            } while (!result || number > 9 || number < 1);
+            } while (!result || number > grid2D.Count * grid2D.Count || number < 1);
 
-            int row = 0;
-            int column = 0;
+            int count = 0;            
 
-            //Convert from a number to a multiple index
-            switch (number)
+            for (int i = 0; i < grid2D.Count; i++)
             {
-                case 1:
-                    row = 0;
-                    column = 0;
-                    break;
-                case 2:
-                    row = 0;
-                    column = 1;
-                    break;
-                case 3:
-                    row = 0;
-                    column = 2;
-                    break;
-                case 4:
-                    row = 1;
-                    column = 0;
-                    break;
-                case 5:
-                    row = 1;
-                    column = 1;
-                    break;
-                case 6:
-                    row = 1;
-                    column = 2;
-                    break;
-                case 7:
-                    row = 2;
-                    column = 0;
-                    break;
-                case 8:
-                    row = 2;
-                    column = 1;
-                    break;
-                case 9:
-                    row = 2;
-                    column = 2;
-                    break;
+                for (int k = 0; k < grid2D[i].Count; k++)
+                {
+                    count++;
+
+                    if (number == count)
+                    {
+                        return Tuple.Create(i, k);
+                    }
+                }
             }
 
-            return Tuple.Create(row, column);
+            return null;
         }
 
 
