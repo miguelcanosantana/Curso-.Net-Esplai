@@ -129,6 +129,7 @@ namespace Snake
 
         private static void PrintBoard()
         {
+            //Printing everything at once in a single string reduces blinking
             string scene = "";
 
             for (int r = 0; r < grid2D.Count; r++)
