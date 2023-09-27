@@ -20,6 +20,7 @@ namespace Snake
 
         //Snake
         static List<Tuple<int, int>> snakeParts = new List<Tuple<int, int>>();
+        static List<Tuple<int, int>> previousHeadPositions = new List<Tuple<int, int>>();
         static Vector2 inputDirection = Vector2.Zero;
         static ConsoleKey previousKey;
 
@@ -74,8 +75,16 @@ namespace Snake
         {
             if (snakeParts[0].Item1 == applePosition.Item1 && snakeParts[0].Item2 == applePosition.Item2)
             {
+                GrowSnake(1);
                 GenerateApple();
             }
+        }
+
+
+        private static void GrowSnake(int number)
+        {
+            var positionOfLastPart = snakeParts[snakeParts.Count - 1];
+            snakeParts.Add(positionOfLastPart);
         }
 
 
@@ -115,7 +124,7 @@ namespace Snake
 
             }
 
-            //Check if the snake can move, if so, move it automatically
+            //Move the snake automatically
             Tuple<int, int> headPosition = snakeParts[0];
             
             int newPositionY = (int) (snakeParts[0].Item1 + inputDirection.Y);
