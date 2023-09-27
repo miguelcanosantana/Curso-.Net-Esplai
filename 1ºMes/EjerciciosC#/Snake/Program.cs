@@ -139,11 +139,14 @@ namespace Snake
 
                     if (snakeParts.Contains(Tuple.Create(r, c)))
                     {
-                        Console.Write("+");
+                        //Check if it's the head or a body part
+                        if (grid2D[r][c] == grid2D[0][0])
+                            Console.Write("X");
+                        else
+                            Console.Write("+");
                     }
                     else
                         Console.Write("·");
-                    
                 }
             }
         }
