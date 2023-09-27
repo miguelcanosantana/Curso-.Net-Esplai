@@ -51,13 +51,13 @@ namespace Snake
             {
 
                 SnakeControls();
+                CanEatApple();
                 PrintBoard();
                 Thread.Sleep(100);
             }
         }
 
 
-        //TODO
         private static void GenerateApple()
         {
             Random rnd = new Random();
@@ -66,6 +66,16 @@ namespace Snake
             int randomX = rnd.Next(0, sideSize);
 
             applePosition = new Tuple<int, int>(randomY, randomX);
+        }
+
+
+        //TODO
+        private static void CanEatApple()
+        {
+            if (snakeParts[0].Item1 == applePosition.Item1 && snakeParts[0].Item2 == applePosition.Item2)
+            {
+                GenerateApple();
+            }
         }
 
 
