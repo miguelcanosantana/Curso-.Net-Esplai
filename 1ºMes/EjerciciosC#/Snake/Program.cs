@@ -34,6 +34,8 @@ namespace Snake
         private static void SnakeAllLogic()
         {
             CreateGrid();
+            CreateSnake();
+            PrintGridAndSnake();
 
             Console.ReadKey();
         }
@@ -51,8 +53,17 @@ namespace Snake
                 for (int k = 0; k < sideSize; k++)
                     grid2D[i].Add("·");
             }
+        }
 
-            PrintGridAndSnake();
+
+        private static void CreateSnake()
+        {
+            snakeDictionary.Clear();
+
+            //Create for the first time (only the head)
+            int midGrid = sideSize / 2;
+
+            snakeDictionary.Add(Tuple.Create(midGrid, midGrid), eBoxType.SnakeHead);
         }
 
 
