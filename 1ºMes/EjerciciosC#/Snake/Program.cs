@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Snake
@@ -37,7 +38,47 @@ namespace Snake
             CreateSnake();
             PrintGridAndSnake();
 
-            Console.ReadKey();
+            GameLoop();
+        }
+
+
+        private static void GameLoop()
+        {
+            bool isPlayingGame = true;
+
+            while (isPlayingGame)
+            {
+
+                isPlayingGame = SnakeControls();
+                Thread.Sleep(500);
+            }
+        }
+
+
+        private static bool SnakeControls()
+        {
+            if (Console.KeyAvailable)
+            {
+                ConsoleKeyInfo key = Console.ReadKey(true);
+                switch (key.Key)
+                {
+                    case ConsoleKey.LeftArrow:
+                        return true;
+
+                    case ConsoleKey.RightArrow:
+                        return true;
+
+                    case ConsoleKey.UpArrow:
+                        return true;
+
+                    case ConsoleKey.DownArrow:
+                        return true;
+
+                    case ConsoleKey.Escape:
+                        return false;
+                }
+            }
+            return true;
         }
 
 
