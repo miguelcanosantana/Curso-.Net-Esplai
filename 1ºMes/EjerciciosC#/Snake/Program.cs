@@ -9,14 +9,6 @@ using System.Threading.Tasks;
 namespace Snake
 {
 
-    public enum eBoxType
-    {
-        Empty,
-        SnakeBody,
-        SnakeHead
-    }
-
-
     internal class Program
     {
         //Grid
@@ -24,7 +16,7 @@ namespace Snake
         static int sideSize = 25;
 
         //Snake
-        static Dictionary<Tuple<int, int>, eBoxType> snakeDictionary = new Dictionary<Tuple<int, int>, eBoxType>();
+        static List<Tuple<int, int>> snakeParts = new List<Tuple<int, int>>();
         static Vector2 inputDirection = Vector2.Zero;
 
 
@@ -111,12 +103,12 @@ namespace Snake
 
         private static void CreateSnake()
         {
-            snakeDictionary.Clear();
+            snakeParts.Clear();
 
-            //Create for the first time (only the head)
+            //Create the first part (the head)
             int midGrid = sideSize / 2;
 
-            snakeDictionary.Add(Tuple.Create(midGrid, midGrid), eBoxType.SnakeHead);
+            snakeParts.Add(Tuple.Create(midGrid, midGrid));
         }
 
 
@@ -128,11 +120,8 @@ namespace Snake
 
                 for (int c = 0; c < grid2D[r].Count; c++)
                 {
-                    eBoxType boxType;
 
-                    //Using tuples instead arrays, because getting a value by array from a dictionary
-                    //is in preview and not oficially supported yet
-                    if (snakeDictionary.TryGetValue(Tuple.Create(r, c), out boxType))
+                    if (snakeParts.Contains(Tuple.Create(r, c)))
                     {
                         Console.Write("+");
                     }
