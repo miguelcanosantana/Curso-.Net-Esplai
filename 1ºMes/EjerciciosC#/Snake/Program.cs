@@ -59,6 +59,7 @@ namespace Snake
             if (Console.KeyAvailable)
             {
                 ConsoleKeyInfo key = Console.ReadKey(true);
+
                 switch (key.Key)
                 {
                     case ConsoleKey.LeftArrow:
