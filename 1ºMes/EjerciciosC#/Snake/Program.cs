@@ -147,16 +147,16 @@ namespace Snake
             //Save head positions
             previousHeadPositions.Add(Tuple.Create(newPositionY, newPositionX));
 
-            if (previousHeadPositions.Count > snakeParts.Count)
+            if (snakeParts.Count > 1)
             {
-                previousHeadPositions.Remove(previousHeadPositions.Last());
+                for (int i = 1; i < snakeParts.Count; i++)
+                {
+                    snakeParts[i] = previousHeadPositions[i];
+                }
+
+                previousHeadPositions.RemoveAt(0);
             }
 
-            //Start counting from head
-            for (int i = 1; i < snakeParts.Count; i++)
-            {
-                snakeParts[i] = previousHeadPositions[i];
-            }
         }
 
 
