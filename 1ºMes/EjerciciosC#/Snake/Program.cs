@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace Snake
 
         //Snake
         static Dictionary<Tuple<int, int>, eBoxType> snakeDictionary = new Dictionary<Tuple<int, int>, eBoxType>();
+        static Vector2 inputDirection = Vector2.Zero;
 
 
         static void Main(string[] args)
@@ -57,27 +59,37 @@ namespace Snake
 
         private static bool SnakeControls()
         {
+            //Read the press of the keys
             if (Console.KeyAvailable)
             {
                 ConsoleKeyInfo key = Console.ReadKey(true);
                 switch (key.Key)
                 {
                     case ConsoleKey.LeftArrow:
-                        return true;
+                        inputDirection = -Vector2.UnitX;
+                        break;
 
                     case ConsoleKey.RightArrow:
-                        return true;
+                        inputDirection = Vector2.UnitX;
+                        break;
 
                     case ConsoleKey.UpArrow:
-                        return true;
+                        inputDirection = Vector2.UnitY;
+                        break;
 
                     case ConsoleKey.DownArrow:
-                        return true;
+                        inputDirection = -Vector2.UnitY;
+                        break;
 
                     case ConsoleKey.Escape:
                         return false;
                 }
             }
+
+            //Check if the snake can move, if so, move it automatically
+            Tuple<int, int> headPosition; 
+
+
             return true;
         }
 
