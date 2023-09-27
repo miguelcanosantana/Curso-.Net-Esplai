@@ -102,6 +102,7 @@ namespace Snake
 
         private static void CreateGrid()
         {
+
             grid2D.Clear();
 
             //Create for the first time
@@ -128,12 +129,10 @@ namespace Snake
 
         private static void PrintBoard()
         {
-            Console.Clear();
+            string scene = "";
 
             for (int r = 0; r < grid2D.Count; r++)
             {
-                Console.WriteLine("");
-
                 for (int c = 0; c < grid2D[r].Count; c++)
                 {
 
@@ -141,14 +140,18 @@ namespace Snake
                     {
                         //Check if it's the head or a body part
                         if (grid2D[r][c] == grid2D[0][0])
-                            Console.Write("X");
+                            scene += "X";
                         else
-                            Console.Write("+");
+                            scene += "+";
                     }
                     else
-                        Console.Write("·");
+                        scene += "·";
                 }
+                scene += '\n';
             }
+
+            Console.Clear();
+            Console.Write(scene);
         }
 
     }
