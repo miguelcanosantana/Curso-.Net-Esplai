@@ -96,6 +96,18 @@ namespace Snake
             int newPositionY = (int) (snakeParts[0].Item1 + inputDirection.Y);
             int newPositionX = (int) (snakeParts[0].Item2 + inputDirection.X);
 
+            //Check limits
+            if (newPositionY < 0) 
+                newPositionY = sideSize;
+            else if 
+                (newPositionY > sideSize) newPositionY = 0;
+
+            if (newPositionX < 0)
+                newPositionX = sideSize;
+            else if
+                (newPositionX > sideSize) newPositionX = 0;
+
+            //Set final position to the head
             snakeParts[0] = Tuple.Create(newPositionY, newPositionX);
         }
 
