@@ -21,6 +21,7 @@ namespace Snake
         //Snake
         static List<Tuple<int, int>> snakeParts = new List<Tuple<int, int>>();
         static Vector2 inputDirection = Vector2.Zero;
+        static ConsoleKey previousKey;
 
 
         static void Main(string[] args)
@@ -60,28 +61,33 @@ namespace Snake
             {
                 ConsoleKeyInfo key = Console.ReadKey(true);
 
-                switch (key.Key)
+                if (key.Key == ConsoleKey.Escape)
                 {
-                    case ConsoleKey.LeftArrow:
-                        inputDirection = -Vector2.UnitX;
-                        break;
-
-                    case ConsoleKey.RightArrow:
-                        inputDirection = Vector2.UnitX;
-                        break;
-
-                    case ConsoleKey.UpArrow:
-                        inputDirection = -Vector2.UnitY;
-                        break;
-
-                    case ConsoleKey.DownArrow:
-                        inputDirection = Vector2.UnitY;
-                        break;
-
-                    case ConsoleKey.Escape:
-                        isPlayingGame = false;
-                        return;
+                    isPlayingGame = false;
+                    return;
                 }
+
+                if (key.Key == ConsoleKey.LeftArrow && previousKey != ConsoleKey.RightArrow)
+                {
+                    inputDirection = -Vector2.UnitX;
+                    previousKey = key.Key;
+                }
+                else if (key.Key == ConsoleKey.RightArrow && previousKey != ConsoleKey.LeftArrow)
+                {
+                    inputDirection = Vector2.UnitX;
+                    previousKey = key.Key;
+                }
+                else if (key.Key == ConsoleKey.UpArrow && previousKey != ConsoleKey.DownArrow)
+                {
+                    inputDirection = -Vector2.UnitY;
+                    previousKey = key.Key;
+                }
+                else if (key.Key == ConsoleKey.DownArrow && previousKey != ConsoleKey.UpArrow)
+                {
+                    inputDirection = Vector2.UnitY;
+                    previousKey = key.Key;
+                }
+
             }
 
             //Check if the snake can move, if so, move it automatically
