@@ -23,6 +23,9 @@ namespace Snake
         static Vector2 inputDirection = Vector2.Zero;
         static ConsoleKey previousKey;
 
+        //Apple
+        static Tuple<int, int> applePosition;
+
 
         static void Main(string[] args)
         {
@@ -34,7 +37,7 @@ namespace Snake
         {
             CreateGrid();
             CreateSnake();
-            PrintBoard();
+            GenerateApple();
 
             GameLoop();
         }
@@ -51,6 +54,18 @@ namespace Snake
                 PrintBoard();
                 Thread.Sleep(100);
             }
+        }
+
+
+        //TODO
+        private static void GenerateApple()
+        {
+            Random rnd = new Random();
+
+            int randomY = rnd.Next(0, sideSize);
+            int randomX = rnd.Next(0, sideSize);
+
+            applePosition = new Tuple<int, int>(randomY, randomX);
         }
 
 
@@ -148,7 +163,6 @@ namespace Snake
             {
                 for (int c = 0; c < grid2D[r].Count; c++)
                 {
-
                     if (snakeParts.Contains(Tuple.Create(r, c)))
                     {
                         //Check if it's the head or a body part
@@ -157,6 +171,8 @@ namespace Snake
                         else
                             scene += "+";
                     }
+                    else if (applePosition.Item1 == r && applePosition.Item2 == c)
+                        scene += "O";
                     else
                         scene += "·";
                 }
