@@ -30,7 +30,7 @@ namespace Snake
         {
             CreateGrid();
             CreateSnake();
-            PrintGridAndSnake();
+            PrintBoard();
 
             GameLoop();
         }
@@ -44,7 +44,8 @@ namespace Snake
             {
 
                 isPlayingGame = SnakeControls();
-                Thread.Sleep(500);
+                PrintBoard();
+                Thread.Sleep(1000);
             }
         }
 
@@ -79,7 +80,12 @@ namespace Snake
             }
 
             //Check if the snake can move, if so, move it automatically
-            Tuple<int, int> headPosition; 
+            Tuple<int, int> headPosition = snakeParts[0];
+            
+            int newPositionX = (int) (snakeParts[0].Item1 + inputDirection.X);
+            int newPositionY = (int) (snakeParts[0].Item2 + inputDirection.Y);
+
+            snakeParts[0] = Tuple.Create(newPositionX, newPositionY);
 
 
             return true;
@@ -112,8 +118,10 @@ namespace Snake
         }
 
 
-        private static void PrintGridAndSnake()
+        private static void PrintBoard()
         {
+            Console.Clear();
+
             for (int r = 0; r < grid2D.Count; r++)
             {
                 Console.WriteLine("");
