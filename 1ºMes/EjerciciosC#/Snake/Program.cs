@@ -22,7 +22,7 @@ namespace Snake
         static int sideSize = 25;
 
         //Snake
-        static Dictionary<int, eBoxType> snakeDictionary = new Dictionary<int, eBoxType>();
+        static Dictionary<int[], eBoxType> snakeDictionary = new Dictionary<int[], eBoxType>();
 
 
         static void Main(string[] args)
@@ -52,38 +52,26 @@ namespace Snake
                     grid2D[i].Add("·");
             }
 
-            PrintGrid();
+            PrintGridAndSnake();
         }
 
 
-        private static void PrintGrid()
+        private static void PrintGridAndSnake()
         {
             for (int r = 0; r < grid2D.Count; r++)
             {
                 Console.WriteLine("");
+
                 for (int c = 0; c < grid2D[r].Count; c++)
                 {
                     eBoxType boxType;
 
-                    if (snakeDictionary.TryGetValue(1, out boxType))
+                    if (snakeDictionary.TryGetValue([r,c], out boxType))
                     {
-
+                        Console.Write("+");
                     }
                     else
                         Console.Write("·");
-                    
-                    //switch (grid2D[r][c])
-                    //{
-                    //    case eBoxType.Empty:
-                    //        Console.Write("·");
-                    //        break;
-                    //    case eBoxType.SnakeBody:
-                    //        Console.Write("+");
-                    //        break;
-                    //    case eBoxType.SnakeHead:
-                    //        Console.Write("⟩");
-                    //        break;
-                    //}
                     
                 }
             }
