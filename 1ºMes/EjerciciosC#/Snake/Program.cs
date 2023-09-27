@@ -17,8 +17,13 @@ namespace Snake
 
     internal class Program
     {
-        static List<List<eBoxType>> grid2D = new List<List<eBoxType>>();
+        //Grid
+        static List<List<string>> grid2D = new List<List<string>>();
         static int sideSize = 25;
+
+        //Snake
+        static Dictionary<int, eBoxType> snakeDictionary = new Dictionary<int, eBoxType>();
+
 
         static void Main(string[] args)
         {
@@ -41,10 +46,10 @@ namespace Snake
             //Create for the first time
             for (int i = 0; i < sideSize; i++)
             {
-                grid2D.Add(new List<eBoxType>());
+                grid2D.Add(new List<string>());
 
                 for (int k = 0; k < sideSize; k++)
-                    grid2D[i].Add(eBoxType.Empty);
+                    grid2D[i].Add("·");
             }
 
             PrintGrid();
@@ -58,19 +63,27 @@ namespace Snake
                 Console.WriteLine("");
                 for (int c = 0; c < grid2D[r].Count; c++)
                 {
+                    eBoxType boxType;
 
-                    switch (grid2D[r][c])
+                    if (snakeDictionary.TryGetValue(1, out boxType))
                     {
-                        case eBoxType.Empty:
-                            Console.Write("·");
-                            break;
-                        case eBoxType.SnakeBody:
-                            Console.Write("+");
-                            break;
-                        case eBoxType.SnakeHead:
-                            Console.Write("⟩");
-                            break;
+
                     }
+                    else
+                        Console.Write("·");
+                    
+                    //switch (grid2D[r][c])
+                    //{
+                    //    case eBoxType.Empty:
+                    //        Console.Write("·");
+                    //        break;
+                    //    case eBoxType.SnakeBody:
+                    //        Console.Write("+");
+                    //        break;
+                    //    case eBoxType.SnakeHead:
+                    //        Console.Write("⟩");
+                    //        break;
+                    //}
                     
                 }
             }
