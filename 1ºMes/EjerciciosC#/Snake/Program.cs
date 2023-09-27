@@ -66,6 +66,8 @@ namespace Snake
                 {
                     eBoxType boxType;
 
+                    //Using tuples instead arrays, because getting a value by array from a dictionary
+                    //is in preview and not oficially supported yet
                     if (snakeDictionary.TryGetValue(Tuple.Create(r, c), out boxType))
                     {
                         Console.Write("+");
