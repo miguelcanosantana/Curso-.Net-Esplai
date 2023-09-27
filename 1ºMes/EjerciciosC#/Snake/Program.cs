@@ -11,6 +11,9 @@ namespace Snake
 
     internal class Program
     {
+        //Game
+        static bool isPlayingGame = false;
+
         //Grid
         static List<List<string>> grid2D = new List<List<string>>();
         static int sideSize = 25;
@@ -38,19 +41,19 @@ namespace Snake
 
         private static void GameLoop()
         {
-            bool isPlayingGame = true;
+            isPlayingGame = true;
 
             while (isPlayingGame)
             {
 
-                isPlayingGame = SnakeControls();
+                SnakeControls();
                 PrintBoard();
                 Thread.Sleep(1000);
             }
         }
 
 
-        private static bool SnakeControls()
+        private static void SnakeControls()
         {
             //Read the press of the keys
             if (Console.KeyAvailable)
@@ -75,7 +78,8 @@ namespace Snake
                         break;
 
                     case ConsoleKey.Escape:
-                        return false;
+                        isPlayingGame = false;
+                        return;
                 }
             }
 
@@ -86,9 +90,6 @@ namespace Snake
             int newPositionY = (int) (snakeParts[0].Item2 + inputDirection.Y);
 
             snakeParts[0] = Tuple.Create(newPositionX, newPositionY);
-
-
-            return true;
         }
 
 
