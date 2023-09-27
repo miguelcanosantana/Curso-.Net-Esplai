@@ -18,7 +18,7 @@ namespace Snake
     internal class Program
     {
         static List<List<eBoxType>> grid2D = new List<List<eBoxType>>();
-        static int sideSize = 10;
+        static int sideSize = 25;
 
         static void Main(string[] args)
         {
@@ -38,9 +38,16 @@ namespace Snake
         {
             grid2D.Clear();
 
-            for (int r = 0; r < grid2D.Count; r++)
-                for (int c = 0; c < grid2D[r].Count; c++)
-                    grid2D[r][c] = eBoxType.Empty;
+            //Create for the first time
+            for (int i = 0; i < sideSize; i++)
+            {
+                grid2D.Add(new List<eBoxType>());
+
+                for (int k = 0; k < sideSize; k++)
+                    grid2D[i].Add(eBoxType.Empty);
+            }
+
+            PrintGrid();
         }
 
 
