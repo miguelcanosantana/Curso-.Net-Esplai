@@ -48,7 +48,7 @@ namespace Snake
 
                 SnakeControls();
                 PrintBoard();
-                Thread.Sleep(1000);
+                Thread.Sleep(100);
             }
         }
 
@@ -70,11 +70,11 @@ namespace Snake
                         break;
 
                     case ConsoleKey.UpArrow:
-                        inputDirection = Vector2.UnitY;
+                        inputDirection = -Vector2.UnitY;
                         break;
 
                     case ConsoleKey.DownArrow:
-                        inputDirection = -Vector2.UnitY;
+                        inputDirection = Vector2.UnitY;
                         break;
 
                     case ConsoleKey.Escape:
@@ -86,10 +86,10 @@ namespace Snake
             //Check if the snake can move, if so, move it automatically
             Tuple<int, int> headPosition = snakeParts[0];
             
-            int newPositionX = (int) (snakeParts[0].Item1 + inputDirection.X);
-            int newPositionY = (int) (snakeParts[0].Item2 + inputDirection.Y);
+            int newPositionY = (int) (snakeParts[0].Item1 + inputDirection.Y);
+            int newPositionX = (int) (snakeParts[0].Item2 + inputDirection.X);
 
-            snakeParts[0] = Tuple.Create(newPositionX, newPositionY);
+            snakeParts[0] = Tuple.Create(newPositionY, newPositionX);
         }
 
 
