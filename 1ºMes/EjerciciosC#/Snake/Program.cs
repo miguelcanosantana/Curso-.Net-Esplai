@@ -22,7 +22,7 @@ namespace Snake
         static int sideSize = 25;
 
         //Snake
-        static Dictionary<int[], eBoxType> snakeDictionary = new Dictionary<int[], eBoxType>();
+        static Dictionary<Tuple<int, int>, eBoxType> snakeDictionary = new Dictionary<Tuple<int, int>, eBoxType>();
 
 
         static void Main(string[] args)
@@ -66,7 +66,7 @@ namespace Snake
                 {
                     eBoxType boxType;
 
-                    if (snakeDictionary.TryGetValue([r,c], out boxType))
+                    if (snakeDictionary.TryGetValue(Tuple.Create(r, c), out boxType))
                     {
                         Console.Write("+");
                     }
