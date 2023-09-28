@@ -16,7 +16,8 @@ namespace Snake
 
         //Grid
         static List<List<string>> grid2D = new List<List<string>>();
-        static int sideSize = 25;
+        static int length = 20;
+        static int height = 10;
 
         //Snake
         static List<Tuple<int, int>> snakeParts = new List<Tuple<int, int>>();
@@ -63,8 +64,8 @@ namespace Snake
         {
             Random rnd = new Random();
 
-            int randomY = rnd.Next(0, sideSize);
-            int randomX = rnd.Next(0, sideSize);
+            int randomY = rnd.Next(0, height);
+            int randomX = rnd.Next(0, length);
 
             applePosition = new Tuple<int, int>(randomY, randomX);
         }
@@ -139,14 +140,14 @@ namespace Snake
 
             //Check limits
             if (newPositionY < 0) 
-                newPositionY = sideSize;
+                newPositionY = height;
             else if 
-                (newPositionY >= sideSize) newPositionY = 0;
+                (newPositionY >= height) newPositionY = 0;
 
             if (newPositionX < 0)
-                newPositionX = sideSize;
+                newPositionX = length;
             else if
-                (newPositionX >= sideSize) newPositionX = 0;
+                (newPositionX >= length) newPositionX = 0;
 
             //Set final position to the head
             snakeParts[0] = Tuple.Create(newPositionY, newPositionX);
@@ -169,11 +170,11 @@ namespace Snake
             grid2D.Clear();
 
             //Create for the first time
-            for (int i = 0; i < sideSize; i++)
+            for (int i = 0; i < height; i++)
             {
                 grid2D.Add(new List<string>());
 
-                for (int k = 0; k < sideSize; k++)
+                for (int k = 0; k < length; k++)
                     grid2D[i].Add("·");
             }
         }
@@ -184,9 +185,10 @@ namespace Snake
             snakeParts.Clear();
 
             //Create the first part (the head)
-            int midGrid = sideSize / 2;
+            int midLength = length / 2;
+            int midHeight = height / 2;
 
-            snakeParts.Add(Tuple.Create(midGrid, midGrid));
+            snakeParts.Add(Tuple.Create(midHeight, midLength));
         }
 
 
