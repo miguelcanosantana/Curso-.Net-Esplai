@@ -166,7 +166,6 @@ namespace Snake
 
         private static void CreateGrid()
         {
-
             grid2D.Clear();
 
             //Create for the first time
