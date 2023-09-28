@@ -20,7 +20,7 @@ namespace Snake
 
         //Snake
         static List<Tuple<int, int>> snakeParts = new List<Tuple<int, int>>();
-        static List<Tuple<int, int>> previousHeadPositions = new List<Tuple<int, int>>();
+        static List<Tuple<int, int>> previousPartsPositions = new List<Tuple<int, int>>();
         static Vector2 inputDirection = Vector2.Zero;
         static ConsoleKey previousKey;
 
@@ -124,6 +124,13 @@ namespace Snake
 
             }
 
+            //Save a backup of current positions, to make them previous later
+            previousPartsPositions.Clear();
+            foreach (var part in snakeParts)
+            {
+                previousPartsPositions.Add(part);
+            }
+
             //Move the snake automatically
             Tuple<int, int> headPosition = snakeParts[0];
             
@@ -144,17 +151,13 @@ namespace Snake
             //Set final position to the head
             snakeParts[0] = Tuple.Create(newPositionY, newPositionX);
 
-            //Save head positions
-            previousHeadPositions.Add(Tuple.Create(newPositionY, newPositionX));
-
+            //Set the parts to the previous positions (Not the head)
             if (snakeParts.Count > 1)
             {
                 for (int i = 1; i < snakeParts.Count; i++)
                 {
-                    snakeParts[i] = previousHeadPositions[i];
+                    snakeParts[i] = previousPartsPositions[i - 1];
                 }
-
-                previousHeadPositions.RemoveAt(0);
             }
 
         }
