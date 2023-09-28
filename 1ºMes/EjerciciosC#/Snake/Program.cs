@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -38,11 +39,28 @@ namespace Snake
         private static void SnakeAllLogic()
         {
             bool result = false;
+            string input = "";
 
             do
             {
                 PrintMenu();
-            } while (true);
+                input = Console.ReadLine();
+
+                switch (input)
+                {
+                    case "1":
+                        result = true;
+                        break;
+
+                    case "x":
+                        return;
+
+                    default:
+                        result = false;
+                        break;
+                }
+
+            } while (!result);
 
             CreateGrid();
             CreateSnake();
@@ -54,7 +72,8 @@ namespace Snake
 
         private static void PrintMenu()
         {
-            Console.WriteLine(@"           /^\/^\
+            Console.Clear();
+            Console.WriteLine(@"                                           /^\/^\
                                          _|__|  O|
                                 \/     /~     \_/ \
                                  \____|__________/  \
@@ -76,7 +95,7 @@ namespace Snake
             Console.WriteLine("\n _-_-SNAKE-_-_");
             Console.WriteLine("Press 1 to play");
             Console.WriteLine("Press X to exit");
-            //Console.Write
+            Console.Write("Input: ");
         }
 
 
