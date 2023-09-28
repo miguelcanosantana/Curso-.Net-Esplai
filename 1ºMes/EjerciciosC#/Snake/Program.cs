@@ -37,11 +37,46 @@ namespace Snake
 
         private static void SnakeAllLogic()
         {
+            bool result = false;
+
+            do
+            {
+                PrintMenu();
+            } while (true);
+
             CreateGrid();
             CreateSnake();
             GenerateApple();
 
             GameLoop();
+        }
+
+
+        private static void PrintMenu()
+        {
+            Console.WriteLine(@"           /^\/^\
+                                         _|__|  O|
+                                \/     /~     \_/ \
+                                 \____|__________/  \
+                                        \_______      \
+                                                `\     \                 \
+                                                  |     |                  \
+                                                 /      /                    \
+                                                /     /                       \\
+                                              /      /                         \ \
+                                             /     /                            \  \
+                                           /     /             _----_            \   \
+                                          /     /           _-~      ~-_         |   |
+                                         (      (        _-~    _--_    ~-_     _/   |
+                                          \      ~-____-~    _-~    ~-_    ~-_-~    /
+                                            ~-_           _-~          ~-_       _-~
+                                               ~--______-~                ~-___-~"
+            );
+
+            Console.WriteLine("\n _-_-SNAKE-_-_");
+            Console.WriteLine("Press 1 to play");
+            Console.WriteLine("Press X to exit");
+            //Console.Write
         }
 
 
