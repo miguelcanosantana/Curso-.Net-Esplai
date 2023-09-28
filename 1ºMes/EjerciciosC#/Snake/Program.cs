@@ -17,8 +17,8 @@ namespace Snake
 
         //Grid
         static List<List<string>> grid2D = new List<List<string>>();
-        static int length = 20;
-        static int height = 10;
+        static int length = 40;
+        static int height = 15;
 
         //Snake
         static List<Tuple<int, int>> snakeParts = new List<Tuple<int, int>>();
@@ -61,6 +61,21 @@ namespace Snake
                 }
 
             } while (!result);
+
+            int sizeY;
+            int sizeX;
+            bool resultY = false;
+            bool resultX = false;
+
+            do
+            {
+                Console.Write("Enter the grid height: ");
+                resultY = int.TryParse(Console.ReadLine(), out sizeY);
+
+                Console.Write("Enter the grid width: ");
+                resultX = int.TryParse(Console.ReadLine(), out sizeX);
+
+            } while (!resultX || ! resultY || sizeX < 5 || sizeY < 5);
 
             CreateGrid();
             CreateSnake();
