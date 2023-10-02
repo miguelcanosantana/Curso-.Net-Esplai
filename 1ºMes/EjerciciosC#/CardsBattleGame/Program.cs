@@ -2,6 +2,9 @@
 //-Shuffle a List in one line
 //https://levelup.gitconnected.com/shuffle-a-list-t-in-c-net-7-with-one-line-8b9e3e44db64
 
+//-Clear the entire console, not just the shown part
+//https://stackoverflow.com/questions/75471607/console-clear-doesnt-clean-up-the-whole-console
+
 
 using System;
 using System.Collections.Generic;
@@ -273,6 +276,9 @@ namespace CardsBattleGame
 
             while (sharedDeck.GetCards().Count < 5)
             {
+                Console.Clear();
+                Console.WriteLine("\x1b[3J");
+
                 //
                 currentPlayer += 1;
 
