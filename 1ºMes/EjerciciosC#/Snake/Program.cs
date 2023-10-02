@@ -147,7 +147,6 @@ namespace Snake
         }
 
 
-        //TODO
         private static void CanEatApple()
         {
             if (snakeParts[0].Item1 == applePosition.Item1 && snakeParts[0].Item2 == applePosition.Item2)
@@ -234,6 +233,20 @@ namespace Snake
                 for (int i = 1; i < snakeParts.Count; i++)
                 {
                     snakeParts[i] = previousPartsPositions[i - 1];
+                }
+            }
+
+            //Check if any part collides with another
+            List<Tuple<int, int>> snakePartsDuplicates = new List<Tuple<int, int>>();
+
+            for (int i = 0; i < snakeParts.Count; i++)
+            {
+                if (!snakePartsDuplicates.Contains(snakeParts[i]))
+                    snakePartsDuplicates.Add(snakeParts[i]);
+                else
+                {
+                    isPlayingGame = false;
+                    break;
                 }
             }
 
