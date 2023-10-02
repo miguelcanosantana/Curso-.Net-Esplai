@@ -121,10 +121,7 @@ namespace CardsBattleGame
             this.cards.AddRange(cards);
         }
 
-        public int GetSize()
-        {
-            return cards.Count;
-        }
+        public List<Card> GetCards() { return cards; }
     }
 
 
@@ -148,7 +145,7 @@ namespace CardsBattleGame
     internal class Program
     {
         public static int playersNumber;
-        public static int initialPlayerCards = 6;
+        public static int initialPlayerCards = 2;
         public static Deck centralDeck = new Deck();
         public static SharedDeck sharedDeck = new SharedDeck();
         public static List<Player> players = new List<Player>();
@@ -161,7 +158,9 @@ namespace CardsBattleGame
             AskPlayers();
             CreateMatch();
 
-            DebugPrintPlayerCards();
+            //DebugPrintPlayerCards();
+
+            GameCoreLoop();
 
             Console.ReadKey();
         }
@@ -251,7 +250,7 @@ namespace CardsBattleGame
                     break;
             }
 
-            Console.WriteLine(
+            Console.Write(
                 @"
                   _____
                  |     |
@@ -270,14 +269,42 @@ namespace CardsBattleGame
             //Reset the deck
             sharedDeck.Clear();
 
-            while (sharedDeck.GetSize() < 5)
+            //Add 3 new cards to it 
+            //TODO
+
+            while (sharedDeck.GetCards().Count < 5)
             {
+                //
                 currentPlayer += 1;
 
                 if (currentPlayer > players.Count - 1)
                     currentPlayer = 0;
 
                 Console.WriteLine("Current player is Player " + currentPlayer);
+                //
+                Console.WriteLine("Your cards are:");
+                List<Card> playerCards = players[currentPlayer].GetCards();
+
+                for (int i = 0; i < playerCards.Count; i++)
+                    PrintCard(playerCards[i]);
+                //
+                Console.WriteLine("\nShared deck cards are:");
+                for (int i = 0; i < sharedDeck.GetCards().Count; i++)
+                    PrintCard(sharedDeck.GetCards()[i]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+                Console.ReadKey();
             }
         }
 
