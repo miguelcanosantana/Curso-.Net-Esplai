@@ -383,7 +383,7 @@ namespace CardsBattleGame
                 }
             }
 
-            PrintFinale();
+            PrintFinale(sharedDeck);
         }
 
 
@@ -403,7 +403,7 @@ namespace CardsBattleGame
         }
 
 
-        private static void PrintFinale()
+        private static void PrintFinale(SharedDeck sharedDeck)
         {
             for (int i = 0; i < players.Count; i++)
             {
@@ -413,9 +413,12 @@ namespace CardsBattleGame
                 for (int c = 0; c < players[i].GetCards().Count; c++)
                     PrintCard(players[i].GetCards()[c]);
             }
+
+            Console.WriteLine("");
+            Console.WriteLine("\nShared deck cards are:");
+            for (int i = 0; i < sharedDeck.GetCards().Count; i++)
+                PrintCard(sharedDeck.GetCards()[i]);
         }
-
-
 
     }
 }
