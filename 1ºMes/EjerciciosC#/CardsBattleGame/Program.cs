@@ -168,10 +168,41 @@ namespace CardsBattleGame
             {
                 foreach (var card in p.GetCards())
                 {
-                    Console.Write(card.number + " " + card.suit + "    ");
+                    PrintCard(card);
                 }
                 Console.WriteLine("\n \n");
             }
+        }
+
+
+        private static void PrintCard(Card card)
+        {
+            string suitSymbol = "";
+
+            switch (card.suit)
+            {
+                case eCardSuit.Heart:
+                    suitSymbol = "♥️";
+                    break;
+                case eCardSuit.Diamond:
+                    suitSymbol = "♦️";
+                    break;
+                case eCardSuit.Clover:
+                    suitSymbol = "♣️";
+                    break;
+                case eCardSuit.Pike:
+                    break;
+            }
+
+            Console.WriteLine(
+                @"
+                  _____
+                 |{0}     |
+                 |     |
+                 |  {1}   |
+                 |     |
+                 |_____{2}|"
+            , card.number, suitSymbol, card.number);
         }
     }
 }
