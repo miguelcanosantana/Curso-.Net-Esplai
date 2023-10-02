@@ -318,14 +318,6 @@ namespace CardsBattleGame
 
 
 
-
-
-
-
-
-
-
-
                 Console.ReadKey();
             }
         }
