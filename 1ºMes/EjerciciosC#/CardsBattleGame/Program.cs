@@ -25,8 +25,8 @@ namespace CardsBattleGame
 
     public class Card
     {
-        private eCardSuit suit;
-        private int number;
+        public eCardSuit suit;
+        public int number;
 
         public Card(eCardSuit suit, int number) 
         {
@@ -70,7 +70,7 @@ namespace CardsBattleGame
                             break;
 
                         case 3:
-                            cards.Add(new Card(eCardSuit.Diamond, n));
+                            cards.Add(new Card(eCardSuit.Pike, n));
                             break;
                     }
                 }
@@ -110,6 +110,9 @@ namespace CardsBattleGame
             this.number = playerNumber;
             this.cards = initialCards;
         }
+
+        public void SetCards(List<Card> cards) { this.cards = cards; }
+        public List<Card> GetCards() { return this.cards; }
     }
 
 
@@ -117,11 +120,18 @@ namespace CardsBattleGame
     {
         public static int playersNumber;
         public static int initialPlayerCards = 6;
-        public static int initialDeckSize = 40;
+        public static Deck centralDeck = new Deck();
+        public static List<Player> players = new List<Player>();
 
 
         static void Main(string[] args)
         {
+            AskPlayers();
+            CreateMatch();
+
+            DebugPrintPlayerCards();
+
+            Console.ReadKey();
         }
 
 
@@ -135,6 +145,33 @@ namespace CardsBattleGame
                 Console.Write("Enter a number of players: ");
                 validNumber = int.TryParse(Console.ReadLine(), out playersNumber);
             } while (!validNumber || playersNumber < 2 || playersNumber > 5);
+        }
+
+
+        //Shuffle, create players and give them their cards
+        private static void CreateMatch()
+        {
+            
+            centralDeck.Shuffle();
+
+            for (int i = 0; i < playersNumber; i++)
+            {
+                Player newPlayer = new Player(i, centralDeck.Steal(initialPlayerCards));
+                players.Add(newPlayer);
+            }
+        }
+
+
+        private static void DebugPrintPlayerCards()
+        {
+            foreach (var p in players)
+            {
+                foreach (var card in p.GetCards())
+                {
+                    Console.Write(card.number + " " + card.suit + "    ");
+                }
+                Console.WriteLine("\n \n");
+            }
         }
     }
 }
