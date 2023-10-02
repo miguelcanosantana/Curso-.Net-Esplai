@@ -1,4 +1,9 @@
-﻿using System;
+﻿//-DOCS
+//-Shuffle a List in one line
+//https://levelup.gitconnected.com/shuffle-a-list-t-in-c-net-7-with-one-line-8b9e3e44db64
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -75,7 +80,8 @@ namespace CardsBattleGame
 
         public void Shuffle()
         {
-
+            Random random = new Random();
+            cards = cards.OrderBy(card => random.Next()).ToList();
         }
 
         public List<Card> Steal(int number)
