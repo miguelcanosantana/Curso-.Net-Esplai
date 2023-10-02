@@ -78,9 +78,17 @@ namespace CardsBattleGame
 
         }
 
-        public void Steal()
+        public List<Card> Steal(int number)
         {
+            List<Card> listToSteal = new List<Card>();
 
+            for (int i = 0; i < number; i++)
+            {
+                listToSteal.Add(cards[0]);
+                cards.RemoveAt(0);
+            }
+
+            return listToSteal;
         }
     }
 
