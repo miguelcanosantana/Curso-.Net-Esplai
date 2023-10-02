@@ -99,6 +99,20 @@ namespace CardsBattleGame
     }
 
 
+    public class Player
+    {
+        private int number = 0;
+        private List<Card> cards = new List<Card>();
+
+
+        public Player(int playerNumber, List<Card> initialCards) 
+        {
+            this.number = playerNumber;
+            this.cards = initialCards;
+        }
+    }
+
+
     internal class Program
     {
         public static int playersNumber;
