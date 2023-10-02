@@ -315,6 +315,18 @@ namespace CardsBattleGame
 
                 } while (!validResult || answer > 2 || answer < 0);
 
+                switch (answer)
+                {
+                    case 0: 
+                        break;
+
+                    case 1: //TODO
+                        break;
+
+                    case 2:
+                        return;
+                }
+
 
 
 
