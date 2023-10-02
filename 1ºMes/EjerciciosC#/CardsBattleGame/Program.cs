@@ -144,6 +144,7 @@ namespace CardsBattleGame
         public static Deck centralDeck = new Deck();
         public static int initialSharedDeckCards = 3;
         public static List<Player> players = new List<Player>();
+        public static int previousBidAmount = 0;
 
 
         static void Main(string[] args)
@@ -286,7 +287,22 @@ namespace CardsBattleGame
                 Console.WriteLine("\nShared deck cards are:");
                 for (int i = 0; i < sharedDeck.GetCards().Count; i++)
                     PrintCard(sharedDeck.GetCards()[i]);
+                //
 
+                bool validResult = false;
+                int answer;
+
+                do
+                {
+                    Console.WriteLine("== Here is a list of things you can do: ==");
+                    Console.WriteLine("0. Check (Continue with the next player)");
+                    Console.WriteLine("1. Make a Bid (" + previousBidAmount + " lollipops minimum)");
+                    Console.WriteLine("2. Leave the game");
+                    Console.Write("Choose an option: ");
+
+                    validResult = int.TryParse(Console.ReadLine(), out answer);
+
+                } while (!validResult || answer > 2 || answer < 0);
 
 
 
