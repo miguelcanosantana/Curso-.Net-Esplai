@@ -102,6 +102,8 @@ namespace CardsBattleGame
     internal class Program
     {
         public static int playersNumber;
+        public static int initialPlayerCards = 6;
+        public static int initialDeckSize = 40;
 
 
         static void Main(string[] args)
