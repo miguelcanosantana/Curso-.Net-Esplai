@@ -51,7 +51,7 @@ namespace CardsBattleGame
         {
             for (int suit = 0; suit < 4; suit++)
             {
-                for (int n = 0; n < 13; n++)
+                for (int n = 1; n < 14; n++)
                 {
                     Card newCard;
 
@@ -126,6 +126,8 @@ namespace CardsBattleGame
 
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
             AskPlayers();
             CreateMatch();
 
@@ -178,6 +180,30 @@ namespace CardsBattleGame
         private static void PrintCard(Card card)
         {
             string suitSymbol = "";
+            string cardNumber = "";
+
+            switch (card.number)
+            {
+                case 1:
+                    cardNumber = "A";
+                    break;
+
+                case 11:
+                    cardNumber = "J";
+                    break;
+
+                case 12:
+                    cardNumber = "Q";
+                    break;
+
+                case 13:
+                    cardNumber = "K";
+                    break;
+
+                default:
+                    cardNumber = card.number.ToString();
+                    break;
+            }
 
             switch (card.suit)
             {
@@ -191,18 +217,19 @@ namespace CardsBattleGame
                     suitSymbol = "♣️";
                     break;
                 case eCardSuit.Pike:
+                    suitSymbol = "♠️";
                     break;
             }
 
             Console.WriteLine(
                 @"
                   _____
-                 |{0}     |
                  |     |
-                 |  {1}   |
                  |     |
-                 |_____{2}|"
-            , card.number, suitSymbol, card.number);
+                 |  {0} |
+                 |     |
+                 |____{1}"
+            ,suitSymbol, cardNumber);
         }
     }
 }
