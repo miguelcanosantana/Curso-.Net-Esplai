@@ -336,7 +336,42 @@ namespace CardsBattleGame
                         Thread.Sleep(2000);
                         break;
 
-                    case 1: //TODO
+                    case 1:
+
+                        bool validLollipops = false;
+                        int lollipopsToBid = 0;
+                        int currentLollipops = players[currentPlayer].GetLollipops();
+
+                        do
+                        {
+                            if (players[currentPlayer].GetLollipops() < previousBidAmount)
+                            {
+                                Console.WriteLine(@" 
+                                                    #     #                  ######                              ## 
+                                                     #   #   ####  #    #    #     # #####   ####  #    # ###### ## 
+                                                      # #   #    # #    #    #     # #    # #    # #   #  #      ## 
+                                                       #    #    # #    #    ######  #    # #    # ####   #####  #  
+                                                       #    #    # #    #    #     # #####  #    # #  #   #          
+                                                       #    #    # #    #    #     # #   #  #    # #   #  #      ## 
+                                                       #     ####   ####     ######  #    #  ####  #    # ###### ##");
+                                Thread.Sleep(3000);
+
+                                players.RemoveAt(currentPlayer);
+                                break;
+                            }
+
+                            Console.WriteLine("== You have " + currentLollipops + " lollipops ==");
+                            Console.Write("Enter an amount to bill (minimum bill is " + previousBidAmount +
+                                "): ");
+
+                            validLollipops = int.TryParse(Console.ReadLine(), out lollipopsToBid);
+
+                        } while (!validResult || lollipopsToBid < previousBidAmount || answer > currentLollipops);
+
+                        //Spend lollipops
+                        players[currentPlayer].SetLollipops(currentLollipops - lollipopsToBid);
+                        previousBidAmount = lollipopsToBid;
+
                         break;
 
                     case 2:
