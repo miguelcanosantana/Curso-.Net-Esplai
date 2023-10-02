@@ -123,6 +123,7 @@ namespace CardsBattleGame
     public class Player
     {
         private int number = 0;
+        private int lollipops = 1000;
         private List<Card> cards = new List<Card>();
 
 
@@ -134,6 +135,9 @@ namespace CardsBattleGame
 
         public void SetCards(List<Card> cards) { this.cards = cards; }
         public List<Card> GetCards() { return this.cards; }
+
+        public void SetLollipops(int lollipops) { this.lollipops = lollipops; }
+        public int GetLollipops() { return this.lollipops; }
     }
 
 
@@ -255,8 +259,6 @@ namespace CardsBattleGame
                  |     |
                  |____{1}"
             ,suitSymbol, cardNumber);
-
-            Console.WriteLine("");
         }
 
 
@@ -277,16 +279,24 @@ namespace CardsBattleGame
                     currentPlayer = 0;
 
                 Console.WriteLine("Current player is Player " + currentPlayer);
+
                 //
+
                 Console.WriteLine("Your cards are:");
                 List<Card> playerCards = players[currentPlayer].GetCards();
 
                 for (int i = 0; i < playerCards.Count; i++)
                     PrintCard(playerCards[i]);
+                Console.WriteLine("");
+
                 //
+
                 Console.WriteLine("\nShared deck cards are:");
                 for (int i = 0; i < sharedDeck.GetCards().Count; i++)
                     PrintCard(sharedDeck.GetCards()[i]);
+
+                Console.WriteLine("");
+                Console.WriteLine("");
                 //
 
                 bool validResult = false;
@@ -294,6 +304,7 @@ namespace CardsBattleGame
 
                 do
                 {
+                    Console.WriteLine("== You have " + players[currentPlayer].GetLollipops() + " lollipops ==");
                     Console.WriteLine("== Here is a list of things you can do: ==");
                     Console.WriteLine("0. Check (Continue with the next player)");
                     Console.WriteLine("1. Make a Bid (" + previousBidAmount + " lollipops minimum)");
