@@ -265,12 +265,19 @@ namespace CardsBattleGame
 
         private static void GameCoreLoop()
         {
+            int currentPlayer = -1;
+
             //Reset the deck
             sharedDeck.Clear();
 
             while (sharedDeck.GetSize() < 5)
             {
+                currentPlayer += 1;
 
+                if (currentPlayer > players.Count - 1)
+                    currentPlayer = 0;
+
+                Console.WriteLine("Current player is Player " + currentPlayer);
             }
         }
 
