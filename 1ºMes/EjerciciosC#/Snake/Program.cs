@@ -279,7 +279,7 @@ namespace Snake
                     if (snakeParts.Contains(Tuple.Create(r, c)))
                     {
                         //Check if it's the head or a body part
-                        if (grid2D[r][c] == grid2D[0][0])
+                        if (snakeParts[0].Item1 == r && snakeParts[0].Item2 == c)
                             scene += "X";
                         else
                             scene += "+";
