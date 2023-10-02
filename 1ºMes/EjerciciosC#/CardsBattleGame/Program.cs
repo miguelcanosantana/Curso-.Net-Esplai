@@ -282,7 +282,10 @@ namespace CardsBattleGame
                 currentPlayer += 1;
 
                 if (currentPlayer > players.Count - 1)
+                {
                     currentPlayer = 0;
+                    sharedDeck.Add(centralDeck.Steal(1));
+                }
 
                 if (players.Count == 1)
                 {
