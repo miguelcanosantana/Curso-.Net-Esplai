@@ -99,6 +99,35 @@ namespace CardsBattleGame
     }
 
 
+    public class SharedDeck
+    {
+        private List<Card> cards = new List<Card>();
+
+
+        public SharedDeck(){}
+
+        public void Clear()
+        {
+            this.cards.Clear();
+        }
+
+        public void Add(Card card)
+        {
+            this.cards.Add(card);
+        }
+
+        public void Add(List<Card> cards)
+        {
+            this.cards.AddRange(cards);
+        }
+
+        public int GetSize()
+        {
+            return cards.Count;
+        }
+    }
+
+
     public class Player
     {
         private int number = 0;
@@ -121,6 +150,7 @@ namespace CardsBattleGame
         public static int playersNumber;
         public static int initialPlayerCards = 6;
         public static Deck centralDeck = new Deck();
+        public static SharedDeck sharedDeck = new SharedDeck();
         public static List<Player> players = new List<Player>();
 
 
@@ -231,5 +261,20 @@ namespace CardsBattleGame
                  |____{1}"
             ,suitSymbol, cardNumber);
         }
+
+
+        private static void GameCoreLoop()
+        {
+            //Reset the deck
+            sharedDeck.Clear();
+
+            while (sharedDeck.GetSize() < 5)
+            {
+
+            }
+        }
+
+
+
     }
 }
