@@ -284,6 +284,12 @@ namespace CardsBattleGame
                 if (currentPlayer > players.Count - 1)
                     currentPlayer = 0;
 
+                if (players.Count == 1)
+                {
+                    WinnerPlayer(currentPlayer);
+                    return;
+                }
+
                 Console.WriteLine("Current player is Player " + currentPlayer);
                 Console.WriteLine("Your cards are:");
                 List<Card> playerCards = players[currentPlayer].GetCards();
@@ -325,7 +331,8 @@ namespace CardsBattleGame
                                             #       ####### #####   #       ###     #  
                                             #       #     # #       #       #  #       
                                             #     # #     # #       #     # #   #   ## 
-                                             #####  #     # #######  #####  #    #  ## ");
+                                             #####  #     # #######  #####  #    #  ## "
+                         );
                         Thread.Sleep(2000);
                         break;
 
@@ -346,7 +353,8 @@ namespace CardsBattleGame
                                                        #    #    # #    #    ######  #    # #    # ####   #####  #  
                                                        #    #    # #    #    #     # #####  #    # #  #   #          
                                                        #    #    # #    #    #     # #   #  #    # #   #  #      ## 
-                                                       #     ####   ####     ######  #    #  ####  #    # ###### ##");
+                                                       #     ####   ####     ######  #    #  ####  #    # ###### ##"
+                                );
                                 Thread.Sleep(3000);
 
                                 players.RemoveAt(currentPlayer);
@@ -371,6 +379,22 @@ namespace CardsBattleGame
                         return;
                 }
             }
+        }
+
+
+        private static void WinnerPlayer(int winnerPlayer)
+        {
+            Console.WriteLine(@" 
+                                #     # ### #     # #     # ####### ######  ## 
+                                #  #  #  #  ##    # ##    # #       #     # ## 
+                                #  #  #  #  # #   # # #   # #       #     # ## 
+                                #  #  #  #  #  #  # #  #  # #####   ######  #  
+                                #  #  #  #  #   # # #   # # #       #   #       
+                                #  #  #  #  #    ## #    ## #       #    #  ## 
+                                 ## ##  ### #     # #     # ####### #     # ## "
+            );
+            Console.WriteLine("\n Player " + winnerPlayer + " has won!");
+            Console.ReadKey();
         }
 
 
