@@ -17,8 +17,8 @@ namespace Snake
 
         //Grid
         static List<List<string>> grid2D = new List<List<string>>();
-        static int length = 40;
-        static int height = 15;
+        static int length;
+        static int height;
 
         //Snake
         static List<Tuple<int, int>> snakeParts = new List<Tuple<int, int>>();
@@ -36,7 +36,7 @@ namespace Snake
         }
 
 
-        private static void SnakeAllLogic()
+        private static void MenuDecisionLogic()
         {
             bool result = false;
             string input = "";
@@ -61,27 +61,34 @@ namespace Snake
                 }
 
             } while (!result);
+        }
 
-            int sizeY;
-            int sizeX;
+
+        private static void SnakeAllLogic()
+        {
+
+            MenuDecisionLogic();
+
             bool resultY = false;
             bool resultX = false;
 
             do
             {
                 Console.Write("Enter the grid height: ");
-                resultY = int.TryParse(Console.ReadLine(), out sizeY);
+                resultY = int.TryParse(Console.ReadLine(), out height);
 
                 Console.Write("Enter the grid width: ");
-                resultX = int.TryParse(Console.ReadLine(), out sizeX);
+                resultX = int.TryParse(Console.ReadLine(), out length);
 
-            } while (!resultX || ! resultY || sizeX < 5 || sizeY < 5);
+            } while (!resultX || ! resultY || length < 5 || height < 5);
 
             CreateGrid();
             CreateSnake();
             GenerateApple();
 
             GameLoop();
+
+            PrintDeathScreen();
         }
 
 
@@ -287,6 +294,37 @@ namespace Snake
 
             Console.Clear();
             Console.Write(scene);
+        }
+
+
+        private static void PrintDeathScreen()
+        {
+            Console.Clear();
+            Console.WriteLine(@"                                           /^\/^\
+                                         _|__|  X|
+                                \/     /~     \_/ \
+                                 \____|__________/  \
+                                        \_______      \
+                                                `\     \                 \
+                                                  |     |                  \
+                                                 /      /                    \
+                                                /     /                       \\
+                                              /      /                         \ \
+                                             /     /                            \  \
+                                           /     /             _----_            \   \
+                                          /     /           _-~      ~-_         |   |
+                                         (      (        _-~    _--_    ~-_     _/   |
+                                          \      ~-____-~    _-~    ~-_    ~-_-~    /
+                                            ~-_           _-~          ~-_       _-~
+                                               ~--______-~                ~-___-~"
+            );
+
+            Console.WriteLine("\n _-_-GAME OVER-_-_");
+            Console.WriteLine("\n Press any key to go back to the main menu");
+
+            Console.ReadKey();
+
+            SnakeAllLogic();
         }
 
     }
