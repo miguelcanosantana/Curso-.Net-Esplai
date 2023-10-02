@@ -101,8 +101,24 @@ namespace CardsBattleGame
 
     internal class Program
     {
+        public static int playersNumber;
+
+
         static void Main(string[] args)
         {
+        }
+
+
+        private static void AskPlayers()
+        {
+
+            bool validNumber = false;
+
+            do
+            {
+                Console.Write("Enter a number of players: ");
+                validNumber = int.TryParse(Console.ReadLine(), out playersNumber);
+            } while (!validNumber || playersNumber < 2 || playersNumber > 5);
         }
     }
 }
