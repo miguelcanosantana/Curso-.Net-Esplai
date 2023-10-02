@@ -30,6 +30,13 @@ namespace CardsBattleGame
         }
     }
 
+
+    public class Deck
+    {
+        public Deck() { }
+    }
+
+
     internal class Program
     {
         static void Main(string[] args)
