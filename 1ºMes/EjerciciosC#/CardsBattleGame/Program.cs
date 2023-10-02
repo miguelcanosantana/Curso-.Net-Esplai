@@ -382,6 +382,8 @@ namespace CardsBattleGame
                         return;
                 }
             }
+
+            PrintFinale();
         }
 
 
@@ -398,6 +400,19 @@ namespace CardsBattleGame
             );
             Console.WriteLine("\n Player " + winnerPlayer + " has won!");
             Console.ReadKey();
+        }
+
+
+        private static void PrintFinale()
+        {
+            for (int i = 0; i < players.Count; i++)
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Player " + i + " cards");
+
+                for (int c = 0; c < players[i].GetCards().Count; c++)
+                    PrintCard(players[i].GetCards()[c]);
+            }
         }
 
 
