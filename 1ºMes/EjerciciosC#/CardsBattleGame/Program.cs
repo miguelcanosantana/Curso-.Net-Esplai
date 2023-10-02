@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 
@@ -317,7 +318,16 @@ namespace CardsBattleGame
 
                 switch (answer)
                 {
-                    case 0: 
+                    case 0:
+                        Console.WriteLine(@" 
+                                             #####  #     # #######  #####  #    #  ## 
+                                            #     # #     # #       #     # #   #   ## 
+                                            #       #     # #       #       #  #    ## 
+                                            #       ####### #####   #       ###     #  
+                                            #       #     # #       #       #  #       
+                                            #     # #     # #       #     # #   #   ## 
+                                             #####  #     # #######  #####  #    #  ## ");
+                        Thread.Sleep(2000);
                         break;
 
                     case 1: //TODO
@@ -326,11 +336,6 @@ namespace CardsBattleGame
                     case 2:
                         return;
                 }
-
-
-
-
-                Console.ReadKey();
             }
         }
 
