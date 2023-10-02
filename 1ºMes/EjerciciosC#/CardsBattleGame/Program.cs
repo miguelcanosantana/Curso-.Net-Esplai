@@ -279,16 +279,12 @@ namespace CardsBattleGame
                 Console.Clear();
                 Console.WriteLine("\x1b[3J");
 
-                //
                 currentPlayer += 1;
 
                 if (currentPlayer > players.Count - 1)
                     currentPlayer = 0;
 
                 Console.WriteLine("Current player is Player " + currentPlayer);
-
-                //
-
                 Console.WriteLine("Your cards are:");
                 List<Card> playerCards = players[currentPlayer].GetCards();
 
@@ -296,15 +292,12 @@ namespace CardsBattleGame
                     PrintCard(playerCards[i]);
                 Console.WriteLine("");
 
-                //
-
                 Console.WriteLine("\nShared deck cards are:");
                 for (int i = 0; i < sharedDeck.GetCards().Count; i++)
                     PrintCard(sharedDeck.GetCards()[i]);
 
                 Console.WriteLine("");
                 Console.WriteLine("");
-                //
 
                 bool validResult = false;
                 int answer;
