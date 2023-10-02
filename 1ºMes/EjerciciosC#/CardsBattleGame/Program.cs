@@ -106,11 +106,6 @@ namespace CardsBattleGame
 
         public SharedDeck(){}
 
-        public void Clear()
-        {
-            this.cards.Clear();
-        }
-
         public void Add(Card card)
         {
             this.cards.Add(card);
@@ -147,7 +142,7 @@ namespace CardsBattleGame
         public static int playersNumber;
         public static int initialPlayerCards = 2;
         public static Deck centralDeck = new Deck();
-        public static SharedDeck sharedDeck = new SharedDeck();
+        public static int initialSharedDeckCards = 3;
         public static List<Player> players = new List<Player>();
 
 
@@ -259,18 +254,18 @@ namespace CardsBattleGame
                  |     |
                  |____{1}"
             ,suitSymbol, cardNumber);
+
+            Console.WriteLine("");
         }
 
 
         private static void GameCoreLoop()
         {
+            SharedDeck sharedDeck = new SharedDeck();
             int currentPlayer = -1;
 
-            //Reset the deck
-            sharedDeck.Clear();
-
-            //Add 3 new cards to it 
-            //TODO
+            //Add 3 new cards to it
+            sharedDeck.Add(centralDeck.Steal(initialSharedDeckCards));
 
             while (sharedDeck.GetCards().Count < 5)
             {
