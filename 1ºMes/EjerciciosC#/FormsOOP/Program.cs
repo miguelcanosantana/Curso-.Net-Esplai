@@ -9,6 +9,16 @@ namespace FormsOOP
     public class Form
     {
         public Form() { }
+
+        public virtual float Area()
+        {
+            return 0;
+        }
+
+        public virtual float Perimeter()
+        {
+            return 0;
+        }
     }
 
 
@@ -21,9 +31,15 @@ namespace FormsOOP
             this.radius = radius;
         }
 
-        public float Area()
+        public override float Area()
         {
             return (float) (Math.PI * Math.Pow(radius, 2));
+        }
+
+
+        public override float Perimeter()
+        {
+            return (float) (2 * Math.PI * radius); ;
         }
     }
 
@@ -50,9 +66,14 @@ namespace FormsOOP
             this.width = width;
         }
 
-        public float Area()
+        public override float Area()
         {
             return width * height;
+        }
+
+        public override float Perimeter()
+        {
+            return width * 2 + height * 2;
         }
     }
 
@@ -75,10 +96,14 @@ namespace FormsOOP
             this.height = height;
         }
 
-
-        public float Area()
+        public override float Area()
         {
             return (1/2) * width * height;
+        }
+
+        public override float Perimeter()
+        {
+            return (float) Math.Sqrt(Math.Pow(this.width, 2) + Math.Pow(this.height, 2));
         }
     }
 
@@ -95,7 +120,7 @@ namespace FormsOOP
 
         static private void CalculateArea()
         {
-            Console.WriteLine("Choose a figure type:");
+            Console.WriteLine("Choose a figure type: ");
             Console.WriteLine("1.Circle");
             Console.WriteLine("2.Rectangle");
             Console.WriteLine("3.Square");
@@ -103,10 +128,14 @@ namespace FormsOOP
             Console.Write("Input: ");
 
             int result = int.Parse(Console.ReadLine());
+
+            Console.Write("Choose 1 for the area or 2 for the perimeter: ");
+            int operation = int.Parse(Console.ReadLine());
+            
+
             float width;
             float height;
             float radius;
-            
 
             switch (result)
             {
@@ -115,8 +144,17 @@ namespace FormsOOP
                     radius = float.Parse(Console.ReadLine());
 
                     Circle circle = new Circle(radius);
-                    Console.WriteLine(circle.Area());
 
+                    switch (operation)
+                    {
+                        case 1:
+                            Console.WriteLine(circle.Area());
+                            break;
+
+                        case 2:
+                            Console.WriteLine(circle.Perimeter());
+                            break;
+                    }
                     break;
 
                 case 2:
@@ -128,7 +166,17 @@ namespace FormsOOP
                     height = float.Parse(Console.ReadLine());
 
                     Rectangle rectangle = new Rectangle(width, height);
-                    Console.WriteLine(rectangle.Area());
+
+                    switch (operation)
+                    {
+                        case 1:
+                            Console.WriteLine(rectangle.Area());
+                            break;
+
+                        case 2:
+                            Console.WriteLine(rectangle.Perimeter());
+                            break;
+                    }
 
                     break;
 
@@ -138,7 +186,17 @@ namespace FormsOOP
                     width = float.Parse(Console.ReadLine());
 
                     Square square = new Square(width);
-                    Console.WriteLine(square.Area());
+
+                    switch (operation)
+                    {
+                        case 1:
+                            Console.WriteLine(square.Area());
+                            break;
+
+                        case 2:
+                            Console.WriteLine(square.Perimeter());
+                            break;
+                    }
 
                     break;
 
@@ -151,7 +209,17 @@ namespace FormsOOP
                     height = float.Parse(Console.ReadLine());
 
                     Triangle triangle = new Triangle(width, height);
-                    Console.WriteLine(triangle.Area());
+
+                    switch (operation)
+                    {
+                        case 1:
+                            Console.WriteLine(triangle.Area());
+                            break;
+
+                        case 2:
+                            Console.WriteLine(triangle.Perimeter());
+                            break;
+                    }
 
                     break;
             }
