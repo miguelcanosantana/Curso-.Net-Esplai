@@ -448,18 +448,18 @@ namespace CardsBattleGame
                 //Check colors if the player has 2 cards of the same color
                 if (players[i].GetCards()[0].color == players[i].GetCards()[1].color) 
                 {
-                    int count = 2;
 
+                    int matching = 0;
                     foreach (var card in sharedDeck.GetCards())
                     {
                         if (card.color == players[i].GetCards()[0].color)
-                            count++;
+                            matching++;
                     }
 
-                    if (count == players[i].GetCards().Count + sharedDeck.GetCards().Count)
+                    if (matching >= 3)
                     {
                         winningConditions.Add(Tuple.Create(i, eWinCondition.Color, 0));
-                        Console.WriteLine("Player " + players[i] + " has a color!");
+                        Console.WriteLine("Player " + i + " has a color!");
                     }
                         
                 }
