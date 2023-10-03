@@ -16,7 +16,10 @@ namespace FormsOOP
     {
         private float radius;
 
-        public Circle(float radius) { }
+        public Circle(float radius) 
+        {
+            this.radius = radius;
+        }
 
         public float Area()
         {
@@ -27,25 +30,55 @@ namespace FormsOOP
 
     public class Polygon : Form
     {
-        public Polygon() { }
+        protected float width;
+        protected float height;
+
+        public Polygon(float width, float height) 
+        {
+            this.width = width;
+            this.height = height;
+        }
     }
 
 
     public class Rectangle : Polygon
     {
-        public Rectangle() { }
+
+        private Rectangle(float width, float height) : base (width, height)
+        {
+            this.height = height;
+            this.width = width;
+        }
+
+        public float Area()
+        {
+            return width * height;
+        }
     }
 
 
     public class Square : Rectangle
     {
-        public Square() { }
+        public Square(float width) : base(width) 
+        {
+
+        }
     }
 
 
     public class Triangle: Polygon
     {
-        public Triangle() { }
+        public Triangle(float width, float height) : base(width, height) 
+        {
+            this.width = width;
+            this.height = height;
+        }
+
+
+        public float Area()
+        {
+            return (1/2) * width * height;
+        }
     }
 
 
