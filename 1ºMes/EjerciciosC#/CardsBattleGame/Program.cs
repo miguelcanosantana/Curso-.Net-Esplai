@@ -460,9 +460,10 @@ namespace CardsBattleGame
                     {
                         winningConditions.Add(Tuple.Create(i, eWinCondition.Color, 0));
                         Console.WriteLine("Player " + i + " has a color!");
-                    }
-                        
+                    }     
                 }
+
+
             }
         }
 
