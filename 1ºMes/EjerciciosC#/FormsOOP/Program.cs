@@ -62,7 +62,7 @@ namespace FormsOOP
         //Using width width in the base
         public Square(float width) : base(width, width) 
         {
-
+            this.width = width;
         }
     }
 
