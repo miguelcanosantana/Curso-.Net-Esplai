@@ -35,15 +35,36 @@ namespace CardsBattleGame
     }
 
 
+    public enum eColor
+    {
+        None,
+        Red,
+        Black
+    }
+
+
     public class Card
     {
         public eCardSuit suit;
         public int number;
+        public eColor color;
 
         public Card(eCardSuit suit, int number) 
         {
             this.suit = suit;
             this.number = number;
+
+            switch (suit)
+            {
+                case eCardSuit.Heart:
+                case eCardSuit.Diamond:
+                    this.color = eColor.Red;
+                    break;
+                case eCardSuit.Clover:
+                case eCardSuit.Pike:
+                    this.color = eColor.Black;
+                    break;
+            }
         }
     }
 
@@ -412,22 +433,35 @@ namespace CardsBattleGame
                 PrintCard(sharedDeck.GetCards()[i]);
 
             Console.WriteLine("");
+            CheckWinner(sharedDeck);
         }
 
 
-        private static void CheckWinner()
+        private static void CheckWinner(SharedDeck sharedDeck)
         {
             //Tuple with Player number, win condition met, and win condition number (optional)
-            List<Tuple<int, eWinCondition, int?>> winningConditions = new List<Tuple<int, eWinCondition, int?>>();
+            List<Tuple<int, eWinCondition, int>> winningConditions = new List<Tuple<int, eWinCondition, int>>();
 
-            //Check color
-
-
+            //For each player
             for (int i = 0; i < players.Count; i++)
             {
-                for (int c = 0; c < players[i].GetCards().Count; c++)
+                //Check colors if the player has 2 cards of the same color
+                if (players[i].GetCards()[0].color == players[i].GetCards()[1].color) 
                 {
+                    int count = 2;
 
+                    foreach (var card in sharedDeck.GetCards())
+                    {
+                        if (card.color == players[i].GetCards()[0].color)
+                            count++;
+                    }
+
+                    if (count == players[i].GetCards().Count + sharedDeck.GetCards().Count)
+                    {
+                        winningConditions.Add(Tuple.Create(i, eWinCondition.Color, 0));
+                        Console.WriteLine("Player " + players[i] + " has a color!");
+                    }
+                        
                 }
             }
         }
