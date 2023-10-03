@@ -14,7 +14,14 @@ namespace FormsOOP
 
     public class Circle : Form
     {
-        public Circle() { }
+        private float radius;
+
+        public Circle(float radius) { }
+
+        public float Area()
+        {
+            return (float) (Math.PI * Math.Pow(radius, 2));
+        }
     }
 
 
