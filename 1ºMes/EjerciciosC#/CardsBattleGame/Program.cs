@@ -27,6 +27,14 @@ namespace CardsBattleGame
     }
 
 
+    public enum eWinCondition
+    {
+        None,
+        Color,
+        RoyalStair,
+    }
+
+
     public class Card
     {
         public eCardSuit suit;
@@ -402,6 +410,26 @@ namespace CardsBattleGame
             Console.WriteLine("\nShared deck cards are:");
             for (int i = 0; i < sharedDeck.GetCards().Count; i++)
                 PrintCard(sharedDeck.GetCards()[i]);
+
+            Console.WriteLine("");
+        }
+
+
+        private static void CheckWinner()
+        {
+            //Tuple with Player number, win condition met, and win condition number (optional)
+            List<Tuple<int, eWinCondition, int?>> winningConditions = new List<Tuple<int, eWinCondition, int?>>();
+
+            //Check color
+
+
+            for (int i = 0; i < players.Count; i++)
+            {
+                for (int c = 0; c < players[i].GetCards().Count; c++)
+                {
+
+                }
+            }
         }
 
     }
