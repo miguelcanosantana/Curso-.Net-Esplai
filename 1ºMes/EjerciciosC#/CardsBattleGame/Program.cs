@@ -161,9 +161,6 @@ namespace CardsBattleGame
 
             AskPlayers();
             CreateMatch();
-
-            //DebugPrintPlayerCards();
-
             GameCoreLoop();
 
             Console.ReadKey();
@@ -193,19 +190,6 @@ namespace CardsBattleGame
             {
                 Player newPlayer = new Player(i, centralDeck.Steal(initialPlayerCards));
                 players.Add(newPlayer);
-            }
-        }
-
-
-        private static void DebugPrintPlayerCards()
-        {
-            foreach (var p in players)
-            {
-                foreach (var card in p.GetCards())
-                {
-                    PrintCard(card);
-                }
-                Console.WriteLine("\n \n");
             }
         }
 
