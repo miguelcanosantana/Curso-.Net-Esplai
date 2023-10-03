@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FormsOOP
 {
-    public class Form
+    public class Shape
     {
-        public Form() { }
+        public Shape() { }
 
         public virtual float Area()
         {
@@ -22,7 +22,7 @@ namespace FormsOOP
     }
 
 
-    public class Circle : Form
+    public class Circle : Shape
     {
         private float radius;
 
@@ -44,7 +44,7 @@ namespace FormsOOP
     }
 
 
-    public class Polygon : Form
+    public class Polygon : Shape
     {
         protected float width;
         protected float height;
