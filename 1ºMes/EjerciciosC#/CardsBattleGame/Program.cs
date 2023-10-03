@@ -463,6 +463,9 @@ namespace CardsBattleGame
                     }     
                 }
 
+                //Check Royal stair
+
+
                 //for (int j = 0; j < length; j++)
                 //{
                     
