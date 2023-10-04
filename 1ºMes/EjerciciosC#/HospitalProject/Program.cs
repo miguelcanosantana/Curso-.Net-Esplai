@@ -39,8 +39,11 @@ namespace HospitalProject
                 Console.WriteLine("8.Modify Appointment");
                 Console.WriteLine("9.Remove Appointment");
                 Console.WriteLine("--------------------------------");
-                Console.WriteLine("10.Print patient's appointments");
-                Console.WriteLine("11.Print medic's appointments");
+                Console.WriteLine("10.Show a patient's appointments");
+                Console.WriteLine("11.Show a medic's appointments");
+                Console.WriteLine("--------------------------------");
+                Console.WriteLine("12.Show an hospital medics and patients");
+                Console.WriteLine("13.Show all hospital's appointments");
                 Console.WriteLine("--------------------------------");
                 Console.Write("Input: ");
 
