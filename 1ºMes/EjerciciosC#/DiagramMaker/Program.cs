@@ -105,9 +105,14 @@ namespace DiagramMaker
 
     internal class Program
     {
+        public static Diagram diagram;
+
+
         static void Main(string[] args)
         {
             AddFigureLoop();
+            diagram.DisplayShapes();
+
             Console.ReadKey();
         }
 
@@ -139,7 +144,7 @@ namespace DiagramMaker
                         radius = float.Parse(Console.ReadLine());
 
                         Circle circle = new Circle(radius);
-
+                        diagram.AddShape(circle);
                         break;
 
                     case 2:
@@ -151,7 +156,7 @@ namespace DiagramMaker
                         height = float.Parse(Console.ReadLine());
 
                         Rectangle rectangle = new Rectangle(width, height);
-
+                        diagram.AddShape(rectangle);
                         break;
 
                     case 3:
@@ -160,7 +165,7 @@ namespace DiagramMaker
                         width = float.Parse(Console.ReadLine());
 
                         Square square = new Square(width);
-
+                        diagram.AddShape(square);
                         break;
 
                     case 4:
@@ -172,7 +177,7 @@ namespace DiagramMaker
                         height = float.Parse(Console.ReadLine());
 
                         Triangle triangle = new Triangle(width, height);
-
+                        diagram.AddShape(triangle);
                         break;
                 }
 
