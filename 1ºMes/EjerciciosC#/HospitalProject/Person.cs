@@ -11,14 +11,12 @@ namespace HospitalProject
         protected string id;
         protected string name;
         protected string surname;
-        protected Hospital hospital;
 
-        public Person(string id, string name, string surname, Hospital hospital) 
+        public Person(string id, string name, string surname) 
         { 
             this.id = id;
             this.name = name;
             this.surname = surname;
-            this.hospital = hospital;
         }
     }
 }
