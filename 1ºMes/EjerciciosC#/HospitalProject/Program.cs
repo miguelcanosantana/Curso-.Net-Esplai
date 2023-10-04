@@ -48,6 +48,10 @@ namespace HospitalProject
 
                 switch (selectOption)
                 {
+                    case 1:
+                        CreateHospital();
+                        break;
+
                     case 4:
                         CreatePerson();
                         break;
@@ -72,6 +76,8 @@ namespace HospitalProject
 
             do
             {
+                Console.Clear();
+
                 Console.Write("Enter the name: ");
                 name = Console.ReadLine();
 
@@ -82,6 +88,7 @@ namespace HospitalProject
 
             Hospital newHospital = new Hospital(id, name, location);
             hospitalsList.Add(newHospital);
+            Console.Clear();
             Console.WriteLine("Hospital Created!");
         }
 
@@ -102,6 +109,8 @@ namespace HospitalProject
             {
                 correctType = false;
                 correctHospitalName = false;
+
+                Console.Clear();
 
                 Console.Write("Enter the ID: ");
                 id = Console.ReadLine();
@@ -143,12 +152,14 @@ namespace HospitalProject
             {
                 Medic newMedic = new Medic(id, name, surname);
                 assignedHospital.AddMedic(newMedic);
+                Console.Clear();
                 Console.WriteLine("Medic Created!");
             }
             else
             {
                 Patient newPatient = new Patient(id, name, surname);
                 assignedHospital.AddPatient(newPatient);
+                Console.Clear();
                 Console.WriteLine("Patient Created!");
             }
         }
