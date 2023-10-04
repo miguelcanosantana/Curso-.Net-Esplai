@@ -125,7 +125,6 @@ namespace HospitalProject
             {
                 Patient newPatient = new Patient(id, name, surname, assignedHospital);
             }
-
         }
 
 
