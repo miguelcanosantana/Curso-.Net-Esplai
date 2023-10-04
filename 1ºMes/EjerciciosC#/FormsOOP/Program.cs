@@ -6,19 +6,13 @@ using System.Threading.Tasks;
 
 namespace FormsOOP
 {
-    public class Shape
+    public abstract class Shape
     {
         public Shape() { }
 
-        public virtual float Area()
-        {
-            return 0;
-        }
-
-        public virtual float Perimeter()
-        {
-            return 0;
-        }
+        //Abstract clases dont contain methods logic and must be implemented in children classes
+        public abstract float Area();
+        public abstract float Perimeter();
     }
 
 
@@ -44,7 +38,7 @@ namespace FormsOOP
     }
 
 
-    public class Polygon : Shape
+    public abstract class Polygon : Shape
     {
         protected float width;
         protected float height;
