@@ -8,7 +8,12 @@ namespace DiagramMaker
 {
     public class Diagram
     {
-        private List<Shape> shapesList = new List<Shape>();
+        private List<Shape> shapesList;
+
+        public Diagram()
+        {
+            shapesList = new List<Shape>();
+        }
 
         public void AddShape(Shape shape)
         {

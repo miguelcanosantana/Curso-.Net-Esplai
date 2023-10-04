@@ -105,7 +105,7 @@ namespace DiagramMaker
 
     internal class Program
     {
-        public static Diagram diagram;
+        public static Diagram diagram = new Diagram();
 
 
         static void Main(string[] args)
