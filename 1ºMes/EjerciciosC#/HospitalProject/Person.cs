@@ -8,11 +8,17 @@ namespace HospitalProject
 {
     public class Person
     {
-        string id;
-        string name;
-        string surname;
-        Hospital assignedHospital;
+        protected string id;
+        protected string name;
+        protected string surname;
+        protected Hospital hospital;
 
-        public Person() { }
+        public Person(string id, string name, string surname, Hospital hospital) 
+        { 
+            this.id = id;
+            this.name = name;
+            this.surname = surname;
+            this.hospital = hospital;
+        }
     }
 }
