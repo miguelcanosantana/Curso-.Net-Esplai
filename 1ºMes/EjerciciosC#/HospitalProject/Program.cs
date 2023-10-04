@@ -93,6 +93,42 @@ namespace HospitalProject
         }
 
 
+        static public void RemoveHospital()
+        {
+            string name;
+
+            do
+            {
+                Console.Clear();
+
+                Console.WriteLine("\n\n");
+
+                Console.WriteLine("==== List of Hospitals ====");
+
+                foreach (Hospital hospital in hospitalsList)
+                    Console.WriteLine(hospital.GetName());
+
+                Console.WriteLine("\n\n");
+
+                Console.Write("Enter the name: ");
+                name = Console.ReadLine();
+
+            } while (name == null);
+
+            if (name.Equals("0"))
+            {
+                Console.Clear();
+                Console.WriteLine("Cancelled Deletion!");
+                return;
+            }
+
+            Hospital newHospital = new Hospital(id, name, location);
+            hospitalsList.Add(newHospital);
+            Console.Clear();
+            Console.WriteLine("Hospital Created!");
+        }
+
+
         //Get a generic person's data, create a patient or a medic depending on the input
         static public void CreatePerson()
         {
