@@ -14,6 +14,6 @@ namespace HospitalProject
         Medic medic;
         Patient patient;
 
-        public Appointment() { }
+        public Appointment(string id, string summary, string date, Medic medic, Patient patient) { }
     }
 }

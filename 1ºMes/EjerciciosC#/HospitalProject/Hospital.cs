@@ -11,6 +11,7 @@ namespace HospitalProject
         string id;
         string name;
         string location;
+        List<Appointment> appointmentsList = new List<Appointment>();
 
         public Hospital() { }
     }
