@@ -121,11 +121,6 @@ namespace HospitalProject
                 Console.WriteLine("Cancelled Deletion!");
                 return;
             }
-
-            Hospital newHospital = new Hospital(id, name, location);
-            hospitalsList.Add(newHospital);
-            Console.Clear();
-            Console.WriteLine("Hospital Created!");
         }
 
 
