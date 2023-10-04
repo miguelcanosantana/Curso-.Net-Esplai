@@ -17,7 +17,7 @@ namespace DiagramMaker
 
         public void AddShape(Shape shape)
         {
-
+            shapesList.Add(shape);
         }
 
         public void DisplayShapes()
@@ -25,6 +25,9 @@ namespace DiagramMaker
             for (int i = 0; i < shapesList.Count; i++)
             {
                 Console.WriteLine(shapesList[i].GetType().Name);
+
+                if (i < shapesList.Count - 1)
+                    Console.WriteLine("|");
             }
         }
 
