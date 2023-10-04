@@ -55,6 +55,10 @@ namespace HospitalProject
                         CreateHospital();
                         break;
 
+                    case 3: 
+                        RemoveHospital(); 
+                        break;
+
                     case 4:
                         CreatePerson();
                         break;
@@ -98,32 +102,19 @@ namespace HospitalProject
 
         static public void RemoveHospital()
         {
-            string name;
+            Hospital hospitalToDelete;
 
             do
             {
                 Console.Clear();
+                hospitalToDelete = SelectHospital(" to delete");
 
-                Console.WriteLine("\n\n");
+            } while (hospitalToDelete == null);
 
-                Console.WriteLine("==== List of Hospitals ====");
+            hospitalsList.Remove(hospitalToDelete);
 
-                foreach (Hospital hospital in hospitalsList)
-                    Console.WriteLine(hospital.GetName());
-
-                Console.WriteLine("\n\n");
-
-                Console.Write("Enter the name: ");
-                name = Console.ReadLine();
-
-            } while (name == null);
-
-            if (name.Equals("0"))
-            {
-                Console.Clear();
-                Console.WriteLine("Cancelled Deletion!");
-                return;
-            }
+            Console.Clear();
+            Console.WriteLine("Hospital deleted!");
         }
 
 
