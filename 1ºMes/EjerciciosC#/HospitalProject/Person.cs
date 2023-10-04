@@ -18,5 +18,16 @@ namespace HospitalProject
             this.name = name;
             this.surname = surname;
         }
+
+        public string GetInfo()
+        {
+            string info = "";
+
+            info += id +"\n";
+            info += name + "\n";
+            info += surname + "\n";
+
+            return info;
+        }
     }
 }
