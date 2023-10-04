@@ -8,6 +8,20 @@ namespace DiagramMaker
 {
     public class Diagram
     {
-        public Diagram() { }
+        private List<Shape> shapesList = new List<Shape>();
+
+        public void AddShape(Shape shape)
+        {
+
+        }
+
+        public void DisplayShapes()
+        {
+            for (int i = 0; i < shapesList.Count; i++)
+            {
+                Console.WriteLine(shapesList[i].GetType().Name);
+            }
+        }
+
     }
 }

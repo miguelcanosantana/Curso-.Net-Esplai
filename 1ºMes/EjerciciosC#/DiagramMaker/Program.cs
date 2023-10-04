@@ -107,116 +107,78 @@ namespace DiagramMaker
     {
         static void Main(string[] args)
         {
-            CalculateArea();
+            AddFigureLoop();
             Console.ReadKey();
         }
 
 
-        static private void CalculateArea()
+        static private void AddFigureLoop()
         {
-            Console.WriteLine("Choose a figure type: ");
-            Console.WriteLine("1.Circle");
-            Console.WriteLine("2.Rectangle");
-            Console.WriteLine("3.Square");
-            Console.WriteLine("4.Triangle");
-            Console.Write("Input: ");
+            int result;
 
-            int result = int.Parse(Console.ReadLine());
-
-            Console.Write("Choose 1 for the area or 2 for the perimeter: ");
-            int operation = int.Parse(Console.ReadLine());
-
-
-            float width;
-            float height;
-            float radius;
-
-            switch (result)
+            do
             {
-                case 1:
-                    Console.Write("Enter radius: ");
-                    radius = float.Parse(Console.ReadLine());
+                Console.WriteLine("Choose a figure type to add to the diagram: ");
+                Console.WriteLine("0.Stop adding figures");
+                Console.WriteLine("1.Circle");
+                Console.WriteLine("2.Rectangle");
+                Console.WriteLine("3.Square");
+                Console.WriteLine("4.Triangle");
+                Console.Write("Input: ");
 
-                    Circle circle = new Circle(radius);
+                result = int.Parse(Console.ReadLine());
 
-                    switch (operation)
-                    {
-                        case 1:
-                            Console.WriteLine(circle.Area());
-                            break;
+                float width;
+                float height;
+                float radius;
 
-                        case 2:
-                            Console.WriteLine(circle.Perimeter());
-                            break;
-                    }
-                    break;
+                switch (result)
+                {
+                    case 1:
+                        Console.Write("Enter radius: ");
+                        radius = float.Parse(Console.ReadLine());
 
-                case 2:
+                        Circle circle = new Circle(radius);
 
-                    Console.Write("Enter width: ");
-                    width = float.Parse(Console.ReadLine());
+                        break;
 
-                    Console.Write("Enter height: ");
-                    height = float.Parse(Console.ReadLine());
+                    case 2:
 
-                    Rectangle rectangle = new Rectangle(width, height);
+                        Console.Write("Enter width: ");
+                        width = float.Parse(Console.ReadLine());
 
-                    switch (operation)
-                    {
-                        case 1:
-                            Console.WriteLine(rectangle.Area());
-                            break;
+                        Console.Write("Enter height: ");
+                        height = float.Parse(Console.ReadLine());
 
-                        case 2:
-                            Console.WriteLine(rectangle.Perimeter());
-                            break;
-                    }
+                        Rectangle rectangle = new Rectangle(width, height);
 
-                    break;
+                        break;
 
-                case 3:
+                    case 3:
 
-                    Console.Write("Enter width: ");
-                    width = float.Parse(Console.ReadLine());
+                        Console.Write("Enter width: ");
+                        width = float.Parse(Console.ReadLine());
 
-                    Square square = new Square(width);
+                        Square square = new Square(width);
 
-                    switch (operation)
-                    {
-                        case 1:
-                            Console.WriteLine(square.Area());
-                            break;
+                        break;
 
-                        case 2:
-                            Console.WriteLine(square.Perimeter());
-                            break;
-                    }
+                    case 4:
 
-                    break;
+                        Console.Write("Enter width: ");
+                        width = float.Parse(Console.ReadLine());
 
-                case 4:
+                        Console.Write("Enter height: ");
+                        height = float.Parse(Console.ReadLine());
 
-                    Console.Write("Enter width: ");
-                    width = float.Parse(Console.ReadLine());
+                        Triangle triangle = new Triangle(width, height);
 
-                    Console.Write("Enter height: ");
-                    height = float.Parse(Console.ReadLine());
+                        break;
+                }
 
-                    Triangle triangle = new Triangle(width, height);
+                Console.WriteLine("");
 
-                    switch (operation)
-                    {
-                        case 1:
-                            Console.WriteLine(triangle.Area());
-                            break;
-
-                        case 2:
-                            Console.WriteLine(triangle.Perimeter());
-                            break;
-                    }
-
-                    break;
-            }
+            } while (result != 0);
         }
     }
 }
