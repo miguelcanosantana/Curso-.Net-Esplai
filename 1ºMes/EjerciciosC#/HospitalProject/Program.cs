@@ -9,6 +9,9 @@ namespace HospitalProject
 {
     internal class Program
     {
+        static public List<Hospital> hospitalsList = new List<Hospital>();
+
+
         static void Main(string[] args)
         {
             HospitalLoop();
@@ -28,20 +31,16 @@ namespace HospitalProject
                 Console.WriteLine("2.Modify Hospital");
                 Console.WriteLine("3.Remove Hospital");
                 Console.WriteLine("--------------------------------");
-                Console.WriteLine("4.Create Patient");
-                Console.WriteLine("5.Modify Patient");
-                Console.WriteLine("6.Remove Patient");
+                Console.WriteLine("4.Create Medic / Patient");
+                Console.WriteLine("5.Modify Medic / Patient");
+                Console.WriteLine("6.Remove Medic / Patient");
                 Console.WriteLine("--------------------------------");
-                Console.WriteLine("7.Create Medic");
-                Console.WriteLine("8.Modify Medic");
-                Console.WriteLine("9.Remove Medic");
+                Console.WriteLine("7.Create Appointment");
+                Console.WriteLine("8.Modify Appointment");
+                Console.WriteLine("9.Remove Appointment");
                 Console.WriteLine("--------------------------------");
-                Console.WriteLine("10.Create Appointment");
-                Console.WriteLine("11.Modify Appointment");
-                Console.WriteLine("12.Remove Appointment");
-                Console.WriteLine("--------------------------------");
-                Console.WriteLine("13.Print patient's appointments");
-                Console.WriteLine("14.Print medic's appointments");
+                Console.WriteLine("10.Print patient's appointments");
+                Console.WriteLine("11.Print medic's appointments");
                 Console.WriteLine("--------------------------------");
                 Console.Write("Input: ");
 
@@ -49,6 +48,9 @@ namespace HospitalProject
 
                 switch (selectOption)
                 {
+                    case 4:
+                        CreatePerson();
+                        break;
 
                     default:
                         Console.Clear();
@@ -60,5 +62,73 @@ namespace HospitalProject
 
             } while (!result || selectOption != 0);
         }
+
+
+        //Get a generic person's data, create a patient or a medic depending on the input
+        static public void CreatePerson()
+        {
+            string id;
+            string name;
+            string surname;
+            string type;
+            bool correctType;
+            string hospitalName;
+            bool correctHospitalName;
+            Hospital assignedHospital;
+
+            do
+            {
+                correctType = false;
+                correctHospitalName = false;
+
+                Console.Write("Enter the ID: ");
+                id = Console.ReadLine();
+
+                Console.Write("Enter the name: ");
+                name = Console.ReadLine();
+
+                Console.Write("Enter the surnames: ");
+                surname = Console.ReadLine();
+
+                Console.Write("Enter person type (medic/patient): ");
+                type = Console.ReadLine().ToLower();
+
+                if (type.Equals("medic") || type.Equals("patient"))
+                    correctType = true;
+
+                Console.WriteLine("\n\n");
+
+                Console.WriteLine("==== List of Hospitals ====");
+
+                foreach (Hospital hospital in hospitalsList)
+                    Console.WriteLine(hospital.GetName());
+
+                Console.WriteLine("\n\n");
+
+                Console.Write("Enter the name of the Hospital to assign the person: ");
+                hospitalName = Console.ReadLine();
+
+                assignedHospital = hospitalsList.Find(hospital => hospital.GetName().Equals(hospitalName));
+
+                if (assignedHospital != null)
+                    correctHospitalName = true;
+
+            } while (id == null || name == null || surname == null || type == null || 
+                !correctType || hospitalName == null || !correctHospitalName);
+
+
+            if (type.Equals("medic"))
+            {
+                Medic newMedic = new Medic(id, name, surname, assignedHospital);
+            }
+            else
+            {
+                Patient newPatient = new Patient(id, name, surname, assignedHospital);
+            }
+
+        }
+
+
+
     }
 }

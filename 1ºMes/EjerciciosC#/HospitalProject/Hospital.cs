@@ -22,6 +22,10 @@ namespace HospitalProject
             this.location = location;
         }
 
+
+        public string GetName() { return name; }
+
+
         public void AddAppointment(Appointment appointment)
         {
             appointmentsList.Add(appointment);
