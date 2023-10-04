@@ -36,11 +36,19 @@ namespace DiagramMaker
             float area = 0;
 
             foreach (Shape shape in shapesList)
-            {
                 area += shape.Area();
-            }
 
             Console.WriteLine("\nTotal area is: " + area);
+        }
+
+        public void TotalPerimeter()
+        {
+            float perimeter = 0;
+
+            foreach (Shape shape in shapesList)
+                perimeter += shape.Perimeter();
+
+            Console.WriteLine("\nTotal perimeter is: " + perimeter);
         }
 
     }
