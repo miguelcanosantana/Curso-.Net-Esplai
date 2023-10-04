@@ -8,7 +8,7 @@ namespace HospitalProject
 {
     public class Patient : Person
     {
-        public Patient(string id, string name, string surname, Hospital hospital) : base (id, name, surname)
+        public Patient(string id, string name, string surname) : base (id, name, surname)
         {
             this.id = id;
             this.name = name;
