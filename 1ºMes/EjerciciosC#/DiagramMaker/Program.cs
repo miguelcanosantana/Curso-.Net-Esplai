@@ -112,6 +112,7 @@ namespace DiagramMaker
         {
             AddFigureLoop();
             diagram.DisplayShapes();
+            diagram.TotalArea();
 
             Console.ReadKey();
         }

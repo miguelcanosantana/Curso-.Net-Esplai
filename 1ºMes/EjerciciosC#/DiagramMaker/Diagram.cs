@@ -31,5 +31,17 @@ namespace DiagramMaker
             }
         }
 
+        public void TotalArea()
+        {
+            float area = 0;
+
+            foreach (Shape shape in shapesList)
+            {
+                area += shape.Area();
+            }
+
+            Console.WriteLine("\nTotal area is: " + area);
+        }
+
     }
 }
