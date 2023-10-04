@@ -135,14 +135,11 @@ namespace HospitalProject
             string surname;
             string type;
             bool correctType;
-            string hospitalName;
-            bool correctHospitalName;
             Hospital assignedHospital;
 
             do
             {
                 correctType = false;
-                correctHospitalName = false;
 
                 Console.Clear();
 
@@ -161,26 +158,10 @@ namespace HospitalProject
                 if (type.Equals("medic") || type.Equals("patient"))
                     correctType = true;
 
-                Console.WriteLine("\n\n");
-
-                Console.WriteLine("==== List of Hospitals ====");
-
-                foreach (Hospital hospital in hospitalsList)
-                    Console.WriteLine(hospital.GetName());
-
-                Console.WriteLine("\n\n");
-
-                Console.Write("Enter the name of the Hospital to assign the person: ");
-                hospitalName = Console.ReadLine();
-
-                assignedHospital = hospitalsList.Find(hospital => hospital.GetName().Equals(hospitalName));
-
-                if (assignedHospital != null)
-                    correctHospitalName = true;
+                assignedHospital = SelectHospital(" the person will be assigned to");;
 
             } while (id == null || name == null || surname == null || type == null || 
-                !correctType || hospitalName == null || !correctHospitalName);
-
+                !correctType || assignedHospital == null);
 
             if (type.Equals("medic"))
             {
@@ -198,6 +179,24 @@ namespace HospitalProject
             }
         }
 
+
+        static public Hospital SelectHospital(string message)
+        {
+            Console.WriteLine("\n\n");
+
+            Console.WriteLine("==== List of Hospitals ====");
+
+            foreach (Hospital hospital in hospitalsList)
+                Console.WriteLine(hospital.GetName());
+
+            Console.WriteLine("\n\n");
+
+            Console.Write("Enter the name of the Hospital " + message + ": ");
+            string hospitalName = Console.ReadLine();
+
+            Hospital assignedHospital = hospitalsList.Find(hospital => hospital.GetName().Equals(hospitalName));
+            return assignedHospital;
+        }
 
 
     }
