@@ -172,25 +172,25 @@ namespace SnakeClasses
                     return;
                 }
 
-                if (key.Key == ConsoleKey.LeftArrow && previousKey != ConsoleKey.RightArrow)
+                if (key.Key == ConsoleKey.LeftArrow && snake.GetPreviousKey() != ConsoleKey.RightArrow)
                 {
-                    inputDirection = -Vector2.UnitX;
-                    previousKey = key.Key;
+                    snake.SetInputDirection(-Vector2.UnitX);
+                    snake.SetPreviousKey(key.Key);
                 }
-                else if (key.Key == ConsoleKey.RightArrow && previousKey != ConsoleKey.LeftArrow)
+                else if (key.Key == ConsoleKey.RightArrow && snake.GetPreviousKey() != ConsoleKey.LeftArrow)
                 {
-                    inputDirection = Vector2.UnitX;
-                    previousKey = key.Key;
+                    snake.SetInputDirection(Vector2.UnitX);
+                    snake.SetPreviousKey(key.Key);
                 }
-                else if (key.Key == ConsoleKey.UpArrow && previousKey != ConsoleKey.DownArrow)
+                else if (key.Key == ConsoleKey.UpArrow && snake.GetPreviousKey() != ConsoleKey.DownArrow)
                 {
-                    inputDirection = -Vector2.UnitY;
-                    previousKey = key.Key;
+                    snake.SetInputDirection(-Vector2.UnitY);
+                    snake.SetPreviousKey(key.Key);
                 }
-                else if (key.Key == ConsoleKey.DownArrow && previousKey != ConsoleKey.UpArrow)
+                else if (key.Key == ConsoleKey.DownArrow && snake.GetPreviousKey() != ConsoleKey.UpArrow)
                 {
-                    inputDirection = Vector2.UnitY;
-                    previousKey = key.Key;
+                    snake.SetInputDirection(Vector2.UnitY);
+                    snake.SetPreviousKey(key.Key);
                 }
 
             }
