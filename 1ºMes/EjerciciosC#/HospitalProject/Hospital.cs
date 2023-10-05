@@ -23,7 +23,9 @@ namespace HospitalProject
         }
 
         public string GetName() { return name; }
+
         public List<Medic> GetMedics() { return medicsList; }
+
         public List<Patient> GetPatients() { return patientsList; }
 
         public List<Appointment> FindInAppointments(Patient patient)
