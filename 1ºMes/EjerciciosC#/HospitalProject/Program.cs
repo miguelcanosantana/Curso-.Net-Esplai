@@ -51,7 +51,7 @@ namespace HospitalProject
                 Hospital selectedHospital = null;
 
                 //Pre-select hospital for the options that need it
-                if (result && selectOption > 2 && selectOption < 14)
+                if (result && selectOption > 1 && selectOption < 14)
                 {
                     selectedHospital = SelectHospital();
 
