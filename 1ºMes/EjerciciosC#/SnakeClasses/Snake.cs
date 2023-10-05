@@ -24,6 +24,8 @@ namespace SnakeClasses
 
         public ConsoleKey GetPreviousKey() { return previousKey; }
 
+        public Vector2 GetInputDirection() { return inputDirection; }
+
         public void ClearParts() { parts.Clear(); }
 
         public void ClearPreviousParts() { previousParts.Clear(); }
@@ -31,6 +33,8 @@ namespace SnakeClasses
         public void AddPart(Vector2 part) { parts.Add(part); }
 
         public void AddPreviousPart(Vector2 part) { previousParts.Add(part); }
+
+        public void SetSnakePartToPreviousPosition(Vector2 part, Vector2 previousPosition) { part = previousPosition; }
 
         public void SetInputDirection(Vector2 inputDirection) { this.inputDirection = inputDirection; }
 

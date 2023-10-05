@@ -200,10 +200,10 @@ namespace SnakeClasses
                 snake.AddPreviousPart(part);
 
             //Move the snake automatically
-            Tuple<int, int> headPosition = snakeParts[0];
+            Vector2 headPosition = snake.GetParts()[0];
 
-            int newPositionY = (int)(snakeParts[0].Item1 + inputDirection.Y);
-            int newPositionX = (int)(snakeParts[0].Item2 + inputDirection.X);
+            int newPositionY = (int)(snake.GetParts()[0].X + snake.GetInputDirection().Y);
+            int newPositionX = (int)(snake.GetParts()[0].Y + snake.GetInputDirection().X);
 
             //Check limits
             if (newPositionY < 0)
@@ -217,15 +217,13 @@ namespace SnakeClasses
                 (newPositionX >= length) newPositionX = 0;
 
             //Set final position to the head
-            snakeParts[0] = Tuple.Create(newPositionY, newPositionX);
+            snake.GetParts()[0] = new Vector2 (newPositionY, newPositionX);
 
             //Set the parts to the previous positions (Not the head)
-            if (snakeParts.Count > 1)
+            if (snake.GetParts().Count > 1)
             {
-                for (int i = 1; i < snakeParts.Count; i++)
-                {
-                    snakeParts[i] = previousPartsPositions[i - 1];
-                }
+                for (int i = 1; i < snake.GetParts().Count; i++)
+                    snake.SetSnakePartToPreviousPosition(snake.GetParts()[i], snake.GetPreviousParts()[i - 1]);
             }
 
             //Check if any part collides with another
