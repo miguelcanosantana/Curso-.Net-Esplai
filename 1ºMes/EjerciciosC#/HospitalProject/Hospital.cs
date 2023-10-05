@@ -22,7 +22,13 @@ namespace HospitalProject
             this.location = location;
         }
 
+        public void SetName(string name) { this.name = name; }
+
+        public void SetLocation(string location) { this.location = location; }
+
         public string GetName() { return name; }
+
+        public string GetLocation() { return location; }
 
         public List<Medic> GetMedics() { return medicsList; }
 
@@ -104,6 +110,8 @@ namespace HospitalProject
         //Get a generic person's data, create a patient or a medic depending on the input
         public void CreatePerson()
         {
+            Console.Clear();
+
             Console.Write("Enter the ID: ");
             string id = Console.ReadLine();
 
@@ -160,6 +168,8 @@ namespace HospitalProject
 
         public void CreateAppointment()
         {
+            Console.Clear();
+
             Medic medic = SelectMedic();
 
             if (medic == null)
@@ -210,7 +220,33 @@ namespace HospitalProject
 
         public void ModifyHospital()
         {
+            Console.Clear();
 
+            Console.Write("New name (previous was " + GetName() +"): ");
+            string name = Console.ReadLine();
+
+            if (name == null || name == "")
+            {
+                Console.Clear();
+                Console.WriteLine("Name was left empty!");
+                return;
+            }
+
+            Console.Write("New location (previous was " + GetLocation() + "): ");
+            string location = Console.ReadLine();
+
+            if (location == null || location == "")
+            {
+                Console.Clear();
+                Console.WriteLine("Location was left empty!");
+                return;
+            }
+
+            SetName(name);
+            SetLocation(location);
+
+            Console.Clear();
+            Console.WriteLine("Hospital Modified!");
         }
     }
 }

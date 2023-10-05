@@ -73,6 +73,10 @@ namespace HospitalProject
                         CreateHospital();
                         break;
 
+                    case 2:
+                        selectedHospital.ModifyHospital();
+                        break;
+
                     case 3: 
                         RemoveHospital(selectedHospital); 
                         break;
