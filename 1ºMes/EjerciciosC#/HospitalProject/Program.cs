@@ -97,6 +97,14 @@ namespace HospitalProject
                         selectedHospital.CreateAppointment();
                         break;
 
+                    case 10:
+                        selectedHospital.ShowPatientAppointments();
+                        break;
+
+                    case 11:
+                        selectedHospital.ShowMedicAppointments();
+                        break;
+
                     case 12:
                         selectedHospital.ShowAllPeople();
                         break;

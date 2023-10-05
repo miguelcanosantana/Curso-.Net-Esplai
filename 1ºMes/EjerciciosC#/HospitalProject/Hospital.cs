@@ -135,6 +135,44 @@ namespace HospitalProject
                 Console.WriteLine(appointment.GetInfo());
         }
 
+        public void ShowPatientAppointments()
+        {
+            Console.Clear();
+            Patient patient = SelectPatient();
+
+            if (patient == null)
+            {
+                Console.Clear();
+                Console.WriteLine("That patient was not found!");
+                return;
+            }
+
+            Console.WriteLine("\n\n");
+            Console.WriteLine("==== " + patient.GetName() + " Appointments ====");
+
+            foreach (Appointment appointment in FindInAppointments(patient))
+                Console.WriteLine(appointment.GetInfo());
+        }
+
+        public void ShowMedicAppointments()
+        {
+            Console.Clear();
+            Medic medic = SelectMedic();
+
+            if (medic == null)
+            {
+                Console.Clear();
+                Console.WriteLine("That medic was not found!");
+                return;
+            }
+
+            Console.WriteLine("\n\n");
+            Console.WriteLine("==== " + medic.GetName() + " Appointments ====");
+
+            foreach (Appointment appointment in FindInAppointments(medic))
+                Console.WriteLine(appointment.GetInfo());
+        }
+
         //Get a generic person's data, create a patient or a medic depending on the input
         public void CreatePerson()
         {
