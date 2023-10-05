@@ -14,16 +14,13 @@ namespace SnakeClasses
         static bool isPlayingGame = false;
 
         //Grid
-        static List<List<string>> grid2D = new List<List<string>>();
-        static int length;
-        static int height;
+        static Grid grid = new Grid();
 
         //Snake
         static Snake snake = new Snake();
 
         //Apple
-        static Tuple<int, int> applePosition;
-
+        static Apple apple = new Apple();
 
         static void Main(string[] args)
         {
@@ -66,6 +63,8 @@ namespace SnakeClasses
 
             bool resultY = false;
             bool resultX = false;
+            int height = 0;
+            int length = 0;
 
             do
             {
@@ -76,6 +75,8 @@ namespace SnakeClasses
                 resultX = int.TryParse(Console.ReadLine(), out length);
 
             } while (!resultX || !resultY || length < 5 || height < 5);
+
+            grid.SetSize(new Vector2 (height, length));
 
             CreateGrid();
             CreateSnake();
@@ -135,16 +136,16 @@ namespace SnakeClasses
         {
             Random rnd = new Random();
 
-            int randomY = rnd.Next(0, height);
-            int randomX = rnd.Next(0, length);
+            int randomY = rnd.Next(0, (int) grid.GetSize().X);
+            int randomX = rnd.Next(0, (int) grid.GetSize().Y);
 
-            applePosition = new Tuple<int, int>(randomY, randomX);
+            apple.SetPosition(new Vector2(randomY, randomX));
         }
 
 
         private static void CanEatApple()
         {
-            if (snake.GetParts()[0].X == applePosition.Item1 && snake.GetParts()[0].Y == applePosition.Item2)
+            if (snake.GetParts()[0].X == apple.GetPosition().X && snake.GetParts()[0].Y == apple.GetPosition().Y)
             {
                 GrowSnake(1);
                 GenerateApple();
@@ -207,14 +208,14 @@ namespace SnakeClasses
 
             //Check limits
             if (newPositionY < 0)
-                newPositionY = height;
+                newPositionY = (int) grid.GetSize().X;
             else if
-                (newPositionY >= height) newPositionY = 0;
+                (newPositionY >= (int) grid.GetSize().X) newPositionY = 0;
 
             if (newPositionX < 0)
-                newPositionX = length;
+                newPositionX = (int) grid.GetSize().Y;
             else if
-                (newPositionX >= length) newPositionX = 0;
+                (newPositionX >= (int) grid.GetSize().Y) newPositionX = 0;
 
             //Set final position to the head
             snake.GetParts()[0] = new Vector2 (newPositionY, newPositionX);
@@ -242,15 +243,15 @@ namespace SnakeClasses
 
         private static void CreateGrid()
         {
-            grid2D.Clear();
+            grid.ClearGrid();
 
             //Create for the first time
-            for (int i = 0; i < height; i++)
+            for (int i = 0; i < grid.GetSize().X; i++)
             {
-                grid2D.Add(new List<string>());
+                grid.boxList.Add(new List<string>());
 
-                for (int k = 0; k < length; k++)
-                    grid2D[i].Add("·");
+                for (int k = 0; k < grid.GetSize().Y; k++)
+                    grid.boxList[i].Add("·");
             }
         }
 
@@ -260,8 +261,8 @@ namespace SnakeClasses
             snake.ClearParts();
 
             //Create the first part (the head)
-            int midLength = length / 2;
-            int midHeight = height / 2;
+            int midLength = (int)(grid.GetSize().Y / 2);
+            int midHeight = (int)(grid.GetSize().X / 2);
 
             snake.AddPart(new Vector2(midHeight, midLength));
         }
@@ -272,9 +273,9 @@ namespace SnakeClasses
             //Printing everything at once in a single string reduces blinking
             string scene = "";
 
-            for (int r = 0; r < grid2D.Count; r++)
+            for (int r = 0; r < grid.boxList.Count; r++)
             {
-                for (int c = 0; c < grid2D[r].Count; c++)
+                for (int c = 0; c < grid.boxList[r].Count; c++)
                 {
                     if (snake.GetParts().Contains(new Vector2(r, c)))
                     {
@@ -284,7 +285,7 @@ namespace SnakeClasses
                         else
                             scene += "+";
                     }
-                    else if (applePosition.Item1 == r && applePosition.Item2 == c)
+                    else if (apple.GetPosition().X == r && apple.GetPosition().Y == c)
                         scene += "O";
                     else
                         scene += "·";
