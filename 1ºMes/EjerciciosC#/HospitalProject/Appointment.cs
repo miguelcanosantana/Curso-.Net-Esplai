@@ -29,7 +29,6 @@ namespace HospitalProject
         public string GetDate() { return date; }
         public Medic GetMedic() { return medic; }
         public Patient GetPatient() { return patient; }
-
         public string GetInfo()
         {
             string info = "";
