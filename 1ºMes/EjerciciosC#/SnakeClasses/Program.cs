@@ -19,10 +19,7 @@ namespace SnakeClasses
         static int height;
 
         //Snake
-        static List<Tuple<int, int>> snakeParts = new List<Tuple<int, int>>();
-        static List<Tuple<int, int>> previousPartsPositions = new List<Tuple<int, int>>();
-        static Vector2 inputDirection = Vector2.Zero;
-        static ConsoleKey previousKey;
+        static Snake snake = new Snake();
 
         //Apple
         static Tuple<int, int> applePosition;
@@ -268,13 +265,13 @@ namespace SnakeClasses
 
         private static void CreateSnake()
         {
-            snakeParts.Clear();
+            snake.ClearParts();
 
             //Create the first part (the head)
             int midLength = length / 2;
             int midHeight = height / 2;
 
-            snakeParts.Add(Tuple.Create(midHeight, midLength));
+            snake.AddPart(new Vector2(midHeight, midLength));
         }
 
 
