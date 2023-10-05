@@ -235,21 +235,7 @@ namespace HospitalProject
         static public void ShowHospitalPeople()
         {
             Hospital hospital = SelectHospital(" to look at");
-
-            Console.Clear();
-            Console.WriteLine("\n\n");
-
-            Console.WriteLine("==== " + hospital.GetName() + " Medics ====");
-            foreach (Medic medic in hospital.GetMedics())
-            {
-                Console.WriteLine(medic.GetInfo());
-            }
-
-            Console.WriteLine("==== " + hospital.GetName() + " Patients ====");
-            foreach (Patient patient in hospital.GetPatients())
-            {
-                Console.WriteLine(patient.GetInfo());
-            }
+            hospital.ShowAllPeople();
         }
 
 

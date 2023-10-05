@@ -93,5 +93,22 @@ namespace HospitalProject
             Patient selectedPatient = patientsList.Find(patient => patient.GetID().Equals(patientId));
             return selectedPatient;
         }
+
+
+        public void ShowAllPeople()
+        {
+            Console.Clear();
+            Console.WriteLine("\n\n");
+
+            Console.WriteLine("==== " + name + " Medics ====");
+
+            foreach (Medic medic in medicsList)
+                Console.WriteLine(medic.GetInfo());
+
+            Console.WriteLine("==== " + name + " Patients ====");
+
+            foreach (Patient patient in patientsList)
+                Console.WriteLine(patient.GetInfo());
+        }
     }
 }
