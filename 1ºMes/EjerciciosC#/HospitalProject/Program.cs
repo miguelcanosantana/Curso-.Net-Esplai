@@ -108,7 +108,31 @@ namespace HospitalProject
                 return;
             }
 
+            Console.Write("Enter the summary of the appointment: ");
+            string summary = Console.ReadLine();
 
+            if (summary == null || summary == "")
+            {
+                Console.Clear();
+                Console.WriteLine("Summary was left empty!");
+                return;
+            }
+
+            Console.Write("Enter the date of the appointment (dd-mm-yyyy): ");
+            string date = Console.ReadLine();
+
+            if (date == null || date == "")
+            {
+                Console.Clear();
+                Console.WriteLine("Date was left empty!");
+                return;
+            }
+
+            string appointmentID = Guid.NewGuid().ToString();
+
+            //Create and add it to the current hospital
+            Appointment newAppoinment = new Appointment(appointmentID, summary, date, medic, patient);
+            hospital.AddAppointment(newAppoinment);
         }
 
 
