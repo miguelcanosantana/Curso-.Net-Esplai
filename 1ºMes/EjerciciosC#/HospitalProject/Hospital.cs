@@ -38,56 +38,6 @@ namespace HospitalProject
             return this.appointmentsList.FindAll(appointment => appointment.GetPatient().Equals(medic));
         }
 
-        public void CreateAppointment()
-        {
-            Medic medic = SelectMedic();
-
-            if (medic == null)
-            {
-                Console.Clear();
-                Console.WriteLine("Selected medic was wrong!");
-                return;
-            }
-
-            Patient patient = SelectPatient();
-
-            if (patient == null)
-            {
-                Console.Clear();
-                Console.WriteLine("Selected patient was wrong!");
-                return;
-            }
-
-            Console.Write("Enter the summary of the appointment: ");
-            string summary = Console.ReadLine();
-
-            if (summary == null || summary == "")
-            {
-                Console.Clear();
-                Console.WriteLine("Summary was left empty!");
-                return;
-            }
-
-            Console.Write("Enter the date of the appointment (dd-mm-yyyy): ");
-            string date = Console.ReadLine();
-
-            if (date == null || date == "")
-            {
-                Console.Clear();
-                Console.WriteLine("Date was left empty!");
-                return;
-            }
-
-            string appointmentID = Guid.NewGuid().ToString();
-
-            //Create and add it to the current hospital
-            Appointment newAppoinment = new Appointment(appointmentID, summary, date, medic, patient);
-            appointmentsList.Add(newAppoinment);
-
-            Console.Clear();
-            Console.WriteLine("Appointment created!");
-        }
-
         public Medic SelectMedic()
         {
             Console.WriteLine("\n\n");
@@ -206,6 +156,56 @@ namespace HospitalProject
                 Console.Clear();
                 Console.WriteLine("Type (medic/patient) was left empty!");
             }
+        }
+
+        public void CreateAppointment()
+        {
+            Medic medic = SelectMedic();
+
+            if (medic == null)
+            {
+                Console.Clear();
+                Console.WriteLine("Selected medic was wrong!");
+                return;
+            }
+
+            Patient patient = SelectPatient();
+
+            if (patient == null)
+            {
+                Console.Clear();
+                Console.WriteLine("Selected patient was wrong!");
+                return;
+            }
+
+            Console.Write("Enter the summary of the appointment: ");
+            string summary = Console.ReadLine();
+
+            if (summary == null || summary == "")
+            {
+                Console.Clear();
+                Console.WriteLine("Summary was left empty!");
+                return;
+            }
+
+            Console.Write("Enter the date of the appointment (dd-mm-yyyy): ");
+            string date = Console.ReadLine();
+
+            if (date == null || date == "")
+            {
+                Console.Clear();
+                Console.WriteLine("Date was left empty!");
+                return;
+            }
+
+            string appointmentID = Guid.NewGuid().ToString();
+
+            //Create and add it to the current hospital
+            Appointment newAppoinment = new Appointment(appointmentID, summary, date, medic, patient);
+            appointmentsList.Add(newAppoinment);
+
+            Console.Clear();
+            Console.WriteLine("Appointment created!");
         }
     }
 }
