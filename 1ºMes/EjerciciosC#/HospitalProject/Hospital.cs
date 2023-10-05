@@ -33,16 +33,6 @@ namespace HospitalProject
             appointmentsList.Add(appointment);
         }
 
-        public void AddMedic(Medic medic)
-        {
-            medicsList.Add(medic);
-        }
-
-        public void AddPatient(Patient patient)
-        {
-            patientsList.Add(patient);
-        }
-
         public List<Appointment> FindInAppointments(Patient patient)
         {
             return this.appointmentsList.FindAll(appointment => appointment.GetPatient().Equals(patient));
@@ -94,7 +84,6 @@ namespace HospitalProject
             return selectedPatient;
         }
 
-
         public void ShowAllPeople()
         {
             Console.Clear();
@@ -109,6 +98,63 @@ namespace HospitalProject
 
             foreach (Patient patient in patientsList)
                 Console.WriteLine(patient.GetInfo());
+        }
+
+        //Get a generic person's data, create a patient or a medic depending on the input
+        public void CreatePerson()
+        {
+            Console.Write("Enter the ID: ");
+            string id = Console.ReadLine();
+
+            if (id == null || id == "")
+            {
+                Console.Clear();
+                Console.WriteLine("ID was left empty!");
+                return;
+            }
+
+            Console.Write("Enter the name: ");
+            string name = Console.ReadLine();
+
+            if (name == null || name == "")
+            {
+                Console.Clear();
+                Console.WriteLine("Name was left empty!");
+                return;
+            }
+
+            Console.Write("Enter the surnames: ");
+            string surname = Console.ReadLine();
+
+            if (surname == null || surname == "")
+            {
+                Console.Clear();
+                Console.WriteLine("Surnames were left empty!");
+                return;
+            }
+
+            Console.Write("Enter person type (medic/patient): ");
+            string type = Console.ReadLine();
+
+            if (type.Equals("medic"))
+            {
+                Medic newMedic = new Medic(id, name, surname);
+                medicsList.Add(newMedic);
+                Console.Clear();
+                Console.WriteLine("Medic Created!");
+            }
+            else if (type.Equals("patient"))
+            {
+                Patient newPatient = new Patient(id, name, surname);
+                patientsList.Add(newPatient);
+                Console.Clear();
+                Console.WriteLine("Patient Created!");
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Type (medic/patient) was left empty!");
+            }
         }
     }
 }

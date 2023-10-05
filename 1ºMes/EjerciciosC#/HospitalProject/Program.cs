@@ -78,7 +78,7 @@ namespace HospitalProject
                         break;
 
                     case 4:
-                        CreatePerson(hospitalToSelect);
+                        hospitalToSelect.CreatePerson();
                         break;
 
                     case 7:
@@ -189,55 +189,7 @@ namespace HospitalProject
         }
 
 
-        //Get a generic person's data, create a patient or a medic depending on the input
-        static public void CreatePerson(Hospital hospital)
-        {
-            string id;
-            string name;
-            string surname;
-            string type;
-            bool correctType;
-            Hospital assignedHospital;
 
-            do
-            {
-                correctType = false;
-
-                Console.Clear();
-
-                Console.Write("Enter the ID: ");
-                id = Console.ReadLine();
-
-                Console.Write("Enter the name: ");
-                name = Console.ReadLine();
-
-                Console.Write("Enter the surnames: ");
-                surname = Console.ReadLine();
-
-                Console.Write("Enter person type (medic/patient): ");
-                type = Console.ReadLine().ToLower();
-
-                if (type.Equals("medic") || type.Equals("patient"))
-                    correctType = true;
-
-            } while (id == null || name == null || surname == null || type == null || 
-                !correctType);
-
-            if (type.Equals("medic"))
-            {
-                Medic newMedic = new Medic(id, name, surname);
-                hospital.AddMedic(newMedic);
-                Console.Clear();
-                Console.WriteLine("Medic Created!");
-            }
-            else
-            {
-                Patient newPatient = new Patient(id, name, surname);
-                hospital.AddPatient(newPatient);
-                Console.Clear();
-                Console.WriteLine("Patient Created!");
-            }
-        }
 
 
         static public Hospital SelectHospital()
