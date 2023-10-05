@@ -280,7 +280,6 @@ namespace HospitalProject
         public void ModifyPerson()
         {
             Console.Clear();
-
             Person person = SelectPerson();
 
             if (person == null)
@@ -291,6 +290,29 @@ namespace HospitalProject
             }
 
             person.ModifyPerson();
+        }
+
+        public void RemovePerson()
+        {
+            Console.Clear();
+
+            Person person = SelectPerson();
+
+            if (person == null)
+            {
+                Console.Clear();
+                Console.WriteLine("That person was not found!");
+                return;
+            }
+
+            if (person.GetType() == typeof(Medic))
+                medicsList.Remove((Medic) person);
+
+            else if (person.GetType() == typeof(Patient))
+                patientsList.Remove((Patient) person);
+
+            Console.Clear();
+            Console.WriteLine("That person was removed!");
         }
     }
 }

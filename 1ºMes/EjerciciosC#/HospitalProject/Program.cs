@@ -89,6 +89,10 @@ namespace HospitalProject
                         selectedHospital.ModifyPerson();
                         break;
 
+                    case 6:
+                        selectedHospital.RemovePerson();
+                        break;
+
                     case 7:
                         selectedHospital.CreateAppointment();
                         break;
