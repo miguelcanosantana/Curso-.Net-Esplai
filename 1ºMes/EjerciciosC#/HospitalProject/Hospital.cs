@@ -57,5 +57,41 @@ namespace HospitalProject
         {
             Appointment newAppointment = new Appointment(id, summary, date, medic, patient);
         }
+
+        public Medic SelectMedic()
+        {
+            Console.WriteLine("\n\n");
+
+            Console.WriteLine("==== List of Medics ====");
+
+            foreach (Medic medic in medicsList)
+                Console.WriteLine(medic.GetInfo());
+
+            Console.WriteLine("\n\n");
+
+            Console.Write("Enter the id of the medic: ");
+            string medicId = Console.ReadLine();
+
+            Medic selectedMedic = medicsList.Find(medic => medic.GetID().Equals(medicId));
+            return selectedMedic;
+        }
+
+        public Patient SelectPatient()
+        {
+            Console.WriteLine("\n\n");
+
+            Console.WriteLine("==== List of Patients ====");
+
+            foreach (Patient patient in patientsList)
+                Console.WriteLine(patient.GetInfo());
+
+            Console.WriteLine("\n\n");
+
+            Console.Write("Enter the id of the patient: ");
+            string patientId = Console.ReadLine();
+
+            Patient selectedPatient = patientsList.Find(patient => patient.GetID().Equals(patientId));
+            return selectedPatient;
+        }
     }
 }

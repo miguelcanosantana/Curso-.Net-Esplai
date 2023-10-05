@@ -29,5 +29,7 @@ namespace HospitalProject
 
             return info;
         }
+
+        public string GetID() { return id; }
     }
 }

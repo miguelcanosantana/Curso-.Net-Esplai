@@ -63,6 +63,10 @@ namespace HospitalProject
                         CreatePerson();
                         break;
 
+                    case 7:
+                        CreateAppointment();
+                        break;
+
                     default:
                         Console.Clear();
                         Console.WriteLine("\n Your input was incorrect, try again...");
@@ -72,6 +76,39 @@ namespace HospitalProject
                 Console.WriteLine("\n");
 
             } while (!result || selectOption != 0);
+        }
+
+
+        static public void CreateAppointment()
+        {
+            Hospital hospital = SelectHospital("in which the appointment will be created");
+
+            if (hospital == null)
+            {
+                Console.Clear();
+                Console.WriteLine("Selected Hospital was wrong!");
+                return;
+            }
+
+            Medic medic = hospital.SelectMedic();
+
+            if (medic == null)
+            {
+                Console.Clear();
+                Console.WriteLine("Selected medic was wrong!");
+                return;
+            }
+
+            Patient patient = hospital.SelectPatient();
+
+            if (patient == null)
+            {
+                Console.Clear();
+                Console.WriteLine("Selected patient was wrong!");
+                return;
+            }
+
+
         }
 
 
