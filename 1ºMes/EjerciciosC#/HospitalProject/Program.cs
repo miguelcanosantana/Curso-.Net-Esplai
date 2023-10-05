@@ -105,12 +105,6 @@ namespace HospitalProject
         }
 
 
-        static public void ShowAllAppointments()
-        {
-
-        }
-
-
         static public void CreateHospital()
         {
             string id = Guid.NewGuid().ToString();
@@ -143,9 +137,6 @@ namespace HospitalProject
             Console.Clear();
             Console.WriteLine("Hospital deleted!");
         }
-
-
-
 
 
         static public Hospital SelectHospital()

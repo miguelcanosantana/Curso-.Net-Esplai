@@ -34,9 +34,9 @@ namespace HospitalProject
         {
             string info = "";
 
-            info += id + "\n";
-            info += summary + "\n";
+            info += id + " | ";
             info += date + "\n";
+            info += "\n\n" + summary + "\n\n";
             info += medic.GetInfo() + "\n";
             info += patient.GetInfo() + "\n";
 

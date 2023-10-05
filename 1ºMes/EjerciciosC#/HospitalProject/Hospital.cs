@@ -81,6 +81,9 @@ namespace HospitalProject
             //Create and add it to the current hospital
             Appointment newAppoinment = new Appointment(appointmentID, summary, date, medic, patient);
             appointmentsList.Add(newAppoinment);
+
+            Console.Clear();
+            Console.WriteLine("Appointment created!");
         }
 
         public Medic SelectMedic()

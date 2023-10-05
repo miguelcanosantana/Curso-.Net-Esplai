@@ -23,8 +23,8 @@ namespace HospitalProject
         {
             string info = "";
 
-            info += id +"\n";
-            info += name + "\n";
+            info += id +" | ";
+            info += name + " | ";
             info += surname + "\n";
 
             return info;
