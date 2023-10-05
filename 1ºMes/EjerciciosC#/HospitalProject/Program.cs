@@ -85,6 +85,10 @@ namespace HospitalProject
                         CreateAppointment(hospitalToSelect);
                         break;
 
+                    case 12:
+                        hospitalToSelect.ShowAllPeople();
+                        break;
+
                     default:
                         Console.Clear();
                         Console.WriteLine("\n Your input was incorrect, try again...");
@@ -233,13 +237,6 @@ namespace HospitalProject
                 Console.Clear();
                 Console.WriteLine("Patient Created!");
             }
-        }
-
-
-        static public void ShowHospitalPeople()
-        {
-            Hospital hospital = SelectHospital(" to look at");
-            hospital.ShowAllPeople();
         }
 
 
