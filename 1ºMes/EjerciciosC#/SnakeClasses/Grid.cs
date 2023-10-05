@@ -10,6 +10,6 @@ namespace SnakeClasses
     {
         private int Length { get; set; }
         private int Width { get; set; }
-        static List<List<string>> boxes = new List<List<string>>();
-    }
+        private List<List<string>> BoxList { get; set; } = new List<List<string>>();
+}
 }
