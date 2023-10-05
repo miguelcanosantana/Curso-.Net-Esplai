@@ -101,6 +101,10 @@ namespace HospitalProject
                         selectedHospital.ModifyAppointment();
                         break;
 
+                    case 9:
+                        selectedHospital.RemoveAppointment();
+                        break;
+
                     case 10:
                         selectedHospital.ShowPatientAppointments();
                         break;

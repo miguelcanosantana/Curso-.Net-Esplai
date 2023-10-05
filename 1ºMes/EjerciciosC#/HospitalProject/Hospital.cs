@@ -382,5 +382,22 @@ namespace HospitalProject
             Console.Clear();
             Console.WriteLine("That person was removed!");
         }
+
+        public void RemoveAppointment()
+        {
+            Console.Clear();
+
+            Appointment appointment = SelectAppointment();
+
+            if (appointment == null)
+            {
+                Console.Clear();
+                Console.WriteLine("That appointment was not found!");
+                return;
+            }
+
+            Console.Clear();
+            Console.WriteLine("That appointment was removed!");
+        }
     }
 }
