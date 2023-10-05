@@ -48,14 +48,14 @@ namespace HospitalProject
                 Console.Write("Input: ");
 
                 result = int.TryParse(Console.ReadLine(), out selectOption);
-                Hospital hospitalToSelect = null;
+                Hospital selectedHospital = null;
 
                 //Pre-select hospital for the options that need it
                 if (result && selectOption > 2 && selectOption < 14)
                 {
-                    hospitalToSelect = SelectHospital();
+                    selectedHospital = SelectHospital();
 
-                    if (hospitalToSelect == null)
+                    if (selectedHospital == null)
                     {
                         selectOption = -1;
                         Console.Clear();
@@ -74,23 +74,23 @@ namespace HospitalProject
                         break;
 
                     case 3: 
-                        RemoveHospital(hospitalToSelect); 
+                        RemoveHospital(selectedHospital); 
                         break;
 
                     case 4:
-                        hospitalToSelect.CreatePerson();
+                        selectedHospital.CreatePerson();
                         break;
 
                     case 7:
-                        hospitalToSelect.CreateAppointment();
+                        selectedHospital.CreateAppointment();
                         break;
 
                     case 12:
-                        hospitalToSelect.ShowAllPeople();
+                        selectedHospital.ShowAllPeople();
                         break;
 
                     case 13:
-                        hospitalToSelect.ShowAllAppointments();
+                        selectedHospital.ShowAllAppointments();
                         break;
 
                     default:
