@@ -144,7 +144,7 @@ namespace SnakeClasses
 
         private static void CanEatApple()
         {
-            if (snakeParts[0].Item1 == applePosition.Item1 && snakeParts[0].Item2 == applePosition.Item2)
+            if (snake.GetParts()[0].X == applePosition.Item1 && snake.GetParts()[0].Y == applePosition.Item2)
             {
                 GrowSnake(1);
                 GenerateApple();
@@ -154,8 +154,8 @@ namespace SnakeClasses
 
         private static void GrowSnake(int number)
         {
-            var positionOfLastPart = snakeParts[snakeParts.Count - 1];
-            snakeParts.Add(positionOfLastPart);
+            var positionOfLastPart = snake.GetParts()[snake.GetParts().Count - 1];
+            snake.AddPart(positionOfLastPart);
         }
 
 
