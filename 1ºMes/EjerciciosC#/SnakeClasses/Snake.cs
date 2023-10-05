@@ -11,6 +11,7 @@ namespace SnakeClasses
     {
         private List<Vector2> parts = new List<Vector2>();
         private List<Vector2> previousParts = new List<Vector2>();
+        private List<Vector2> snakePartsDuplicates = new List<Vector2>();
         private Vector2 inputDirection = Vector2.Zero;
         private ConsoleKey previousKey;
 
@@ -21,6 +22,8 @@ namespace SnakeClasses
         public List<Vector2> GetParts() { return parts; }
 
         public List<Vector2> GetPreviousParts() { return previousParts; }
+
+        public List<Vector2> GetDuplicateParts() { return snakePartsDuplicates; }
 
         public ConsoleKey GetPreviousKey() { return previousKey; }
 
@@ -33,6 +36,8 @@ namespace SnakeClasses
         public void AddPart(Vector2 part) { parts.Add(part); }
 
         public void AddPreviousPart(Vector2 part) { previousParts.Add(part); }
+
+        public void AddDuplicatePart(Vector2 part) { snakePartsDuplicates.Add(part); }
 
         public void SetSnakePartToPreviousPosition(Vector2 part, Vector2 previousPosition) { part = previousPosition; }
 

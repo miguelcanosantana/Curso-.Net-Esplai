@@ -227,19 +227,16 @@ namespace SnakeClasses
             }
 
             //Check if any part collides with another
-            List<Tuple<int, int>> snakePartsDuplicates = new List<Tuple<int, int>>();
-
-            for (int i = 0; i < snakeParts.Count; i++)
+            for (int i = 0; i < snake.GetDuplicateParts().Count; i++)
             {
-                if (!snakePartsDuplicates.Contains(snakeParts[i]))
-                    snakePartsDuplicates.Add(snakeParts[i]);
+                if (!snake.GetDuplicateParts().Contains(snake.GetParts()[i]))
+                    snake.AddDuplicatePart(snake.GetParts()[i]);
                 else
                 {
                     isPlayingGame = false;
                     break;
                 }
             }
-
         }
 
 
@@ -279,10 +276,10 @@ namespace SnakeClasses
             {
                 for (int c = 0; c < grid2D[r].Count; c++)
                 {
-                    if (snakeParts.Contains(Tuple.Create(r, c)))
+                    if (snake.GetParts().Contains(new Vector2(r, c)))
                     {
                         //Check if it's the head or a body part
-                        if (snakeParts[0].Item1 == r && snakeParts[0].Item2 == c)
+                        if (snake.GetParts()[0].X == r && snake.GetParts()[0].Y == c)
                             scene += "X";
                         else
                             scene += "+";
