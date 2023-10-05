@@ -72,6 +72,9 @@ namespace HospitalProject
                 return;
             }
 
+            this.summary = summary;
+            this.date = date;
+
             Console.Clear();
             Console.WriteLine("Appointment Modified!");
         }
