@@ -207,5 +207,10 @@ namespace HospitalProject
             Console.Clear();
             Console.WriteLine("Appointment created!");
         }
+
+        public void ModifyHospital()
+        {
+
+        }
     }
 }

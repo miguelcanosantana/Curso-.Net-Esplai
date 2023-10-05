@@ -108,20 +108,28 @@ namespace HospitalProject
         static public void CreateHospital()
         {
             string id = Guid.NewGuid().ToString();
-            string name;
-            string location;
 
-            do
+            Console.Clear();
+
+            Console.Write("Enter the name: ");
+            string name = Console.ReadLine();
+
+            if (name == null || name == "")
             {
                 Console.Clear();
+                Console.WriteLine("Name was left empty!");
+                return;
+            }
 
-                Console.Write("Enter the name: ");
-                name = Console.ReadLine();
+            Console.Write("Enter the location: ");
+            string location = Console.ReadLine();
 
-                Console.Write("Enter the location: ");
-                location = Console.ReadLine();
-
-            } while (name == null || location == null);
+            if (location == null || location == "")
+            {
+                Console.Clear();
+                Console.WriteLine("Location was left empty!");
+                return;
+            }
 
             Hospital newHospital = new Hospital(id, name, location);
             hospitalsList.Add(newHospital);
