@@ -89,6 +89,10 @@ namespace HospitalProject
                         hospitalToSelect.ShowAllPeople();
                         break;
 
+                    case 13:
+                        hospitalToSelect.ShowAllAppointments();
+                        break;
+
                     default:
                         Console.Clear();
                         Console.WriteLine("\n Your input was incorrect, try again...");

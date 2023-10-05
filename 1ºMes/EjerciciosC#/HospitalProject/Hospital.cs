@@ -135,6 +135,17 @@ namespace HospitalProject
                 Console.WriteLine(patient.GetInfo());
         }
 
+        public void ShowAllAppointments()
+        {
+            Console.Clear();
+            Console.WriteLine("\n\n");
+
+            Console.WriteLine("==== " + name + " Appointments ====");
+
+            foreach (Appointment appointment in appointmentsList)
+                Console.WriteLine(appointment.GetInfo());
+        }
+
         //Get a generic person's data, create a patient or a medic depending on the input
         public void CreatePerson()
         {
