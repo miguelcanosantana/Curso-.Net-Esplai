@@ -192,15 +192,12 @@ namespace SnakeClasses
                     snake.SetInputDirection(Vector2.UnitY);
                     snake.SetPreviousKey(key.Key);
                 }
-
             }
 
             //Save a backup of current positions, to make them previous later
-            previousPartsPositions.Clear();
-            foreach (var part in snakeParts)
-            {
-                previousPartsPositions.Add(part);
-            }
+            snake.ClearPreviousParts();
+            foreach (var part in snake.GetParts())
+                snake.AddPreviousPart(part);
 
             //Move the snake automatically
             Tuple<int, int> headPosition = snakeParts[0];

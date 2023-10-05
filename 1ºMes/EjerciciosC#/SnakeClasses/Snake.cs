@@ -10,7 +10,7 @@ namespace SnakeClasses
     public class Snake
     {
         private List<Vector2> parts = new List<Vector2>();
-        private List<Vector2> previousPartsPositions = new List<Vector2>();
+        private List<Vector2> previousParts = new List<Vector2>();
         private Vector2 inputDirection = Vector2.Zero;
         private ConsoleKey previousKey;
 
@@ -20,11 +20,17 @@ namespace SnakeClasses
 
         public List<Vector2> GetParts() { return parts; }
 
+        public List<Vector2> GetPreviousParts() { return previousParts; }
+
         public ConsoleKey GetPreviousKey() { return previousKey; }
 
         public void ClearParts() { parts.Clear(); }
 
+        public void ClearPreviousParts() { previousParts.Clear(); }
+
         public void AddPart(Vector2 part) { parts.Add(part); }
+
+        public void AddPreviousPart(Vector2 part) { previousParts.Add(part); }
 
         public void SetInputDirection(Vector2 inputDirection) { this.inputDirection = inputDirection; }
 
