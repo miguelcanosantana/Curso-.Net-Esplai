@@ -8,8 +8,12 @@ namespace SnakeClasses
 {
     public class GameManager
     {
-        private Grid grid { get; set; }
-        private Snake snake { get; set; }
-        private Apple Apple { get; set; }
+        private Grid grid;
+        private Snake snake;
+        private Apple apple;
+
+        GameManager() 
+        {
+        }
     }
 }

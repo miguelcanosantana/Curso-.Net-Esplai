@@ -8,8 +8,8 @@ namespace SnakeClasses
 {
     public class Grid
     {
-        private int Length { get; set; }
-        private int Width { get; set; }
-        private List<List<string>> BoxList { get; set; } = new List<List<string>>();
+        private int length;
+        private int width;
+        private List<List<string>> boxList = new List<List<string>>();
 }
 }
