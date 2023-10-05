@@ -22,16 +22,9 @@ namespace HospitalProject
             this.location = location;
         }
 
-
         public string GetName() { return name; }
         public List<Medic> GetMedics() { return medicsList; }
         public List<Patient> GetPatients() { return patientsList; }
-
-
-        public void AddAppointment(Appointment appointment)
-        {
-            appointmentsList.Add(appointment);
-        }
 
         public List<Appointment> FindInAppointments(Patient patient)
         {
@@ -43,9 +36,51 @@ namespace HospitalProject
             return this.appointmentsList.FindAll(appointment => appointment.GetPatient().Equals(medic));
         }
 
-        public void CreateAppointment(string id, string summary, string date, Medic medic, Patient patient)
+        public void CreateAppointment()
         {
-            Appointment newAppointment = new Appointment(id, summary, date, medic, patient);
+            Medic medic = SelectMedic();
+
+            if (medic == null)
+            {
+                Console.Clear();
+                Console.WriteLine("Selected medic was wrong!");
+                return;
+            }
+
+            Patient patient = SelectPatient();
+
+            if (patient == null)
+            {
+                Console.Clear();
+                Console.WriteLine("Selected patient was wrong!");
+                return;
+            }
+
+            Console.Write("Enter the summary of the appointment: ");
+            string summary = Console.ReadLine();
+
+            if (summary == null || summary == "")
+            {
+                Console.Clear();
+                Console.WriteLine("Summary was left empty!");
+                return;
+            }
+
+            Console.Write("Enter the date of the appointment (dd-mm-yyyy): ");
+            string date = Console.ReadLine();
+
+            if (date == null || date == "")
+            {
+                Console.Clear();
+                Console.WriteLine("Date was left empty!");
+                return;
+            }
+
+            string appointmentID = Guid.NewGuid().ToString();
+
+            //Create and add it to the current hospital
+            Appointment newAppoinment = new Appointment(appointmentID, summary, date, medic, patient);
+            appointmentsList.Add(newAppoinment);
         }
 
         public Medic SelectMedic()

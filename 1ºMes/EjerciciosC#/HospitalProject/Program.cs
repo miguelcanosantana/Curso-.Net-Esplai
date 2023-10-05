@@ -82,7 +82,7 @@ namespace HospitalProject
                         break;
 
                     case 7:
-                        CreateAppointment(hospitalToSelect);
+                        hospitalToSelect.CreateAppointment();
                         break;
 
                     case 12:
@@ -104,54 +104,6 @@ namespace HospitalProject
         static public void ShowAllAppointments()
         {
 
-        }
-
-
-        static public void CreateAppointment(Hospital hospital)
-        {
-            Medic medic = hospital.SelectMedic();
-
-            if (medic == null)
-            {
-                Console.Clear();
-                Console.WriteLine("Selected medic was wrong!");
-                return;
-            }
-
-            Patient patient = hospital.SelectPatient();
-
-            if (patient == null)
-            {
-                Console.Clear();
-                Console.WriteLine("Selected patient was wrong!");
-                return;
-            }
-
-            Console.Write("Enter the summary of the appointment: ");
-            string summary = Console.ReadLine();
-
-            if (summary == null || summary == "")
-            {
-                Console.Clear();
-                Console.WriteLine("Summary was left empty!");
-                return;
-            }
-
-            Console.Write("Enter the date of the appointment (dd-mm-yyyy): ");
-            string date = Console.ReadLine();
-
-            if (date == null || date == "")
-            {
-                Console.Clear();
-                Console.WriteLine("Date was left empty!");
-                return;
-            }
-
-            string appointmentID = Guid.NewGuid().ToString();
-
-            //Create and add it to the current hospital
-            Appointment newAppoinment = new Appointment(appointmentID, summary, date, medic, patient);
-            hospital.AddAppointment(newAppoinment);
         }
 
 
