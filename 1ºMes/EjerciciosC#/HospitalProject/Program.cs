@@ -48,23 +48,41 @@ namespace HospitalProject
                 Console.Write("Input: ");
 
                 result = int.TryParse(Console.ReadLine(), out selectOption);
+                Hospital hospitalToSelect = null;
+
+                //Pre-select hospital for the options that need it
+                if (result && selectOption > 2 && selectOption < 14)
+                {
+                    hospitalToSelect = SelectHospital();
+
+                    if (hospitalToSelect == null)
+                    {
+                        selectOption = -1;
+                        Console.Clear();
+                        Console.WriteLine("Selected Hospital was wrong!");
+                    }
+                }
 
                 switch (selectOption)
                 {
+                    //In case a wrong hospital is selected DO NOTHING!
+                    case -1:
+                        break;
+
                     case 1:
                         CreateHospital();
                         break;
 
                     case 3: 
-                        RemoveHospital(); 
+                        RemoveHospital(hospitalToSelect); 
                         break;
 
                     case 4:
-                        CreatePerson();
+                        CreatePerson(hospitalToSelect);
                         break;
 
                     case 7:
-                        CreateAppointment();
+                        CreateAppointment(hospitalToSelect);
                         break;
 
                     default:
@@ -79,17 +97,14 @@ namespace HospitalProject
         }
 
 
-        static public void CreateAppointment()
+        static public void ShowAllAppointments()
         {
-            Hospital hospital = SelectHospital("in which the appointment will be created");
 
-            if (hospital == null)
-            {
-                Console.Clear();
-                Console.WriteLine("Selected Hospital was wrong!");
-                return;
-            }
+        }
 
+
+        static public void CreateAppointment(Hospital hospital)
+        {
             Medic medic = hospital.SelectMedic();
 
             if (medic == null)
@@ -161,18 +176,9 @@ namespace HospitalProject
         }
 
 
-        static public void RemoveHospital()
+        static public void RemoveHospital(Hospital hospital)
         {
-            Hospital hospitalToDelete;
-
-            do
-            {
-                Console.Clear();
-                hospitalToDelete = SelectHospital(" to delete");
-
-            } while (hospitalToDelete == null);
-
-            hospitalsList.Remove(hospitalToDelete);
+            hospitalsList.Remove(hospital);
 
             Console.Clear();
             Console.WriteLine("Hospital deleted!");
@@ -180,7 +186,7 @@ namespace HospitalProject
 
 
         //Get a generic person's data, create a patient or a medic depending on the input
-        static public void CreatePerson()
+        static public void CreatePerson(Hospital hospital)
         {
             string id;
             string name;
@@ -210,22 +216,20 @@ namespace HospitalProject
                 if (type.Equals("medic") || type.Equals("patient"))
                     correctType = true;
 
-                assignedHospital = SelectHospital(" the person will be assigned to");;
-
             } while (id == null || name == null || surname == null || type == null || 
-                !correctType || assignedHospital == null);
+                !correctType);
 
             if (type.Equals("medic"))
             {
                 Medic newMedic = new Medic(id, name, surname);
-                assignedHospital.AddMedic(newMedic);
+                hospital.AddMedic(newMedic);
                 Console.Clear();
                 Console.WriteLine("Medic Created!");
             }
             else
             {
                 Patient newPatient = new Patient(id, name, surname);
-                assignedHospital.AddPatient(newPatient);
+                hospital.AddPatient(newPatient);
                 Console.Clear();
                 Console.WriteLine("Patient Created!");
             }
@@ -239,7 +243,7 @@ namespace HospitalProject
         }
 
 
-        static public Hospital SelectHospital(string message)
+        static public Hospital SelectHospital()
         {
             Console.WriteLine("\n\n");
 
@@ -250,7 +254,7 @@ namespace HospitalProject
 
             Console.WriteLine("\n\n");
 
-            Console.Write("Enter the name of the Hospital " + message + ": ");
+            Console.Write("Enter the name of the Hospital: ");
             string hospitalName = Console.ReadLine();
 
             Hospital assignedHospital = hospitalsList.Find(hospital => hospital.GetName().Equals(hospitalName));
