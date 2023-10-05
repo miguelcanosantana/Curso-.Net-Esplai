@@ -35,7 +35,7 @@ namespace HospitalProject
 
         public List<Appointment> FindInAppointments(Medic medic)
         {
-            return this.appointmentsList.FindAll(appointment => appointment.GetPatient().Equals(medic));
+            return this.appointmentsList.FindAll(appointment => appointment.GetMedic().Equals(medic));
         }
 
         public Medic SelectMedic()
