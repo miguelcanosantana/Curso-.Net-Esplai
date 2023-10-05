@@ -22,13 +22,7 @@ namespace HospitalProject
             this.location = location;
         }
 
-        public void SetName(string name) { this.name = name; }
-
-        public void SetLocation(string location) { this.location = location; }
-
         public string GetName() { return name; }
-
-        public string GetLocation() { return location; }
 
         public List<Medic> GetMedics() { return medicsList; }
 
@@ -78,6 +72,40 @@ namespace HospitalProject
 
             Patient selectedPatient = patientsList.Find(patient => patient.GetID().Equals(patientId));
             return selectedPatient;
+        }
+
+        public Person SelectPerson()
+        {
+            Console.WriteLine("\n\n");
+
+            Console.WriteLine("==== List of Medics ====");
+
+            foreach (Medic medic in medicsList)
+                Console.WriteLine(medic.GetInfo());
+
+            Console.WriteLine("\n\n");
+
+            Console.WriteLine("==== List of Patients ====");
+
+            foreach (Patient patient in patientsList)
+                Console.WriteLine(patient.GetInfo());
+
+            Console.WriteLine("\n\n");
+
+            Console.Write("Enter the id of the person: ");
+            string personId = Console.ReadLine();
+
+            Person selectedMedic = medicsList.Find(medic => medic.GetID().Equals(personId));
+
+            if (selectedMedic != null)
+                return selectedMedic;
+
+            Person selectedPatient = patientsList.Find(patient => patient.GetID().Equals(personId));
+
+            if (selectedPatient != null)
+                return selectedPatient;
+
+            return null;
         }
 
         public void ShowAllPeople()
@@ -222,7 +250,7 @@ namespace HospitalProject
         {
             Console.Clear();
 
-            Console.Write("New name (previous was " + GetName() +"): ");
+            Console.Write("New name (previous was " + this.name +"): ");
             string name = Console.ReadLine();
 
             if (name == null || name == "")
@@ -232,7 +260,7 @@ namespace HospitalProject
                 return;
             }
 
-            Console.Write("New location (previous was " + GetLocation() + "): ");
+            Console.Write("New location (previous was " + this.location + "): ");
             string location = Console.ReadLine();
 
             if (location == null || location == "")
@@ -242,11 +270,27 @@ namespace HospitalProject
                 return;
             }
 
-            SetName(name);
-            SetLocation(location);
+            this.name = name;
+            this.location = location;
 
             Console.Clear();
             Console.WriteLine("Hospital Modified!");
+        }
+
+        public void ModifyPerson()
+        {
+            Console.Clear();
+
+            Person person = SelectPerson();
+
+            if (person == null)
+            {
+                Console.Clear();
+                Console.WriteLine("That person was not found!");
+                return;
+            }
+
+            person.ModifyPerson();
         }
     }
 }

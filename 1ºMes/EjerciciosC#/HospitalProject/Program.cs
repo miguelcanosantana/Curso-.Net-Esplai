@@ -85,6 +85,10 @@ namespace HospitalProject
                         selectedHospital.CreatePerson();
                         break;
 
+                    case 5:
+                        selectedHospital.ModifyPerson();
+                        break;
+
                     case 7:
                         selectedHospital.CreateAppointment();
                         break;
@@ -153,7 +157,7 @@ namespace HospitalProject
 
         static public Hospital SelectHospital()
         {
-            Console.WriteLine("\n\n");
+            Console.Clear();
 
             Console.WriteLine("==== List of Hospitals ====");
 
