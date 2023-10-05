@@ -47,5 +47,33 @@ namespace HospitalProject
 
             return info;
         }
+
+        public void ModifyAppointment()
+        {
+            Console.Clear();
+
+            Console.Write("New summary (previous was " + this.summary + "): ");
+            string summary = Console.ReadLine();
+
+            if (summary == null || summary == "")
+            {
+                Console.Clear();
+                Console.WriteLine("Summary was left empty!");
+                return;
+            }
+
+            Console.Write("New date (previous was " + this.date + "): ");
+            string date = Console.ReadLine();
+
+            if (date == null || date == "")
+            {
+                Console.Clear();
+                Console.WriteLine("Date was left empty!");
+                return;
+            }
+
+            Console.Clear();
+            Console.WriteLine("Appointment Modified!");
+        }
     }
 }

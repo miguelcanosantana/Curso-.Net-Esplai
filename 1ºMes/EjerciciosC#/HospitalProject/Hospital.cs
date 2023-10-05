@@ -108,6 +108,21 @@ namespace HospitalProject
             return null;
         }
 
+        public Appointment SelectAppointment()
+        {
+            ShowAllAppointments();
+
+            Console.Write("Enter the appointment id: ");
+            string id = Console.ReadLine();
+
+            Appointment selectedAppointment = appointmentsList.Find(appointment => appointment.GetId().Equals(id));
+
+            if (selectedAppointment != null)
+                return selectedAppointment;
+
+            return null;
+        }
+
         public void ShowAllPeople()
         {
             Console.Clear();
@@ -328,6 +343,21 @@ namespace HospitalProject
             }
 
             person.ModifyPerson();
+        }
+
+        public void ModifyAppointment()
+        {
+            Console.Clear();
+            Appointment appointment = SelectAppointment();
+
+            if (appointment == null)
+            {
+                Console.Clear();
+                Console.WriteLine("That appointment was not found!");
+                return;
+            }
+
+            appointment.ModifyAppointment();
         }
 
         public void RemovePerson()
