@@ -39,7 +39,7 @@ namespace SnakeClasses
 
         public void AddDuplicatePart(Vector2 part) { snakePartsDuplicates.Add(part); }
 
-        public void SetSnakePartToPreviousPosition(Vector2 part, Vector2 previousPosition) { part = previousPosition; }
+        public void SetSnakePartToPreviousPosition(Vector2 part, Vector2 previousPosition) { parts[parts.IndexOf(part)] = previousPosition; }
 
         public void SetInputDirection(Vector2 inputDirection) { this.inputDirection = inputDirection; }
 
