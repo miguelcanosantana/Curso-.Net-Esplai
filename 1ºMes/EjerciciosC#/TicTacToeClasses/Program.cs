@@ -63,12 +63,7 @@ namespace TicTacToeClasses
             Player currentPlayer = Player.X;
             Player? winnerPlayer = null;
 
-            //https://www.tutorialsteacher.com/csharp/csharp-multi-dimensional-array
-            string[,] grid2D = new string[3, 3]{
-                    {".", ".", "."},
-                    {".", ".", "."},
-                    {".", ".", "."},
-            };
+            Grid grid = new Grid();
 
             do
             {
@@ -77,11 +72,11 @@ namespace TicTacToeClasses
 
                 do
                 {
-                    RefreshGrid(grid2D);
+                    RefreshGrid(grid.boxes);
                     Console.WriteLine("It's player " + currentPlayer.ToString() + " turn. \n");
 
                     boxNumber = AskForNumber("Input the number (1 - 9): ");
-                    canPutMove = CanPutMove(grid2D[boxNumber.Item1, boxNumber.Item2]);
+                    canPutMove = CanPutMove(grid.boxes[boxNumber.Item1, boxNumber.Item2]);
 
                     if (!canPutMove)
                     {
@@ -91,9 +86,9 @@ namespace TicTacToeClasses
 
                 } while (!canPutMove);
 
-                grid2D[boxNumber.Item1, boxNumber.Item2] = currentPlayer.ToString();
+                grid.boxes[boxNumber.Item1, boxNumber.Item2] = currentPlayer.ToString();
 
-                winnerPlayer = CheckTheWinner(currentPlayer, grid2D);
+                winnerPlayer = CheckTheWinner(currentPlayer, grid.boxes);
 
                 //Switch players
                 if (currentPlayer == Player.X) currentPlayer = Player.O;
@@ -101,7 +96,7 @@ namespace TicTacToeClasses
 
             } while (winnerPlayer == null);
 
-            RefreshGrid(grid2D);
+            RefreshGrid(grid.boxes);
             ShowWinningScreen(winnerPlayer);
         }
 
@@ -174,7 +169,7 @@ namespace TicTacToeClasses
         }
 
 
-        private static void RefreshGrid(string[,] grid2D)
+        private static void RefreshGrid(string[,] grid)
         {
             Console.Clear();
             Console.WriteLine(" _______________________\n" +
@@ -187,9 +182,9 @@ namespace TicTacToeClasses
                                 "|       |       |       |\n" +
                                 "|   {6}   |   {7}   |   {8}   |\n" +
                                 "|_______|_______|_______|\n",
-                                grid2D[0, 0], grid2D[0, 1], grid2D[0, 2],
-                                grid2D[1, 0], grid2D[1, 1], grid2D[1, 2],
-                                grid2D[2, 0], grid2D[2, 1], grid2D[2, 2]);
+                                grid[0, 0], grid[0, 1], grid[0, 2],
+                                grid[1, 0], grid[1, 1], grid[1, 2],
+                                grid[2, 0], grid[2, 1], grid[2, 2]);
 
             Console.WriteLine("");
             Console.WriteLine("");
