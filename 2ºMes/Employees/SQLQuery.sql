@@ -2,6 +2,17 @@ USE MiguelCanoEmployees
 GO
 
 
+--Sacar empleados de un departamento sin tener su ID (Meter una subconsulta dentro de otra)
+SELECT first_name, last_name FROM employees
+WHERE department_id = (SELECT department_id FROM departments
+WHERE department_name = 'Marketing')
+
+
+--Averiguar el ID del departamento de Marketing
+SELECT department_id FROM departments
+WHERE department_name = 'Marketing'
+
+
 --Hacer algo y Ordenar empleados
 SELECT first_name, last_name FROM employees
 WHERE salary >= 11000
