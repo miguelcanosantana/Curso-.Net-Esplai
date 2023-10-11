@@ -2,6 +2,17 @@ USE MiguelCanoEmployees
 GO
 
 
+--Empleados de marketing con un salario minimo a X
+SELECT first_name, last_name FROM employees
+WHERE department_id = (SELECT department_id FROM departments
+WHERE department_name = 'Marketing') AND salary >=10000
+
+
+--Empleados que no tienen jefe
+SELECT first_name, last_name FROM employees
+WHERE manager_id IS NULL
+
+
 --Sacar empleados de un departamento sin tener su ID (Meter una subconsulta dentro de otra)
 SELECT first_name, last_name FROM employees
 WHERE department_id = (SELECT department_id FROM departments
