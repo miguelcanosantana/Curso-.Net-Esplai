@@ -2,6 +2,12 @@ USE MiguelCanoEmployees
 GO
 
 
+--Hacer algo y Ordenar empleados
+SELECT first_name, last_name FROM employees
+WHERE salary >= 11000
+ORDER BY first_name, last_name
+
+
 --Listar empleados que empiezan por S y tengán salario superior a X
 SELECT first_name, last_name FROM employees
 WHERE first_name LIKE 'S%' AND salary >= 10000
