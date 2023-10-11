@@ -3,7 +3,6 @@ GO
 
 
 --Listar empleados que empiezan por S y tengán salario superior a X
---Listar empleados con sueldo igual o superior a X
 SELECT first_name, last_name FROM employees
 WHERE first_name LIKE 'S%' AND salary >= 10000
 
