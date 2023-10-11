@@ -3,7 +3,7 @@ GO
 
 
 --Empleados de marketing con un salario minimo a X
-SELECT first_name, last_name FROM employees
+SELECT first_name, last_name, salary FROM employees
 WHERE department_id = (SELECT department_id FROM departments
 WHERE department_name = 'Marketing') AND salary >=10000
 
