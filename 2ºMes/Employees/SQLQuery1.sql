@@ -12,7 +12,11 @@ WHERE YEAR (hire_date) = 1995
 --If the month is a multiple of 3, the module must be 0
 --The module of a smaller number than it's divisor always returns the same number
 SELECT * FROM [dbo].[employees]
+--IN Searches a value inside a list of values
+--WHERE MONTH (hire_date) IN (1,4,7,10)
 WHERE MONTH (hire_date) % 3 = 1
 
+--DATEFIFF is more precise, as it calculates the days too
 SELECT * FROM [dbo].[employees]
-WHERE YEAR (GETDATE()) - YEAR (hire_date) >= 25
+--WHERE YEAR (GETDATE()) - YEAR (hire_date) >= 25
+WHERE DATEDIFF(year, hire_date, GETDATE()) >= 25
