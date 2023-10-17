@@ -1,5 +1,13 @@
 USE MiguelCanoEmployees
 
+
+--Employees with their boss name
+SELECT c1.first_name AS 'Name', c2.first_name AS 'Boss Name'
+FROM employees c1
+	INNER JOIN employees c2
+	ON c2.manager_id = c1.employee_id
+
+
 --Employees with their job name and from Toronto (With Inner Join)
 SELECT employees.first_name AS 'Name', jobs.job_title AS 'Job'
 FROM employees 
@@ -9,8 +17,8 @@ FROM employees
 	ON employees.job_id = jobs.job_id 
 	INNER JOIN locations
 	ON departments.location_id = locations.location_id
-	AND locations.city = 'Toronto'
-
+	--AND locations.city = 'Toronto'
+WHERE locations.city = 'Toronto'
 
 ----Employees with their job name (With inner Join)
 ----ON acts as WHERE
