@@ -1,5 +1,13 @@
 USE MiguelCanoEmployees
 
+
+--FULL JOIN Departments with or without employees and employees with or without departments
+SELECT first_name, department_name
+FROM employees
+	FULL JOIN departments
+	ON employees.department_id = departments.department_id
+
+
 --RIGHT JOIN Departments with or without employees
 SELECT first_name, department_name
 FROM employees
