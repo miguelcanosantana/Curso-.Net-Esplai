@@ -2,7 +2,7 @@ USE MiguelCanoEmployees
 
 
 --Employees with their boss name
---We have to use c1 c2 or any aliases for distingishing the same table
+--We have to use any aliases for distingishing the same table
 SELECT emp.first_name AS 'Name', boss.first_name AS 'Boss Name'
 FROM employees emp
 	INNER JOIN employees boss
