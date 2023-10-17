@@ -1,5 +1,11 @@
 USE MiguelCanoEmployees
 
+--Name of employees with their children (dependents)
+--Name of employees with their country
+--Name of employees with their department and jobs
+--Name of employees with their department, jobs, city, etc
+
+
 
 --FULL JOIN Departments with or without employees and employees with or without departments
 SELECT first_name, department_name
