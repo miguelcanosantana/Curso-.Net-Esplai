@@ -6,7 +6,7 @@ USE MiguelCanoEmployees
 SELECT emp.first_name AS 'Name', boss.first_name AS 'Boss Name'
 FROM employees emp
 	INNER JOIN employees boss
-	ON boss.manager_id = emp.employee_id
+	ON emp.manager_id = boss.employee_id
 
 
 --Employees with their job name and from Toronto (With Inner Join)
