@@ -1,10 +1,49 @@
 USE MiguelCanoEmployees
 
 --Name of employees with their children (dependents)
---Name of employees with their country
---Name of employees with their department and jobs
---Name of employees with their department, jobs, city, etc
+SELECT employees.first_name, dependents.first_name
+FROM employees
+	INNER JOIN dependents
+	ON employees.employee_id = dependents.employee_id
 
+
+--Name of employees with their country
+SELECT employees.first_name, countries.country_name
+FROM employees
+	INNER JOIN departments
+	ON employees.department_id = departments.department_id
+	INNER JOIN locations
+	ON departments.location_id = locations.location_id
+	INNER JOIN countries
+	ON locations.country_id = countries.country_id
+
+
+--Name of employees with their department and jobs
+SELECT employees.first_name, departments.department_name, jobs.job_title
+FROM employees
+	INNER JOIN departments
+	ON employees.department_id = departments.department_id
+	INNER JOIN jobs
+	ON employees.job_id = jobs.job_id
+
+
+--Name of employees with their department, jobs, city, country, etc...
+SELECT emp.first_name, boss.first_name 'boss_name', departments.department_name, jobs.job_title, dependents.first_name, locations.city, countries.country_name, regions.region_name
+FROM employees emp
+	INNER JOIN departments
+	ON emp.department_id = departments.department_id
+	INNER JOIN locations
+	ON departments.location_id = locations.location_id
+	INNER JOIN countries
+	ON locations.country_id = countries.country_id
+	INNER JOIN regions
+	ON countries.region_id = regions.region_id
+	INNER JOIN jobs
+	ON emp.job_id = jobs.job_id
+	INNER JOIN dependents
+	ON emp.employee_id = dependents.employee_id
+	INNER JOIN employees boss
+	ON emp.manager_id = boss.employee_id
 
 
 --FULL JOIN Departments with or without employees and employees with or without departments
