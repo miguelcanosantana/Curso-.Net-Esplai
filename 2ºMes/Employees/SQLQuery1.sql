@@ -1,5 +1,25 @@
 USE MiguelCanoEmployees
 
+--RIGHT JOIN Departments with or without employees
+SELECT first_name, department_name
+FROM employees
+	RIGHT JOIN departments
+	ON employees.department_id = departments.department_id
+
+
+--LEFT JOIN Employees with or whithout department
+SELECT first_name, department_name
+FROM employees
+	LEFT JOIN departments
+	ON employees.department_id = departments.department_id
+
+
+--INNER JOIN Employees with department
+SELECT first_name, department_name
+FROM employees
+	INNER JOIN departments
+	ON employees.department_id = departments.department_id
+
 
 --Employees with their boss name
 --We have to use any aliases for distingishing the same table
