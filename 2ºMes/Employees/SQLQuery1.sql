@@ -1,5 +1,19 @@
 USE MiguelCanoEmployees
 
+--Employees with their job name and from Toronto
+SELECT employees.first_name AS 'Name', jobs.job_title AS 'Job'
+FROM employees, jobs, locations, departments
+WHERE employees.job_id = jobs.job_id AND departments.location_id = 
+	(SELECT locations.location_id, departments.location_id
+	FROM locations, departments WHERE locations.city LIKE 'Toronto')
+
+
+--Employees with their job name
+SELECT employees.first_name AS 'Name', jobs.job_title AS 'Job'
+FROM employees, jobs
+WHERE employees.job_id = jobs.job_id
+
+
 --Employees with their department name
 --Take employees, Take departments, combine them, associate it with where (WITHOUT JOIN)
 SELECT employees.first_name AS 'Name', departments.department_name AS 'Departamento'
