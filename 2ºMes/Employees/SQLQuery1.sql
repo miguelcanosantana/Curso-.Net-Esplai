@@ -1,6 +1,7 @@
 USE MiguelCanoEmployees
 
 --Employees with their department name
+--Take employees, Take departments, combine them (WITHOUT JOIN)
 SELECT employees.first_name AS 'Name', departments.department_name AS 'Departamento'
 FROM employees, departments
 
