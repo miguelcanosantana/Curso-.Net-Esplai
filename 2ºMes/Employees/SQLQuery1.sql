@@ -1,11 +1,20 @@
 USE MiguelCanoEmployees
 
---Employees with their job name and from Toronto
+
+--Employees with their job name (With inner Join)
+--ON acts as WHERE
 SELECT employees.first_name AS 'Name', jobs.job_title AS 'Job'
-FROM employees, jobs, locations, departments
-WHERE employees.job_id = jobs.job_id AND departments.location_id = 
-	(SELECT locations.location_id, departments.location_id
-	FROM locations, departments WHERE locations.city LIKE 'Toronto')
+FROM employees INNER JOIN jobs
+ON employees.job_id = jobs.job_id
+
+
+--Employees with their job name and from Toronto (manual JOIN, without JOIN word)
+SELECT employees.first_name AS 'Name', jobs.job_title AS 'Job'
+FROM employees, departments, jobs, locations
+WHERE 
+	employees.job_id = jobs.job_id 
+	AND departments.location_id = locations.location_id
+	AND locations.city = 'Toronto'
 
 
 --Employees with their job name
