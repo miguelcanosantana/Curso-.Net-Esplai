@@ -1,5 +1,10 @@
 USE MiguelCanoEmployees
 
+--Employees with their department name
+SELECT employees.first_name AS 'Name', departments.department_name AS 'Departamento'
+FROM employees, departments
+
+
 --Num of employees that work on IT
 SELECT 
 	COUNT(*) 'Num of employees in IT'
