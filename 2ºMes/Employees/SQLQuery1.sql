@@ -2,10 +2,11 @@ USE MiguelCanoEmployees
 
 
 --Employees with their boss name
-SELECT c1.first_name AS 'Name', c2.first_name AS 'Boss Name'
-FROM employees c1
-	INNER JOIN employees c2
-	ON c2.manager_id = c1.employee_id
+--We have to use c1 c2 or any aliases for distingishing the same table
+SELECT emp.first_name AS 'Name', boss.first_name AS 'Boss Name'
+FROM employees emp
+	INNER JOIN employees boss
+	ON boss.manager_id = emp.employee_id
 
 
 --Employees with their job name and from Toronto (With Inner Join)
