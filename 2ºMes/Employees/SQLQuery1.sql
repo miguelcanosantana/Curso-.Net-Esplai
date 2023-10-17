@@ -1,9 +1,10 @@
 USE MiguelCanoEmployees
 
 --Employees with their department name
---Take employees, Take departments, combine them (WITHOUT JOIN)
+--Take employees, Take departments, combine them, associate it with where (WITHOUT JOIN)
 SELECT employees.first_name AS 'Name', departments.department_name AS 'Departamento'
 FROM employees, departments
+WHERE employees.department_id = departments.department_id
 
 
 --Num of employees that work on IT
