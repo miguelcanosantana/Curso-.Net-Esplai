@@ -1,5 +1,44 @@
 USE MiguelCanoEmployees
 
+--Num of employees that work on IT
+SELECT 
+	COUNT(*) 'Num of employees in IT'
+FROM employees
+WHERE department_id = 
+	(SELECT department_id
+	FROM departments WHERE department_name = 'IT')
+
+
+--Num of employees that don't have boss
+SELECT 
+	COUNT(*) 'Num of employees without Boss'
+FROM employees
+WHERE manager_id IS NULL
+
+
+--Num of employees that don't have boss without WHERE
+SELECT 
+	COUNT(employee_id) 'Num of employees without Boss'
+FROM employees
+
+
+--All Different departments (Use DISTINCT to eliminate repeated values)
+SELECT 
+	COUNT(DISTINCT department_id) 'Num of departments. xxx'
+FROM employees
+
+
+--Employees with all agregate functions in only a select
+SELECT 
+	MAX(salary) 'Max salary',
+	MIN(salary) 'Min salary',
+	SUM(salary) 'Total salary',
+	AVG(salary) 'Average salary',
+	COUNT(salary) 'Num of salaries. xxx',
+	COUNT(*) 'Num of rows. xxx'
+FROM employees
+
+
 --USING BETWEEN TO OMIT MULTIPLE CHECKS
 SELECT * FROM [dbo].[employees]
 --WHERE first_name LIKE 'S%' AND salary >= 5000 AND salary <= 10000
