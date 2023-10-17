@@ -18,7 +18,7 @@ WHERE manager_id IS NULL
 
 --Num of employees that don't have boss without WHERE
 SELECT 
-	COUNT(employee_id) 'Num of employees without Boss'
+	COUNT(*) - COUNT(manager_id) 'Num of employees without Boss'
 FROM employees
 
 
