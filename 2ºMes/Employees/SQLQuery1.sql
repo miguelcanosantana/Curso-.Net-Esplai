@@ -1,7 +1,9 @@
 USE MiguelCanoEmployees
 
+--USING BETWEEN TO OMIT MULTIPLE CHECKS
 SELECT * FROM [dbo].[employees]
-WHERE first_name LIKE 'S%' AND salary >= 5000 AND salary <= 10000
+--WHERE first_name LIKE 'S%' AND salary >= 5000 AND salary <= 10000
+WHERE first_name LIKE 'S%' AND salary BETWEEN 5000 AND 10000
 
 --Using Year before a date to extract only the year of the entire date
 SELECT * FROM [dbo].[employees]
