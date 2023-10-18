@@ -1,5 +1,5 @@
 USE MiguelCanoCinemas
-
+GO
 
 --Mostrar nombre película
 SELECT Nombre FROM PELICULAS
