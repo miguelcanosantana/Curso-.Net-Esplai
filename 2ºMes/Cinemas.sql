@@ -1,4 +1,21 @@
 USE MiguelCanoCinemas
 
---Show all films
-SELECT * FROM [dbo].[PELICULAS]
+
+--Mostrar nombre película
+SELECT Nombre FROM PELICULAS
+
+--Mostrar edades películas
+SELECT DISTINCT CalificacionEdad FROM PELICULAS
+
+--Mostrar películas sin calificación
+SELECT * FROM PELICULAS
+WHERE CalificacionEdad IS NULL
+
+--MOSTRAR SALAS QUE NO PROYECTAN PELÍCULAS
+SELECT * FROM SALAS
+WHERE Pelicula IS NULL
+
+--MOSTRAR SALAS Y PELICULAS PROYECTADAS EN ELLASÇ
+SELECT * FROM SALAS
+LEFT JOIN PELICULAS
+ON SALAS.Pelicula = PELICULAS.Codigo
