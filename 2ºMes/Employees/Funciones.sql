@@ -19,3 +19,7 @@ GO
 
 --Use Function
 SELECT dbo.EmployeesNumberFromDepartment(1)
+
+
+-- 01- Lista de depts con el num. de sus emps (usandoa la función 00)
+SELECT dbo.EmployeesNumberFromDepartment(department_id) FROM departments
