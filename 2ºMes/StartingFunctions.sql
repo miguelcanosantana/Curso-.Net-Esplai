@@ -17,18 +17,27 @@ GO --Use go to execute the next code in a next transaction
 SELECT dbo.TodaysDate()
 
 
-CREATE FUNCTION TodaysDay
+CREATE FUNCTION TodaysDayMonthOrYear
 (
+@selectedOption int --1 is day, 2 is month, 3 is year
 )
 RETURNS INT
 AS
 BEGIN
-	DECLARE @resultado INT;
-	SET @resultado = DAY(GETDATE());
-	RETURN @resultado;
+
+	@value int
+
+	IF (@selectedOption = 1) 
+		RETURN DAY(GETDATE());
+
+	ELSE IF (@selectedOption = 2) 
+		RETURN MONTH(GETDATE());
+
+	ELSE IF (@selectedOption = 3) 
+		RETURN YEAR(GETDATE());
 END
 
 GO 
 
 --Use Function
-SELECT dbo.TodaysDay()
+SELECT dbo.TodaysDayMonthOrYear()
