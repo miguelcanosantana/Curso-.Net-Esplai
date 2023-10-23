@@ -48,6 +48,22 @@ SELECT dbo.DepartmentName(1)
 
 -- 2- Función NumEmpsPosteriorA <fecha contratación>
 -- recibe fechaContratación, devuelve num de emps
+CREATE FUNCTION PostEmployees(@hireDate DATE) 
+RETURNS INT
+AS
+BEGIN
+	DECLARE @number INT
+
+	SELECT @number = COUNT(*) FROM employees
+	WHERE employees.hire_date > @hireDate
+
+	return @number
+END
+
+GO 
+
+--Use Function
+SELECT dbo.PostEmployees('10-19-1995')
 
  
 
