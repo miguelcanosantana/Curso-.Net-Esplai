@@ -17,7 +17,7 @@ GO --Use go to execute the next code in a next transaction
 SELECT dbo.TodaysDate()
 
 
-CREATE FUNCTION TodaysDayMonthOrYear
+ALTER FUNCTION TodaysDayMonthOrYear
 (
 @selectedOption int --1 is day, 2 is month, 3 is year
 )
@@ -25,19 +25,21 @@ RETURNS INT
 AS
 BEGIN
 
-	@value int
+	DECLARE @resultado INT
 
 	IF (@selectedOption = 1) 
-		RETURN DAY(GETDATE());
+		SET @resultado = DAY(GETDATE());
 
 	ELSE IF (@selectedOption = 2) 
-		RETURN MONTH(GETDATE());
+		SET @resultado =  MONTH(GETDATE());
 
 	ELSE IF (@selectedOption = 3) 
-		RETURN YEAR(GETDATE());
+		SET @resultado = YEAR(GETDATE());
+
+	RETURN @resultado
 END
 
 GO 
 
 --Use Function
-SELECT dbo.TodaysDayMonthOrYear()
+SELECT dbo.TodaysDayMonthOrYear(3)
