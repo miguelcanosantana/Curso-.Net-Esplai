@@ -69,3 +69,23 @@ SELECT dbo.PostEmployees('10-19-1995')
 
 -- 3- Función NumEmpsCiudad 
 -- recibe nombre ciudad, devuelve num de emps en esta ciudad
+CREATE FUNCTION EmployeesCityNumber(@cityName VARCHAR(30)) 
+RETURNS INT
+AS
+BEGIN
+	DECLARE @number INT
+
+	SELECT @number = COUNT(*) FROM employees
+	INNER JOIN departments
+	ON employees.department_id = departments.department_id
+	INNER JOIN locations
+	ON departments.location_id = locations.location_id
+	WHERE locations.city = @cityName
+
+	return @number
+END
+
+GO 
+
+--Use Function
+SELECT dbo.EmployeesCityNumber('London')
