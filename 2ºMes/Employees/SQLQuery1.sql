@@ -206,6 +206,8 @@ SELECT COALESCE (
 
 --24/10/2023
 
+USE MiguelCanoEmployees
+GO
 
 --Salary of employee without CONCAT
 SELECT employees.first_name + ' ' + employees.last_name + ' ' + CAST(salary AS VARCHAR(10)) AS 'Employee & Salary' 
@@ -231,7 +233,7 @@ FROM employees
 	ON departments.department_id = employees.department_id
 	INNER JOIN locations
 	ON locations.location_id = departments.location_id
-GROUP BY locations.city
+GROUP BY locations.city, locations.location_id
 
 
 --AVERAGE SALARY PER DEPARTMENT
@@ -258,4 +260,23 @@ FROM employees
 	ON departments.department_id = employees.department_id
 GROUP BY departments.department_id, department_name
 HAVING COUNT(employees.employee_id) >= 3 --USE HAVING AFTER A GROUP BY TO COUNT
+
+
+USE GerardMiguelVuelos
+GO
+
+--NUMBER OF PASSENGERS IN EACH FLY
+SELECT Vuelo.IdentificadorVuelo, COUNT(*) AS 'Passengers Count'
+FROM Pasajero
+	INNER JOIN Vuelo
+	ON Pasajero.FK_IdVuelo = IdVuelo
+GROUP BY Vuelo.IdVuelo, VUELO.IdentificadorVuelo
+
+
+--NUMBER OF SEATS OCCUPIED IN EACH CLASS
+SELECT CategoriaAsiento.NombreCategoriaAsiento, COUNT(*) AS 'Occupied Seats'
+FROM CategoriaAsiento_Vuelo
+	INNER JOIN CategoriaAsiento
+	ON CategoriaAsiento.IdCategoriaAsiento = CategoriaAsiento_Vuelo.FK_IdCategoriaAsiento
+GROUP BY CategoriaAsiento.NombreCategoriaAsiento, CategoriaAsiento.IdCategoriaAsiento
 
