@@ -278,5 +278,5 @@ SELECT CategoriaAsiento.NombreCategoriaAsiento, COUNT(*) AS 'Occupied Seats'
 FROM CategoriaAsiento_Vuelo
 	INNER JOIN CategoriaAsiento
 	ON CategoriaAsiento.IdCategoriaAsiento = CategoriaAsiento_Vuelo.FK_IdCategoriaAsiento
-GROUP BY CategoriaAsiento.NombreCategoriaAsiento, CategoriaAsiento.IdCategoriaAsiento
+GROUP BY NombreCategoriaAsiento, IdCategoriaAsiento
 
