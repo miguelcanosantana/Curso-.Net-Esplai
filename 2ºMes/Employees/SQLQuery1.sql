@@ -202,6 +202,11 @@ SELECT COALESCE (
 	'Doesnt have anything') 
 	AS PhoneNumber FROM employees
 
+
+
+--24/10/2023
+
+
 --Salary of employee without CONCAT
 SELECT employees.first_name + ' ' + employees.last_name + ' ' + CAST(salary AS VARCHAR(10)) AS 'Employee & Salary' 
 FROM employees
@@ -216,4 +221,41 @@ FROM employees
 	INNER JOIN departments
 	ON departments.department_id = employees.department_id
 GROUP BY departments.department_id, department_name --ORDER FIRST BY ID, LATER BY NAME (TO AVOID DUPLICATES BY NAME)
+
+
+
+--NUMBER OF EMPLOYEES PER CITY
+SELECT locations.city AS 'City' , COUNT(*) AS 'Employee Count' 
+FROM employees
+	INNER JOIN departments
+	ON departments.department_id = employees.department_id
+	INNER JOIN locations
+	ON locations.location_id = departments.location_id
+GROUP BY locations.city
+
+
+--AVERAGE SALARY PER DEPARTMENT
+SELECT departments.department_name, AVG(employees.salary) AS 'Average Salary'
+FROM employees
+	INNER JOIN departments
+	ON departments.department_id = employees.department_id
+GROUP BY departments.department_id, departments.department_name
+
+
+--NUMBER OF EMPLOYEES PER DEPARTMENT FOR DEPARTMENTS STARTING WITH 'S'
+SELECT departments.department_name AS 'Department' , COUNT(*) AS 'Employee Count' 
+FROM employees
+	INNER JOIN departments
+	ON departments.department_id = employees.department_id
+WHERE department_name LIKE 'S%'
+GROUP BY departments.department_id, department_name
+
+
+--NUMBER OF EMPLOYEES PER DEPARTMENT FOR DEPARTMENTS WITH 3 OR MORE EMPLOYEES
+SELECT departments.department_name AS 'Department' , COUNT(*) AS 'Employee Count' 
+FROM employees
+	INNER JOIN departments
+	ON departments.department_id = employees.department_id
+GROUP BY departments.department_id, department_name
+HAVING COUNT(employees.employee_id) >= 3 --USE HAVING AFTER A GROUP BY TO COUNT
 
