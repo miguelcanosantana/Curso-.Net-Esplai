@@ -206,3 +206,13 @@ SELECT COALESCE (
 SELECT employees.first_name + ' ' + employees.last_name + ' ' + CAST(salary AS VARCHAR(10)) AS 'Employee & Salary' 
 FROM employees
 
+--Group By
+SELECT department_id, COUNT(*) FROM employees
+GROUP BY department_id
+
+--DEPARTMENTS AND NUMBER OF EMPLOYEES PER DEPARTMENT
+SELECT departments.department_name, COUNT(*) FROM employees
+	INNER JOIN departments
+	ON departments.department_id = employees.department_id
+GROUP BY department_name, departments.department_id
+
