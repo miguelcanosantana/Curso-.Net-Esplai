@@ -1,4 +1,5 @@
 USE MiguelCanoEmployees
+GO
 
 --Name of employees with their children (dependents)
 SELECT employees.first_name, dependents.first_name
@@ -182,3 +183,26 @@ WHERE MONTH (hire_date) % 3 = 1
 SELECT * FROM [dbo].[employees]
 --WHERE YEAR (GETDATE()) - YEAR (hire_date) >= 25
 WHERE DATEDIFF(year, hire_date, GETDATE()) >= 25
+
+--Entire employees name, only a field
+SELECT first_name + ' ' + last_name AS FullName FROM employees
+
+--Entire employees name + telephone, only a field
+SELECT CONCAT (
+	first_name + ' ', 
+	last_name  + ' (', 
+	ISNULL(phone_number, 'Doesnt have a phone'),
+	') ') 
+	AS PhoneNumber FROM employees
+
+--Entire employees name + telephone, only a field
+SELECT COALESCE (
+	phone_number, 
+	department_id,
+	'Doesnt have anything') 
+	AS PhoneNumber FROM employees
+
+--Salary of employee without CONCAT
+SELECT employees.first_name + ' ' + employees.last_name + ' ' + CAST(salary AS VARCHAR(10)) AS 'Employee & Salary' 
+FROM employees
+
