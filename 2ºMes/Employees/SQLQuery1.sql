@@ -214,5 +214,5 @@ GROUP BY department_id
 SELECT departments.department_name, COUNT(*) FROM employees
 	INNER JOIN departments
 	ON departments.department_id = employees.department_id
-GROUP BY department_name, departments.department_id
+GROUP BY departments.department_id, department_name --ORDER FIRST BY ID, LATER BY NAME (TO AVOID DUPLICATES BY NAME)
 
