@@ -9,9 +9,6 @@ DROP TABLE IF EXISTS Editorial
 DROP TABLE IF EXISTS Autor
 DROP TABLE IF EXISTS Socio
 
-DROP FUNCTION IF EXISTS ObtenerNumeroVolumenesEntreFechas
-
-
 GO
 
 CREATE TABLE Socio (
@@ -134,6 +131,12 @@ VALUES
 
 GO
 
+DROP FUNCTION IF EXISTS ObtenerNumeroVolumenesEntreFechas
+DROP PROCEDURE IF EXISTS CrearPrestamo
+DROP PROCEDURE IF EXISTS MarcarQuitarDeterioro
+
+GO
+
 CREATE FUNCTION ObtenerNumeroVolumenesEntreFechas(@fechaA DATE, @fechaB DATE)
 
 RETURNS INT
@@ -151,3 +154,88 @@ BEGIN
 END
 
 GO
+
+SELECT dbo.ObtenerNumeroVolumenesEntreFechas('10-24-2010', '10-26-2023')
+
+GO
+
+CREATE PROCEDURE CrearPrestamo(@volumen INT, @socio INT, @fecha DATE)
+AS
+BEGIN
+	INSERT INTO Prestamo (FK_IdVolumenFisico, FK_IdSocio, FechaPrestamo)
+	VALUES (@volumen, @socio, @fecha);
+
+	SELECT * FROM Prestamo
+END
+
+GO
+
+EXEC CrearPrestamo @volumen = 1, @socio = 2, @fecha = '10-5-2024'
+
+GO
+
+-- Seleccion = 0 | Filtro = Ejemplar 
+-- Seleccion = 1 | Filtro = Autor 
+-- Seleccion = 2 | Filtro = Editorial 
+CREATE PROCEDURE MarcarQuitarDeterioro(
+	@estaDeteriorado BIT, 
+	@seleccion INT,
+	@filtro NVARCHAR(150) 
+	)
+AS
+BEGIN
+
+	IF @seleccion = 0 
+	BEGIN
+		UPDATE VolumenFisico
+		SET EstaDeterioradoVolumenFisico = @estaDeteriorado
+		WHERE VolumenFisico.IdVolumenFisico = CAST(@filtro AS INT)
+	END
+
+	IF @seleccion = 1 
+	BEGIN
+		UPDATE VolumenFisico
+		SET EstaDeterioradoVolumenFisico = @estaDeteriorado
+			SELECT * FROM VolumenFisico
+			INNER JOIN Libro
+			ON VolumenFisico.FK_IdLibro = Libro.IdLibro
+			INNER JOIN Libro_Autor
+			ON Libro.IdLibro = Libro_Autor.FK_IdLibro
+			INNER JOIN Autor
+			ON Libro_Autor.FK_IdAutor = Autor.IdAutor
+			WHERE NombreAutor = @filtro
+	END
+
+	IF @seleccion = 2 
+	BEGIN
+		UPDATE VolumenFisico
+		SET EstaDeterioradoVolumenFisico = @estaDeteriorado
+			SELECT * FROM VolumenFisico
+			INNER JOIN Libro
+			ON VolumenFisico.FK_IdLibro = Libro.IdLibro
+			INNER JOIN Editorial
+			ON Libro.FK_IdEditorialActual = Editorial.IdEditorial
+			WHERE NombreEditorial = @filtro
+	END
+
+END
+
+GO
+
+EXEC MarcarQuitarDeterioro @estaDeteriorado = 1, @seleccion = 0, @filtro = '1'
+
+GO
+
+SELECT * FROM VolumenFisico
+
+EXEC MarcarQuitarDeterioro @estaDeteriorado = 0, @seleccion = 1, @filtro = 'Agatha Christie'
+
+GO
+
+SELECT * FROM VolumenFisico
+
+EXEC MarcarQuitarDeterioro @estaDeteriorado = 1, @seleccion = 2, @filtro = 'LibrosCarosTop'
+
+GO
+
+SELECT * FROM VolumenFisico
