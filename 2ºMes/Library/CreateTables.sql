@@ -10,6 +10,8 @@ DROP TABLE IF EXISTS Autor
 DROP TABLE IF EXISTS Socio
 
 
+GO
+
 CREATE TABLE Socio (
 	IdSocio INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	CodigoSocio CHAR(15) NOT NULL,
@@ -18,6 +20,8 @@ CREATE TABLE Socio (
 	NombreSocio NVARCHAR(50) NOT NULL,
 	ApellidosSocio NVARCHAR(100) NOT NULL
 );
+
+GO
 
 INSERT INTO Socio
 VALUES
@@ -30,6 +34,8 @@ CREATE TABLE Autor (
 	NombreAutor NVARCHAR(150) NOT NULL,
 );
 
+GO
+
 INSERT INTO Autor
 VALUES
 ('Edgar Allan Poe'),
@@ -40,6 +46,8 @@ CREATE TABLE Editorial (
 	IdEditorial INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	NombreEditorial NVARCHAR(150) NOT NULL,
 );
+
+GO
 
 INSERT INTO Editorial
 VALUES
@@ -57,6 +65,8 @@ CREATE TABLE Libro (
 	ISBNLibro CHAR(13) NOT NULL
 );
 
+GO
+
 INSERT INTO Libro
 VALUES
 ('El gato blanco', 1, 1975, 2010, 2, '123-567-901-A'),
@@ -69,6 +79,8 @@ CREATE TABLE Libro_Autor (
 	FK_IdLibro INT FOREIGN KEY REFERENCES Libro(IdLibro),
 	FK_IdAutor INT FOREIGN KEY REFERENCES Autor(IdAutor),
 );
+
+GO
 
 INSERT INTO Libro_Autor
 VALUES
@@ -85,6 +97,8 @@ CREATE TABLE VolumenFisico (
 	FK_IdLibro INT FOREIGN KEY REFERENCES Libro(IdLibro),
 	EstaDeterioradoVolumenFisico BIT
 );
+
+GO
 
 INSERT INTO VolumenFisico
 VALUES
@@ -105,6 +119,8 @@ CREATE TABLE Prestamo (
 	FechaMaxPrestamo AS DATEADD(DAY, 15, Prestamo.FechaPrestamo),
 	FechaRealDevolucion DATE
 );
+
+GO
 
 INSERT INTO Prestamo (FK_IdLibro, FechaPrestamo)
 VALUES
