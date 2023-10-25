@@ -1,6 +1,15 @@
 USE MiguelCanoLibrary
 GO
 
+DROP TABLE IF EXISTS Prestamo
+DROP TABLE IF EXISTS VolumenFisico
+DROP TABLE IF EXISTS Libro_Autor
+DROP TABLE IF EXISTS Libro
+DROP TABLE IF EXISTS Editorial
+DROP TABLE IF EXISTS Autor
+DROP TABLE IF EXISTS Socio
+
+
 CREATE TABLE Socio (
 	IdSocio INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	CodigoSocio CHAR(15) NOT NULL,
@@ -46,6 +55,5 @@ CREATE TABLE Prestamo (
 	FK_IdLibro INT FOREIGN KEY REFERENCES Libro(IdLibro),
 	FechaPrestamo DATE NOT NULL,
 	FechaRealDevolucion DATE,
-	--FechaMaxPrestamo DATE DATEADD('SECOND',Time,'11-05-2015 14:00:00')
+	FechaMaxPrestamo AS DATEADD(DAY, 15, Prestamo.FechaPrestamo)
 );
-ALTER TABLE Prestamo ADD FechaMaxPrestamo AS DATEADD(DAY, 15, Prestamo.FechaPrestamo)
