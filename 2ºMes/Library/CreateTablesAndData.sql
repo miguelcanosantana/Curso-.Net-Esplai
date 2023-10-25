@@ -9,6 +9,8 @@ DROP TABLE IF EXISTS Editorial
 DROP TABLE IF EXISTS Autor
 DROP TABLE IF EXISTS Socio
 
+DROP FUNCTION IF EXISTS ObtenerNumeroVolumenesEntreFechas
+
 
 GO
 
@@ -114,7 +116,8 @@ VALUES
 
 CREATE TABLE Prestamo (
 	IdPrestamo INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	FK_IdLibro INT FOREIGN KEY REFERENCES Libro(IdLibro),
+	FK_IdVolumenFisico INT FOREIGN KEY REFERENCES VolumenFisico(IdVolumenFisico),
+	FK_IdSocio INT FOREIGN KEY REFERENCES Socio(IdSocio),
 	FechaPrestamo DATE NOT NULL,
 	FechaMaxPrestamo AS DATEADD(DAY, 15, Prestamo.FechaPrestamo),
 	FechaRealDevolucion DATE
@@ -122,10 +125,29 @@ CREATE TABLE Prestamo (
 
 GO
 
-INSERT INTO Prestamo (FK_IdLibro, FechaPrestamo)
+INSERT INTO Prestamo (FK_IdVolumenFisico, FK_IdSocio, FechaPrestamo)
 VALUES
-(1, '10-24-2022'),
-(1, '7-23-2021'),
-(4, '2-12-2020'),
-(3, '5-14-2005');
+(1, 1, '10-24-2022'),
+(1, 2, '7-23-2021'),
+(4, 3, '2-12-2020'),
+(3, 1, '5-14-2005');
 
+GO
+
+CREATE FUNCTION ObtenerNumeroVolumenesEntreFechas(@fechaA DATE, @fechaB DATE)
+
+RETURNS INT
+AS
+BEGIN
+
+	DECLARE @number INT
+
+	SELECT @number = COUNT(*) FROM VolumenFisico
+		INNER JOIN Prestamo
+		ON FK_IdVolumenFisico = IdVolumenFisico
+		WHERE FechaPrestamo BETWEEN @fechaA AND @fechaB
+
+	RETURN @number
+END
+
+GO
