@@ -39,6 +39,7 @@
             this.ChangeNameButton.TabIndex = 0;
             this.ChangeNameButton.Text = "Change Name";
             this.ChangeNameButton.UseVisualStyleBackColor = true;
+            this.ChangeNameButton.Click += new System.EventHandler(this.ChangeNameButton_Click);
             // 
             // FirstAppForm1
             // 

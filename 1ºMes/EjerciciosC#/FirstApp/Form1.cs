@@ -16,5 +16,10 @@ namespace FirstApp
         {
             InitializeComponent();
         }
+
+        private void ChangeNameButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
