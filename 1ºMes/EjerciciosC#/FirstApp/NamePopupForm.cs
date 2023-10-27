@@ -10,18 +10,13 @@ using System.Windows.Forms;
 
 namespace FirstApp
 {
-    public partial class FirstAppForm1 : Form
+    public partial class NamePopupForm : Form
     {
-        public FirstAppForm1()
+        public NamePopupForm(String name)
         {
             InitializeComponent();
-        }
 
-        private void showNameButton_Click(object sender, EventArgs e)
-        {
-            var name = nameTextBox.Text;
-            var namePopupForm = new NamePopupForm(name);
-            namePopupForm.Show();
+            finalNameTextLabel.Text = name;
         }
     }
 }

@@ -28,34 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.changeNameButton = new System.Windows.Forms.Button();
+            this.showNameButton = new System.Windows.Forms.Button();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // changeNameButton
+            // showNameButton
             // 
-            this.changeNameButton.Location = new System.Drawing.Point(301, 200);
-            this.changeNameButton.Name = "changeNameButton";
-            this.changeNameButton.Size = new System.Drawing.Size(112, 23);
-            this.changeNameButton.TabIndex = 0;
-            this.changeNameButton.Text = "Change Name";
-            this.changeNameButton.UseVisualStyleBackColor = true;
-            this.changeNameButton.Click += new System.EventHandler(this.ChangeNameButton_Click);
+            this.showNameButton.Location = new System.Drawing.Point(164, 125);
+            this.showNameButton.Name = "showNameButton";
+            this.showNameButton.Size = new System.Drawing.Size(112, 23);
+            this.showNameButton.TabIndex = 0;
+            this.showNameButton.Text = "Show Name";
+            this.showNameButton.UseVisualStyleBackColor = true;
+            this.showNameButton.Click += new System.EventHandler(this.showNameButton_Click);
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Location = new System.Drawing.Point(161, 78);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(44, 16);
+            this.nameLabel.TabIndex = 1;
+            this.nameLabel.Text = "Name";
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Location = new System.Drawing.Point(164, 97);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(439, 22);
+            this.nameTextBox.TabIndex = 2;
             // 
             // FirstAppForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.changeNameButton);
+            this.Controls.Add(this.nameTextBox);
+            this.Controls.Add(this.nameLabel);
+            this.Controls.Add(this.showNameButton);
             this.Name = "FirstAppForm1";
             this.Text = "FirstApp";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button changeNameButton;
+        private System.Windows.Forms.Button showNameButton;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.TextBox nameTextBox;
     }
 }
 
