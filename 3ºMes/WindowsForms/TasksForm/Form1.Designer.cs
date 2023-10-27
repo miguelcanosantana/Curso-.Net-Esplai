@@ -1,6 +1,6 @@
 ﻿namespace TasksForm
 {
-    partial class Form1
+    partial class TaskForm
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -300,7 +300,7 @@
             this.submitButton.Text = "GO!";
             this.submitButton.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // TaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -329,7 +329,7 @@
             this.Controls.Add(this.titleTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "TaskForm";
             this.Text = "Task Maker";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
