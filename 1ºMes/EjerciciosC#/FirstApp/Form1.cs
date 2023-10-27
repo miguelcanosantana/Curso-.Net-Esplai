@@ -19,7 +19,7 @@ namespace FirstApp
 
         private void ChangeNameButton_Click(object sender, EventArgs e)
         {
-
+            changeNameButton.Text = "New name";
         }
     }
 }

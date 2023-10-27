@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ChangeNameButton = new System.Windows.Forms.Button();
+            this.changeNameButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // ChangeNameButton
+            // changeNameButton
             // 
-            this.ChangeNameButton.Location = new System.Drawing.Point(301, 200);
-            this.ChangeNameButton.Name = "ChangeNameButton";
-            this.ChangeNameButton.Size = new System.Drawing.Size(112, 23);
-            this.ChangeNameButton.TabIndex = 0;
-            this.ChangeNameButton.Text = "Change Name";
-            this.ChangeNameButton.UseVisualStyleBackColor = true;
-            this.ChangeNameButton.Click += new System.EventHandler(this.ChangeNameButton_Click);
+            this.changeNameButton.Location = new System.Drawing.Point(301, 200);
+            this.changeNameButton.Name = "changeNameButton";
+            this.changeNameButton.Size = new System.Drawing.Size(112, 23);
+            this.changeNameButton.TabIndex = 0;
+            this.changeNameButton.Text = "Change Name";
+            this.changeNameButton.UseVisualStyleBackColor = true;
+            this.changeNameButton.Click += new System.EventHandler(this.ChangeNameButton_Click);
             // 
             // FirstAppForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.ChangeNameButton);
+            this.Controls.Add(this.changeNameButton);
             this.Name = "FirstAppForm1";
             this.Text = "FirstApp";
             this.ResumeLayout(false);
@@ -55,7 +55,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button ChangeNameButton;
+        private System.Windows.Forms.Button changeNameButton;
     }
 }
 
