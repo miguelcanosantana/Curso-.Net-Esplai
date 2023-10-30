@@ -12,6 +12,9 @@ namespace TasksForm
 {
     public partial class TaskForm : Form
     {
+
+        public bool isTimeSet = false;
+
         public TaskForm()
         {
             InitializeComponent();
@@ -24,7 +27,7 @@ namespace TasksForm
             if (titleTextBox.Text.Equals("") || locationComboBox.Text.Equals("")
                 || typeComboBox.Text.Equals("") || criticityComboBox.Text.Equals("")
                 || descriptionTextBox.Text.Equals("") || dateTimePicker1.Text.Equals("")
-                || durationNumericUpDown.Value < 0) 
+                || durationNumericUpDown.Value < 0 || isTimeSet == false) 
             {
                 message = "Error, some values where incorrect...";
             }
@@ -47,6 +50,11 @@ namespace TasksForm
 
             ResultForm resultF = new ResultForm(message, mailCheckBox.Checked);
             resultF.ShowDialog();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            isTimeSet = true;
         }
     }
 }
