@@ -50,13 +50,22 @@ namespace WindowsFormsControllers
         {
             isDateSet = true;
 
-            //Show again the date
+            //Show the date
             dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
         }
 
         private void ControllersForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void eraseDateButton_Click(object sender, EventArgs e)
+        {
+            isDateSet = false;
+
+            //Hide the initial date
+            dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            dateTimePicker.CustomFormat = " ";
         }
     }
 }
