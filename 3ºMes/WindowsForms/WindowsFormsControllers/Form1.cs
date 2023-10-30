@@ -12,15 +12,9 @@ namespace WindowsFormsControllers
 {
     public partial class ControllersForm : Form
     {
-        private bool isDateSet = false;
-
         public ControllersForm()
         {
             InitializeComponent();
-
-            //Hide the initial date
-            dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            dateTimePicker.CustomFormat = " ";
         }
 
         private void countriesListBox_SelectedValueChanged(object sender, EventArgs e)
@@ -41,31 +35,23 @@ namespace WindowsFormsControllers
 
         private void checkDateButton_Click(object sender, EventArgs e)
         {
-            if (isDateSet)
+            if (dateTimePicker.Checked)
                 dateValidLabel.Text = "Date is a valid value";
             else dateValidLabel.Text = "Date is NOT valid!";
         }
 
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            isDateSet = true;
-
             //Show the date
             dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-        }
 
-        private void ControllersForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void eraseDateButton_Click(object sender, EventArgs e)
-        {
-            isDateSet = false;
-
-            //Hide the initial date
-            dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            dateTimePicker.CustomFormat = " ";
+            if (dateTimePicker.Checked)
+                dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            else
+            {
+                dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+                dateTimePicker.CustomFormat = " ";
+            }
         }
     }
 }

@@ -37,7 +37,6 @@
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.checkDateButton = new System.Windows.Forms.Button();
             this.dateValidLabel = new System.Windows.Forms.Label();
-            this.eraseDateButton = new System.Windows.Forms.Button();
             this.sexGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,15 +114,16 @@
             // 
             this.dateTimePicker.Location = new System.Drawing.Point(11, 208);
             this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.ShowCheckBox = true;
             this.dateTimePicker.Size = new System.Drawing.Size(321, 22);
             this.dateTimePicker.TabIndex = 4;
             this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
             // 
             // checkDateButton
             // 
-            this.checkDateButton.Location = new System.Drawing.Point(179, 236);
+            this.checkDateButton.Location = new System.Drawing.Point(11, 236);
             this.checkDateButton.Name = "checkDateButton";
-            this.checkDateButton.Size = new System.Drawing.Size(153, 23);
+            this.checkDateButton.Size = new System.Drawing.Size(321, 23);
             this.checkDateButton.TabIndex = 5;
             this.checkDateButton.Text = "Check if date is valid";
             this.checkDateButton.UseVisualStyleBackColor = true;
@@ -138,16 +138,6 @@
             this.dateValidLabel.TabIndex = 6;
             this.dateValidLabel.Text = "                                             ";
             // 
-            // eraseDateButton
-            // 
-            this.eraseDateButton.Location = new System.Drawing.Point(11, 236);
-            this.eraseDateButton.Name = "eraseDateButton";
-            this.eraseDateButton.Size = new System.Drawing.Size(153, 23);
-            this.eraseDateButton.TabIndex = 7;
-            this.eraseDateButton.Text = "Erase the date";
-            this.eraseDateButton.UseVisualStyleBackColor = true;
-            this.eraseDateButton.Click += new System.EventHandler(this.eraseDateButton_Click);
-            // 
             // ControllersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -155,7 +145,6 @@
             this.BackColor = System.Drawing.Color.LavenderBlush;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(345, 422);
-            this.Controls.Add(this.eraseDateButton);
             this.Controls.Add(this.dateValidLabel);
             this.Controls.Add(this.checkDateButton);
             this.Controls.Add(this.dateTimePicker);
@@ -166,7 +155,6 @@
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "ControllersForm";
             this.Text = "Controllers";
-            this.Load += new System.EventHandler(this.ControllersForm_Load);
             this.sexGroupBox.ResumeLayout(false);
             this.sexGroupBox.PerformLayout();
             this.ResumeLayout(false);
@@ -185,7 +173,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Button checkDateButton;
         private System.Windows.Forms.Label dateValidLabel;
-        private System.Windows.Forms.Button eraseDateButton;
     }
 }
 
