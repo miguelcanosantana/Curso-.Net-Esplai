@@ -52,17 +52,17 @@
             "Irlanda",
             "Alemania",
             "Grecia"});
-            this.countriesListBox.Location = new System.Drawing.Point(12, 12);
+            this.countriesListBox.Location = new System.Drawing.Point(11, 12);
             this.countriesListBox.Name = "countriesListBox";
-            this.countriesListBox.Size = new System.Drawing.Size(233, 148);
+            this.countriesListBox.Size = new System.Drawing.Size(321, 148);
             this.countriesListBox.TabIndex = 0;
             this.countriesListBox.SelectedValueChanged += new System.EventHandler(this.countriesListBox_SelectedValueChanged);
             // 
             // countryTextBox
             // 
-            this.countryTextBox.Location = new System.Drawing.Point(12, 166);
+            this.countryTextBox.Location = new System.Drawing.Point(11, 166);
             this.countryTextBox.Name = "countryTextBox";
-            this.countryTextBox.Size = new System.Drawing.Size(233, 22);
+            this.countryTextBox.Size = new System.Drawing.Size(321, 22);
             this.countryTextBox.TabIndex = 1;
             // 
             // maleRadioButton
@@ -82,9 +82,9 @@
             this.sexGroupBox.Controls.Add(this.sexLabel);
             this.sexGroupBox.Controls.Add(this.femaleRadioButton);
             this.sexGroupBox.Controls.Add(this.maleRadioButton);
-            this.sexGroupBox.Location = new System.Drawing.Point(12, 303);
+            this.sexGroupBox.Location = new System.Drawing.Point(11, 303);
             this.sexGroupBox.Name = "sexGroupBox";
-            this.sexGroupBox.Size = new System.Drawing.Size(200, 102);
+            this.sexGroupBox.Size = new System.Drawing.Size(321, 102);
             this.sexGroupBox.TabIndex = 3;
             this.sexGroupBox.TabStop = false;
             this.sexGroupBox.Text = "Sex";
@@ -112,17 +112,17 @@
             // 
             // dateTimePicker
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(12, 208);
+            this.dateTimePicker.Location = new System.Drawing.Point(11, 208);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker.Size = new System.Drawing.Size(321, 22);
             this.dateTimePicker.TabIndex = 4;
             this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
             // 
             // checkDateButton
             // 
-            this.checkDateButton.Location = new System.Drawing.Point(12, 236);
+            this.checkDateButton.Location = new System.Drawing.Point(11, 236);
             this.checkDateButton.Name = "checkDateButton";
-            this.checkDateButton.Size = new System.Drawing.Size(200, 23);
+            this.checkDateButton.Size = new System.Drawing.Size(321, 23);
             this.checkDateButton.TabIndex = 5;
             this.checkDateButton.Text = "Check if date is valid";
             this.checkDateButton.UseVisualStyleBackColor = true;
@@ -141,15 +141,20 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(278, 422);
+            this.BackColor = System.Drawing.Color.LavenderBlush;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(345, 422);
             this.Controls.Add(this.dateValidLabel);
             this.Controls.Add(this.checkDateButton);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.sexGroupBox);
             this.Controls.Add(this.countryTextBox);
             this.Controls.Add(this.countriesListBox);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "ControllersForm";
-            this.Text = "Controllers Form";
+            this.Text = "Controllers";
+            this.Load += new System.EventHandler(this.ControllersForm_Load);
             this.sexGroupBox.ResumeLayout(false);
             this.sexGroupBox.PerformLayout();
             this.ResumeLayout(false);

@@ -53,5 +53,10 @@ namespace WindowsFormsControllers
             //Show again the date
             dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
         }
+
+        private void ControllersForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
