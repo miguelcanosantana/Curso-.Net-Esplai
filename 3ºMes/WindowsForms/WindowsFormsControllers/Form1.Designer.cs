@@ -34,6 +34,9 @@
             this.sexGroupBox = new System.Windows.Forms.GroupBox();
             this.sexLabel = new System.Windows.Forms.Label();
             this.femaleRadioButton = new System.Windows.Forms.RadioButton();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.checkDateButton = new System.Windows.Forms.Button();
+            this.dateValidLabel = new System.Windows.Forms.Label();
             this.sexGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,7 +82,7 @@
             this.sexGroupBox.Controls.Add(this.sexLabel);
             this.sexGroupBox.Controls.Add(this.femaleRadioButton);
             this.sexGroupBox.Controls.Add(this.maleRadioButton);
-            this.sexGroupBox.Location = new System.Drawing.Point(251, 12);
+            this.sexGroupBox.Location = new System.Drawing.Point(12, 303);
             this.sexGroupBox.Name = "sexGroupBox";
             this.sexGroupBox.Size = new System.Drawing.Size(200, 102);
             this.sexGroupBox.TabIndex = 3;
@@ -107,11 +110,39 @@
             this.femaleRadioButton.UseVisualStyleBackColor = true;
             this.femaleRadioButton.CheckedChanged += new System.EventHandler(this.femaleRadioButton_CheckedChanged);
             // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.Location = new System.Drawing.Point(12, 208);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker.TabIndex = 4;
+            // 
+            // checkDateButton
+            // 
+            this.checkDateButton.Location = new System.Drawing.Point(12, 236);
+            this.checkDateButton.Name = "checkDateButton";
+            this.checkDateButton.Size = new System.Drawing.Size(200, 23);
+            this.checkDateButton.TabIndex = 5;
+            this.checkDateButton.Text = "Check if date is valid";
+            this.checkDateButton.UseVisualStyleBackColor = true;
+            // 
+            // dateValidLabel
+            // 
+            this.dateValidLabel.AutoSize = true;
+            this.dateValidLabel.Location = new System.Drawing.Point(9, 272);
+            this.dateValidLabel.Name = "dateValidLabel";
+            this.dateValidLabel.Size = new System.Drawing.Size(142, 16);
+            this.dateValidLabel.TabIndex = 6;
+            this.dateValidLabel.Text = "                                             ";
+            // 
             // ControllersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(278, 422);
+            this.Controls.Add(this.dateValidLabel);
+            this.Controls.Add(this.checkDateButton);
+            this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.sexGroupBox);
             this.Controls.Add(this.countryTextBox);
             this.Controls.Add(this.countriesListBox);
@@ -132,6 +163,9 @@
         private System.Windows.Forms.GroupBox sexGroupBox;
         private System.Windows.Forms.Label sexLabel;
         private System.Windows.Forms.RadioButton femaleRadioButton;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.Button checkDateButton;
+        private System.Windows.Forms.Label dateValidLabel;
     }
 }
 
