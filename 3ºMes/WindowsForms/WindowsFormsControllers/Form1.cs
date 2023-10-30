@@ -32,5 +32,10 @@ namespace WindowsFormsControllers
         {
             sexLabel.Text = "Female";
         }
+
+        private void checkDateButton_Click(object sender, EventArgs e)
+        {
+            dateValidLabel.Text = "Date is a valid value";
+        }
     }
 }

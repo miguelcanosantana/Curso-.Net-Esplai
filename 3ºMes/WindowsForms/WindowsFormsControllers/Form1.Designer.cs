@@ -125,6 +125,7 @@
             this.checkDateButton.TabIndex = 5;
             this.checkDateButton.Text = "Check if date is valid";
             this.checkDateButton.UseVisualStyleBackColor = true;
+            this.checkDateButton.Click += new System.EventHandler(this.checkDateButton_Click);
             // 
             // dateValidLabel
             // 
