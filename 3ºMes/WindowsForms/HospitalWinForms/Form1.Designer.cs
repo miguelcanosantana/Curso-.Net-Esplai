@@ -53,10 +53,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.patientRadioButton = new System.Windows.Forms.RadioButton();
-            this.mainFormBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.patientListBox = new System.Windows.Forms.ListBox();
             this.doctorRadioButton = new System.Windows.Forms.RadioButton();
             this.doctorListBox = new System.Windows.Forms.ListBox();
+            this.mainFormBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainFormBindingSource)).BeginInit();
@@ -247,7 +247,7 @@
             this.flowLayoutPanel1.Controls.Add(this.doctorListBox);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(254, 68);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(488, 522);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(498, 522);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
             // patientRadioButton
@@ -260,10 +260,6 @@
             this.patientRadioButton.TabStop = true;
             this.patientRadioButton.Text = "Patients";
             this.patientRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // mainFormBindingSource
-            // 
-            this.mainFormBindingSource.DataSource = typeof(HospitalWinForms.MainForm);
             // 
             // patientListBox
             // 
@@ -293,6 +289,10 @@
             this.doctorListBox.Name = "doctorListBox";
             this.doctorListBox.Size = new System.Drawing.Size(236, 516);
             this.doctorListBox.TabIndex = 12;
+            // 
+            // mainFormBindingSource
+            // 
+            this.mainFormBindingSource.DataSource = typeof(HospitalWinForms.MainForm);
             // 
             // MainForm
             // 
