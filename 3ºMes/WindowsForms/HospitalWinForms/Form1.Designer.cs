@@ -237,9 +237,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(802, 36);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 16);
+            this.label4.Size = new System.Drawing.Size(121, 16);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Appointments";
+            this.label4.Text = "Appointments Filter";
             // 
             // flowLayoutPanel1
             // 

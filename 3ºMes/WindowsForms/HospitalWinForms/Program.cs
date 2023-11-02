@@ -43,7 +43,19 @@ namespace HospitalWinForms
                 new Hospital(Guid.NewGuid().ToString(),"Coast Hospital","Barcelona"),
             };
 
-            //hospitalsList[0].CreatePerson();
+            var patientA = hospitalsList[0].CreatePerson("90261925M", "Pepe", "Navarro", "patient");
+            var patientB = hospitalsList[0].CreatePerson("00261925R", "Pepa", "Navarro", "patient");
+            var medicA = hospitalsList[0].CreatePerson("10256123A", "Lola", "Flores", "medic");
+
+            hospitalsList[0].CreateAppointment(
+                "Test Appointment 1",
+                "10-24-2000", medicA as Medic, patientB as Patient
+                );
+
+            hospitalsList[0].CreateAppointment(
+                "Test Appointment 2",
+                "11-25-2001", medicA as Medic, patientA as Patient
+                );
 
             UpdateFormsData();
         }

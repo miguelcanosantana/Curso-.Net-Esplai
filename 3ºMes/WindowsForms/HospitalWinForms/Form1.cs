@@ -42,6 +42,15 @@ namespace HospitalWinForms
             patientListBox.Items.AddRange(patientsList.ToArray());
         }
 
+        private void UpdateMedics()
+        {
+            List<Medic> medicsList = new List<Medic>();
+            medicsList = Program.selectedHospital.GetMedics();
+
+            doctorListBox.Items.Clear();
+            doctorListBox.Items.AddRange(medicsList.ToArray());
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
 
@@ -55,6 +64,7 @@ namespace HospitalWinForms
             var hospital = hospitalListBox.SelectedItem as Hospital;
             Program.selectedHospital = hospital;
             UpdatePatients();
+            UpdateMedics();
         }
 
         private void patientRadioButton_CheckedChanged(object sender, EventArgs e)
