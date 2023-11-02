@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HospitalWinForms.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,22 @@ namespace HospitalWinForms
         {
             var newCreateHospital = new CreateHospitalForm();
             newCreateHospital.ShowDialog();
+        }
+
+
+        public void UpdateHospitals(List<Hospital> hospitalList)
+        {
+            hospitalListBox.Items.Clear();
+
+            hospitalListBox.DisplayMember = "name";
+            hospitalListBox.ValueMember = "id";
+
+            hospitalListBox.Items.AddRange(hospitalList.ToArray());
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

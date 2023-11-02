@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.createDropDownButton = new System.Windows.Forms.ToolStripDropDownButton();
@@ -46,7 +47,10 @@
             this.findPatientAppointmentsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findDoctorAppointmentsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findAllAppointmentsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hospitalListBox = new System.Windows.Forms.ListBox();
+            this.mainFormBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainFormBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -81,20 +85,20 @@
             // createHospitalMenuItem
             // 
             this.createHospitalMenuItem.Name = "createHospitalMenuItem";
-            this.createHospitalMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.createHospitalMenuItem.Size = new System.Drawing.Size(180, 26);
             this.createHospitalMenuItem.Text = "Hospital";
             this.createHospitalMenuItem.Click += new System.EventHandler(this.createHospitalMenuItem_Click);
             // 
             // createPersonMenuItem
             // 
             this.createPersonMenuItem.Name = "createPersonMenuItem";
-            this.createPersonMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.createPersonMenuItem.Size = new System.Drawing.Size(180, 26);
             this.createPersonMenuItem.Text = "Person";
             // 
             // createAppointmentMenuItem
             // 
             this.createAppointmentMenuItem.Name = "createAppointmentMenuItem";
-            this.createAppointmentMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.createAppointmentMenuItem.Size = new System.Drawing.Size(180, 26);
             this.createAppointmentMenuItem.Text = "Appointment";
             // 
             // modifyDropDownButton
@@ -191,16 +195,32 @@
             this.findAllAppointmentsMenuItem.Size = new System.Drawing.Size(236, 26);
             this.findAllAppointmentsMenuItem.Text = "All Appointments";
             // 
+            // hospitalListBox
+            // 
+            this.hospitalListBox.FormattingEnabled = true;
+            this.hospitalListBox.ItemHeight = 16;
+            this.hospitalListBox.Location = new System.Drawing.Point(12, 30);
+            this.hospitalListBox.Name = "hospitalListBox";
+            this.hospitalListBox.Size = new System.Drawing.Size(265, 148);
+            this.hospitalListBox.TabIndex = 1;
+            // 
+            // mainFormBindingSource
+            // 
+            this.mainFormBindingSource.DataSource = typeof(HospitalWinForms.MainForm);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 535);
+            this.Controls.Add(this.hospitalListBox);
             this.Controls.Add(this.toolStrip1);
             this.Name = "MainForm";
             this.Text = "Hospitals Manager";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainFormBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,6 +245,8 @@
         private System.Windows.Forms.ToolStripMenuItem findPatientAppointmentsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem findDoctorAppointmentsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem findAllAppointmentsMenuItem;
+        private System.Windows.Forms.ListBox hospitalListBox;
+        private System.Windows.Forms.BindingSource mainFormBindingSource;
     }
 }
 

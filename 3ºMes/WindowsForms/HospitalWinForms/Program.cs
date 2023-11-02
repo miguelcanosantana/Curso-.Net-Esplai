@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HospitalWinForms.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +9,10 @@ namespace HospitalWinForms
 {
     internal static class Program
     {
+
+        public static List<Hospital> hospitalsList = new List<Hospital>();
+        public static MainForm hospitalMainForm;
+
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
@@ -16,7 +21,15 @@ namespace HospitalWinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            hospitalMainForm = new MainForm();
+            Application.Run(hospitalMainForm);
+        }
+
+
+        public static void UpdateFormsData()
+        {
+            hospitalMainForm.UpdateHospitals(hospitalsList);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HospitalWinForms.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,12 +16,25 @@ namespace HospitalWinForms
         public CreateHospitalForm()
         {
             InitializeComponent();
-            errorLabel.Visible = false;
         }
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            Program.ç
+            if (nameTextBox.Text == "" || locationTextBox.Text == "")
+            {
+                informLabel.Text = "ERROR: Some fields were left empty";
+                return;
+            }
+
+            var newHospital = new Hospital(
+                Guid.NewGuid().ToString(), 
+                nameTextBox.Text,
+                locationTextBox.Text
+                );
+
+            Program.hospitalsList.Add( newHospital );
+            Program.UpdateFormsData();
+            informLabel.Text = "Hospital Created!";
         }
     }
 }

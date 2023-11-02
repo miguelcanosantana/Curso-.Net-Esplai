@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.locationTextBox = new System.Windows.Forms.TextBox();
             this.createButton = new System.Windows.Forms.Button();
-            this.errorLabel = new System.Windows.Forms.Label();
+            this.informLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // nameTextBox
@@ -78,23 +78,23 @@
             this.createButton.UseVisualStyleBackColor = true;
             this.createButton.Click += new System.EventHandler(this.createButton_Click);
             // 
-            // errorLabel
+            // informLabel
             // 
-            this.errorLabel.AutoSize = true;
-            this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.errorLabel.ForeColor = System.Drawing.Color.OrangeRed;
-            this.errorLabel.Location = new System.Drawing.Point(9, 162);
-            this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(239, 16);
-            this.errorLabel.TabIndex = 5;
-            this.errorLabel.Text = "Some of the fields were left empty";
+            this.informLabel.AutoSize = true;
+            this.informLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.informLabel.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.informLabel.Location = new System.Drawing.Point(9, 162);
+            this.informLabel.Name = "informLabel";
+            this.informLabel.Size = new System.Drawing.Size(179, 16);
+            this.informLabel.TabIndex = 5;
+            this.informLabel.Text = "                                           ";
             // 
             // CreateHospitalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(341, 194);
-            this.Controls.Add(this.errorLabel);
+            this.Controls.Add(this.informLabel);
             this.Controls.Add(this.createButton);
             this.Controls.Add(this.locationTextBox);
             this.Controls.Add(this.label2);
@@ -114,6 +114,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox locationTextBox;
         private System.Windows.Forms.Button createButton;
-        private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Label informLabel;
     }
 }
