@@ -15,6 +15,12 @@ namespace HospitalWinForms
         public CreateHospitalForm()
         {
             InitializeComponent();
+            errorLabel.Visible = false;
+        }
+
+        private void createButton_Click(object sender, EventArgs e)
+        {
+            Program.ç
         }
     }
 }
