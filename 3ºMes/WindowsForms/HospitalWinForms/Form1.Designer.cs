@@ -258,7 +258,6 @@
             this.patientListBox.Name = "patientListBox";
             this.patientListBox.Size = new System.Drawing.Size(236, 516);
             this.patientListBox.TabIndex = 11;
-            this.patientListBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.patientListBox_Format);
             // 
             // doctorListBox
             // 

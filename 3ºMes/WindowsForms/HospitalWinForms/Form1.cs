@@ -40,8 +40,6 @@ namespace HospitalWinForms
             patientsList = Program.selectedHospital.GetPatients();
 
             patientListBox.Items.Clear();
-            patientListBox.DisplayMember = "name";
-            patientListBox.ValueMember = "id";
             patientListBox.Items.AddRange(patientsList.ToArray());
         }
 
@@ -58,16 +56,6 @@ namespace HospitalWinForms
             var hospital = hospitalListBox.SelectedItem as Hospital;
             Program.selectedHospital = hospital;
             UpdatePatients();
-        }
-
-        private void patientListBox_Format(object sender, ListControlConvertEventArgs e)
-        {
-            // Assuming your class called Scores
-            String id = ((Patient)e.ListItem).GetID();
-            String name = ((Patient) e.ListItem).GetName();
-            String surname = ((Patient) e.ListItem).GetSurname();
-
-            e.Value = id + " | " + name + " " + surname;
         }
     }
 }

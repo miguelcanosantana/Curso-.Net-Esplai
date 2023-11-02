@@ -65,5 +65,11 @@ namespace HospitalWinForms.Model
             Console.Clear();
             Console.WriteLine("Person Modified!");
         }
+
+
+        public override string ToString()
+        {
+            return id + " | " + name + " " + surname;
+        }
     }
 }
