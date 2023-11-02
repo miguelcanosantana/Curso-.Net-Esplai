@@ -222,6 +222,7 @@
             this.patientListBox.Name = "patientListBox";
             this.patientListBox.Size = new System.Drawing.Size(236, 500);
             this.patientListBox.TabIndex = 11;
+            this.patientListBox.SelectedValueChanged += new System.EventHandler(this.patientListBox_SelectedValueChanged);
             // 
             // doctorListBox
             // 
@@ -231,6 +232,7 @@
             this.doctorListBox.Name = "doctorListBox";
             this.doctorListBox.Size = new System.Drawing.Size(236, 500);
             this.doctorListBox.TabIndex = 12;
+            this.doctorListBox.SelectedValueChanged += new System.EventHandler(this.doctorListBox_SelectedValueChanged);
             // 
             // patientRadioButton
             // 
@@ -276,7 +278,6 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "MainForm";
             this.Text = "Hospitals Manager";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);

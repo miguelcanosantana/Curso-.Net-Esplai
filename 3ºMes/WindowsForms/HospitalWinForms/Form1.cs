@@ -51,9 +51,17 @@ namespace HospitalWinForms
             doctorListBox.Items.AddRange(medicsList.ToArray());
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void UpdateAppointments()
         {
+            List<Appointment> appointmentsList = new List<Appointment>();
 
+            if (patientRadioButton.Checked)
+                appointmentsList = Program.selectedHospital.FindInAppointments(Program.selectedPerson as Medic);
+            else
+                appointmentsList = Program.selectedHospital.FindInAppointments(Program.selectedPerson as Patient);
+
+            appointmentsListBox.Items.Clear();
+            appointmentsListBox.Items.AddRange(appointmentsList.ToArray());
         }
 
         private void hospitalListBox_SelectedValueChanged(object sender, EventArgs e)
@@ -71,12 +79,38 @@ namespace HospitalWinForms
         {
             patientListBox.Visible = true;
             doctorListBox.Visible = false;
+            doctorListBox.ClearSelected();
+            Program.selectedPerson = patientListBox.SelectedItem as Patient;
         }
 
         private void doctorRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             patientListBox.Visible = false;
+            patientListBox.ClearSelected();
             doctorListBox.Visible = true;
+            Program.selectedPerson = doctorListBox.SelectedItem as Person;
+        }
+
+        private void patientListBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (patientListBox.SelectedItem == null)
+                return;
+
+            var patient = patientListBox.SelectedItem as Patient;
+            Program.selectedPerson = patient;
+
+            UpdateAppointments();
+        }
+
+        private void doctorListBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (doctorListBox.SelectedItem == null)
+                return;
+
+            var doctor = doctorListBox.SelectedItem as Medic;
+            Program.selectedPerson = doctor;
+
+            UpdateAppointments();
         }
     }
 }
