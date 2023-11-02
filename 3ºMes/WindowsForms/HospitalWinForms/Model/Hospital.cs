@@ -8,8 +8,8 @@ namespace HospitalWinForms.Model
 {
     public class Hospital
     {
-        public string id { get; set; }
-        public string name { get; set; }
+        public string id;
+        public string name;
         string location;
         List<Appointment> appointmentsList = new List<Appointment>();
         List<Medic> medicsList = new List<Medic>();
@@ -21,6 +21,13 @@ namespace HospitalWinForms.Model
             this.name = name;
             this.location = location;
         }
+
+
+        public override string ToString()
+        {
+            return name + " | " + location;
+        }
+
 
         public string GetName() { return name; }
 

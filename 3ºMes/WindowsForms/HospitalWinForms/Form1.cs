@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -28,8 +29,8 @@ namespace HospitalWinForms
         public void UpdateHospitals(List<Hospital> hospitalList)
         {
             hospitalListBox.Items.Clear();
-            hospitalListBox.DisplayMember = "name";
-            hospitalListBox.ValueMember = "id";
+            //hospitalListBox.DisplayMember = "name";
+            //hospitalListBox.ValueMember = "id";
             hospitalListBox.Items.AddRange(hospitalList.ToArray());
         }
 
@@ -38,19 +39,11 @@ namespace HospitalWinForms
             List<Patient> patientsList = new List<Patient>();
             patientsList = Program.selectedHospital.GetPatients();
 
-            hospitalListBox.Items.Clear();
-            hospitalListBox.DisplayMember = "name";
-            hospitalListBox.ValueMember = "id";
-            hospitalListBox.Items.AddRange(patientsList.ToArray());
+            patientListBox.Items.Clear();
+            patientListBox.DisplayMember = "name";
+            patientListBox.ValueMember = "id";
+            patientListBox.Items.AddRange(patientsList.ToArray());
         }
-
-        //private void UpdateDoctors(List<Hospital> hospitalList)
-        //{
-        //    hospitalListBox.Items.Clear();
-        //    hospitalListBox.DisplayMember = "name";
-        //    hospitalListBox.ValueMember = "id";
-        //    hospitalListBox.Items.AddRange(hospitalList.ToArray());
-        //}
 
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -59,8 +52,11 @@ namespace HospitalWinForms
 
         private void hospitalListBox_SelectedValueChanged(object sender, EventArgs e)
         {
-            //TODO buscar string
-            Program.selectedHospital = hospitalListBox.SelectedItem as Hospital;
+            if (hospitalListBox.SelectedItem == null)
+                return;
+
+            var hospital = hospitalListBox.SelectedItem as Hospital;
+            Program.selectedHospital = hospital;
             UpdatePatients();
         }
 
