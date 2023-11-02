@@ -79,16 +79,16 @@ namespace HospitalWinForms
         {
             patientListBox.Visible = true;
             doctorListBox.Visible = false;
-            doctorListBox.ClearSelected();
             Program.selectedPerson = patientListBox.SelectedItem as Patient;
+            doctorListBox.ClearSelected();
         }
 
         private void doctorRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             patientListBox.Visible = false;
-            patientListBox.ClearSelected();
             doctorListBox.Visible = true;
             Program.selectedPerson = doctorListBox.SelectedItem as Person;
+            patientListBox.ClearSelected();
         }
 
         private void patientListBox_SelectedValueChanged(object sender, EventArgs e)
