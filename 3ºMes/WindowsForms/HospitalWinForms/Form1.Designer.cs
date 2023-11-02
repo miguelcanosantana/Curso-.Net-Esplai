@@ -247,7 +247,7 @@
             this.flowLayoutPanel1.Controls.Add(this.doctorListBox);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(254, 68);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(498, 522);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(485, 522);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
             // patientRadioButton
