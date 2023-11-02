@@ -81,19 +81,19 @@
             // createHospitalMenuItem
             // 
             this.createHospitalMenuItem.Name = "createHospitalMenuItem";
-            this.createHospitalMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.createHospitalMenuItem.Size = new System.Drawing.Size(180, 26);
             this.createHospitalMenuItem.Text = "Hospital";
             // 
             // createPersonMenuItem
             // 
             this.createPersonMenuItem.Name = "createPersonMenuItem";
-            this.createPersonMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.createPersonMenuItem.Size = new System.Drawing.Size(180, 26);
             this.createPersonMenuItem.Text = "Person";
             // 
             // createAppointmentMenuItem
             // 
             this.createAppointmentMenuItem.Name = "createAppointmentMenuItem";
-            this.createAppointmentMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.createAppointmentMenuItem.Size = new System.Drawing.Size(180, 26);
             this.createAppointmentMenuItem.Text = "Appointment";
             // 
             // modifyDropDownButton
@@ -113,19 +113,19 @@
             // modifyHospitalMenuItem
             // 
             this.modifyHospitalMenuItem.Name = "modifyHospitalMenuItem";
-            this.modifyHospitalMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.modifyHospitalMenuItem.Size = new System.Drawing.Size(180, 26);
             this.modifyHospitalMenuItem.Text = "Hospital";
             // 
             // modifyPersonMenuItem
             // 
             this.modifyPersonMenuItem.Name = "modifyPersonMenuItem";
-            this.modifyPersonMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.modifyPersonMenuItem.Size = new System.Drawing.Size(180, 26);
             this.modifyPersonMenuItem.Text = "Person";
             // 
             // modifyAppointmentMenuItem
             // 
             this.modifyAppointmentMenuItem.Name = "modifyAppointmentMenuItem";
-            this.modifyAppointmentMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.modifyAppointmentMenuItem.Size = new System.Drawing.Size(180, 26);
             this.modifyAppointmentMenuItem.Text = "Appointment";
             // 
             // removeDropDownButton
@@ -144,19 +144,19 @@
             // removeHospitalMenuItem
             // 
             this.removeHospitalMenuItem.Name = "removeHospitalMenuItem";
-            this.removeHospitalMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.removeHospitalMenuItem.Size = new System.Drawing.Size(180, 26);
             this.removeHospitalMenuItem.Text = "Hospital";
             // 
             // removePersonMenuItem
             // 
             this.removePersonMenuItem.Name = "removePersonMenuItem";
-            this.removePersonMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.removePersonMenuItem.Size = new System.Drawing.Size(180, 26);
             this.removePersonMenuItem.Text = "Person";
             // 
             // removeAppointmentMenuItem
             // 
             this.removeAppointmentMenuItem.Name = "removeAppointmentMenuItem";
-            this.removeAppointmentMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.removeAppointmentMenuItem.Size = new System.Drawing.Size(180, 26);
             this.removeAppointmentMenuItem.Text = "Appointment";
             // 
             // findDropDownButton
