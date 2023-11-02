@@ -48,13 +48,17 @@
             this.findDoctorAppointmentsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findAllAppointmentsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hospitalListBox = new System.Windows.Forms.ListBox();
-            this.mainFormBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.peopleListBox = new System.Windows.Forms.ListBox();
             this.appointmentsListBox = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.patientRadioButton = new System.Windows.Forms.RadioButton();
+            this.mainFormBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.patientListBox = new System.Windows.Forms.ListBox();
+            this.doctorRadioButton = new System.Windows.Forms.RadioButton();
+            this.doctorListBox = new System.Windows.Forms.ListBox();
             this.toolStrip1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainFormBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +73,7 @@
             this.findDropDownButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1053, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(1053, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -84,7 +88,7 @@
             this.createDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("createDropDownButton.Image")));
             this.createDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.createDropDownButton.Name = "createDropDownButton";
-            this.createDropDownButton.Size = new System.Drawing.Size(66, 28);
+            this.createDropDownButton.Size = new System.Drawing.Size(66, 24);
             this.createDropDownButton.Text = "Create";
             // 
             // createHospitalMenuItem
@@ -117,7 +121,7 @@
             this.modifyDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("modifyDropDownButton.Image")));
             this.modifyDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.modifyDropDownButton.Name = "modifyDropDownButton";
-            this.modifyDropDownButton.Size = new System.Drawing.Size(70, 28);
+            this.modifyDropDownButton.Size = new System.Drawing.Size(70, 24);
             this.modifyDropDownButton.Text = "Modify";
             // 
             // modifyHospitalMenuItem
@@ -148,7 +152,7 @@
             this.removeDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("removeDropDownButton.Image")));
             this.removeDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.removeDropDownButton.Name = "removeDropDownButton";
-            this.removeDropDownButton.Size = new System.Drawing.Size(77, 28);
+            this.removeDropDownButton.Size = new System.Drawing.Size(77, 24);
             this.removeDropDownButton.Text = "Remove";
             // 
             // removeHospitalMenuItem
@@ -179,7 +183,7 @@
             this.findDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("findDropDownButton.Image")));
             this.findDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.findDropDownButton.Name = "findDropDownButton";
-            this.findDropDownButton.Size = new System.Drawing.Size(51, 28);
+            this.findDropDownButton.Size = new System.Drawing.Size(51, 24);
             this.findDropDownButton.Text = "Find";
             // 
             // findPatientAppointmentsMenuItem
@@ -210,10 +214,6 @@
             this.hospitalListBox.TabIndex = 1;
             this.hospitalListBox.SelectedValueChanged += new System.EventHandler(this.hospitalListBox_SelectedValueChanged);
             // 
-            // mainFormBindingSource
-            // 
-            this.mainFormBindingSource.DataSource = typeof(HospitalWinForms.MainForm);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -222,24 +222,6 @@
             this.label1.Size = new System.Drawing.Size(64, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Hospitals";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(251, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 16);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "People";
-            // 
-            // peopleListBox
-            // 
-            this.peopleListBox.FormattingEnabled = true;
-            this.peopleListBox.ItemHeight = 16;
-            this.peopleListBox.Location = new System.Drawing.Point(254, 58);
-            this.peopleListBox.Name = "peopleListBox";
-            this.peopleListBox.Size = new System.Drawing.Size(236, 532);
-            this.peopleListBox.TabIndex = 4;
             // 
             // appointmentsListBox
             // 
@@ -259,15 +241,69 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Appointments";
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.patientListBox);
+            this.flowLayoutPanel1.Controls.Add(this.doctorListBox);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(254, 68);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(488, 522);
+            this.flowLayoutPanel1.TabIndex = 9;
+            // 
+            // patientRadioButton
+            // 
+            this.patientRadioButton.AutoSize = true;
+            this.patientRadioButton.Location = new System.Drawing.Point(254, 42);
+            this.patientRadioButton.Name = "patientRadioButton";
+            this.patientRadioButton.Size = new System.Drawing.Size(76, 20);
+            this.patientRadioButton.TabIndex = 10;
+            this.patientRadioButton.TabStop = true;
+            this.patientRadioButton.Text = "Patients";
+            this.patientRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // mainFormBindingSource
+            // 
+            this.mainFormBindingSource.DataSource = typeof(HospitalWinForms.MainForm);
+            // 
+            // patientListBox
+            // 
+            this.patientListBox.FormattingEnabled = true;
+            this.patientListBox.ItemHeight = 16;
+            this.patientListBox.Location = new System.Drawing.Point(3, 3);
+            this.patientListBox.Name = "patientListBox";
+            this.patientListBox.Size = new System.Drawing.Size(236, 516);
+            this.patientListBox.TabIndex = 11;
+            // 
+            // doctorRadioButton
+            // 
+            this.doctorRadioButton.AutoSize = true;
+            this.doctorRadioButton.Location = new System.Drawing.Point(336, 42);
+            this.doctorRadioButton.Name = "doctorRadioButton";
+            this.doctorRadioButton.Size = new System.Drawing.Size(75, 20);
+            this.doctorRadioButton.TabIndex = 11;
+            this.doctorRadioButton.TabStop = true;
+            this.doctorRadioButton.Text = "Doctors";
+            this.doctorRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // doctorListBox
+            // 
+            this.doctorListBox.FormattingEnabled = true;
+            this.doctorListBox.ItemHeight = 16;
+            this.doctorListBox.Location = new System.Drawing.Point(245, 3);
+            this.doctorListBox.Name = "doctorListBox";
+            this.doctorListBox.Size = new System.Drawing.Size(236, 516);
+            this.doctorListBox.TabIndex = 12;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1053, 608);
+            this.Controls.Add(this.doctorRadioButton);
+            this.Controls.Add(this.patientRadioButton);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.appointmentsListBox);
-            this.Controls.Add(this.peopleListBox);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.hospitalListBox);
             this.Controls.Add(this.toolStrip1);
@@ -276,6 +312,7 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mainFormBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -304,10 +341,13 @@
         private System.Windows.Forms.ListBox hospitalListBox;
         private System.Windows.Forms.BindingSource mainFormBindingSource;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox peopleListBox;
         private System.Windows.Forms.ListBox appointmentsListBox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.RadioButton patientRadioButton;
+        private System.Windows.Forms.ListBox patientListBox;
+        private System.Windows.Forms.ListBox doctorListBox;
+        private System.Windows.Forms.RadioButton doctorRadioButton;
     }
 }
 
