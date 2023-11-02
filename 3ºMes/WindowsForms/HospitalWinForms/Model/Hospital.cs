@@ -8,8 +8,8 @@ namespace HospitalWinForms.Model
 {
     public class Hospital
     {
-        string id;
-        string name;
+        public string id { get; set; }
+        public string name { get; set; }
         string location;
         List<Appointment> appointmentsList = new List<Appointment>();
         List<Medic> medicsList = new List<Medic>();

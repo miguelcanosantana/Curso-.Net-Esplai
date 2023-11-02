@@ -49,6 +49,11 @@
             this.findAllAppointmentsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hospitalListBox = new System.Windows.Forms.ListBox();
             this.mainFormBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.peopleListBox = new System.Windows.Forms.ListBox();
+            this.appointmentsListBox = new System.Windows.Forms.ListBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainFormBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +69,7 @@
             this.findDropDownButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1053, 31);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -79,7 +84,7 @@
             this.createDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("createDropDownButton.Image")));
             this.createDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.createDropDownButton.Name = "createDropDownButton";
-            this.createDropDownButton.Size = new System.Drawing.Size(66, 24);
+            this.createDropDownButton.Size = new System.Drawing.Size(66, 28);
             this.createDropDownButton.Text = "Create";
             // 
             // createHospitalMenuItem
@@ -112,7 +117,7 @@
             this.modifyDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("modifyDropDownButton.Image")));
             this.modifyDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.modifyDropDownButton.Name = "modifyDropDownButton";
-            this.modifyDropDownButton.Size = new System.Drawing.Size(70, 24);
+            this.modifyDropDownButton.Size = new System.Drawing.Size(70, 28);
             this.modifyDropDownButton.Text = "Modify";
             // 
             // modifyHospitalMenuItem
@@ -143,7 +148,7 @@
             this.removeDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("removeDropDownButton.Image")));
             this.removeDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.removeDropDownButton.Name = "removeDropDownButton";
-            this.removeDropDownButton.Size = new System.Drawing.Size(77, 24);
+            this.removeDropDownButton.Size = new System.Drawing.Size(77, 28);
             this.removeDropDownButton.Text = "Remove";
             // 
             // removeHospitalMenuItem
@@ -174,7 +179,7 @@
             this.findDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("findDropDownButton.Image")));
             this.findDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.findDropDownButton.Name = "findDropDownButton";
-            this.findDropDownButton.Size = new System.Drawing.Size(51, 24);
+            this.findDropDownButton.Size = new System.Drawing.Size(51, 28);
             this.findDropDownButton.Text = "Find";
             // 
             // findPatientAppointmentsMenuItem
@@ -199,20 +204,71 @@
             // 
             this.hospitalListBox.FormattingEnabled = true;
             this.hospitalListBox.ItemHeight = 16;
-            this.hospitalListBox.Location = new System.Drawing.Point(12, 30);
+            this.hospitalListBox.Location = new System.Drawing.Point(12, 58);
             this.hospitalListBox.Name = "hospitalListBox";
-            this.hospitalListBox.Size = new System.Drawing.Size(265, 148);
+            this.hospitalListBox.Size = new System.Drawing.Size(236, 532);
             this.hospitalListBox.TabIndex = 1;
+            this.hospitalListBox.SelectedValueChanged += new System.EventHandler(this.hospitalListBox_SelectedValueChanged);
             // 
             // mainFormBindingSource
             // 
             this.mainFormBindingSource.DataSource = typeof(HospitalWinForms.MainForm);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 16);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Hospitals";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(251, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 16);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "People";
+            // 
+            // peopleListBox
+            // 
+            this.peopleListBox.FormattingEnabled = true;
+            this.peopleListBox.ItemHeight = 16;
+            this.peopleListBox.Location = new System.Drawing.Point(254, 58);
+            this.peopleListBox.Name = "peopleListBox";
+            this.peopleListBox.Size = new System.Drawing.Size(236, 532);
+            this.peopleListBox.TabIndex = 4;
+            // 
+            // appointmentsListBox
+            // 
+            this.appointmentsListBox.FormattingEnabled = true;
+            this.appointmentsListBox.ItemHeight = 16;
+            this.appointmentsListBox.Location = new System.Drawing.Point(805, 58);
+            this.appointmentsListBox.Name = "appointmentsListBox";
+            this.appointmentsListBox.Size = new System.Drawing.Size(236, 532);
+            this.appointmentsListBox.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(802, 36);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 16);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Appointments";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 535);
+            this.ClientSize = new System.Drawing.Size(1053, 608);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.appointmentsListBox);
+            this.Controls.Add(this.peopleListBox);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.hospitalListBox);
             this.Controls.Add(this.toolStrip1);
             this.Name = "MainForm";
@@ -247,6 +303,11 @@
         private System.Windows.Forms.ToolStripMenuItem findAllAppointmentsMenuItem;
         private System.Windows.Forms.ListBox hospitalListBox;
         private System.Windows.Forms.BindingSource mainFormBindingSource;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListBox peopleListBox;
+        private System.Windows.Forms.ListBox appointmentsListBox;
+        private System.Windows.Forms.Label label4;
     }
 }
 
