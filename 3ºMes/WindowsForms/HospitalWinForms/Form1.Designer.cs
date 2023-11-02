@@ -81,19 +81,20 @@
             // createHospitalMenuItem
             // 
             this.createHospitalMenuItem.Name = "createHospitalMenuItem";
-            this.createHospitalMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.createHospitalMenuItem.Size = new System.Drawing.Size(224, 26);
             this.createHospitalMenuItem.Text = "Hospital";
+            this.createHospitalMenuItem.Click += new System.EventHandler(this.createHospitalMenuItem_Click);
             // 
             // createPersonMenuItem
             // 
             this.createPersonMenuItem.Name = "createPersonMenuItem";
-            this.createPersonMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.createPersonMenuItem.Size = new System.Drawing.Size(224, 26);
             this.createPersonMenuItem.Text = "Person";
             // 
             // createAppointmentMenuItem
             // 
             this.createAppointmentMenuItem.Name = "createAppointmentMenuItem";
-            this.createAppointmentMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.createAppointmentMenuItem.Size = new System.Drawing.Size(224, 26);
             this.createAppointmentMenuItem.Text = "Appointment";
             // 
             // modifyDropDownButton

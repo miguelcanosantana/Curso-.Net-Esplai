@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace HospitalWinForms
 {
-    public partial class MainForm : Form
+    public partial class CreateHospitalForm : Form
     {
-        public MainForm()
+        public CreateHospitalForm()
         {
             InitializeComponent();
-        }
-
-        private void createHospitalMenuItem_Click(object sender, EventArgs e)
-        {
-            var newCreateHospital = new CreateHospitalForm();
-            newCreateHospital.ShowDialog();
         }
     }
 }
