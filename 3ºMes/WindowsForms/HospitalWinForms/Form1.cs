@@ -56,9 +56,9 @@ namespace HospitalWinForms
             List<Appointment> appointmentsList = new List<Appointment>();
 
             if (patientRadioButton.Checked)
-                appointmentsList = Program.selectedHospital.FindInAppointments(Program.selectedPerson as Medic);
+                appointmentsList = Program.selectedHospital.FindInAppointments(Program.selectedPatient);
             else
-                appointmentsList = Program.selectedHospital.FindInAppointments(Program.selectedPerson as Patient);
+                appointmentsList = Program.selectedHospital.FindInAppointments(Program.selectedDoctor);
 
             appointmentsListBox.Items.Clear();
             appointmentsListBox.Items.AddRange(appointmentsList.ToArray());
@@ -79,16 +79,12 @@ namespace HospitalWinForms
         {
             patientListBox.Visible = true;
             doctorListBox.Visible = false;
-            Program.selectedPerson = patientListBox.SelectedItem as Patient;
-            doctorListBox.ClearSelected();
         }
 
         private void doctorRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             patientListBox.Visible = false;
             doctorListBox.Visible = true;
-            Program.selectedPerson = doctorListBox.SelectedItem as Person;
-            patientListBox.ClearSelected();
         }
 
         private void patientListBox_SelectedValueChanged(object sender, EventArgs e)
@@ -97,7 +93,7 @@ namespace HospitalWinForms
                 return;
 
             var patient = patientListBox.SelectedItem as Patient;
-            Program.selectedPerson = patient;
+            Program.selectedPatient = patient;
 
             UpdateAppointments();
         }
@@ -108,7 +104,7 @@ namespace HospitalWinForms
                 return;
 
             var doctor = doctorListBox.SelectedItem as Medic;
-            Program.selectedPerson = doctor;
+            Program.selectedDoctor = doctor;
 
             UpdateAppointments();
         }

@@ -33,6 +33,15 @@ namespace HospitalWinForms.Model
 
         public Patient GetPatient() { return patient; }
 
+
+        public override string ToString()
+        {
+            string info = date + 
+                " | " + summary + 
+                " | " + medic.ToString() + " " + medic.ToString();
+            return info;
+        }
+
         public string GetInfo()
         {
             string info = "";

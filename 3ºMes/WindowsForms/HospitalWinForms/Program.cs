@@ -12,7 +12,8 @@ namespace HospitalWinForms
 
         public static List<Hospital> hospitalsList = new List<Hospital>();
         public static Hospital selectedHospital;
-        public static Person selectedPerson;
+        public static Patient selectedPatient;
+        public static Medic selectedDoctor;
         public static Appointment selectedAppointment;
         public static MainForm hospitalMainForm;
 
