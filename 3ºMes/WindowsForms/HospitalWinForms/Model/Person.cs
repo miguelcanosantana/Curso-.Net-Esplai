@@ -8,9 +8,9 @@ namespace HospitalWinForms.Model
 {
     public class Person
     {
-        protected string id;
-        protected string name;
-        protected string surname;
+        public string id;
+        public string name;
+        public string surname;
 
         public Person(string id, string name, string surname)
         {

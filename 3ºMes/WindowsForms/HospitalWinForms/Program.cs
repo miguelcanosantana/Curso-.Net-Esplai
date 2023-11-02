@@ -11,6 +11,7 @@ namespace HospitalWinForms
     {
 
         public static List<Hospital> hospitalsList = new List<Hospital>();
+        public static Hospital selectedHospital;
         public static MainForm hospitalMainForm;
 
         /// <summary>

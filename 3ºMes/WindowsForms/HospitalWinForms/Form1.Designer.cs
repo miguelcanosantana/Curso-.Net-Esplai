@@ -52,10 +52,10 @@
             this.appointmentsListBox = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.patientRadioButton = new System.Windows.Forms.RadioButton();
             this.patientListBox = new System.Windows.Forms.ListBox();
-            this.doctorRadioButton = new System.Windows.Forms.RadioButton();
             this.doctorListBox = new System.Windows.Forms.ListBox();
+            this.patientRadioButton = new System.Windows.Forms.RadioButton();
+            this.doctorRadioButton = new System.Windows.Forms.RadioButton();
             this.mainFormBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -250,6 +250,25 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(485, 522);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
+            // patientListBox
+            // 
+            this.patientListBox.FormattingEnabled = true;
+            this.patientListBox.ItemHeight = 16;
+            this.patientListBox.Location = new System.Drawing.Point(3, 3);
+            this.patientListBox.Name = "patientListBox";
+            this.patientListBox.Size = new System.Drawing.Size(236, 516);
+            this.patientListBox.TabIndex = 11;
+            this.patientListBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.patientListBox_Format);
+            // 
+            // doctorListBox
+            // 
+            this.doctorListBox.FormattingEnabled = true;
+            this.doctorListBox.ItemHeight = 16;
+            this.doctorListBox.Location = new System.Drawing.Point(245, 3);
+            this.doctorListBox.Name = "doctorListBox";
+            this.doctorListBox.Size = new System.Drawing.Size(236, 516);
+            this.doctorListBox.TabIndex = 12;
+            // 
             // patientRadioButton
             // 
             this.patientRadioButton.AutoSize = true;
@@ -261,15 +280,6 @@
             this.patientRadioButton.Text = "Patients";
             this.patientRadioButton.UseVisualStyleBackColor = true;
             // 
-            // patientListBox
-            // 
-            this.patientListBox.FormattingEnabled = true;
-            this.patientListBox.ItemHeight = 16;
-            this.patientListBox.Location = new System.Drawing.Point(3, 3);
-            this.patientListBox.Name = "patientListBox";
-            this.patientListBox.Size = new System.Drawing.Size(236, 516);
-            this.patientListBox.TabIndex = 11;
-            // 
             // doctorRadioButton
             // 
             this.doctorRadioButton.AutoSize = true;
@@ -280,15 +290,6 @@
             this.doctorRadioButton.TabStop = true;
             this.doctorRadioButton.Text = "Doctors";
             this.doctorRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // doctorListBox
-            // 
-            this.doctorListBox.FormattingEnabled = true;
-            this.doctorListBox.ItemHeight = 16;
-            this.doctorListBox.Location = new System.Drawing.Point(245, 3);
-            this.doctorListBox.Name = "doctorListBox";
-            this.doctorListBox.Size = new System.Drawing.Size(236, 516);
-            this.doctorListBox.TabIndex = 12;
             // 
             // mainFormBindingSource
             // 
