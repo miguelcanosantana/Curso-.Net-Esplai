@@ -17,6 +17,7 @@ namespace HospitalWinForms
         public MainForm()
         {
             InitializeComponent();
+            patientRadioButton.Checked = true;
         }
 
         private void createHospitalMenuItem_Click(object sender, EventArgs e)
@@ -29,8 +30,6 @@ namespace HospitalWinForms
         public void UpdateHospitals(List<Hospital> hospitalList)
         {
             hospitalListBox.Items.Clear();
-            //hospitalListBox.DisplayMember = "name";
-            //hospitalListBox.ValueMember = "id";
             hospitalListBox.Items.AddRange(hospitalList.ToArray());
         }
 
@@ -56,6 +55,18 @@ namespace HospitalWinForms
             var hospital = hospitalListBox.SelectedItem as Hospital;
             Program.selectedHospital = hospital;
             UpdatePatients();
+        }
+
+        private void patientRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            patientListBox.Visible = true;
+            doctorListBox.Visible = false;
+        }
+
+        private void doctorRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            patientListBox.Visible = false;
+            doctorListBox.Visible = true;
         }
     }
 }

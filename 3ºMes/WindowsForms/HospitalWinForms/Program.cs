@@ -22,9 +22,10 @@ namespace HospitalWinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
             hospitalMainForm = new MainForm();
+            GenerateInitialData();
             Application.Run(hospitalMainForm);
+
         }
 
 
@@ -32,5 +33,20 @@ namespace HospitalWinForms
         {
             hospitalMainForm.UpdateHospitals(hospitalsList);
         }
+
+
+        private static void GenerateInitialData()
+        {
+            hospitalsList = new List<Hospital>()
+            {
+                new Hospital(Guid.NewGuid().ToString(),"Central Hospital","Madrid"),
+                new Hospital(Guid.NewGuid().ToString(),"Coast Hospital","Barcelona"),
+            };
+
+            //hospitalsList[0].CreatePerson();
+
+            UpdateFormsData();
+        }
+
     }
 }

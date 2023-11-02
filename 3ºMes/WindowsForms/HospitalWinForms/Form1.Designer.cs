@@ -73,7 +73,7 @@
             this.findDropDownButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1053, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1053, 31);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -88,7 +88,7 @@
             this.createDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("createDropDownButton.Image")));
             this.createDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.createDropDownButton.Name = "createDropDownButton";
-            this.createDropDownButton.Size = new System.Drawing.Size(66, 24);
+            this.createDropDownButton.Size = new System.Drawing.Size(66, 28);
             this.createDropDownButton.Text = "Create";
             // 
             // createHospitalMenuItem
@@ -121,7 +121,7 @@
             this.modifyDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("modifyDropDownButton.Image")));
             this.modifyDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.modifyDropDownButton.Name = "modifyDropDownButton";
-            this.modifyDropDownButton.Size = new System.Drawing.Size(70, 24);
+            this.modifyDropDownButton.Size = new System.Drawing.Size(70, 28);
             this.modifyDropDownButton.Text = "Modify";
             // 
             // modifyHospitalMenuItem
@@ -152,7 +152,7 @@
             this.removeDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("removeDropDownButton.Image")));
             this.removeDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.removeDropDownButton.Name = "removeDropDownButton";
-            this.removeDropDownButton.Size = new System.Drawing.Size(77, 24);
+            this.removeDropDownButton.Size = new System.Drawing.Size(77, 28);
             this.removeDropDownButton.Text = "Remove";
             // 
             // removeHospitalMenuItem
@@ -183,7 +183,7 @@
             this.findDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("findDropDownButton.Image")));
             this.findDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.findDropDownButton.Name = "findDropDownButton";
-            this.findDropDownButton.Size = new System.Drawing.Size(51, 24);
+            this.findDropDownButton.Size = new System.Drawing.Size(51, 28);
             this.findDropDownButton.Text = "Find";
             // 
             // findPatientAppointmentsMenuItem
@@ -278,6 +278,7 @@
             this.patientRadioButton.TabStop = true;
             this.patientRadioButton.Text = "Patients";
             this.patientRadioButton.UseVisualStyleBackColor = true;
+            this.patientRadioButton.CheckedChanged += new System.EventHandler(this.patientRadioButton_CheckedChanged);
             // 
             // doctorRadioButton
             // 
@@ -289,6 +290,7 @@
             this.doctorRadioButton.TabStop = true;
             this.doctorRadioButton.Text = "Doctors";
             this.doctorRadioButton.UseVisualStyleBackColor = true;
+            this.doctorRadioButton.CheckedChanged += new System.EventHandler(this.doctorRadioButton_CheckedChanged);
             // 
             // mainFormBindingSource
             // 
