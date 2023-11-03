@@ -68,16 +68,18 @@ namespace JobsDBWinforms
         }
 
 
-        private void TryInsertJob(String jobName, float minSalary, float maxSalary)
+        private void TryInsertJob(Job job)
         {
             try
             {
                 string query = $"INSERT INTO JOBS (job_title, min_salary, max_salary) VALUES (" +
-                   "'" + jobName + "'" + "," + minSalary + "," + maxSalary + ")";
+                   "'" + job.jobTitle + "'" + "," + job.minSalary + "," + job.maxSalary + ");" + 
+                   "SELECT SCOPE_IDENTITY()";
 
                 SqlCommand command = new SqlCommand(query, connection);
-                command.ExecuteNonQuery();
-                statusLabel.Text = "Job inserted";
+                object id = command.ExecuteScalar();
+                job.jobId = (int)id;
+                statusLabel.Text = "Job inserted, got the id: " + job.jobId;
             }
             catch (Exception e)
             {
@@ -102,7 +104,7 @@ namespace JobsDBWinforms
                     jobNameTextBox.Text,
                     Int32.Parse(minSalaryTextBox.Text),
                     Int32.Parse(maxSalaryTextBox.Text));
-                TryInsertJob(newJob.jobTitle, newJob.minSalary, newJob.maxSalary);
+                TryInsertJob(newJob);
             }
             catch (Exception fail)
             {
