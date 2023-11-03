@@ -25,6 +25,7 @@ namespace DBConnection
         private void connectToDBButton_Click(object sender, EventArgs e)
         {
             TryConnectDB();
+            TryInsertJob("Candy Tester", 2000f, 5000f);
         }
 
 
@@ -72,7 +73,7 @@ namespace DBConnection
             try
             {
                 string query = $"INSERT INTO JOBS (job_title, min_salary, max_salary) VALUES (" +
-                    jobName + "," + minSalary + "," + maxSalary + ")";
+                   "'" + jobName + "'" + "," + minSalary + "," + maxSalary + ")";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.ExecuteNonQuery();
