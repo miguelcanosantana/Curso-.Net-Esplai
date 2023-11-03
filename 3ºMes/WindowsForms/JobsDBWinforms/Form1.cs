@@ -74,7 +74,7 @@ namespace JobsDBWinforms
             {
                 string query = $"INSERT INTO JOBS (job_title, min_salary, max_salary) VALUES (" +
                    "'" + job.jobTitle + "'" + "," + job.minSalary + "," + job.maxSalary + ");" + 
-                   "SELECT SCOPE_IDENTITY()";
+                   "SELECT CAST(SCOPE_IDENTITY() as INT)";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 object id = command.ExecuteScalar();
