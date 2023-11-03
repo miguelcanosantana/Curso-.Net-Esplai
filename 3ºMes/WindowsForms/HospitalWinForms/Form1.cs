@@ -108,5 +108,23 @@ namespace HospitalWinForms
 
             UpdateAppointments();
         }
+
+        private void appointmentsListBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (appointmentsListBox.SelectedItem == null)
+                return;
+
+            var appointment = appointmentsListBox.SelectedItem as Appointment;
+            Program.selectedAppointment = appointment;
+        }
+
+        private void removeAppointmentMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.selectedHospital != null && Program.selectedAppointment != null)
+            {
+                Program.selectedHospital.RemoveAppointment(Program.selectedAppointment);
+                UpdateAppointments();
+            }
+        }
     }
 }

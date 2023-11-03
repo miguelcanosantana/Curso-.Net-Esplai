@@ -29,6 +29,11 @@ namespace HospitalWinForms.Model
         }
 
 
+        public void RemoveAppointment(Appointment appointment)
+        {
+            appointmentsList.Remove(appointment);
+        }
+
         public string GetName() { return name; }
 
         public List<Medic> GetMedics() { return medicsList; }
@@ -115,21 +120,6 @@ namespace HospitalWinForms.Model
             return null;
         }
 
-        public Appointment SelectAppointment()
-        {
-            ShowAllAppointments();
-
-            Console.Write("Enter the appointment id: ");
-            string id = Console.ReadLine();
-
-            Appointment selectedAppointment = appointmentsList.Find(appointment => appointment.GetId().Equals(id));
-
-            if (selectedAppointment != null)
-                return selectedAppointment;
-
-            return null;
-        }
-
         public void ShowAllPeople()
         {
             Console.Clear();
@@ -144,55 +134,6 @@ namespace HospitalWinForms.Model
 
             foreach (Patient patient in patientsList)
                 Console.WriteLine(patient.GetInfo());
-        }
-
-        public void ShowAllAppointments()
-        {
-            Console.Clear();
-            Console.WriteLine("\n\n");
-
-            Console.WriteLine("==== " + name + " Appointments ====");
-
-            foreach (Appointment appointment in appointmentsList)
-                Console.WriteLine(appointment.GetInfo());
-        }
-
-        public void ShowPatientAppointments()
-        {
-            Console.Clear();
-            Patient patient = SelectPatient();
-
-            if (patient == null)
-            {
-                Console.Clear();
-                Console.WriteLine("That patient was not found!");
-                return;
-            }
-
-            Console.WriteLine("\n\n");
-            Console.WriteLine("==== " + patient.GetName() + " Appointments ====");
-
-            foreach (Appointment appointment in FindInAppointments(patient))
-                Console.WriteLine(appointment.GetInfo());
-        }
-
-        public void ShowMedicAppointments()
-        {
-            Console.Clear();
-            Medic medic = SelectMedic();
-
-            if (medic == null)
-            {
-                Console.Clear();
-                Console.WriteLine("That medic was not found!");
-                return;
-            }
-
-            Console.WriteLine("\n\n");
-            Console.WriteLine("==== " + medic.GetName() + " Appointments ====");
-
-            foreach (Appointment appointment in FindInAppointments(medic))
-                Console.WriteLine(appointment.GetInfo());
         }
 
         //Get a generic person's data, create a patient or a medic depending on the input
@@ -272,21 +213,6 @@ namespace HospitalWinForms.Model
             person.ModifyPerson();
         }
 
-        public void ModifyAppointment()
-        {
-            Console.Clear();
-            Appointment appointment = SelectAppointment();
-
-            if (appointment == null)
-            {
-                Console.Clear();
-                Console.WriteLine("That appointment was not found!");
-                return;
-            }
-
-            appointment.ModifyAppointment();
-        }
-
         public void RemovePerson()
         {
             Console.Clear();
@@ -308,23 +234,6 @@ namespace HospitalWinForms.Model
 
             Console.Clear();
             Console.WriteLine("That person was removed!");
-        }
-
-        public void RemoveAppointment()
-        {
-            Console.Clear();
-
-            Appointment appointment = SelectAppointment();
-
-            if (appointment == null)
-            {
-                Console.Clear();
-                Console.WriteLine("That appointment was not found!");
-                return;
-            }
-
-            Console.Clear();
-            Console.WriteLine("That appointment was removed!");
         }
     }
 }

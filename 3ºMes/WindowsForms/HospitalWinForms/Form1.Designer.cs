@@ -68,7 +68,7 @@
             this.removeDropDownButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1053, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1097, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -153,20 +153,21 @@
             // removeHospitalMenuItem
             // 
             this.removeHospitalMenuItem.Name = "removeHospitalMenuItem";
-            this.removeHospitalMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.removeHospitalMenuItem.Size = new System.Drawing.Size(224, 26);
             this.removeHospitalMenuItem.Text = "Hospital";
             // 
             // removePersonMenuItem
             // 
             this.removePersonMenuItem.Name = "removePersonMenuItem";
-            this.removePersonMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.removePersonMenuItem.Size = new System.Drawing.Size(224, 26);
             this.removePersonMenuItem.Text = "Person";
             // 
             // removeAppointmentMenuItem
             // 
             this.removeAppointmentMenuItem.Name = "removeAppointmentMenuItem";
-            this.removeAppointmentMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.removeAppointmentMenuItem.Size = new System.Drawing.Size(224, 26);
             this.removeAppointmentMenuItem.Text = "Appointment";
+            this.removeAppointmentMenuItem.Click += new System.EventHandler(this.removeAppointmentMenuItem_Click);
             // 
             // hospitalListBox
             // 
@@ -193,8 +194,9 @@
             this.appointmentsListBox.ItemHeight = 16;
             this.appointmentsListBox.Location = new System.Drawing.Point(503, 58);
             this.appointmentsListBox.Name = "appointmentsListBox";
-            this.appointmentsListBox.Size = new System.Drawing.Size(538, 532);
+            this.appointmentsListBox.Size = new System.Drawing.Size(582, 532);
             this.appointmentsListBox.TabIndex = 7;
+            this.appointmentsListBox.SelectedValueChanged += new System.EventHandler(this.appointmentsListBox_SelectedValueChanged);
             // 
             // label4
             // 
@@ -267,7 +269,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1053, 608);
+            this.ClientSize = new System.Drawing.Size(1097, 608);
             this.Controls.Add(this.doctorRadioButton);
             this.Controls.Add(this.patientRadioButton);
             this.Controls.Add(this.flowLayoutPanel1);

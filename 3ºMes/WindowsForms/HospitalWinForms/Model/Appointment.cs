@@ -38,21 +38,8 @@ namespace HospitalWinForms.Model
         {
             string info = date + 
                 " | " + summary + 
-                " | " + medic.ToString() + " " + medic.ToString();
-            return info;
-        }
-
-        public string GetInfo()
-        {
-            string info = "";
-
-            info += "---------------------------------------------------------------------\n";
-            info += id + " | ";
-            info += date + "\n";
-            info += "\n" + summary + "\n";
-            info += medic.GetInfo() + "\n";
-            info += patient.GetInfo() + "\n";
-
+                " | " + patient.ToString() + 
+                " | " + medic.ToString();
             return info;
         }
 
