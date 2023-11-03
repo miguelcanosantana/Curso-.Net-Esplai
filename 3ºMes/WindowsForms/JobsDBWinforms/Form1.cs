@@ -16,6 +16,7 @@ namespace JobsDBWinforms
     {
 
         SqlConnection connection;
+        List<Job> jobsList = new List<Job>();
 
         public Form1()
         {
@@ -116,5 +117,41 @@ namespace JobsDBWinforms
 
         }
 
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            jobsList = GetJobs();
+            jobsListBox.Items.AddRange(jobsList.ToArray());
+        }
+
+        private List<Job> GetJobs()
+        {
+            List<Job> jobs = new List<Job>();
+
+            string query = "SELECT * FROM Jobs";
+            SqlCommand cmd = new SqlCommand(query, connection);
+
+            SqlDataReader recordsReader = cmd.ExecuteReader();
+
+            while (recordsReader.Read())
+            {
+                int jobId = recordsReader.GetInt32(recordsReader.GetOrdinal("job_id"));
+                String jobName = recordsReader.GetString(recordsReader.GetOrdinal("job_title"));
+
+                float? minSalary = null;
+                float? maxSalary = null;
+
+                if (recordsReader.IsDBNull(recordsReader.GetOrdinal("min_salary")))
+                    minSalary = (float) recordsReader.GetDecimal(recordsReader.GetOrdinal("min_salary"));
+
+                if (recordsReader.IsDBNull(recordsReader.GetOrdinal("max_salary")))
+                    maxSalary = (float)recordsReader.GetDecimal(recordsReader.GetOrdinal("max_salary"));
+
+                Job newJob = new Job(jobId, jobName, (float) minSalary, (float) maxSalary);
+                jobs.Add(newJob);
+            }
+
+            recordsReader.Close();
+            return jobs;
+        }
     }
 }

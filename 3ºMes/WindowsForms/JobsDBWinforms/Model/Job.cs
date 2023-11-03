@@ -19,5 +19,13 @@ namespace JobsDBWinforms.Model
             this.minSalary = minSalary;
             this.maxSalary = maxSalary;
         }
+
+        public Job(int jobId, String jobTitle, float minSalary, float maxSalary)
+        {
+            this.jobId = jobId;
+            this.jobTitle = jobTitle;
+            this.minSalary = minSalary;
+            this.maxSalary = maxSalary;
+        }
     }
 }

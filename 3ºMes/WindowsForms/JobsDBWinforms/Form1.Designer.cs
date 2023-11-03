@@ -36,17 +36,19 @@ namespace JobsDBWinforms
             this.jobNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.minSalaryTextBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.maxSalaryTextBox = new System.Windows.Forms.TextBox();
             this.uploadJobButton = new System.Windows.Forms.Button();
+            this.maxSalaryTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.minSalaryTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.jobsListBox = new System.Windows.Forms.ListBox();
+            this.refreshButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // connectToDBButton
             // 
-            this.connectToDBButton.Location = new System.Drawing.Point(648, 397);
+            this.connectToDBButton.Location = new System.Drawing.Point(455, 339);
             this.connectToDBButton.Name = "connectToDBButton";
             this.connectToDBButton.Size = new System.Drawing.Size(140, 25);
             this.connectToDBButton.TabIndex = 0;
@@ -65,7 +67,7 @@ namespace JobsDBWinforms
             // 
             // closeDBButton
             // 
-            this.closeDBButton.Location = new System.Drawing.Point(12, 397);
+            this.closeDBButton.Location = new System.Drawing.Point(308, 339);
             this.closeDBButton.Name = "closeDBButton";
             this.closeDBButton.Size = new System.Drawing.Size(140, 25);
             this.closeDBButton.TabIndex = 2;
@@ -98,42 +100,10 @@ namespace JobsDBWinforms
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.jobNameTextBox);
-            this.panel1.Location = new System.Drawing.Point(246, 96);
+            this.panel1.Location = new System.Drawing.Point(302, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(293, 190);
             this.panel1.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 16);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Min Salary";
-            // 
-            // minSalaryTextBox
-            // 
-            this.minSalaryTextBox.Location = new System.Drawing.Point(6, 74);
-            this.minSalaryTextBox.Name = "minSalaryTextBox";
-            this.minSalaryTextBox.Size = new System.Drawing.Size(284, 22);
-            this.minSalaryTextBox.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 109);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 16);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Max Salary";
-            // 
-            // maxSalaryTextBox
-            // 
-            this.maxSalaryTextBox.Location = new System.Drawing.Point(6, 128);
-            this.maxSalaryTextBox.Name = "maxSalaryTextBox";
-            this.maxSalaryTextBox.Size = new System.Drawing.Size(284, 22);
-            this.maxSalaryTextBox.TabIndex = 8;
             // 
             // uploadJobButton
             // 
@@ -145,11 +115,65 @@ namespace JobsDBWinforms
             this.uploadJobButton.UseVisualStyleBackColor = true;
             this.uploadJobButton.Click += new System.EventHandler(this.uploadJobButton_Click);
             // 
+            // maxSalaryTextBox
+            // 
+            this.maxSalaryTextBox.Location = new System.Drawing.Point(6, 128);
+            this.maxSalaryTextBox.Name = "maxSalaryTextBox";
+            this.maxSalaryTextBox.Size = new System.Drawing.Size(284, 22);
+            this.maxSalaryTextBox.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 109);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 16);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Max Salary";
+            // 
+            // minSalaryTextBox
+            // 
+            this.minSalaryTextBox.Location = new System.Drawing.Point(6, 74);
+            this.minSalaryTextBox.Name = "minSalaryTextBox";
+            this.minSalaryTextBox.Size = new System.Drawing.Size(284, 22);
+            this.minSalaryTextBox.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 16);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Min Salary";
+            // 
+            // jobsListBox
+            // 
+            this.jobsListBox.FormattingEnabled = true;
+            this.jobsListBox.ItemHeight = 16;
+            this.jobsListBox.Location = new System.Drawing.Point(12, 8);
+            this.jobsListBox.Name = "jobsListBox";
+            this.jobsListBox.Size = new System.Drawing.Size(284, 356);
+            this.jobsListBox.TabIndex = 6;
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshButton.Location = new System.Drawing.Point(302, 208);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(41, 45);
+            this.refreshButton.TabIndex = 7;
+            this.refreshButton.Text = "🔁";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(607, 376);
+            this.Controls.Add(this.refreshButton);
+            this.Controls.Add(this.jobsListBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.closeDBButton);
             this.Controls.Add(this.statusLabel);
@@ -176,6 +200,8 @@ namespace JobsDBWinforms
         private Label label3;
         private TextBox minSalaryTextBox;
         private Label label2;
+        private ListBox jobsListBox;
+        private Button refreshButton;
     }
 }
 
