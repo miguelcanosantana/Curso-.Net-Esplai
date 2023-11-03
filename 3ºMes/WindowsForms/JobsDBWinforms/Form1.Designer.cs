@@ -48,7 +48,7 @@ namespace JobsDBWinforms
             // 
             // connectToDBButton
             // 
-            this.connectToDBButton.Location = new System.Drawing.Point(455, 339);
+            this.connectToDBButton.Location = new System.Drawing.Point(762, 339);
             this.connectToDBButton.Name = "connectToDBButton";
             this.connectToDBButton.Size = new System.Drawing.Size(140, 25);
             this.connectToDBButton.TabIndex = 0;
@@ -67,7 +67,7 @@ namespace JobsDBWinforms
             // 
             // closeDBButton
             // 
-            this.closeDBButton.Location = new System.Drawing.Point(308, 339);
+            this.closeDBButton.Location = new System.Drawing.Point(615, 339);
             this.closeDBButton.Name = "closeDBButton";
             this.closeDBButton.Size = new System.Drawing.Size(140, 25);
             this.closeDBButton.TabIndex = 2;
@@ -100,16 +100,16 @@ namespace JobsDBWinforms
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.jobNameTextBox);
-            this.panel1.Location = new System.Drawing.Point(302, 12);
+            this.panel1.Location = new System.Drawing.Point(609, 8);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(293, 190);
+            this.panel1.Size = new System.Drawing.Size(293, 197);
             this.panel1.TabIndex = 5;
             // 
             // uploadJobButton
             // 
-            this.uploadJobButton.Location = new System.Drawing.Point(198, 164);
+            this.uploadJobButton.Location = new System.Drawing.Point(198, 166);
             this.uploadJobButton.Name = "uploadJobButton";
-            this.uploadJobButton.Size = new System.Drawing.Size(92, 23);
+            this.uploadJobButton.Size = new System.Drawing.Size(92, 30);
             this.uploadJobButton.TabIndex = 9;
             this.uploadJobButton.Text = "Upload Job";
             this.uploadJobButton.UseVisualStyleBackColor = true;
@@ -153,13 +153,13 @@ namespace JobsDBWinforms
             this.jobsListBox.ItemHeight = 16;
             this.jobsListBox.Location = new System.Drawing.Point(12, 8);
             this.jobsListBox.Name = "jobsListBox";
-            this.jobsListBox.Size = new System.Drawing.Size(284, 356);
+            this.jobsListBox.Size = new System.Drawing.Size(594, 356);
             this.jobsListBox.TabIndex = 6;
             // 
             // refreshButton
             // 
             this.refreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refreshButton.Location = new System.Drawing.Point(302, 208);
+            this.refreshButton.Location = new System.Drawing.Point(612, 211);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Size = new System.Drawing.Size(41, 45);
             this.refreshButton.TabIndex = 7;
@@ -171,7 +171,7 @@ namespace JobsDBWinforms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 376);
+            this.ClientSize = new System.Drawing.Size(914, 376);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.jobsListBox);
             this.Controls.Add(this.panel1);

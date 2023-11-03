@@ -10,22 +10,27 @@ namespace JobsDBWinforms.Model
     {
         public int? jobId;
         public String jobTitle;
-        public float minSalary;
-        public float maxSalary;
+        public float? minSalary;
+        public float? maxSalary;
 
-        public Job(String jobTitle, float minSalary, float maxSalary) 
+        public Job(String jobTitle, float? minSalary, float? maxSalary) 
         {
             this.jobTitle = jobTitle;
             this.minSalary = minSalary;
             this.maxSalary = maxSalary;
         }
 
-        public Job(int jobId, String jobTitle, float minSalary, float maxSalary)
+        public Job(int jobId, String jobTitle, float? minSalary, float? maxSalary)
         {
             this.jobId = jobId;
             this.jobTitle = jobTitle;
             this.minSalary = minSalary;
             this.maxSalary = maxSalary;
+        }
+
+        public override string ToString()
+        {
+            return jobId + " | " + jobTitle + " | Min: " + minSalary + " | Max: " + minSalary;
         }
     }
 }
