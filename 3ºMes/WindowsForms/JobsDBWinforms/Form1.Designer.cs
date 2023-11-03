@@ -33,6 +33,15 @@ namespace JobsDBWinforms
             this.connectToDBButton = new System.Windows.Forms.Button();
             this.statusLabel = new System.Windows.Forms.Label();
             this.closeDBButton = new System.Windows.Forms.Button();
+            this.jobNameTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.minSalaryTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.maxSalaryTextBox = new System.Windows.Forms.TextBox();
+            this.uploadJobButton = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // connectToDBButton
@@ -64,16 +73,91 @@ namespace JobsDBWinforms
             this.closeDBButton.UseVisualStyleBackColor = true;
             this.closeDBButton.Click += new System.EventHandler(this.closeDBButton_Click);
             // 
+            // jobNameTextBox
+            // 
+            this.jobNameTextBox.Location = new System.Drawing.Point(6, 19);
+            this.jobNameTextBox.Name = "jobNameTextBox";
+            this.jobNameTextBox.Size = new System.Drawing.Size(284, 22);
+            this.jobNameTextBox.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 16);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Job Name";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.uploadJobButton);
+            this.panel1.Controls.Add(this.maxSalaryTextBox);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.minSalaryTextBox);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.jobNameTextBox);
+            this.panel1.Location = new System.Drawing.Point(246, 96);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(293, 190);
+            this.panel1.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 16);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Min Salary";
+            // 
+            // minSalaryTextBox
+            // 
+            this.minSalaryTextBox.Location = new System.Drawing.Point(6, 74);
+            this.minSalaryTextBox.Name = "minSalaryTextBox";
+            this.minSalaryTextBox.Size = new System.Drawing.Size(284, 22);
+            this.minSalaryTextBox.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 109);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 16);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Max Salary";
+            // 
+            // maxSalaryTextBox
+            // 
+            this.maxSalaryTextBox.Location = new System.Drawing.Point(6, 128);
+            this.maxSalaryTextBox.Name = "maxSalaryTextBox";
+            this.maxSalaryTextBox.Size = new System.Drawing.Size(284, 22);
+            this.maxSalaryTextBox.TabIndex = 8;
+            // 
+            // uploadJobButton
+            // 
+            this.uploadJobButton.Location = new System.Drawing.Point(198, 164);
+            this.uploadJobButton.Name = "uploadJobButton";
+            this.uploadJobButton.Size = new System.Drawing.Size(92, 23);
+            this.uploadJobButton.TabIndex = 9;
+            this.uploadJobButton.Text = "Upload Job";
+            this.uploadJobButton.UseVisualStyleBackColor = true;
+            this.uploadJobButton.Click += new System.EventHandler(this.uploadJobButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.closeDBButton);
             this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.connectToDBButton);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -84,6 +168,14 @@ namespace JobsDBWinforms
         private System.Windows.Forms.Button connectToDBButton;
         private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.Button closeDBButton;
+        private TextBox jobNameTextBox;
+        private Label label1;
+        private Panel panel1;
+        private Button uploadJobButton;
+        private TextBox maxSalaryTextBox;
+        private Label label3;
+        private TextBox minSalaryTextBox;
+        private Label label2;
     }
 }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JobsDBWinforms.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,7 +26,6 @@ namespace JobsDBWinforms
         private void connectToDBButton_Click(object sender, EventArgs e)
         {
             TryConnectDB();
-            TryInsertJob("Candy Tester", 2000f, 5000f);
         }
 
 
@@ -93,5 +93,26 @@ namespace JobsDBWinforms
             statusLabel.Text = "";
             UpdateButtons();
         }
+
+        private void uploadJobButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Job newJob = new Job(
+                    jobNameTextBox.Text,
+                    Int32.Parse(minSalaryTextBox.Text),
+                    Int32.Parse(maxSalaryTextBox.Text));
+                TryInsertJob(newJob.jobTitle, newJob.minSalary, newJob.maxSalary);
+            }
+            catch (Exception fail)
+            {
+
+                statusLabel.Text = "";
+                MessageBox.Show("Some fields were wrong: " + fail.Message.ToString());
+            }
+
+
+        }
+
     }
 }
