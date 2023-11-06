@@ -73,13 +73,22 @@ namespace JobsDBWinforms
         {
             try
             {
+
                 string query = $"INSERT INTO JOBS (job_title, min_salary, max_salary) VALUES (" +
-                   "'" + job.jobTitle + "'" + "," + job.minSalary + "," + job.maxSalary + ");" + 
+                   "@job_title, @min_salary, @max_salary);" + 
                    "SELECT CAST(SCOPE_IDENTITY() as INT)";
 
-                SqlCommand command = new SqlCommand(query, connection);
-                object id = command.ExecuteScalar();
-                job.jobId = (int)id;
+
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@job_title", job.jobTitle);
+                    cmd.Parameters.AddWithValue("@min_salary", job.minSalary);
+                    cmd.Parameters.AddWithValue("@max_salary", job.maxSalary);
+
+                    object id = cmd.ExecuteScalar();
+                    job.jobId = (int)id;
+                }
+
                 statusLabel.Text = "Job inserted, got the id: " + job.jobId;
             }
             catch (Exception e)
