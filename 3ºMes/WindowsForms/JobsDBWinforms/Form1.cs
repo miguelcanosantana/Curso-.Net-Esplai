@@ -127,30 +127,41 @@ namespace JobsDBWinforms
         {
             List<Job> jobs = new List<Job>();
 
-            string query = "SELECT * FROM Jobs";
-            SqlCommand cmd = new SqlCommand(query, connection);
-
-            SqlDataReader recordsReader = cmd.ExecuteReader();
-
-            while (recordsReader.Read())
+            try
             {
-                int jobId = recordsReader.GetInt32(recordsReader.GetOrdinal("job_id"));
-                String jobName = recordsReader.GetString(recordsReader.GetOrdinal("job_title"));
+                string query = "SELECT * FROM Jobs";
+                SqlCommand cmd = new SqlCommand(query, connection);
 
-                float? minSalary = null;
-                float? maxSalary = null;
+                SqlDataReader recordsReader = cmd.ExecuteReader();
 
-                if (!recordsReader.IsDBNull(recordsReader.GetOrdinal("min_salary")))
-                    minSalary = (float) recordsReader.GetDecimal(recordsReader.GetOrdinal("min_salary"));
+                while (recordsReader.Read())
+                {
+                    int jobId = recordsReader.GetInt32(recordsReader.GetOrdinal("job_id"));
+                    String jobName = recordsReader.GetString(recordsReader.GetOrdinal("job_title"));
 
-                if (!recordsReader.IsDBNull(recordsReader.GetOrdinal("max_salary")))
-                    maxSalary = (float)recordsReader.GetDecimal(recordsReader.GetOrdinal("max_salary"));
+                    float? minSalary = null;
+                    float? maxSalary = null;
 
-                Job newJob = new Job(jobId, jobName, (float) minSalary, (float) maxSalary);
-                jobs.Add(newJob);
+                    if (!recordsReader.IsDBNull(recordsReader.GetOrdinal("min_salary")))
+                        minSalary = (float)recordsReader.GetDecimal(recordsReader.GetOrdinal("min_salary"));
+
+                    if (!recordsReader.IsDBNull(recordsReader.GetOrdinal("max_salary")))
+                        maxSalary = (float)recordsReader.GetDecimal(recordsReader.GetOrdinal("max_salary"));
+
+                    Job newJob = new Job(jobId, jobName, (float)minSalary, (float)maxSalary);
+                    jobs.Add(newJob);
+                }
+
+                recordsReader.Close();
+
+            }
+            catch (Exception fail)
+            {
+
+                statusLabel.Text = "";
+                MessageBox.Show("Some fields were wrong: " + fail.Message.ToString());
             }
 
-            recordsReader.Close();
             return jobs;
         }
     }
