@@ -16,7 +16,7 @@ namespace JobsDBWinforms
     {
 
         SqlConnection connection;
-        List<Job> jobsList = new List<Job>();
+        List<jobs> jobsList = new List<jobs>();
 
         public Form1()
         {
@@ -69,34 +69,34 @@ namespace JobsDBWinforms
         }
 
 
-        private void TryInsertJob(Job job)
-        {
-            try
-            {
+        //private void TryInsertJob(Job job)
+        //{
+        //    try
+        //    {
 
-                string query = $"INSERT INTO JOBS (job_title, min_salary, max_salary) VALUES (" +
-                   "@job_title, @min_salary, @max_salary);" + 
-                   "SELECT CAST(SCOPE_IDENTITY() as INT)";
+        //        string query = $"INSERT INTO JOBS (job_title, min_salary, max_salary) VALUES (" +
+        //           "@job_title, @min_salary, @max_salary);" + 
+        //           "SELECT CAST(SCOPE_IDENTITY() as INT)";
 
 
-                using (SqlCommand cmd = new SqlCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("@job_title", job.jobTitle);
-                    cmd.Parameters.AddWithValue("@min_salary", job.minSalary);
-                    cmd.Parameters.AddWithValue("@max_salary", job.maxSalary);
+        //        using (SqlCommand cmd = new SqlCommand(query, connection))
+        //        {
+        //            cmd.Parameters.AddWithValue("@job_title", job.jobTitle);
+        //            cmd.Parameters.AddWithValue("@min_salary", job.minSalary);
+        //            cmd.Parameters.AddWithValue("@max_salary", job.maxSalary);
 
-                    object id = cmd.ExecuteScalar();
-                    job.jobId = (int)id;
-                }
+        //            object id = cmd.ExecuteScalar();
+        //            job.jobId = (int)id;
+        //        }
 
-                statusLabel.Text = "Job inserted, got the id: " + job.jobId;
-            }
-            catch (Exception e)
-            {
-                statusLabel.Text = "";
-                MessageBox.Show("Error inserting Job to DB: " + e.Message.ToString());
-            }
-        }
+        //        statusLabel.Text = "Job inserted, got the id: " + job.jobId;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        statusLabel.Text = "";
+        //        MessageBox.Show("Error inserting Job to DB: " + e.Message.ToString());
+        //    }
+        //}
 
 
         private void closeDBButton_Click(object sender, EventArgs e)
@@ -108,20 +108,19 @@ namespace JobsDBWinforms
 
         private void uploadJobButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Job newJob = new Job(
-                    jobNameTextBox.Text,
-                    Int32.Parse(minSalaryTextBox.Text),
-                    Int32.Parse(maxSalaryTextBox.Text));
-                TryInsertJob(newJob);
-            }
-            catch (Exception fail)
-            {
-
-                statusLabel.Text = "";
-                MessageBox.Show("Some fields were wrong: " + fail.Message.ToString());
-            }
+            //try
+            //{
+            //    Job newJob = new Job(
+            //        jobNameTextBox.Text,
+            //        Int32.Parse(minSalaryTextBox.Text),
+            //        Int32.Parse(maxSalaryTextBox.Text));
+            //    TryInsertJob(newJob);
+            //}
+            //catch (Exception fail)
+            //{
+            //    statusLabel.Text = "";
+            //    MessageBox.Show("Some fields were wrong: " + fail.Message.ToString());
+            //}
 
 
         }
@@ -132,36 +131,22 @@ namespace JobsDBWinforms
             jobsListBox.Items.AddRange(jobsList.ToArray());
         }
 
-        private List<Job> GetJobs()
+        private List<jobs> GetJobs()
         {
-            List<Job> jobs = new List<Job>();
+            List<jobs> jobsList = new List<jobs>();
 
             try
             {
-                string query = "SELECT * FROM Jobs";
-                SqlCommand cmd = new SqlCommand(query, connection);
+                DataClasses1DataContext dC = new DataClasses1DataContext();
+                var data = from job in dC.jobs
+                           select job;
 
-                SqlDataReader recordsReader = cmd.ExecuteReader();
-
-                while (recordsReader.Read())
+                foreach (var job in data)
                 {
-                    int jobId = recordsReader.GetInt32(recordsReader.GetOrdinal("job_id"));
-                    String jobName = recordsReader.GetString(recordsReader.GetOrdinal("job_title"));
-
-                    float? minSalary = null;
-                    float? maxSalary = null;
-
-                    if (!recordsReader.IsDBNull(recordsReader.GetOrdinal("min_salary")))
-                        minSalary = (float)recordsReader.GetDecimal(recordsReader.GetOrdinal("min_salary"));
-
-                    if (!recordsReader.IsDBNull(recordsReader.GetOrdinal("max_salary")))
-                        maxSalary = (float)recordsReader.GetDecimal(recordsReader.GetOrdinal("max_salary"));
-
-                    Job newJob = new Job(jobId, jobName, (float)minSalary, (float)maxSalary);
-                    jobs.Add(newJob);
+                    jobsList.Add(job);
                 }
 
-                recordsReader.Close();
+                return jobsList;
 
             }
             catch (Exception fail)
@@ -171,7 +156,7 @@ namespace JobsDBWinforms
                 MessageBox.Show("Some fields were wrong: " + fail.Message.ToString());
             }
 
-            return jobs;
+            return jobsList;
         }
     }
 }
