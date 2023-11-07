@@ -30,9 +30,7 @@ namespace JobsDBWinforms
         /// </summary>
         private void InitializeComponent()
         {
-            this.connectToDBButton = new System.Windows.Forms.Button();
             this.statusLabel = new System.Windows.Forms.Label();
-            this.closeDBButton = new System.Windows.Forms.Button();
             this.jobNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -46,16 +44,6 @@ namespace JobsDBWinforms
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // connectToDBButton
-            // 
-            this.connectToDBButton.Location = new System.Drawing.Point(762, 339);
-            this.connectToDBButton.Name = "connectToDBButton";
-            this.connectToDBButton.Size = new System.Drawing.Size(140, 25);
-            this.connectToDBButton.TabIndex = 0;
-            this.connectToDBButton.Text = "Connect To DB";
-            this.connectToDBButton.UseVisualStyleBackColor = true;
-            this.connectToDBButton.Click += new System.EventHandler(this.connectToDBButton_Click);
-            // 
             // statusLabel
             // 
             this.statusLabel.AutoSize = true;
@@ -64,16 +52,6 @@ namespace JobsDBWinforms
             this.statusLabel.Size = new System.Drawing.Size(91, 16);
             this.statusLabel.TabIndex = 1;
             this.statusLabel.Text = "                            ";
-            // 
-            // closeDBButton
-            // 
-            this.closeDBButton.Location = new System.Drawing.Point(615, 339);
-            this.closeDBButton.Name = "closeDBButton";
-            this.closeDBButton.Size = new System.Drawing.Size(140, 25);
-            this.closeDBButton.TabIndex = 2;
-            this.closeDBButton.Text = "Close Connection";
-            this.closeDBButton.UseVisualStyleBackColor = true;
-            this.closeDBButton.Click += new System.EventHandler(this.closeDBButton_Click);
             // 
             // jobNameTextBox
             // 
@@ -175,9 +153,7 @@ namespace JobsDBWinforms
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.jobsListBox);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.closeDBButton);
             this.Controls.Add(this.statusLabel);
-            this.Controls.Add(this.connectToDBButton);
             this.Name = "Form1";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
@@ -188,10 +164,7 @@ namespace JobsDBWinforms
         }
 
         #endregion
-
-        private System.Windows.Forms.Button connectToDBButton;
         private System.Windows.Forms.Label statusLabel;
-        private System.Windows.Forms.Button closeDBButton;
         private TextBox jobNameTextBox;
         private Label label1;
         private Panel panel1;
