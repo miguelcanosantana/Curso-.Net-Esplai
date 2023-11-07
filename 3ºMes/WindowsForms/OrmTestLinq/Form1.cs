@@ -16,5 +16,34 @@ namespace OrmTestLinq
         {
             InitializeComponent();
         }
+
+
+        private void GetEmployeeName()
+        {
+            DataClasses1DataContext dC = new DataClasses1DataContext();
+            var data = from em in dC.employees
+                       where em.employee_id == 103
+                       select em.first_name;
+
+            String name = data.FirstOrDefault();
+        }
+
+
+        private void GetAllEmployees()
+        {
+            DataClasses1DataContext dC = new DataClasses1DataContext();
+            var data = from em in dC.employees
+                       select em;
+
+            foreach ( var employee in data)
+            {
+
+            }
+        }
+
+        private void selectButton_Click(object sender, EventArgs e)
+        {
+            GetEmployeeName();
+        }
     }
 }
