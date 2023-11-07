@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Linq;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -69,6 +70,33 @@ namespace JobsDBWinforms
         }
 
 
+        private void TryInsertJobb()
+        {
+            try
+            {
+                DataContext db = new DataContext(connection);
+
+                jobs job = new jobs
+                {
+                    job_title = jobNameTextBox.Text,
+                    min_salary = Int32.Parse(minSalaryTextBox.Text),
+                    max_salary = Int32.Parse(maxSalaryTextBox.Text)
+                };
+
+                db.GetTable<jobs>().InsertOnSubmit(job);
+                db.SubmitChanges();
+
+                statusLabel.Text = "Job inserted, got the id: ";// + job.jobId;
+            }
+            catch (Exception e)
+            {
+                statusLabel.Text = "";
+                MessageBox.Show("Error inserting Job to DB: " + e.Message.ToString());
+            }
+        }
+
+
+
         //private void TryInsertJob(Job job)
         //{
         //    try
@@ -128,6 +156,7 @@ namespace JobsDBWinforms
         private void refreshButton_Click(object sender, EventArgs e)
         {
             jobsList = GetJobs();
+            jobsListBox.Items.Clear();
             jobsListBox.Items.AddRange(jobsList.ToArray());
         }
 
@@ -147,13 +176,11 @@ namespace JobsDBWinforms
                 }
 
                 return jobsList;
-
             }
             catch (Exception fail)
             {
-
                 statusLabel.Text = "";
-                MessageBox.Show("Some fields were wrong: " + fail.Message.ToString());
+                MessageBox.Show("Error getting jobs: " + fail.Message.ToString());
             }
 
             return jobsList;
