@@ -6,6 +6,23 @@ using System.Windows.Forms;
 
 namespace OrmTestLinq
 {
+    public partial class employees
+    {
+        public override string ToString()
+        {
+            String text;
+            text = first_name + " " + last_name;
+
+            if (phone_number != null)
+            {
+                text += " | " + phone_number;
+            }
+
+
+            return text;
+        }
+    }
+
     internal static class Program
     {
         /// <summary>

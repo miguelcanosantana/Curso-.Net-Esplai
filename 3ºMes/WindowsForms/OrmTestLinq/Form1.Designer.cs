@@ -28,25 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.selectButton = new System.Windows.Forms.Button();
+            this.getAllEmployeesButton = new System.Windows.Forms.Button();
+            this.employeesListBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // selectButton
+            // getAllEmployeesButton
             // 
-            this.selectButton.Location = new System.Drawing.Point(12, 415);
-            this.selectButton.Name = "selectButton";
-            this.selectButton.Size = new System.Drawing.Size(122, 23);
-            this.selectButton.TabIndex = 0;
-            this.selectButton.Text = "Get employee";
-            this.selectButton.UseVisualStyleBackColor = true;
-            this.selectButton.Click += new System.EventHandler(this.selectButton_Click);
+            this.getAllEmployeesButton.Location = new System.Drawing.Point(12, 415);
+            this.getAllEmployeesButton.Name = "getAllEmployeesButton";
+            this.getAllEmployeesButton.Size = new System.Drawing.Size(133, 23);
+            this.getAllEmployeesButton.TabIndex = 0;
+            this.getAllEmployeesButton.Text = "Get All Employees";
+            this.getAllEmployeesButton.UseVisualStyleBackColor = true;
+            this.getAllEmployeesButton.Click += new System.EventHandler(this.selectButton_Click);
+            // 
+            // employeesListBox
+            // 
+            this.employeesListBox.FormattingEnabled = true;
+            this.employeesListBox.ItemHeight = 16;
+            this.employeesListBox.Location = new System.Drawing.Point(3, 12);
+            this.employeesListBox.Name = "employeesListBox";
+            this.employeesListBox.Size = new System.Drawing.Size(794, 388);
+            this.employeesListBox.TabIndex = 1;
+            this.employeesListBox.SelectedIndexChanged += new System.EventHandler(this.employeesListBox_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.selectButton);
+            this.Controls.Add(this.employeesListBox);
+            this.Controls.Add(this.getAllEmployeesButton);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -55,7 +67,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button selectButton;
+        private System.Windows.Forms.Button getAllEmployeesButton;
+        private System.Windows.Forms.ListBox employeesListBox;
     }
 }
 
