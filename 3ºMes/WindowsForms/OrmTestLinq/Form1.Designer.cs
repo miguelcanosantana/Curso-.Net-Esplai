@@ -30,6 +30,7 @@
         {
             this.getAllEmployeesButton = new System.Windows.Forms.Button();
             this.employeesListBox = new System.Windows.Forms.ListBox();
+            this.getEmployeeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // getAllEmployeesButton
@@ -52,11 +53,22 @@
             this.employeesListBox.TabIndex = 1;
             this.employeesListBox.SelectedIndexChanged += new System.EventHandler(this.employeesListBox_SelectedIndexChanged);
             // 
+            // getEmployeeButton
+            // 
+            this.getEmployeeButton.Location = new System.Drawing.Point(151, 415);
+            this.getEmployeeButton.Name = "getEmployeeButton";
+            this.getEmployeeButton.Size = new System.Drawing.Size(133, 23);
+            this.getEmployeeButton.TabIndex = 2;
+            this.getEmployeeButton.Text = "Get All Employees";
+            this.getEmployeeButton.UseVisualStyleBackColor = true;
+            this.getEmployeeButton.Click += new System.EventHandler(this.getEmployeeButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.getEmployeeButton);
             this.Controls.Add(this.employeesListBox);
             this.Controls.Add(this.getAllEmployeesButton);
             this.Name = "Form1";
@@ -69,6 +81,7 @@
 
         private System.Windows.Forms.Button getAllEmployeesButton;
         private System.Windows.Forms.ListBox employeesListBox;
+        private System.Windows.Forms.Button getEmployeeButton;
     }
 }
 

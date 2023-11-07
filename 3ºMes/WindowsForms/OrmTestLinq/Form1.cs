@@ -22,6 +22,17 @@ namespace OrmTestLinq
         }
 
 
+        private void GetEmployee()
+        {
+            DataClasses1DataContext dC = new DataClasses1DataContext();
+            var data = from em in dC.employees
+                       where em.employee_id == 103
+                       select em;
+
+            employees emp = data.FirstOrDefault();
+        }
+
+
         private void GetAllEmployees()
         {
             DataClasses1DataContext dC = new DataClasses1DataContext();
@@ -43,11 +54,6 @@ namespace OrmTestLinq
             {
                 employeesListBox.Items.Add(item);
             }
-        }
-
-        private void employeesListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
