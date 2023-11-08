@@ -49,7 +49,15 @@
             this.cNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.fNameCheck = new System.Windows.Forms.CheckBox();
+            this.fNameTextBox = new System.Windows.Forms.TextBox();
+            this.fSurnameText = new System.Windows.Forms.TextBox();
+            this.fSurnameCheck = new System.Windows.Forms.CheckBox();
+            this.fCityTextBox = new System.Windows.Forms.TextBox();
+            this.fCityCheck = new System.Windows.Forms.CheckBox();
+            this.filterButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // employeesListBox
@@ -237,12 +245,80 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.filterButton);
+            this.groupBox2.Controls.Add(this.fCityTextBox);
+            this.groupBox2.Controls.Add(this.fCityCheck);
+            this.groupBox2.Controls.Add(this.fSurnameText);
+            this.groupBox2.Controls.Add(this.fSurnameCheck);
+            this.groupBox2.Controls.Add(this.fNameTextBox);
+            this.groupBox2.Controls.Add(this.fNameCheck);
             this.groupBox2.Location = new System.Drawing.Point(639, 42);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(228, 621);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filter By";
+            // 
+            // fNameCheck
+            // 
+            this.fNameCheck.AutoSize = true;
+            this.fNameCheck.Location = new System.Drawing.Point(7, 28);
+            this.fNameCheck.Name = "fNameCheck";
+            this.fNameCheck.Size = new System.Drawing.Size(66, 20);
+            this.fNameCheck.TabIndex = 0;
+            this.fNameCheck.Text = "Name";
+            this.fNameCheck.UseVisualStyleBackColor = true;
+            // 
+            // fNameTextBox
+            // 
+            this.fNameTextBox.Location = new System.Drawing.Point(7, 54);
+            this.fNameTextBox.Name = "fNameTextBox";
+            this.fNameTextBox.Size = new System.Drawing.Size(215, 22);
+            this.fNameTextBox.TabIndex = 1;
+            // 
+            // fSurnameText
+            // 
+            this.fSurnameText.Location = new System.Drawing.Point(7, 121);
+            this.fSurnameText.Name = "fSurnameText";
+            this.fSurnameText.Size = new System.Drawing.Size(215, 22);
+            this.fSurnameText.TabIndex = 3;
+            // 
+            // fSurnameCheck
+            // 
+            this.fSurnameCheck.AutoSize = true;
+            this.fSurnameCheck.Location = new System.Drawing.Point(7, 95);
+            this.fSurnameCheck.Name = "fSurnameCheck";
+            this.fSurnameCheck.Size = new System.Drawing.Size(90, 20);
+            this.fSurnameCheck.TabIndex = 2;
+            this.fSurnameCheck.Text = "Surnames";
+            this.fSurnameCheck.UseVisualStyleBackColor = true;
+            // 
+            // fCityTextBox
+            // 
+            this.fCityTextBox.Location = new System.Drawing.Point(7, 188);
+            this.fCityTextBox.Name = "fCityTextBox";
+            this.fCityTextBox.Size = new System.Drawing.Size(215, 22);
+            this.fCityTextBox.TabIndex = 5;
+            // 
+            // fCityCheck
+            // 
+            this.fCityCheck.AutoSize = true;
+            this.fCityCheck.Location = new System.Drawing.Point(7, 162);
+            this.fCityCheck.Name = "fCityCheck";
+            this.fCityCheck.Size = new System.Drawing.Size(51, 20);
+            this.fCityCheck.TabIndex = 4;
+            this.fCityCheck.Text = "City";
+            this.fCityCheck.UseVisualStyleBackColor = true;
+            // 
+            // filterButton
+            // 
+            this.filterButton.Location = new System.Drawing.Point(7, 231);
+            this.filterButton.Name = "filterButton";
+            this.filterButton.Size = new System.Drawing.Size(215, 41);
+            this.filterButton.TabIndex = 17;
+            this.filterButton.Text = "Get filtered";
+            this.filterButton.UseVisualStyleBackColor = true;
+            this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
             // 
             // MainForm
             // 
@@ -257,6 +333,8 @@
             this.Text = "Employees";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -284,6 +362,13 @@
         private System.Windows.Forms.TextBox cJobIdTextBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox fNameTextBox;
+        private System.Windows.Forms.CheckBox fNameCheck;
+        private System.Windows.Forms.TextBox fSurnameText;
+        private System.Windows.Forms.CheckBox fSurnameCheck;
+        private System.Windows.Forms.TextBox fCityTextBox;
+        private System.Windows.Forms.CheckBox fCityCheck;
+        private System.Windows.Forms.Button filterButton;
     }
 }
 
