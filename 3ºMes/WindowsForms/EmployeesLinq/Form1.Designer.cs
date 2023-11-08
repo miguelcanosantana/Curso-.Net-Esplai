@@ -68,6 +68,7 @@
             this.getAllButton.TabIndex = 1;
             this.getAllButton.Text = "Get all employees";
             this.getAllButton.UseVisualStyleBackColor = true;
+            this.getAllButton.Click += new System.EventHandler(this.getAllButton_Click);
             // 
             // groupBox1
             // 

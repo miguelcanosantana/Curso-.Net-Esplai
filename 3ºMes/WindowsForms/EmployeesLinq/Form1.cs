@@ -37,6 +37,37 @@ namespace EmployeesLinq
             int? departmentId = null;
             int? managerId = null;
 
+            var isInputCorrect = true;
+
+            //Validate parameters
+            if (String.IsNullOrWhiteSpace(cNameTextBox.Text))
+                isInputCorrect = false;
+
+            if (String.IsNullOrWhiteSpace(cSurnamesTextBox.Text))
+                isInputCorrect = false;
+
+            if (String.IsNullOrWhiteSpace(cMailTextBox.Text))
+                isInputCorrect = false;
+
+            if (String.IsNullOrWhiteSpace(cMailTextBox.Text))
+                isInputCorrect = false;
+
+            if (String.IsNullOrWhiteSpace(cPhoneTextBox.Text))
+                isInputCorrect = false;
+
+            if (String.IsNullOrWhiteSpace(cJobIdTextBox.Text))
+                isInputCorrect = false;
+
+            if (String.IsNullOrWhiteSpace(cSalaryTextBox.Text))
+                isInputCorrect = false;
+
+            //Return if no correct
+            if (!isInputCorrect)
+            {
+                MessageBox.Show("Some of the inputs where not correct.");
+                return;
+            }
+
             //Validate optional parameters
             if (!String.IsNullOrWhiteSpace(cDepartmentIdTextBox.Text))
                 departmentId = Int32.Parse(cDepartmentIdTextBox.Text);
@@ -55,6 +86,9 @@ namespace EmployeesLinq
                 managerId);
         }
 
-
+        private void getAllButton_Click(object sender, EventArgs e)
+        {
+            GetAllEmployees();
+        }
     }
 }
