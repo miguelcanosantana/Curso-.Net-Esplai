@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmployeesLinq.Daos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +16,22 @@ namespace EmployeesLinq
         public MainForm()
         {
             InitializeComponent();
+            GetAllEmployees();
         }
 
+
+
+
+        //
+        private void GetAllEmployees()
+        {
+            employeesListBox.Items.Clear();
+            employeesListBox.Items.AddRange(EmployeesDao.GetAllEmployees().ToArray());
+        }
+
+
+
+        //Events
         private void createEmployeeButton_Click(object sender, EventArgs e)
         {
             int? departmentId = null;
@@ -39,5 +54,7 @@ namespace EmployeesLinq
                 departmentId,
                 managerId);
         }
+
+
     }
 }

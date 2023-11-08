@@ -13,6 +13,33 @@ namespace EmployeesLinq.Daos
 
         static DataClasses1DataContext db = new DataClasses1DataContext();
 
+
+        public static List<employees> GetAllEmployees()
+        {
+            List<employees> employeesList = new List<employees>();
+
+            try
+            {
+                DataClasses1DataContext dC = new DataClasses1DataContext();
+                var data = from emp in dC.employees
+                           select emp;
+
+                foreach (var emp in data)
+                {
+                    employeesList.Add(emp);
+                }
+
+                return employeesList;
+            }
+            catch (Exception fail)
+            {
+                MessageBox.Show("Error getting employees: " + fail.Message.ToString());
+            }
+
+            return employeesList;
+        }
+
+
         public static bool TryInsertEmployee(
             String name,
             String lastName,
