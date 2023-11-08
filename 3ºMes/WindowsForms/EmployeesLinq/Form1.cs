@@ -93,7 +93,7 @@ namespace EmployeesLinq
 
         private void filterButton_Click(object sender, EventArgs e)
         {
-
+            EmployeesDao.GetEmployeesFiltered(null, null, null);
         }
     }
 }

@@ -50,6 +50,13 @@ namespace EmployeesLinq.Daos
                 var data = from emp in dC.employees
                            select emp;
 
+                //Filter by the fields that are not null
+                if (name != null)
+                    data = data.Where(emp => emp.first_name.Contains(name));
+
+                if (surname != null)
+                    data = data.Where(emp => emp.last_name.Contains(surname));
+
                 foreach (var emp in data)
                 {
                     employeesList.Add(emp);
