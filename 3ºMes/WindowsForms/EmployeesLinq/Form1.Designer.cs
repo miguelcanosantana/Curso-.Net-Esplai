@@ -32,20 +32,22 @@
             this.getAllButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cNameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.cSurnamesTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.cMailTextBox = new System.Windows.Forms.TextBox();
+            this.cPhoneTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.cSalaryTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.cManagerIdTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.cDepartmentIdTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.createEmployeeButton = new System.Windows.Forms.Button();
+            this.cJobIdTextBox = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,20 +71,22 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cJobIdTextBox);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.createEmployeeButton);
-            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.cDepartmentIdTextBox);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.cManagerIdTextBox);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.cSalaryTextBox);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.cPhoneTextBox);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.cMailTextBox);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.cSurnamesTextBox);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.cNameTextBox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 433);
             this.groupBox1.Name = "groupBox1";
@@ -100,12 +104,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Name";
             // 
-            // textBox1
+            // cNameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(25, 52);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(179, 22);
-            this.textBox1.TabIndex = 1;
+            this.cNameTextBox.Location = new System.Drawing.Point(25, 52);
+            this.cNameTextBox.Name = "cNameTextBox";
+            this.cNameTextBox.Size = new System.Drawing.Size(179, 22);
+            this.cNameTextBox.TabIndex = 1;
             // 
             // label2
             // 
@@ -116,12 +120,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Surnames";
             // 
-            // textBox2
+            // cSurnamesTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(25, 115);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(179, 22);
-            this.textBox2.TabIndex = 3;
+            this.cSurnamesTextBox.Location = new System.Drawing.Point(25, 115);
+            this.cSurnamesTextBox.Name = "cSurnamesTextBox";
+            this.cSurnamesTextBox.Size = new System.Drawing.Size(179, 22);
+            this.cSurnamesTextBox.TabIndex = 3;
             // 
             // label3
             // 
@@ -132,19 +136,19 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Mail";
             // 
-            // textBox3
+            // cMailTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(25, 181);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(179, 22);
-            this.textBox3.TabIndex = 5;
+            this.cMailTextBox.Location = new System.Drawing.Point(25, 181);
+            this.cMailTextBox.Name = "cMailTextBox";
+            this.cMailTextBox.Size = new System.Drawing.Size(179, 22);
+            this.cMailTextBox.TabIndex = 5;
             // 
-            // textBox4
+            // cPhoneTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(225, 52);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(179, 22);
-            this.textBox4.TabIndex = 7;
+            this.cPhoneTextBox.Location = new System.Drawing.Point(225, 52);
+            this.cPhoneTextBox.Name = "cPhoneTextBox";
+            this.cPhoneTextBox.Size = new System.Drawing.Size(179, 22);
+            this.cPhoneTextBox.TabIndex = 7;
             // 
             // label4
             // 
@@ -155,44 +159,44 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Phone";
             // 
-            // textBox5
+            // cSalaryTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(225, 115);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(179, 22);
-            this.textBox5.TabIndex = 9;
+            this.cSalaryTextBox.Location = new System.Drawing.Point(225, 181);
+            this.cSalaryTextBox.Name = "cSalaryTextBox";
+            this.cSalaryTextBox.Size = new System.Drawing.Size(179, 22);
+            this.cSalaryTextBox.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(222, 96);
+            this.label5.Location = new System.Drawing.Point(222, 162);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 16);
             this.label5.TabIndex = 8;
             this.label5.Text = "Salary";
             // 
-            // textBox6
+            // cManagerIdTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(225, 181);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(179, 22);
-            this.textBox6.TabIndex = 11;
+            this.cManagerIdTextBox.Location = new System.Drawing.Point(427, 115);
+            this.cManagerIdTextBox.Name = "cManagerIdTextBox";
+            this.cManagerIdTextBox.Size = new System.Drawing.Size(179, 22);
+            this.cManagerIdTextBox.TabIndex = 11;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(222, 162);
+            this.label6.Location = new System.Drawing.Point(424, 96);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(136, 16);
             this.label6.TabIndex = 10;
             this.label6.Text = "Manager Id (Optional)";
             // 
-            // textBox7
+            // cDepartmentIdTextBox
             // 
-            this.textBox7.Location = new System.Drawing.Point(427, 52);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(179, 22);
-            this.textBox7.TabIndex = 13;
+            this.cDepartmentIdTextBox.Location = new System.Drawing.Point(427, 52);
+            this.cDepartmentIdTextBox.Name = "cDepartmentIdTextBox";
+            this.cDepartmentIdTextBox.Size = new System.Drawing.Size(179, 22);
+            this.cDepartmentIdTextBox.TabIndex = 13;
             // 
             // label7
             // 
@@ -205,12 +209,29 @@
             // 
             // createEmployeeButton
             // 
-            this.createEmployeeButton.Location = new System.Drawing.Point(427, 115);
+            this.createEmployeeButton.Location = new System.Drawing.Point(427, 181);
             this.createEmployeeButton.Name = "createEmployeeButton";
-            this.createEmployeeButton.Size = new System.Drawing.Size(179, 88);
+            this.createEmployeeButton.Size = new System.Drawing.Size(179, 22);
             this.createEmployeeButton.TabIndex = 14;
             this.createEmployeeButton.Text = "Submit";
             this.createEmployeeButton.UseVisualStyleBackColor = true;
+            this.createEmployeeButton.Click += new System.EventHandler(this.createEmployeeButton_Click);
+            // 
+            // cJobIdTextBox
+            // 
+            this.cJobIdTextBox.Location = new System.Drawing.Point(225, 115);
+            this.cJobIdTextBox.Name = "cJobIdTextBox";
+            this.cJobIdTextBox.Size = new System.Drawing.Size(179, 22);
+            this.cJobIdTextBox.TabIndex = 16;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(222, 96);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(44, 16);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Job Id";
             // 
             // MainForm
             // 
@@ -233,21 +254,23 @@
         private System.Windows.Forms.ListBox employeesListBox;
         private System.Windows.Forms.Button getAllButton;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox cSurnamesTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox cNameTextBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox cMailTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox cPhoneTextBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox cSalaryTextBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox cManagerIdTextBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox cDepartmentIdTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button createEmployeeButton;
+        private System.Windows.Forms.TextBox cJobIdTextBox;
+        private System.Windows.Forms.Label label8;
     }
 }
 

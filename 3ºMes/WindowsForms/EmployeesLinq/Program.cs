@@ -23,7 +23,7 @@ namespace EmployeesLinq
         }
 
 
-        private static bool TryInsertEmployee(
+        public static bool TryInsertEmployee(
             String name, 
             String lastName, 
             String mail, 

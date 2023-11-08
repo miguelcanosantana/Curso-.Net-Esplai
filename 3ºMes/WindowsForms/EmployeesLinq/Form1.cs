@@ -16,5 +16,28 @@ namespace EmployeesLinq
         {
             InitializeComponent();
         }
+
+        private void createEmployeeButton_Click(object sender, EventArgs e)
+        {
+            int? departmentId = null;
+            int? managerId = null;
+
+            //Validate optional parameters
+            if (!String.IsNullOrWhiteSpace(cDepartmentIdTextBox.Text))
+                departmentId = Int32.Parse(cDepartmentIdTextBox.Text);
+
+            if (!String.IsNullOrWhiteSpace(cManagerIdTextBox.Text))
+                managerId = Int32.Parse(cManagerIdTextBox.Text);
+
+            Program.TryInsertEmployee(
+                cNameTextBox.Text,
+                cSurnamesTextBox.Text,
+                cMailTextBox.Text,
+                cPhoneTextBox.Text,
+                Int32.Parse(cJobIdTextBox.Text),
+                decimal.Parse(cSalaryTextBox.Text),
+                departmentId,
+                managerId);
+        }
     }
 }
