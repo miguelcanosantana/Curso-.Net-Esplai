@@ -35,6 +35,17 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.createEmployeeButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,12 +55,12 @@
             this.employeesListBox.ItemHeight = 16;
             this.employeesListBox.Location = new System.Drawing.Point(12, 12);
             this.employeesListBox.Name = "employeesListBox";
-            this.employeesListBox.Size = new System.Drawing.Size(606, 404);
+            this.employeesListBox.Size = new System.Drawing.Size(620, 404);
             this.employeesListBox.TabIndex = 0;
             // 
             // getAllButton
             // 
-            this.getAllButton.Location = new System.Drawing.Point(624, 12);
+            this.getAllButton.Location = new System.Drawing.Point(638, 12);
             this.getAllButton.Name = "getAllButton";
             this.getAllButton.Size = new System.Drawing.Size(126, 23);
             this.getAllButton.TabIndex = 1;
@@ -58,13 +69,24 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.createEmployeeButton);
+            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 433);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(606, 230);
+            this.groupBox1.Size = new System.Drawing.Size(620, 230);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create Employee";
@@ -101,6 +123,95 @@
             this.textBox2.Size = new System.Drawing.Size(179, 22);
             this.textBox2.TabIndex = 3;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(22, 162);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 16);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Mail";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(25, 181);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(179, 22);
+            this.textBox3.TabIndex = 5;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(225, 52);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(179, 22);
+            this.textBox4.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(222, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 16);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Phone";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(225, 115);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(179, 22);
+            this.textBox5.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(222, 96);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 16);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Salary";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(225, 181);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(179, 22);
+            this.textBox6.TabIndex = 11;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(222, 162);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(136, 16);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Manager Id (Optional)";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(427, 52);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(179, 22);
+            this.textBox7.TabIndex = 13;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(424, 33);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(152, 16);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Department Id (Optional)";
+            // 
+            // createEmployeeButton
+            // 
+            this.createEmployeeButton.Location = new System.Drawing.Point(427, 115);
+            this.createEmployeeButton.Name = "createEmployeeButton";
+            this.createEmployeeButton.Size = new System.Drawing.Size(179, 88);
+            this.createEmployeeButton.TabIndex = 14;
+            this.createEmployeeButton.Text = "Submit";
+            this.createEmployeeButton.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -126,6 +237,17 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button createEmployeeButton;
     }
 }
 
