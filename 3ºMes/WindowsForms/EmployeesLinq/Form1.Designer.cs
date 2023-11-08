@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.employeesListBox = new System.Windows.Forms.ListBox();
-            this.getAllButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cJobIdTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -49,13 +48,13 @@
             this.cNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.fNameCheck = new System.Windows.Forms.CheckBox();
-            this.fNameTextBox = new System.Windows.Forms.TextBox();
-            this.fSurnameText = new System.Windows.Forms.TextBox();
-            this.fSurnameCheck = new System.Windows.Forms.CheckBox();
+            this.filterButton = new System.Windows.Forms.Button();
             this.fCityTextBox = new System.Windows.Forms.TextBox();
             this.fCityCheck = new System.Windows.Forms.CheckBox();
-            this.filterButton = new System.Windows.Forms.Button();
+            this.fSurnameText = new System.Windows.Forms.TextBox();
+            this.fSurnameCheck = new System.Windows.Forms.CheckBox();
+            this.fNameTextBox = new System.Windows.Forms.TextBox();
+            this.fNameCheck = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -68,16 +67,6 @@
             this.employeesListBox.Name = "employeesListBox";
             this.employeesListBox.Size = new System.Drawing.Size(620, 404);
             this.employeesListBox.TabIndex = 0;
-            // 
-            // getAllButton
-            // 
-            this.getAllButton.Location = new System.Drawing.Point(638, 12);
-            this.getAllButton.Name = "getAllButton";
-            this.getAllButton.Size = new System.Drawing.Size(126, 23);
-            this.getAllButton.TabIndex = 1;
-            this.getAllButton.Text = "Get all employees";
-            this.getAllButton.UseVisualStyleBackColor = true;
-            this.getAllButton.Click += new System.EventHandler(this.getAllButton_Click);
             // 
             // groupBox1
             // 
@@ -252,46 +241,22 @@
             this.groupBox2.Controls.Add(this.fSurnameCheck);
             this.groupBox2.Controls.Add(this.fNameTextBox);
             this.groupBox2.Controls.Add(this.fNameCheck);
-            this.groupBox2.Location = new System.Drawing.Point(639, 42);
+            this.groupBox2.Location = new System.Drawing.Point(639, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(228, 621);
+            this.groupBox2.Size = new System.Drawing.Size(228, 651);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filter By";
             // 
-            // fNameCheck
+            // filterButton
             // 
-            this.fNameCheck.AutoSize = true;
-            this.fNameCheck.Location = new System.Drawing.Point(7, 28);
-            this.fNameCheck.Name = "fNameCheck";
-            this.fNameCheck.Size = new System.Drawing.Size(66, 20);
-            this.fNameCheck.TabIndex = 0;
-            this.fNameCheck.Text = "Name";
-            this.fNameCheck.UseVisualStyleBackColor = true;
-            // 
-            // fNameTextBox
-            // 
-            this.fNameTextBox.Location = new System.Drawing.Point(7, 54);
-            this.fNameTextBox.Name = "fNameTextBox";
-            this.fNameTextBox.Size = new System.Drawing.Size(215, 22);
-            this.fNameTextBox.TabIndex = 1;
-            // 
-            // fSurnameText
-            // 
-            this.fSurnameText.Location = new System.Drawing.Point(7, 121);
-            this.fSurnameText.Name = "fSurnameText";
-            this.fSurnameText.Size = new System.Drawing.Size(215, 22);
-            this.fSurnameText.TabIndex = 3;
-            // 
-            // fSurnameCheck
-            // 
-            this.fSurnameCheck.AutoSize = true;
-            this.fSurnameCheck.Location = new System.Drawing.Point(7, 95);
-            this.fSurnameCheck.Name = "fSurnameCheck";
-            this.fSurnameCheck.Size = new System.Drawing.Size(90, 20);
-            this.fSurnameCheck.TabIndex = 2;
-            this.fSurnameCheck.Text = "Surnames";
-            this.fSurnameCheck.UseVisualStyleBackColor = true;
+            this.filterButton.Location = new System.Drawing.Point(7, 231);
+            this.filterButton.Name = "filterButton";
+            this.filterButton.Size = new System.Drawing.Size(215, 41);
+            this.filterButton.TabIndex = 17;
+            this.filterButton.Text = "Get filtered";
+            this.filterButton.UseVisualStyleBackColor = true;
+            this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
             // 
             // fCityTextBox
             // 
@@ -310,15 +275,39 @@
             this.fCityCheck.Text = "City";
             this.fCityCheck.UseVisualStyleBackColor = true;
             // 
-            // filterButton
+            // fSurnameText
             // 
-            this.filterButton.Location = new System.Drawing.Point(7, 231);
-            this.filterButton.Name = "filterButton";
-            this.filterButton.Size = new System.Drawing.Size(215, 41);
-            this.filterButton.TabIndex = 17;
-            this.filterButton.Text = "Get filtered";
-            this.filterButton.UseVisualStyleBackColor = true;
-            this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
+            this.fSurnameText.Location = new System.Drawing.Point(7, 121);
+            this.fSurnameText.Name = "fSurnameText";
+            this.fSurnameText.Size = new System.Drawing.Size(215, 22);
+            this.fSurnameText.TabIndex = 3;
+            // 
+            // fSurnameCheck
+            // 
+            this.fSurnameCheck.AutoSize = true;
+            this.fSurnameCheck.Location = new System.Drawing.Point(7, 95);
+            this.fSurnameCheck.Name = "fSurnameCheck";
+            this.fSurnameCheck.Size = new System.Drawing.Size(90, 20);
+            this.fSurnameCheck.TabIndex = 2;
+            this.fSurnameCheck.Text = "Surnames";
+            this.fSurnameCheck.UseVisualStyleBackColor = true;
+            // 
+            // fNameTextBox
+            // 
+            this.fNameTextBox.Location = new System.Drawing.Point(7, 54);
+            this.fNameTextBox.Name = "fNameTextBox";
+            this.fNameTextBox.Size = new System.Drawing.Size(215, 22);
+            this.fNameTextBox.TabIndex = 1;
+            // 
+            // fNameCheck
+            // 
+            this.fNameCheck.AutoSize = true;
+            this.fNameCheck.Location = new System.Drawing.Point(7, 28);
+            this.fNameCheck.Name = "fNameCheck";
+            this.fNameCheck.Size = new System.Drawing.Size(66, 20);
+            this.fNameCheck.TabIndex = 0;
+            this.fNameCheck.Text = "Name";
+            this.fNameCheck.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -327,7 +316,6 @@
             this.ClientSize = new System.Drawing.Size(879, 675);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.getAllButton);
             this.Controls.Add(this.employeesListBox);
             this.Name = "MainForm";
             this.Text = "Employees";
@@ -342,7 +330,6 @@
         #endregion
 
         private System.Windows.Forms.ListBox employeesListBox;
-        private System.Windows.Forms.Button getAllButton;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox cSurnamesTextBox;
         private System.Windows.Forms.Label label2;
