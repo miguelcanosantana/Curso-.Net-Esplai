@@ -46,9 +46,25 @@ namespace EmployeesLinq.Daos
 
             try
             {
+                IQueryable<employees> data;
                 DataClasses1DataContext dC = new DataClasses1DataContext();
-                var data = from emp in dC.employees
+
+                //Select employees from a city if the field is not null
+                if (!string.IsNullOrWhiteSpace(city))
+                {
+                    data = from emp in dC.employees
+                           join dep in dC.departments
+                           on emp.department_id equals dep.department_id
+                           join loc in dC.locations
+                           on dep.location_id equals loc.location_id
+                           where loc.city == city
                            select emp;
+                }
+                else
+                {
+                    data = from emp in dC.employees
+                           select emp;
+                }
 
                 //Filter by the fields that are not null
                 if (name != null)

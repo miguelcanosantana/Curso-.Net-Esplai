@@ -19,14 +19,34 @@ namespace EmployeesLinq
             GetAllEmployees();
         }
 
-
-
-
-        //
+        //Update forms
         private void GetAllEmployees()
         {
             employeesListBox.Items.Clear();
             employeesListBox.Items.AddRange(EmployeesDao.GetAllEmployees().ToArray());
+        }
+
+        private void GetFilteredEmployees()
+        {
+            employeesListBox.Items.Clear();
+
+            //Validate data
+            String name = null;
+            String surname = null;
+            String city = null;
+
+            if (fNameCheck.Checked && !String.IsNullOrWhiteSpace(fNameTextBox.Text)) 
+                name = fNameTextBox.Text;
+
+            if (fSurnameCheck.Checked && !String.IsNullOrWhiteSpace(fSurnameText.Text))
+                surname = fSurnameText.Text;
+
+            if (fCityCheck.Checked && !String.IsNullOrWhiteSpace(fCityTextBox.Text))
+                city = fCityTextBox.Text;
+
+            employeesListBox.Items.AddRange(
+                EmployeesDao.GetEmployeesFiltered(name, surname, city).ToArray()
+                );
         }
 
 
@@ -93,7 +113,7 @@ namespace EmployeesLinq
 
         private void filterButton_Click(object sender, EventArgs e)
         {
-            EmployeesDao.GetEmployeesFiltered(null, null, null);
+            GetFilteredEmployees();
         }
     }
 }
