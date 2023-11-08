@@ -106,7 +106,14 @@ namespace EmployeesLinq.Daos
             {
                 connection.Open();
 
-                string query = "SELECT * FROM employees";
+                string query = @"SELECT * FROM employees
+                                    INNER JOIN departments
+                                    ON employees.department_id = departments.department_id
+                                    INNER JOIN locations
+                                    ON departments.location_id = locations.location_id
+                                    WHERE (employees.department_id IS NULL OR locations.city = 'Oxford') AND 
+                                    (employees.first_name IS NULL OR employees.first_name LIKE 'Steven') AND
+                                    (employees.last_name IS NULL OR employees.last_name LIKE 'King')";
                 SqlCommand cmd = new SqlCommand(query, connection);
                 SqlDataReader recordsReader = cmd.ExecuteReader();
 
