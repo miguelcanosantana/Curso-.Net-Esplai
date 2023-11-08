@@ -29,7 +29,7 @@ namespace EmployeesLinq
             if (!String.IsNullOrWhiteSpace(cManagerIdTextBox.Text))
                 managerId = Int32.Parse(cManagerIdTextBox.Text);
 
-            Program.TryInsertEmployee(
+            Daos.EmployeesDao.TryInsertEmployee(
                 cNameTextBox.Text,
                 cSurnamesTextBox.Text,
                 cMailTextBox.Text,

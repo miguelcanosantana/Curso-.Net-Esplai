@@ -209,9 +209,9 @@
             // 
             // createEmployeeButton
             // 
-            this.createEmployeeButton.Location = new System.Drawing.Point(427, 181);
+            this.createEmployeeButton.Location = new System.Drawing.Point(427, 162);
             this.createEmployeeButton.Name = "createEmployeeButton";
-            this.createEmployeeButton.Size = new System.Drawing.Size(179, 22);
+            this.createEmployeeButton.Size = new System.Drawing.Size(179, 41);
             this.createEmployeeButton.TabIndex = 14;
             this.createEmployeeButton.Text = "Submit";
             this.createEmployeeButton.UseVisualStyleBackColor = true;
