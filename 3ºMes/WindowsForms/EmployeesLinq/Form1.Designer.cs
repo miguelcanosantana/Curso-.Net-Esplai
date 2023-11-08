@@ -55,6 +55,8 @@
             this.fSurnameCheck = new System.Windows.Forms.CheckBox();
             this.fNameTextBox = new System.Windows.Forms.TextBox();
             this.fNameCheck = new System.Windows.Forms.CheckBox();
+            this.fSqlRadio = new System.Windows.Forms.RadioButton();
+            this.fLinQRadio = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -234,6 +236,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.fLinQRadio);
+            this.groupBox2.Controls.Add(this.fSqlRadio);
             this.groupBox2.Controls.Add(this.filterButton);
             this.groupBox2.Controls.Add(this.fCityTextBox);
             this.groupBox2.Controls.Add(this.fCityCheck);
@@ -309,6 +313,30 @@
             this.fNameCheck.Text = "Name";
             this.fNameCheck.UseVisualStyleBackColor = true;
             // 
+            // fSqlRadio
+            // 
+            this.fSqlRadio.AutoSize = true;
+            this.fSqlRadio.Location = new System.Drawing.Point(67, 304);
+            this.fSqlRadio.Name = "fSqlRadio";
+            this.fSqlRadio.Size = new System.Drawing.Size(82, 20);
+            this.fSqlRadio.TabIndex = 18;
+            this.fSqlRadio.TabStop = true;
+            this.fSqlRadio.Text = "Use SQL";
+            this.fSqlRadio.UseVisualStyleBackColor = true;
+            this.fSqlRadio.CheckedChanged += new System.EventHandler(this.fSqlRadio_CheckedChanged);
+            // 
+            // fLinQRadio
+            // 
+            this.fLinQRadio.AutoSize = true;
+            this.fLinQRadio.Location = new System.Drawing.Point(66, 278);
+            this.fLinQRadio.Name = "fLinQRadio";
+            this.fLinQRadio.Size = new System.Drawing.Size(83, 20);
+            this.fLinQRadio.TabIndex = 19;
+            this.fLinQRadio.TabStop = true;
+            this.fLinQRadio.Text = "Use LinQ";
+            this.fLinQRadio.UseVisualStyleBackColor = true;
+            this.fLinQRadio.CheckedChanged += new System.EventHandler(this.fLinQRadio_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -356,6 +384,8 @@
         private System.Windows.Forms.TextBox fCityTextBox;
         private System.Windows.Forms.CheckBox fCityCheck;
         private System.Windows.Forms.Button filterButton;
+        private System.Windows.Forms.RadioButton fLinQRadio;
+        private System.Windows.Forms.RadioButton fSqlRadio;
     }
 }
 

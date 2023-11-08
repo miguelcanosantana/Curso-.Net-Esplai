@@ -13,10 +13,15 @@ namespace EmployeesLinq
 {
     public partial class MainForm : Form
     {
+        private bool isUsingLinQ = true;
+        private bool isUsingSQL = false;
+
         public MainForm()
         {
             InitializeComponent();
             GetAllEmployees();
+
+            isUsingLinQ = true;
         }
 
         //Update forms
@@ -44,11 +49,15 @@ namespace EmployeesLinq
             if (fCityCheck.Checked && !String.IsNullOrWhiteSpace(fCityTextBox.Text))
                 city = fCityTextBox.Text;
 
-            employeesListBox.Items.AddRange(
-                EmployeesDao.GetEmployeesFiltered(name, surname, city).ToArray()
+            if (isUsingLinQ)
+                employeesListBox.Items.AddRange(
+                    EmployeesDao.GetEmployeesFiltered(name, surname, city).ToArray()
+                    );
+            else if (isUsingSQL)
+                employeesListBox.Items.AddRange(
+                    EmployeesDao.GetEmployeesFilteredSQL(name, surname, city).ToArray()
                 );
         }
-
 
 
         //Events
@@ -114,6 +123,18 @@ namespace EmployeesLinq
         private void filterButton_Click(object sender, EventArgs e)
         {
             GetFilteredEmployees();
+        }
+
+        private void fLinQRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            isUsingLinQ = true;
+            isUsingSQL = false;
+        }
+
+        private void fSqlRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            isUsingSQL = true;
+            isUsingLinQ = false;
         }
     }
 }
