@@ -4,3 +4,7 @@ table, th, td {
     padding: 10px;
     text-align: center;
   }
+
+.higher-cell {
+    height: 100px;
+}
