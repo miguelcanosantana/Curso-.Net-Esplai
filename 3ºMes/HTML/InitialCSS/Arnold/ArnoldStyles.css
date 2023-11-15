@@ -1,0 +1,19 @@
+#title {
+    text-align: center;
+}
+
+#final-clear {
+    clear: both;
+}
+
+.on-right {
+    float: right;
+}
+
+.on-left {
+    float: left;
+}
+
+.reduced-45 {
+    width: 45%;
+}
