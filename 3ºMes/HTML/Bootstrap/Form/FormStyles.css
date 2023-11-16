@@ -1,4 +1,15 @@
+form {
+    margin: auto;
+    max-width: 500px;
+}
+
+
 .horizontal-separator {
     margin-left: 5px;
     margin-right: 5px;
+}
+
+
+#big-title {
+    margin-top: 20px;
 }
