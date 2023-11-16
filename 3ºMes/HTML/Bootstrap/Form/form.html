@@ -13,6 +13,65 @@
 
     <form>
 
+<div class="container text-center">
+
+    <div class="row">
+        <div class="col">
+            1 of 2
+        </div>
+        <div class="col">
+            2 of 2
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            1 of 3
+        </div>
+        <div class="col">
+            2 of 3
+        </div>
+        <div class="col">
+            3 of 3
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            1 of 1
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            1 of 2
+        </div>
+        <div class="col">
+            2 of 2
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            1 of 2
+        </div>
+        <div class="col">
+            2 of 2
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
             <input class="form-control" id="title">
@@ -76,7 +135,46 @@
 
         <div class="mb-3">
             <label for="date" class="form-label">Start Date</label>
-            <input type='date' class='form-control'>
+            <input id="date" type='date' class='form-control'>
+        </div>
+
+        <div class="mb-3">
+            <label for="duration" class="form-label">Duration (in hours)</label>
+            <input id="duration" type='number' class='form-control' min="0" step="0.25">
+        </div>
+
+        <div class="mb-3">
+            <label for="status" class="form-label">Status</label>
+            <select class="form-select" id="status">
+                <option selected value="1">Planned</option>
+                <option value="2">In Progress</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="percent" class="form-label">Percent complete</label>
+            <select class="form-select" id="status">
+                <option selected value="1">0%</option>
+                <option value="2">25%</option>
+                <option value="3">50%</option>
+                <option value="4">75%</option>
+                <option value="5">100%</option>
+            </select>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="demo">
+            <label class="form-check-label" for="flexCheckChecked">
+                Check here if you want to send an email
+            </label>
+        </div>
+
+        <hr>
+
+        <div class="d-flex flex-row-reverse">
+            <button type="button" class="btn btn-primary">Primary</button>
+            <div class="horizontal-separator"></div>
+            <button type="button" class="btn btn-secondary">Secondary</button>
         </div>
 
     </form>
