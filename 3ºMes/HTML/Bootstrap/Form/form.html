@@ -37,13 +37,43 @@
             </select>
         </div>
 
-
-
-
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <div class="mb-3">
+            <label for="critic" class="form-label">Criticity</label>
+            <select class="form-select" id="critic">
+                <option selected value="1">Minor</option>
+                <option value="2">Mid</option>
+                <option value="3">Major</option>
+            </select>
         </div>
+
+        <div class="mb-3">
+
+            <label for="environment" class="form-label">Environment</label>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="prod">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Prod
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="preprod">
+                <label class="form-check-label" for="flexCheckChecked">
+                    Preprod
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="demo">
+                <label class="form-check-label" for="flexCheckChecked">
+                    Demo
+                </label>
+            </div>
+
+        </div>
+
+
+
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
