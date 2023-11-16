@@ -1,7 +1,7 @@
-var numberInput = document.getElementsByName('numberInput')[0]
-var powInput = document.getElementsByName('powInput')[0]
-
 
 function calculatePow() {
-    var pow = Math.pow(numberInput.value, powInput.value)
+    var numberValue = document.getElementById('numberInput').value
+    var powValue = document.getElementById('powInput').value
+    var result = Math.pow(numberValue, powValue)
+    document.getElementById("result-p").innerHTML = "Result: " + result;
 }
