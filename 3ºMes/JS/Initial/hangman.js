@@ -60,6 +60,7 @@ function tryGuessLetter(letter) {
         document.getElementById("hang-image").src="hangman/" + (7 - lives) + ".png";
     }
 
+    var playerInput = document.getElementById('playerInput').value = null
 }
 
 

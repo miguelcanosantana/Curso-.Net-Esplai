@@ -1,3 +1,13 @@
+body {
+    background-color: rgb(162, 152, 135);
+}
+
+#content {
+    margin: auto;
+    max-width: 400px;
+    text-align: center;
+}
+
 #lost-text {
     color: rgb(139, 23, 23);
 }
