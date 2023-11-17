@@ -1,4 +1,4 @@
-var lives = 3
+var lives = 7
 const words = [
     "lizard", "cat", "dog", "dolphin", "jaguar", "giraffe", "hippopotamus", "cow", "goat", "elephant", "porcupine", "bird", "fox", "wolf", "goose", "duck", "alligator"
 ]
@@ -54,6 +54,7 @@ function tryGuessLetter(letter) {
     }
     else {
         lives--
+        document.getElementById("hang-image").src="hangman/" + (7 - lives) + ".png";
     }
 
 }
