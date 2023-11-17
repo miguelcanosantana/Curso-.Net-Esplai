@@ -19,10 +19,8 @@ window.addEventListener("load", (event) => {
 function tryAttempt() {
 
     var playerInput = document.getElementById('playerInput').value
-
-    console.log(playerInput.lenght)
     
-    if (playerInput.lenght == 1) {
+    if (playerInput.length == 1) {
         tryGuessLetter(playerInput)
     }
     else {
