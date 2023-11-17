@@ -1,3 +1,4 @@
+var isMatchEnd = false
 var lives = 7
 const words = [
     "lizard", "cat", "dog", "dolphin", "jaguar", "giraffe", "hippopotamus", "cow", "goat", "elephant", "porcupine", "bird", "fox", "wolf", "goose", "duck", "alligator"
@@ -64,11 +65,15 @@ function tryGuessWord(word) {
 
     if (word == randomWord) {
         guessedWord = word
+        document.getElementById("win-text").innerHTML = "You Won!";
     }
     else {
         lives = 0
+        guessedWord = "Word was: " + randomWord
+        document.getElementById("lost-text").innerHTML = "Game Over!";
         document.getElementById("hang-image").src="hangman/7.png";
     }
+    isMatchEnd = true
 }
 
 
