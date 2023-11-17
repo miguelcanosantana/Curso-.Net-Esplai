@@ -49,7 +49,6 @@ function tryGuessLetter(letter) {
         for (var i = 0; i < randomArray.length; i++) {
 
             if (randomArray[i] == letter) {
-                console.log("a")
                 guessedArray[i] = letter
             }
         }
@@ -61,6 +60,17 @@ function tryGuessLetter(letter) {
     }
 
     var playerInput = document.getElementById('playerInput').value = null
+
+    if (guessedWord == randomWord && lives > 0) {
+        document.getElementById("win-text").innerHTML = "You Won!";
+        isMatchEnd = true
+    }
+    else if (lives <= 0) {
+        guessedWord = "Word was: " + randomWord
+        document.getElementById("lost-text").innerHTML = "Game Over!";
+        document.getElementById("hang-image").src="hangman/7.png";
+        isMatchEnd = true
+    }
 }
 
 
