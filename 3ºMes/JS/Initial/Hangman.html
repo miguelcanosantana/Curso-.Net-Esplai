@@ -14,8 +14,14 @@
     <img id="hang-image" src="hangman/0.png">
 
     <p>Enter the leter, or the entire word to guess...</p>
-    <input type="text" id="playerInput">
-    <button type="button" onclick="tryAttempt()">Try!</button>
+
+    <div class="mb-3">
+        <label for="playerInput" class="form-label">Enter the letter</label>
+        <input class="form-control" id="playerInput" aria-describedby="help">
+        <div id="help" class="form-text">Or you can also enter the entire word if you are brave enough!</div>
+    </div>
+
+    <button type="submit" class="btn btn-warning" onclick="tryAttempt()">Make a Try</button>
 
     <h2 id="win-text"></h2>
     <h2 id="lost-text"></h2>
