@@ -6,6 +6,8 @@ const words = [
 var randomWord = words[Math.floor(Math.random() * words.length)]
 var guessedWord = ""
 
+console.log(randomWord)
+
 for (let index = 0; index < randomWord.length; index++) {
     guessedWord += "-"
 }
@@ -34,8 +36,21 @@ function tryAttempt() {
 
 function tryGuessLetter(letter) {
 
+    var randomArray = randomWord.split("")
+    var guessedArray = guessedWord.split("")
+
+    console.log(randomArray)
+
     if (randomWord.includes(letter)) {
 
+        for (var i = 0; i < randomArray.length; i++) {
+
+            if (randomArray[i] == letter) {
+                console.log("a")
+                guessedArray[i] = letter
+            }
+        }
+        guessedWord = guessedArray.join("");
     }
     else {
         lives--
