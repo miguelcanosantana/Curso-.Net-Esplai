@@ -12,12 +12,15 @@ for (let index = 0; index < randomWord.length; index++) {
 
 window.addEventListener("load", (event) => {
     document.getElementById("guessed-word").innerHTML = guessedWord;
+    document.getElementById("lives").innerHTML = "Lives: " + lives;
 });
 
 
 function tryAttempt() {
 
     var playerInput = document.getElementById('playerInput').value
+
+    console.log(playerInput.lenght)
     
     if (playerInput.lenght == 1) {
         tryGuessLetter(playerInput)
@@ -26,11 +29,19 @@ function tryAttempt() {
         tryGuessWord(playerInput)
     }
 
-    document.getElementById("result-p").innerHTML = "Word: " + guessedWord;
+    document.getElementById("guessed-word").innerHTML = guessedWord;
+    document.getElementById("lives").innerHTML = "Lives: " + lives;
 }
 
 
 function tryGuessLetter(letter) {
+
+    if (randomWord.includes(letter)) {
+
+    }
+    else {
+        lives--
+    }
 
 }
 
