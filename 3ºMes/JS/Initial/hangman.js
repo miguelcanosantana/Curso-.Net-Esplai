@@ -21,6 +21,8 @@ window.addEventListener("load", (event) => {
 
 function tryAttempt() {
 
+    if (isMatchEnd) return
+
     var playerInput = document.getElementById('playerInput').value
     
     if (playerInput.length == 1) {
