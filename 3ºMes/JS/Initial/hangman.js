@@ -61,7 +61,14 @@ function tryGuessLetter(letter) {
 
 
 function tryGuessWord(word) {
-    
+
+    if (word == randomWord) {
+        guessedWord = word
+    }
+    else {
+        lives = 0
+        document.getElementById("hang-image").src="hangman/7.png";
+    }
 }
 
 
