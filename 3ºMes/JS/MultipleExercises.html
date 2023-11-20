@@ -41,9 +41,7 @@
             </label>
         </div>
 
-        <div id="small-layer">
-
-        </div>
+        <div id="small-layer"></div>
 
         <button id="red-button" onclick="changeColorOfElement('red')" type="button" class="btn btn-dark">Red</button>
         <button id="blue-button" onclick="changeColorOfElement('blue')" type="button" class="btn btn-dark">Blue</button>
@@ -84,6 +82,23 @@
         <p id="lived-result-text"></p>
 
         <button id="age-alert-button" onclick="calculateAge()" type="button" class="btn btn-dark">Calculate</button>
+    </div>
+
+
+    <!-- 4. Select dropdown -->
+    <div class="exercise">
+
+        <h1>Select dropdown with changing images</h1>
+
+        <select onchange="selectImage()" id="image-selector" class="form-select">
+            <option selected>Open this select menu</option>
+            <option value="1">Dog</option>
+            <option value="2">Cat</option>
+            <option value="3">Lizard</option>
+            <option value="4">Monkey</option>
+        </select>
+
+        <img id="selector-image" src="">
     </div>
 
 

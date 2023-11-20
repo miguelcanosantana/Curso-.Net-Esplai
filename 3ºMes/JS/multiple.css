@@ -9,3 +9,8 @@
     float: right;
     background-color: rgb(133, 133, 133);
 }
+
+
+#selector-image {
+    width: 400px;
+}
