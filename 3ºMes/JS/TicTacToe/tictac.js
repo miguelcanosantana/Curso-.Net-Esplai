@@ -1,7 +1,17 @@
 var currentPlayer = Math.round(Math.random())
-var currentPlayerName = null
+var currentPlayerName = getPlayerName()
 
 updateCurrentPlayer(false)
+
+
+function getPlayerName() {
+    if (currentPlayer == 0) {
+        return "X"
+    } else {
+        return "O"
+    }
+}
+
 
 
 //Update current player turn
@@ -17,11 +27,7 @@ function updateCurrentPlayer(isChangingPlayer) {
         }
     }
 
-    if (currentPlayer == 0) {
-        currentPlayerName = "X"
-    } else {
-        currentPlayerName = "O"
-    }
+    currentPlayerName = getPlayerName()
 
     document.getElementById("current-player-text").innerHTML = currentPlayerName + "'s round."
 }
@@ -29,5 +35,10 @@ function updateCurrentPlayer(isChangingPlayer) {
 
 function clickCell(cellId) {
 
-    updateCurrentPlayer(true)
+    let cell = document.getElementById(cellId)
+
+    if (cell.innerHTML != "X" && cell.innerHTML != "O") {
+        cell.innerHTML = currentPlayerName
+        updateCurrentPlayer(true)
+    }
 }
