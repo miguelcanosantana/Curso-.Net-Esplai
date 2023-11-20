@@ -28,5 +28,6 @@ function updateCurrentPlayer(isChangingPlayer) {
 
 
 function clickCell(cellId) {
-    console.log(cellId)
+
+    updateCurrentPlayer(true)
 }
