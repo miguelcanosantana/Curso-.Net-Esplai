@@ -18,16 +18,18 @@ body {
     margin: 10px;
     border: 2px solid antiquewhite;
     border-radius: 10px;
-    transition: all 0.3s ease 0s;
+    transition: all 0.1s ease 0s;
     text-align: center;
     display: flex;
     justify-content: center;
     align-content: center;
     flex-direction: column;
+    font-size: 50px;
 }
 
 
 .cell:hover {
     margin: 5px;
-    transition: all 0.3s ease 0s;
+    font-size: 55px;
+    transition: all 0.1s ease 0s;
 }
