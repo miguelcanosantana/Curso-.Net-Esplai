@@ -1,3 +1,9 @@
+window.addEventListener("load", (event) => {
+    getMultiples()
+});
+
+
+
 function changeColor(buttonId, color) {
 
     var button = document.getElementById(buttonId)
@@ -88,4 +94,23 @@ function selectImage() {
     }
       
 
+}
+
+
+function getMultiples() {
+
+    var multipleList = [0]
+    var sum = 0
+
+    for (var i = 1; multipleList[multipleList.length - 1] < 1000; i++) {
+        
+        multipleList.push(23 * i)
+        sum += 23 * i
+    }
+
+    multipleList.pop()
+    sum -= 23
+
+    document.getElementById("num-result").innerHTML = multipleList
+    document.getElementById("sum-result").innerHTML = "Sum of all: " + sum
 }
