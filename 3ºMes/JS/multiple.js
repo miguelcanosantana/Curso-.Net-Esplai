@@ -64,10 +64,10 @@ function selectImage() {
     let value = document.getElementById("image-selector").value
 
     let imageList = [
-        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.goodhousekeeping.com%2Flife%2Fpets%2Fg4531%2Fcutest-dog-breeds%2F&psig=AOvVaw3_SQJTtos4azNylk3Gl8o9&ust=1700580666605000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCPiq_eTy0oIDFQAAAAAdAAAAABAE",
-        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.goodhousekeeping.com%2Flife%2Fpets%2Fa43276342%2Fcat-instagram-captions%2F&psig=AOvVaw1i4ps3VkqBC2230E2xZTXU&ust=1700580690788000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCIj4g_Hy0oIDFQAAAAAdAAAAABAR",
-        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.worldanimalprotection.us%2Fblogs%2F6-wild-facts-about-lizards&psig=AOvVaw2TLp8PDDi1dSd4dFxmVZHf&ust=1700580723617000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJDlk4Dz0oIDFQAAAAAdAAAAABAJ",
-        "https://as1.ftcdn.net/v2/jpg/00/28/08/40/1000_F_28084010_bGRJetPfBwNcO3YuRC2C3Pz7qASocWQ4.jpg",
+        "https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1608848461950-0fe51dfc41cb?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1504450874802-0ba2bcd9b5ae?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1605559911160-a3d95d213904?q=80&w=1924&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       ];
 
     switch (value) {
