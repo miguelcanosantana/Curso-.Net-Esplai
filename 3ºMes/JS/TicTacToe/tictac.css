@@ -14,6 +14,16 @@ body {
 }
 
 
+#current-player-text {
+    margin: auto;
+    width: fit-content;
+    padding: 15px;
+    border: 2px solid #ffc478;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
 .cell {
     margin: 10px;
     border: 2px solid #ffc478;
