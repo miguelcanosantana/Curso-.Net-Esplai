@@ -36,3 +36,24 @@ function showAlertAge() {
     document.getElementById("age-result-prompt").innerHTML = "Age: " + age;
     document.getElementById("lived-result-prompt").innerHTML = "Lived: " + age * 365 + " days";
 }
+
+
+function calculateAge() {
+
+    let name = document.getElementById("name-input").value
+    let age = document.getElementById("age-input").value
+
+    if (name == null || name == "") {
+        window.alert("Name was left empty");
+        return
+    }
+
+    if (age == null || age == "" || age < 0) {
+        window.alert("Age was not correct");
+        return
+    }
+
+    document.getElementById("name-result-text").innerHTML = "Name: " + name;
+    document.getElementById("age-result-text").innerHTML = "Age: " + age;
+    document.getElementById("lived-result-text").innerHTML = "Lived: " + age * 365 + " days";
+}
