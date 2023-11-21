@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -56,7 +57,7 @@ namespace WebHangman
                 TryGuessWord(InputTextBox.Text);
 
             GuessedWordLabel.Text = guessedWord;
-            LivesLabel.Text = lives.ToString();
+            LivesLabel.Text = "Lives: " + lives.ToString();
         }
 
 
@@ -69,9 +70,11 @@ namespace WebHangman
             {
                 for (int i = 0; i < randomArray.Length; i++)
                 {
-                    if (randomArray[i] == letter)
+                    if (randomArray[i].Equals(letter))
                         guessedArray[i] = letter;
                 }
+
+                guessedWord = String.Join("", guessedArray);
             }
             else
             {
