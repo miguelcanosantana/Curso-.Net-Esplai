@@ -70,7 +70,7 @@ namespace WebHangman
             {
                 for (int i = 0; i < randomArray.Length; i++)
                 {
-                    if (randomArray[i].Equals(letter))
+                    if (randomArray[i].Equals(Char.Parse(letter)))
                         guessedArray[i] = Char.Parse(letter);
                 }
 
@@ -100,9 +100,10 @@ namespace WebHangman
 
         private void TryGuessWord(String word)
         {
-            if (word.Equals(guessedWord) && lives > 0)
+            if (word.Equals(randomWord) && lives > 0)
             {
                 WinLabel.Text = "You Won!";
+                guessedWord = randomWord;
                 isMatchEnd = true;
             }
             else
