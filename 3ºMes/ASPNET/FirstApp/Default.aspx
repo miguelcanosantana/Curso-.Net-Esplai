@@ -8,7 +8,7 @@
 
             <asp:Button ID="TestButton" runat="server" Text="Test Button" OnClick="TestButton_Click" />
             
-            <asp:ListBox ID="WeekDayListBox" runat="server" Width="494px" OnSelectedIndexChanged="WeekDayListBox_SelectedIndexChanged">
+            <asp:ListBox ID="WeekDayListBox" AutoPostBack="True" runat="server" Width="494px" OnSelectedIndexChanged="WeekDayListBox_SelectedIndexChanged">
                 <asp:ListItem Selected="True">Select a Day</asp:ListItem>
                 <asp:ListItem>Monday</asp:ListItem>
                 <asp:ListItem>Tuesday</asp:ListItem>
