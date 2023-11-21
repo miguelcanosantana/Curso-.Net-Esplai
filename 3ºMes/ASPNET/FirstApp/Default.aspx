@@ -35,6 +35,7 @@
                     You can easily find a web hosting company that offers the right mix of features and price for your applications.
                 </p>
                 <p>
+                    <asp:Button ID="TestButton" runat="server" Text="Test Button" />
                     <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
                 </p>
             </section>
