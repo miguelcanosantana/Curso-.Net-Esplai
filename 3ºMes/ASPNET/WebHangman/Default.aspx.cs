@@ -30,9 +30,7 @@ namespace WebHangman
             guessedWord = "";
 
             for (int i = 0; i < randomWord.Length; i++)
-            {
                 guessedWord += "-";
-            }
 
             //Set initial forms
             GuessedWordLabel.Text = guessedWord;
