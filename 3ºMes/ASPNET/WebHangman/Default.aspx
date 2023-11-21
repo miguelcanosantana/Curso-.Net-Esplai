@@ -4,7 +4,7 @@
 
     <main>
 
-        <asp:Image ID="HangmanImage" runat="server" />
+        <asp:Image ID="HangmanImage" runat="server" ImageUrl="~/Images/0.png" />
         <asp:Label ID="LivesLabel" runat="server" Text="Placeholder Lives: 9"></asp:Label>
         <asp:Label ID="GuessedWordLabel" runat="server" Text="Placeholder Guessed Word"></asp:Label>
         <asp:TextBox ID="InputTextBox" runat="server"></asp:TextBox>
