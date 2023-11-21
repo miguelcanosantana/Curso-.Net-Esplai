@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 
 namespace WebHangman
 {
@@ -23,18 +25,23 @@ namespace WebHangman
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Reset initial variables
-            isMatchEnd = false;
-            lives = 7;
-            randomWord = words[rand.Next(0, words.Length)];
-            guessedWord = "";
 
-            for (int i = 0; i < randomWord.Length; i++)
-                guessedWord += "-";
+            //If the page loads for the first time
+            if (!IsPostBack)
+            {
+                //Reset initial variables
+                isMatchEnd = false;
+                lives = 7;
+                randomWord = words[rand.Next(0, words.Length)];
+                guessedWord = "";
 
-            //Set initial forms
-            GuessedWordLabel.Text = guessedWord;
-            LivesLabel.Text = "Lives: " + lives;
+                for (int i = 0; i < randomWord.Length; i++)
+                    guessedWord += "-";
+
+                //Set initial forms
+                GuessedWordLabel.Text = guessedWord;
+                LivesLabel.Text = "Lives: " + lives;
+            }
         }
 
 
@@ -55,7 +62,36 @@ namespace WebHangman
 
         private void TryGuessLetter(String letter)
         {
+            var randomArray = randomWord.Split();
+            var guessedArray = guessedWord.Split();
 
+            if (randomWord.Contains(letter))
+            {
+                for (int i = 0; i < randomArray.Length; i++)
+                {
+                    if (randomArray[i] == letter)
+                        guessedArray[i] = letter;
+                }
+            }
+            else
+            {
+                lives--;
+                HangmanImage.ImageUrl = "~/Images/" + (7 - lives) + ".png";
+            }
+
+            InputTextBox.Text = "";
+
+            if (guessedWord.Equals(randomWord) && lives > 0)
+            {
+                WinLabel.Text = "You Won!";
+                isMatchEnd = true;
+            }
+            else if (lives <= 0)
+            {
+                LoseLabel.Text = "You Lose!";
+                guessedWord = "Word was: " + randomWord;
+                isMatchEnd = true;
+            }
         }
 
 

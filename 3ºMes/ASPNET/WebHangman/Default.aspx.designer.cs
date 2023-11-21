@@ -51,6 +51,24 @@ namespace WebHangman
         protected global::System.Web.UI.WebControls.TextBox InputTextBox;
 
         /// <summary>
+        /// Control WinLabel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label WinLabel;
+
+        /// <summary>
+        /// Control LoseLabel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LoseLabel;
+
+        /// <summary>
         /// Control CheckButton.
         /// </summary>
         /// <remarks>
