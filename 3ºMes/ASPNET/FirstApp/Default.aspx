@@ -39,7 +39,7 @@
                 </p>
             </section>
 
-            <asp:Button ID="TestButton" runat="server" Text="Test Button" />
+            <asp:Button ID="TestButton" runat="server" Text="Test Button" OnClick="TestButton_Click" />
 
         </div>
     </main>
