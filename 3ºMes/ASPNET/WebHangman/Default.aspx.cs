@@ -63,18 +63,18 @@ namespace WebHangman
 
         private void TryGuessLetter(String letter)
         {
-            var randomArray = randomWord.Split();
-            var guessedArray = guessedWord.Split();
+            var randomArray = randomWord.ToCharArray();
+            var guessedArray = guessedWord.ToCharArray();
 
             if (randomWord.Contains(letter))
             {
                 for (int i = 0; i < randomArray.Length; i++)
                 {
                     if (randomArray[i].Equals(letter))
-                        guessedArray[i] = letter;
+                        guessedArray[i] = Char.Parse(letter);
                 }
 
-                guessedWord = String.Join("", guessedArray);
+                guessedWord = new string(guessedArray);
             }
             else
             {
