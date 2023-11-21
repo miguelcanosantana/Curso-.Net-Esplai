@@ -18,5 +18,11 @@ namespace FirstApp
         {
             TestButton.Text = "OK";
         }
+
+        protected void WeekDayListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            WeekDayLabel.Text = WeekDayListBox.SelectedItem.ToString();
+        }
     }
 }
