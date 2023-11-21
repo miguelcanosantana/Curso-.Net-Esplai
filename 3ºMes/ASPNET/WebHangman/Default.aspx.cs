@@ -97,7 +97,18 @@ namespace WebHangman
 
         private void TryGuessWord(String word)
         {
-
+            if (word.Equals(guessedWord) && lives > 0)
+            {
+                WinLabel.Text = "You Won!";
+                isMatchEnd = true;
+            }
+            else
+            {
+                LoseLabel.Text = "You Lose!";
+                guessedWord = "Word was: " + randomWord;
+                HangmanImage.ImageUrl = "~/Images/7.png";
+                isMatchEnd = true;
+            }
         }
 
 

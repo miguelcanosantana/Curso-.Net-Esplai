@@ -12,7 +12,7 @@
         <asp:Label ID="LoseLabel" runat="server" Text="" ForeColor="#FFCC66"></asp:Label>
 
 
-        <asp:Button ID="CheckButton" runat="server" OnClientClick="return false;" Text="Button" OnClick="CheckButton_Click" />
+        <asp:Button ID="CheckButton" runat="server" Text="Button" OnClick="CheckButton_Click" />
 
 
     </main>
