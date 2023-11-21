@@ -9,6 +9,8 @@
         <asp:Label ID="GuessedWordLabel" runat="server" Text="Placeholder Guessed Word" ForeColor="#FFCC00"></asp:Label>
         <asp:TextBox ID="InputTextBox" runat="server"></asp:TextBox>
 
+        <asp:Button ID="CheckButton" runat="server" OnClientClick="return false;" Text="Button" OnClick="CheckButton_Click" />
+
 
     </main>
 

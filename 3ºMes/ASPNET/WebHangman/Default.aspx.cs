@@ -36,5 +36,38 @@ namespace WebHangman
             GuessedWordLabel.Text = guessedWord;
             LivesLabel.Text = "Lives: " + lives;
         }
+
+
+        public void TryAttempt()
+        {
+            if (isMatchEnd) 
+                return;
+
+            if (InputTextBox.Text.Length == 1)
+                TryGuessLetter(InputTextBox.Text);
+            else 
+                TryGuessWord(InputTextBox.Text);
+
+            GuessedWordLabel.Text = guessedWord;
+            LivesLabel.Text = lives.ToString();
+        }
+
+
+        private void TryGuessLetter(String letter)
+        {
+
+        }
+
+
+        private void TryGuessWord(String word)
+        {
+
+        }
+
+
+        protected void CheckButton_Click(object sender, EventArgs e)
+        {
+            TryAttempt();
+        }
     }
 }
