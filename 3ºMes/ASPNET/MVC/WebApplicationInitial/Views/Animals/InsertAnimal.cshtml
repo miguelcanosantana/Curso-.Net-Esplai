@@ -1,4 +1,6 @@
-﻿@{
+﻿@model Animal
+
+@{
 }
 
 <style>
@@ -11,16 +13,18 @@
 </style>
 
 <div id="animals-form">
-	<form asp-controller="Animals" asp-action="SubmitForm" method="post">
+	<form asp-controller="Animals" asp-action="CreateAnimal" method="post" asp-antiforgery="true">
 
 		<div class="mb-3">
-			<label for="idInput" class="form-label">Id</label>
-			<input class="form-control" id="idInput" name="idInput">
+			<label asp-for="id" class="form-label">Id</label>
+			<input asp-for="id" class="form-control" id="idInput" name="idInput">
+			<span asp-validation-for="id" class="text-danger"></span>
 		</div>
 
 		<div class="mb-3">
-			<label for="nameInput" class="form-label">Name</label>
-			<input class="form-control" id="nameInput" name="nameInput">
+			<label asp-for="name" class="form-label">Name</label>
+			<input asp-for="name" class="form-control" id="nameInput" name="nameInput">
+			<span asp-validation-for="name" class="text-danger"></span>
 		</div>
 
 		<button type="submit" class="btn btn-primary">Submit</button>

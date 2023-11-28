@@ -25,7 +25,7 @@ namespace WebApplicationInitial.Controllers
 
         [HttpPost]
 		[ValidateAntiForgeryToken]
-        public IActionResult SubmitForm(Animal newAnimal)
+        public IActionResult CreateAnimal(Animal newAnimal)
         {
             return View(newAnimal);
         }
