@@ -2,7 +2,12 @@
 {
 	public class Animal
 	{
-		private String id {  get; set; }
-		private String name { get; set; }
+		public int id { get; set; }
+		public String name { get; set; }
+
+		public Animal(int id, String name) {
+			this.id = id;
+			this.name = name;
+		}
 	}
 }

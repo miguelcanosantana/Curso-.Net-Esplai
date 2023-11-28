@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApplicationInitial.Models;
 
 namespace WebApplicationInitial.Controllers
 {
@@ -6,7 +7,14 @@ namespace WebApplicationInitial.Controllers
 	{
 		public IActionResult Index()
 		{
-			return View();
+			List<Animal> animalsList = new List<Animal>()
+			{
+				new Animal(1, "Lizard"),
+				new Animal(2, "Dog"),
+				new Animal(3, "Cat")
+			};
+
+			return View(animalsList);
 		}
 	}
 }
