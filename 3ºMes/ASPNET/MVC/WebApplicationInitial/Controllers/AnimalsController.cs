@@ -30,7 +30,7 @@ namespace WebApplicationInitial.Controllers
 
         [HttpPost]
 		[ValidateAntiForgeryToken]
-        public IActionResult CreateAnimal(Animal newAnimal)
+        public IActionResult InsertAnimal(Animal newAnimal)
         {
             return View(newAnimal);
         }
