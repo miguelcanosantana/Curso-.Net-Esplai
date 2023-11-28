@@ -1,0 +1,40 @@
+﻿@model Dictionary<string, string>
+
+<style>
+
+    .animal-types-div {
+        padding: 12px;
+        border: 1px solid #4e2a79;
+        border-radius: 15px;
+    }
+
+        .animal-types-div .animals {
+            display: inline-block;
+            float: left;
+            max-width: 200px;
+            font-size: 12px;
+        }
+
+    .clearer {
+        clear: both;
+    }
+
+</style>
+
+<h2>This could be loaded from a database</h2>
+
+<div class="animal-types-div">
+
+    <p>Animal Types</p>
+
+    @foreach (var item in Model)
+    {
+        <div class="animals m-2">
+            <h4>@item.Key</h4>
+            <p>@item.Value</p>
+        </div>
+    }
+
+    <div class="clearer"></div>
+
+</div>
