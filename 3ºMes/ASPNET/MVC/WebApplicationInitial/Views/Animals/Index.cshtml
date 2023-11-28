@@ -3,21 +3,34 @@
 @{
 }
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-        </tr>
-    </thead>
-    <tbody>
+<style>
 
-        @foreach (Animal animal in Model)
-        {
+    #animals-div {
+        max-width: 300px;
+        margin: auto;
+    }
+
+</style>
+
+<div id="animals-div">
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <th scope="row">@animal.id</th>
-                <td>@animal.name</td>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+
+            @foreach (Animal animal in Model)
+            {
+                <tr>
+                    <th scope="row">@animal.id</th>
+                    <td>@animal.name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h5>@ViewBag.LuckyAnimalMessage</h5>
+</div>
