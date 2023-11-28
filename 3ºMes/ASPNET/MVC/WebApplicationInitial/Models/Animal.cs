@@ -2,6 +2,7 @@
 {
 	public class Animal
 	{
-		public String name { get; set; }
+		private String id {  get; set; }
+		private String name { get; set; }
 	}
 }
