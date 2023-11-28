@@ -33,5 +33,15 @@ namespace WebApplicationInitial.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpPost]
+        public IActionResult SubmitForm(String nameInput, int ageInput)
+        {
+            var retrievedName = nameInput;
+            var retrievedAge = ageInput;
+
+			//The view the page redirects to
+			return View("FirstView");
+		}
     }
 }
