@@ -11,6 +11,6 @@ namespace WebApplicationInitial.Models
 		[Required]
 		[Display(Name = "Animal")]
 		[StringLength(15, ErrorMessage = "The name can't exceed 15 characters")]
-		public String name { get; set; }
+		public string name { get; set; }
 	}
 }
