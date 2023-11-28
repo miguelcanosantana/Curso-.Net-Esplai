@@ -2,5 +2,6 @@
 {
 	public class Animal
 	{
+		public String name { get; set; }
 	}
 }
