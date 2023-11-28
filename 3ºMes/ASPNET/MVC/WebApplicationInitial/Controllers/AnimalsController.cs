@@ -5,6 +5,11 @@ namespace WebApplicationInitial.Controllers
 {
 	public class AnimalsController : Controller
 	{
+		public IActionResult InsertAnimal()
+		{
+			return View();
+		}
+
 		public IActionResult Index()
 		{
 			List<Animal> animalsList = new List<Animal>()
