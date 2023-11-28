@@ -14,9 +14,9 @@ namespace WebApplicationInitial.Controllers
 		{
 			List<Animal> animalsList = new List<Animal>()
 			{
-				new Animal(1, "Lizard"),
-				new Animal(2, "Dog"),
-				new Animal(3, "Cat")
+				new Animal() {id = 1, name = "Lizard"},
+				new Animal() {id = 2, name = "Dog"},
+				new Animal() {id = 3, name = "Cat"},
 			};
 
 			Random rnd = new Random();

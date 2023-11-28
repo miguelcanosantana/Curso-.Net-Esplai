@@ -12,10 +12,5 @@ namespace WebApplicationInitial.Models
 		[Display(Name = "Animal")]
 		[StringLength(15, ErrorMessage = "The name can't exceed 15 characters")]
 		public String name { get; set; }
-
-		public Animal(int id, String name) {
-			this.id = id;
-			this.name = name;
-		}
 	}
 }
