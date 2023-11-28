@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<style>
+
+	#animals-form {
+		max-width: 300px;
+		margin: auto;
+	}
+
+</style>
+
+<div id="animals-form">
+	<form asp-controller="Animals" asp-action="SubmitForm" method="post">
+
+		<div class="mb-3">
+			<label for="nameInput" class="form-label">Name</label>
+			<input class="form-control" id="nameInput" name="nameInput">
+		</div>
+
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>

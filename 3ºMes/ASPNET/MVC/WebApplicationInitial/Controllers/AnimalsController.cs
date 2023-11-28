@@ -22,5 +22,12 @@ namespace WebApplicationInitial.Controllers
 
 			return View(animalsList);
 		}
-	}
+
+        [HttpPost]
+		[ValidateAntiForgeryToken]
+        public IActionResult SubmitForm(Animal newAnimal)
+        {
+            return View(newAnimal);
+        }
+    }
 }
