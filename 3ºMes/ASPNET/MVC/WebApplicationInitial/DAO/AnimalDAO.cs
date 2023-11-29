@@ -29,20 +29,6 @@ namespace WebApplicationInitial.DAO
                     animal.fkAnimalType = Convert.ToInt32(reader["RIdTipoAnimal"]);
                     animal.bornDate = reader.GetDateTime(reader.GetOrdinal("FechaNacimiento"));
                     animalsList.Add(animal);
-                    //int jobId = recordsReader.GetInt32(recordsReader.GetOrdinal("job_id"));
-                    //String jobName = recordsReader.GetString(recordsReader.GetOrdinal("job_title"));
-
-                    //float? minSalary = null;
-                    //float? maxSalary = null;
-
-                    //if (!recordsReader.IsDBNull(recordsReader.GetOrdinal("min_salary")))
-                    //    minSalary = (float)recordsReader.GetDecimal(recordsReader.GetOrdinal("min_salary"));
-
-                    //if (!recordsReader.IsDBNull(recordsReader.GetOrdinal("max_salary")))
-                    //    maxSalary = (float)recordsReader.GetDecimal(recordsReader.GetOrdinal("max_salary"));
-
-                    //Job newJob = new Job(jobId, jobName, (float)minSalary, (float)maxSalary);
-                    //jobs.Add(newJob);
                 }
 
                 reader.Close();
