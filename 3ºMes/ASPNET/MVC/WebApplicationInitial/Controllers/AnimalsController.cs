@@ -26,7 +26,7 @@ namespace WebApplicationInitial.Controllers
 			int randomIndex = rnd.Next(0, animalsList.Count);
 
 
-			ViewBag.LuckyAnimalMessage = "The "; //+ animalsList[randomIndex].name + " is your luck animal.";
+			ViewBag.LuckyAnimalMessage = "The " + animalsList[randomIndex].name + " is your luck animal.";
 
 			return View(animalsList);
 		}
