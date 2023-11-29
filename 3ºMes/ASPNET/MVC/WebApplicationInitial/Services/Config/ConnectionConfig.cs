@@ -2,6 +2,6 @@
 {
 	public class ConnectionConfig
 	{
-		public String connectionString {  get; set; }
+		public String connectionString { get; set; }
 	}
 }

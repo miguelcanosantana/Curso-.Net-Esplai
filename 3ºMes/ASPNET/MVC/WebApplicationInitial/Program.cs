@@ -1,4 +1,6 @@
 using WebApplicationInitial.Services.Config;
+using WebApplicationInitial.Services.Contract;
+using WebApplicationInitial.Services.Implementation;
 
 namespace WebApplicationInitial
 {
@@ -11,6 +13,8 @@ namespace WebApplicationInitial
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 			builder.Services.Configure<ConnectionConfig>(builder.Configuration.GetSection("ConnectionConfig"));
+
+            var animalService = builder.Services.AddScoped<IAnimalService, AnimalService>();
 
 			var app = builder.Build();
 
