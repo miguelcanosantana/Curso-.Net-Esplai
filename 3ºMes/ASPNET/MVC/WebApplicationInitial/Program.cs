@@ -1,3 +1,5 @@
+using WebApplicationInitial.Services.Config;
+
 namespace WebApplicationInitial
 {
     public class Program
@@ -8,8 +10,9 @@ namespace WebApplicationInitial
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+			builder.Services.Configure<ConnectionConfig>(builder.Configuration.GetSection("ConnectionConfig"));
 
-            var app = builder.Build();
+			var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
