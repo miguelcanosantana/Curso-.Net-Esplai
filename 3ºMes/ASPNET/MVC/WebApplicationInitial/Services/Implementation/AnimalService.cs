@@ -30,7 +30,7 @@ namespace WebApplicationInitial.Services.Implementation
 
 				SqlDataReader reader = await cmd.ExecuteReaderAsync();
 
-				while (reader.Read())
+				while (await reader.ReadAsync())
 				{
 					Animal animal = new Animal();
 					animal.id = Convert.ToInt32(reader["IdAnimal"]);
