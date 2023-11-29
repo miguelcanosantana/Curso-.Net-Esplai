@@ -39,5 +39,34 @@ namespace WebApplicationInitial.DAO
 
             return animalsList;
         }
+
+        public static void InsertAnimal(Animal animal)
+        {
+            try
+            {
+                SqlConnection connection = new SqlConnection(DB.connectionString);
+                connection.Open();
+
+                string query = $"INSERT INTO Animal (IdAnimal, NombreAnimal, Raza, RIdTipoAnimal, FechaNacimiento) VALUES (" +
+                   "@id, @name, @breed, @type, @date);" +
+                   "SELECT CAST(SCOPE_IDENTITY() as INT)";
+
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@id", animal.id);
+                    cmd.Parameters.AddWithValue("@name", animal.name);
+                    cmd.Parameters.AddWithValue("@breed", animal.breed);
+                    cmd.Parameters.AddWithValue("@type", animal.fkAnimalType);
+                    cmd.Parameters.AddWithValue("@date", animal.bornDate);
+
+                    object id = cmd.ExecuteScalar();
+                    animal.id = (int)id;
+                }
+
+            }
+            catch (Exception e)
+            {
+            }
+        }
     }
 }

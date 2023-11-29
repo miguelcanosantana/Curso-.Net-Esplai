@@ -27,6 +27,24 @@
 			<span asp-validation-for="name" class="text-danger"></span>
 		</div>
 
+		<div class="mb-3">
+			<label asp-for="breed" class="form-label">Breed</label>
+			<input asp-for="breed" class="form-control">
+			<span asp-validation-for="breed" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="fkAnimalType" class="form-label">Type</label>
+			<input asp-for="fkAnimalType" class="form-control">
+			<span asp-validation-for="fkAnimalType" class="text-danger"></span>
+		</div>
+
+		<div class="mb-3">
+			<label asp-for="bornDate" class="form-label">Date</label>
+			<input asp-for="bornDate" class="form-control">
+			<span asp-validation-for="bornDate" class="text-danger"></span>
+		</div>
+
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
 </div>
