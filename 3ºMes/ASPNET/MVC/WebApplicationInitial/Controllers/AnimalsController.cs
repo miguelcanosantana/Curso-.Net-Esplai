@@ -1,23 +1,32 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApplicationInitial.DAO;
 using WebApplicationInitial.Models;
+using WebApplicationInitial.Services.Contract;
 
 namespace WebApplicationInitial.Controllers
 {
 	public class AnimalsController : Controller
 	{
+
+		private readonly IAnimalService animalService;
+
+
+		public AnimalsController(IAnimalService animalService)
+		{
+			this.animalService = animalService;
+		}
+
 		public IActionResult InsertAnimal()
 		{
 			return View();
 		}
 
-		public IActionResult Index()
+		public async Task<IActionResult> Index()
 		{
-			List<Animal> animalsList = AnimalDAO.GetAnimals();
+			List<Animal> animalsList = await animalService.GetAnimals();
 
 			Random rnd = new Random();
 			int randomIndex = rnd.Next(0, animalsList.Count);
-
 
 			ViewBag.LuckyAnimalMessage = "The " + animalsList[randomIndex].name + " is your luck animal.";
 
@@ -26,9 +35,9 @@ namespace WebApplicationInitial.Controllers
 
         [HttpPost]
 		[ValidateAntiForgeryToken]
-        public IActionResult InsertAnimal(Animal newAnimal)
+        public async Task<IActionResult> InsertAnimal(Animal newAnimal)
         {
-			AnimalDAO.InsertAnimal(newAnimal);
+			await animalService.InsertAnimal(newAnimal);
             return View(newAnimal);
         }
     }
