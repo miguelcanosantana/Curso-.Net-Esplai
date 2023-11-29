@@ -25,8 +25,8 @@ namespace WebApplicationInitial.DAO
                     Animal animal = new Animal();
                     animal.id = Convert.ToInt32(reader["IdAnimal"]);
                     animal.name = reader["NombreAnimal"].ToString();
-                    animal.breed = reader["Breed"].ToString();
-                    animal.fkAnimalType = Convert.ToInt32(reader["RdIdTipoAnimal"]);
+                    animal.breed = reader["Raza"].ToString();
+                    animal.fkAnimalType = Convert.ToInt32(reader["RIdTipoAnimal"]);
                     animal.bornDate = DateTime.Parse((string)reader["FechaNacimiento"]);
                     animalsList.Add(animal);
                     //int jobId = recordsReader.GetInt32(recordsReader.GetOrdinal("job_id"));
