@@ -10,7 +10,17 @@ namespace WebApplicationInitial.Models
 
 		[Required]
 		[Display(Name = "Animal")]
-		[StringLength(15, ErrorMessage = "The name can't exceed 15 characters")]
+		[StringLength(50, ErrorMessage = "The name can't exceed 50 characters")]
 		public string name { get; set; }
-	}
+
+        [Display(Name = "Breed")]
+        [StringLength(50, ErrorMessage = "The name can't exceed 50 characters")]
+        public string breed { get; set; }
+
+        public int? fkAnimalType { get; set; }
+
+		[Required]
+        [Display(Name = "Date")]
+        public DateTime bornDate { get; set; }
+    }
 }
