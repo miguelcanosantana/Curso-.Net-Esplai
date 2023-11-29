@@ -6,7 +6,7 @@ namespace WebApplicationInitial.DAO
 {
     static public class AnimalDAO
     {
-        private static List<Animal> GetAnimals()
+        public static List<Animal> GetAnimals()
         {
             List<Animal> animalsList = new List<Animal>();
 
