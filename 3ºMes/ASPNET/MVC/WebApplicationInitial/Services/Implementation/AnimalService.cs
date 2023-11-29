@@ -28,7 +28,7 @@ namespace WebApplicationInitial.Services.Implementation
 				string query = "SELECT * FROM Animal";
 				SqlCommand cmd = new SqlCommand(query, connection);
 
-				SqlDataReader reader = cmd.ExecuteReader();
+				SqlDataReader reader = await cmd.ExecuteReaderAsync();
 
 				while (reader.Read())
 				{
@@ -67,7 +67,7 @@ namespace WebApplicationInitial.Services.Implementation
 					cmd.Parameters.AddWithValue("@type", animal.fkAnimalType);
 					cmd.Parameters.AddWithValue("@date", animal.bornDate);
 
-					cmd.ExecuteNonQuery();
+					await cmd.ExecuteNonQueryAsync();
 				}
 
 			}
