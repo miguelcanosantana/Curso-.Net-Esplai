@@ -35,9 +35,9 @@ namespace WebApplicationInitial.Controllers
 
         [HttpPost]
 		[ValidateAntiForgeryToken]
-        public async Task<IActionResult> InsertAnimal(Animal newAnimal)
+        public IActionResult InsertAnimal(Animal newAnimal)
         {
-			await animalService.InsertAnimal(newAnimal);
+			animalService.InsertAnimal(newAnimal);
             return View(newAnimal);
         }
     }
