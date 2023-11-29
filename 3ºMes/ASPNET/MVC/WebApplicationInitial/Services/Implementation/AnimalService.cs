@@ -22,7 +22,7 @@ namespace WebApplicationInitial.Services.Implementation
 
 			try
 			{
-				SqlConnection connection = new SqlConnection(DB.connectionString);
+				SqlConnection connection = new SqlConnection(connetion.connectionString);
 				connection.Open();
 
 				string query = "SELECT * FROM Animal";
