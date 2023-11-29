@@ -11,4 +11,10 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\Config\" />
+    <Folder Include="Services\Contract\" />
+    <Folder Include="Services\Implementation\" />
+  </ItemGroup>
+
 </Project>
