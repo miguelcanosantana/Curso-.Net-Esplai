@@ -50,9 +50,30 @@ namespace WebApplicationInitial.Services.Implementation
 			return animalsList;
 		}
 
-		public Task InsertAnimal(Animal animal)
+		public async Task InsertAnimal(Animal animal)
 		{
-			throw new NotImplementedException();
+			try
+			{
+				SqlConnection connection = new SqlConnection(connetion.connectionString);
+				connection.Open();
+
+				string query = $"INSERT INTO Animal (NombreAnimal, Raza, RIdTipoAnimal, FechaNacimiento) VALUES (" +
+				   "@name, @breed, @type, @date);";
+
+				using (SqlCommand cmd = new SqlCommand(query, connection))
+				{
+					cmd.Parameters.AddWithValue("@name", animal.name);
+					cmd.Parameters.AddWithValue("@breed", animal.breed);
+					cmd.Parameters.AddWithValue("@type", animal.fkAnimalType);
+					cmd.Parameters.AddWithValue("@date", animal.bornDate);
+
+					cmd.ExecuteNonQuery();
+				}
+
+			}
+			catch (Exception e)
+			{
+			}
 		}
 	}
 }
