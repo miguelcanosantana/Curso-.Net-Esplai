@@ -55,7 +55,7 @@ namespace WebApiTest.Controllers
 		}
 
 
-		[HttpGet]
+		[HttpPost]
 		[Route("InsertAnimal")]
 		public void InsertAnimal(Animal animal)
 		{
