@@ -25,6 +25,12 @@ namespace WebApplicationInitial.Controllers
 		{
 			List<Animal> animalsList = await animalService.GetAnimals();
 
+			if (animalsList == null)
+			{
+				ViewBag.Error = "Could not get all the animals...";
+				return View();
+			}
+
 			Random rnd = new Random();
 			int randomIndex = rnd.Next(0, animalsList.Count);
 

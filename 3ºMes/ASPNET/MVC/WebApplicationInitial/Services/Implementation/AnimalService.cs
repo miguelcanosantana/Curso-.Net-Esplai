@@ -21,14 +21,18 @@ namespace WebApplicationInitial.Services.Implementation
 
 		public async Task<List<Animal>> GetAnimals()
 		{
-			List<Animal> animalsList = new List<Animal>();
+			List<Animal> animalsList = null;
 
-			HttpResponseMessage response = await httpClient.GetAsync("GetAnimals");
+			try
+			{
+				HttpResponseMessage response = await httpClient.GetAsync("GetAnimals");
 
-			if (response.IsSuccessStatusCode)
-				animalsList = await response.Content.ReadFromJsonAsync<List<Animal>>();
-			else
-				return null;
+				if (response.IsSuccessStatusCode)
+					animalsList = await response.Content.ReadFromJsonAsync<List<Animal>>();
+			}
+			catch (Exception)
+			{
+			}
 
 			return animalsList;
 		}

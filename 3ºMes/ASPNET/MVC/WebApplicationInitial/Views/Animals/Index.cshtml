@@ -25,16 +25,19 @@
         </thead>
         <tbody>
 
-            @foreach (Animal animal in Model)
-            {
-                <tr>
-                    <th scope="row">@animal.id</th>
-                    <td>@animal.name</td>
-                    <td>@animal.breed</td>
-                    <td>@animal.fkAnimalType</td>
-                    <td>@animal.bornDate</td>
-                </tr>
+            @if (Model != null) {
+                @foreach (Animal animal in Model)
+                {
+                    <tr>
+                        <th scope="row">@animal.id</th>
+                        <td>@animal.name</td>
+                        <td>@animal.breed</td>
+                        <td>@animal.fkAnimalType</td>
+                        <td>@animal.bornDate</td>
+                    </tr>
+                }
             }
+
         </tbody>
     </table>
 
