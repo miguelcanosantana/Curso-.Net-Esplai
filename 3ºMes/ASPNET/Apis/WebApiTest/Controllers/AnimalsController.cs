@@ -55,6 +55,47 @@ namespace WebApiTest.Controllers
 		}
 
 
+		[HttpGet]
+		[Route("GetAnimal/{animalId}")]
+		public Animal GetAnimalById(int animalId)
+		{
+			Animal animal = null;
+
+			SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("defaultString"));
+
+			try
+			{
+				connection.Open();
+
+				//string query = "SELECT * FROM Animal";
+				string query = $"SELECT * FROM Animal WHERE IdAnimal = @id";
+				SqlCommand cmd = new SqlCommand(query, connection);
+				cmd.Parameters.AddWithValue("@id", animalId);
+
+				SqlDataReader reader = cmd.ExecuteReader();
+
+				while (reader.Read())
+				{
+					animal = new Animal();
+					animal.id = Convert.ToInt32(reader["IdAnimal"]);
+					animal.name = reader["NombreAnimal"].ToString();
+					animal.breed = reader["Raza"].ToString();
+					animal.fkAnimalType = Convert.ToInt32(reader["RIdTipoAnimal"]);
+					animal.bornDate = reader.GetDateTime(reader.GetOrdinal("FechaNacimiento"));
+				}
+
+				reader.Close();
+			}
+			catch (Exception)
+			{
+			}
+
+			connection.Close();
+
+			return animal;
+		}
+
+
 		[HttpPost]
 		[Route("InsertAnimal")]
 		public void InsertAnimal(Animal animal)
