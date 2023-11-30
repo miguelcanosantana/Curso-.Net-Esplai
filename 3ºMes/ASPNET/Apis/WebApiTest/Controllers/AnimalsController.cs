@@ -21,7 +21,7 @@ namespace WebApiTest.Controllers
 		public List<Animal> GetAnimals()
 		{
 			List<Animal> animalsList = new List<Animal>();
-			SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("connectionString"));
+			SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("defaultString"));
 
 			try
 			{
