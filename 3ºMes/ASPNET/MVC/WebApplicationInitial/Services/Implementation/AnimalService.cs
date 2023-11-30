@@ -9,10 +9,13 @@ namespace WebApplicationInitial.Services.Implementation
 	public class AnimalService : IAnimalService
 	{
 		private readonly ConnectionConfig connetion;
+		private readonly HttpClient httpClient;
 
 		public AnimalService(IOptions<ConnectionConfig> connetion)
 		{
 			this.connetion = connetion.Value;
+			httpClient = new HttpClient();
+			httpClient.BaseAddress = new Uri("https://localhost:7043/"); //Base url
 		}
 
 
@@ -20,32 +23,12 @@ namespace WebApplicationInitial.Services.Implementation
 		{
 			List<Animal> animalsList = new List<Animal>();
 
-			try
-			{
-				SqlConnection connection = new SqlConnection(connetion.connectionString);
-				connection.Open();
+			HttpResponseMessage response = await httpClient.GetAsync("GetAnimals");
 
-				string query = "SELECT * FROM Animal";
-				SqlCommand cmd = new SqlCommand(query, connection);
-
-				SqlDataReader reader = await cmd.ExecuteReaderAsync();
-
-				while (await reader.ReadAsync())
-				{
-					Animal animal = new Animal();
-					animal.id = Convert.ToInt32(reader["IdAnimal"]);
-					animal.name = reader["NombreAnimal"].ToString();
-					animal.breed = reader["Raza"].ToString();
-					animal.fkAnimalType = Convert.ToInt32(reader["RIdTipoAnimal"]);
-					animal.bornDate = reader.GetDateTime(reader.GetOrdinal("FechaNacimiento"));
-					animalsList.Add(animal);
-				}
-
-				reader.Close();
-			}
-			catch (Exception fail)
-			{
-			}
+			if (response.IsSuccessStatusCode)
+				animalsList = await response.Content.ReadFromJsonAsync<List<Animal>>();
+			else
+				return null;
 
 			return animalsList;
 		}
