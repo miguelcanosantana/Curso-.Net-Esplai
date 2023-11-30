@@ -55,6 +55,8 @@ namespace WebApiTest.Controllers
 		}
 
 
+		[HttpGet]
+		[Route("InsertAnimal")]
 		public void InsertAnimal(Animal animal)
 		{
 			SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("connectionString"));
