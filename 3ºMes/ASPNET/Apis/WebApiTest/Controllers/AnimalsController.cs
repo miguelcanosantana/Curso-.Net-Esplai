@@ -100,7 +100,7 @@ namespace WebApiTest.Controllers
 		[Route("InsertAnimal")]
 		public void InsertAnimal(Animal animal)
 		{
-			SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("connectionString"));
+			SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("defaultString"));
 
 			try
 			{
