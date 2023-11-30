@@ -67,7 +67,6 @@ namespace WebApiTest.Controllers
 			{
 				connection.Open();
 
-				//string query = "SELECT * FROM Animal";
 				string query = $"SELECT * FROM Animal WHERE IdAnimal = @id";
 				SqlCommand cmd = new SqlCommand(query, connection);
 				cmd.Parameters.AddWithValue("@id", animalId);
