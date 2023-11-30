@@ -21,10 +21,10 @@ namespace WebApiTest.Controllers
 		public List<Animal> GetAnimals()
 		{
 			List<Animal> animalsList = new List<Animal>();
+			SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("connectionString"));
 
 			try
 			{
-				SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("connectionString"));
 				connection.Open();
 
 				string query = "SELECT * FROM Animal";
@@ -49,7 +49,39 @@ namespace WebApiTest.Controllers
 			{
 			}
 
+			connection.Close();
+
 			return animalsList;
+		}
+
+
+		public void InsertAnimal(Animal animal)
+		{
+			SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("connectionString"));
+
+			try
+			{
+				connection.Open();
+
+				string query = $"INSERT INTO Animal (NombreAnimal, Raza, RIdTipoAnimal, FechaNacimiento) VALUES (" +
+				   "@name, @breed, @type, @date);";
+
+				using (SqlCommand cmd = new SqlCommand(query, connection))
+				{
+					cmd.Parameters.AddWithValue("@name", animal.name);
+					cmd.Parameters.AddWithValue("@breed", animal.breed);
+					cmd.Parameters.AddWithValue("@type", animal.fkAnimalType);
+					cmd.Parameters.AddWithValue("@date", animal.bornDate);
+
+					cmd.ExecuteNonQuery();
+				}
+
+			}
+			catch (Exception e)
+			{
+			}
+
+			connection.Close();
 		}
 	}
 }
