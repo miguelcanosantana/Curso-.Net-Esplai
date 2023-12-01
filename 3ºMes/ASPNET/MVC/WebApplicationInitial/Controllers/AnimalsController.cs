@@ -43,7 +43,7 @@ namespace WebApplicationInitial.Controllers
 		[ValidateAntiForgeryToken]
         public IActionResult InsertAnimal(Animal newAnimal)
         {
-			animalService.InsertAnimal(newAnimal);
+			var result = animalService.InsertAnimal(newAnimal);
             return View(newAnimal);
         }
     }

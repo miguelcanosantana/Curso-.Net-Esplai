@@ -1,5 +1,8 @@
 ﻿using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using System.Data.SqlClient;
+using System.Text;
+using System.Text.Json.Serialization;
 using WebApplicationInitial.Models;
 using WebApplicationInitial.Services.Config;
 using WebApplicationInitial.Services.Contract;
@@ -37,30 +40,45 @@ namespace WebApplicationInitial.Services.Implementation
 			return animalsList;
 		}
 
-		public async Task InsertAnimal(Animal animal)
-		{
-			try
-			{
-				SqlConnection connection = new SqlConnection(connetion.connectionString);
-				connection.Open();
 
-				string query = $"INSERT INTO Animal (NombreAnimal, Raza, RIdTipoAnimal, FechaNacimiento) VALUES (" +
-				   "@name, @breed, @type, @date);";
+        public async Task InsertAnimal(Animal animal)
+        {
+            string json = JsonConvert.SerializeObject(animal);
+			StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
-				using (SqlCommand cmd = new SqlCommand(query, connection))
-				{
-					cmd.Parameters.AddWithValue("@name", animal.name);
-					cmd.Parameters.AddWithValue("@breed", animal.breed);
-					cmd.Parameters.AddWithValue("@type", animal.fkAnimalType);
-					cmd.Parameters.AddWithValue("@date", animal.bornDate);
+            try
+            {
+				HttpResponseMessage response = await httpClient.PostAsync("InsertAnimal", content);
+            }
+            catch (Exception)
+            {
+            }
+        }
 
-					await cmd.ExecuteNonQueryAsync();
-				}
+  //      public async Task InsertAnimal(Animal animal)
+		//{
+		//	try
+		//	{
+		//		SqlConnection connection = new SqlConnection(connetion.connectionString);
+		//		connection.Open();
 
-			}
-			catch (Exception e)
-			{
-			}
-		}
+		//		string query = $"INSERT INTO Animal (NombreAnimal, Raza, RIdTipoAnimal, FechaNacimiento) VALUES (" +
+		//		   "@name, @breed, @type, @date);";
+
+		//		using (SqlCommand cmd = new SqlCommand(query, connection))
+		//		{
+		//			cmd.Parameters.AddWithValue("@name", animal.name);
+		//			cmd.Parameters.AddWithValue("@breed", animal.breed);
+		//			cmd.Parameters.AddWithValue("@type", animal.fkAnimalType);
+		//			cmd.Parameters.AddWithValue("@date", animal.bornDate);
+
+		//			await cmd.ExecuteNonQueryAsync();
+		//		}
+
+		//	}
+		//	catch (Exception e)
+		//	{
+		//	}
+		//}
 	}
 }
